@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 // import shopImage from '../../images/shop.jpg';
-import mapImage from '../../images/map.png';
+import mapImage from '../../Images/map.png';
 // import Grid from '@mui/material/Grid';
 // import AdCardProduct from '../../components/AdCardProduct';
 import Rating from '@mui/material/Rating';
@@ -71,7 +71,7 @@ export default function ShopProfileGuestView() {
 
         <Item>
         <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Product for sale</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Products for sale</Button></ThemeProvider>
       <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Pets for sale</Button></ThemeProvider>
       </Stack>  
         </Item>

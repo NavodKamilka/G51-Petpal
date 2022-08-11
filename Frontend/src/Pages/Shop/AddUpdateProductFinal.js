@@ -29,7 +29,7 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import AddUpdatePet from './AddUpdatePet'
+import AddUpdateProduct from './AddUpdateProduct'
 
 // navListPetOwner
 const drawerWidthOpen = 240;
@@ -372,21 +372,9 @@ export default function Test() {
         <TopNavbar  /> <br/>
 
 
-{/* put page content here */}
+        {/* put page content here */}
 
-      <AddUpdatePet/>
-
-
-        
-       
-        
-
-
-
-
-
-
-
+      <AddUpdateProduct/>
 
         <Footer />  
       </Box>      

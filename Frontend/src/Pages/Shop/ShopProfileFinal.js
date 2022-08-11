@@ -29,7 +29,7 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import AddUpdatePet from './AddUpdatePet'
+import ShopProfile from './ShopProfile'
 
 // navListPetOwner
 const drawerWidthOpen = 240;
@@ -374,7 +374,7 @@ export default function Test() {
 
 {/* put page content here */}
 
-      <AddUpdatePet/>
+      <ShopProfile/>
 
 
         
