@@ -5,8 +5,8 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 
-import SearchBar from '../../components/SearchBar';
-import AdCardShop from '../../components/AdCardShop';
+import SearchBar from '../../Components/SearchBar';
+import AdCardShop from '../../Components/AdCardShop';
 
 
 
@@ -17,12 +17,12 @@ const theme = createTheme({
   palette: {
     //name given as view, update and delete to declare buttons
 
-    shopButton: {
+    blackButton: {
       main: '#000000',
     //   change the text color inside the button to another color
       contrastText: "#fff" 
     },
-    productButton: {
+    blueButton: {
       main: '#1D168F',
       contrastText: "#fff" 
     },
@@ -37,20 +37,21 @@ export default function ShopAds() {
     <div>
       <h1>Pet Stores</h1>
       <br></br>
-      <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='shopButton'>Shops</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='productButton'>Products</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='productButton'>Pets</Button></ThemeProvider>
+      <Stack spacing={10} direction="row" justifyContent="center">
+      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Shops</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Products</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Pets</Button></ThemeProvider>
       </Stack>
         <br></br>
+
       <SearchBar/>
 
-<br></br>
+      <br></br>
 
-<Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center">
-            {Array.from(Array(8)).map((index) => (
-              <AdCardShop/>
-            ))}
+          <Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center">
+                      {Array.from(Array(10)).map((index) => (
+                        <AdCardShop/>
+                      ))}
           </Grid>
  {/* show the cards in a row */}
  {/* <Stack spacing={10} direction="row" justifyContent="center" > */}

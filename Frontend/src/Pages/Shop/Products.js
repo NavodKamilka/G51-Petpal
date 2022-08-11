@@ -11,35 +11,39 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
-import { Grid} from "@material-ui/core";
+// import { Grid} from "@material-ui/core";
+import Grid from '@mui/material/Grid';
 
 
 //related to changing colors in  (view, update, delete) buttons
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../Components/SearchBar';
 
 const theme = createTheme({
   palette: {
     //name given as view, update and delete to declare buttons
-    foodButton: {
+    blackButton: {
       main: '#000000',
     //   change the text color inside the button to another color
       contrastText: "#fff" 
     },
-    accessoriesButton: {
+    blueButton: {
       main: '#1D168F',
     //   change the text color inside the button to another color
       contrastText: "#fff" 
     },
     view: {
       main: '#63B8BB',
+      contrastText: "#fff"
     },
     update: {
-      main: '#1C884C',
+      main: '#059862',
+      contrastText: "#fff"
     },
     delete: {
-      main: '#F5222D',
+      main: '#f00e0e',
+      contrastText: "#fff"
     },
   },
 });
@@ -89,8 +93,9 @@ export default function Products() {
       <h1>Product details</h1>
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='foodButton'>Food</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='accessoriesButton'>Accessories</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Food</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Accessories</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Skin care</Button></ThemeProvider>
       </Stack>
 
       <br></br>

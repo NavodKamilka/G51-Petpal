@@ -13,10 +13,10 @@ import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select;
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
 
 
 import alex from '../../../Images/alex.png'
@@ -45,11 +45,11 @@ const Item = styled(Paper)(({ theme }) => ({
   export default function  MyProfileContent() {
 
 
-    const [age, setAge] = React.useState('');
+    // const [age, setAge] = React.useState('');
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    // const handleChange = (event) => {
+    //     setAge(event.target.value);
+    // };
 
 
     // const [value, setValue] = React.useState(new Date());
@@ -155,7 +155,7 @@ const Item = styled(Paper)(({ theme }) => ({
                 value={value2}
                 onChange={handleChange2}
               />
-                <FormControl fullWidth>
+                {/* <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Age</InputLabel>
                     <Select
                     labelId="demo-simple-select-label"
@@ -168,7 +168,7 @@ const Item = styled(Paper)(({ theme }) => ({
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
-                </FormControl>
+                </FormControl> */}
                <br/>
               <TextField
                 id="outlined-multiline-flexible"
