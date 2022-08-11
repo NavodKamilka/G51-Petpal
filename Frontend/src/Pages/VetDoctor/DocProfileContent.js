@@ -13,18 +13,22 @@ import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-
-
-import alex from '../../../Images/alex.png'
-import tom from '../../../Images/tom.png'
-import wicky from '../../../Images/wicky.png'
+import Profile from '../../../Images/Profile.png'
 
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+
+
+
+
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+
+import FormControl from '@mui/material/FormControl';
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 
@@ -42,21 +46,34 @@ const Item = styled(Paper)(({ theme }) => ({
     
   }));
 
-  export default function  MyProfileContent() {
+  export default function  DocProfileContent() {
 
-
-    const [age, setAge] = React.useState('');
-
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-
-
-    // const [value, setValue] = React.useState(new Date());
+    const [values, setValues] = React.useState({
+      amount: '',
+      password: '',
+      weight: '',
+      weightRange: '',
+      showPassword: false,
+    });
   
-    const [value1, setValue1] = React.useState('Alex');
+    const handleChange = (prop) => (event) => {
+      setValues({ ...values, [prop]: event.target.value });
+    };
+  
+    const handleClickShowPassword = () => {
+      setValues({
+        ...values,
+        showPassword: !values.showPassword,
+      });
+    };
+  
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+    };
+  
+    const [value1, setValue1] = React.useState('Navod Kamilka');
     const [value2, setValue2] = React.useState('navodkamilka98@gmail.com');
-    const [value3, setValue3] = React.useState('**************');
+    const [value3] = React.useState('HelloNavod');
     const [value4, setValue4] = React.useState('0778393860');
     const [value5, setValue5] = React.useState('Ambalangoda');
 
@@ -66,9 +83,9 @@ const Item = styled(Paper)(({ theme }) => ({
     const handleChange2 = (event) => {
       setValue2(event.target.value);
     };
-    const handleChange3 = (event) => {
-      setValue3(event.target.value);
-    };
+    // const handleChange3 = (event) => {
+    //   setValue3(event.target.value);
+    // };
     const handleChange4 = (event) => {
       setValue4(event.target.value);
     };
@@ -107,7 +124,7 @@ const Item = styled(Paper)(({ theme }) => ({
         
           <Item>
 
-          <img src={alex}  alt="Logo" height='370' className='image' style={{
+          <img src={Profile}  alt="Logo" height='370' className='image' style={{
           marginLeft: '-55%',
           marginTop:40
 
@@ -141,7 +158,7 @@ const Item = styled(Paper)(({ theme }) => ({
               >
               <TextField
                 id="outlined-multiline-flexible"
-                label="Pet Name"
+                label="Pet Owner"
                 multiline
                 maxRows={4}
                 value={value1}
@@ -149,36 +166,48 @@ const Item = styled(Paper)(({ theme }) => ({
               /><br/>
               <TextField
                 id="outlined-multiline-flexible"
-                label="Date of Birth"
+                label="Email Addreess"
                 multiline
                 maxRows={4}
                 value={value2}
                 onChange={handleChange2}
               />
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                    <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
-                    label="Age"
-                    onChange={handleChange}
-                    >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </FormControl>
                <br/>
-              <TextField
+              {/* <TextField
                 id="outlined-multiline-flexible"
                 label="Password"
                 multiline
                 maxRows={4}
                 value={value3}
                 onChange={handleChange3}
-              /> <br/>
-                    <TextField
+              /> 
+              // <br/> */}
+              <br/>
+              
+              <FormControl sx={{ m: 1, width: '42%' }} variant="outlined" style={{top:-400, left:'50%'}}>
+                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  type={values.showPassword ? 'text' : 'password'}
+                  // value={values.password}
+                  value={value3}
+                  onChange={handleChange('password')}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </FormControl> <br/>
+              <TextField
                 id="outlined-multiline-flexible"
                 label="Tel No"
                 multiline
@@ -204,32 +233,8 @@ const Item = styled(Paper)(({ theme }) => ({
           }}>
               <Button variant="contained">Edit</Button>
               <Button variant="contained">Save Changes</Button>
-          </Stack>
-          <Stack spacing={20} direction="row" style={{
-            // left:'-45%',
-            marginLeft:'10%',
-            marginRight:'10%',
-            marginTop: 120
-          }}>
-            <img src={alex}  alt="Logo" height='70%' width={'24%'} className='image'/>
-            <img src={tom}  alt="Logo" height='50%' width={'22%'} className='image'/>
-            <img src={wicky}  alt="Logo" height='70%' width={'24%'} className='image'/>
-             
-          </Stack>
-
-          <Stack spacing={45} direction="row" style={{
-            // left:'-45%',
-            marginLeft:'18%',
-            marginRight:'10%',
-            marginTop: 20
-          }}>
-            <Link href="/PetProfile/Alex">Alex</Link>
-            <Link href="#">Tomm</Link>
-            <Link href="#">Wicky</Link>
-             
-          </Stack>
-          <br/><br/><br/>
-          <Button variant="contained">Add New Pet</Button>
+          </Stack>         
+          
           </Item>
         </Grid>
       </Grid>
@@ -237,5 +242,3 @@ const Item = styled(Paper)(({ theme }) => ({
     </div>
   )
 }
-
-// export default MyProfileContent
