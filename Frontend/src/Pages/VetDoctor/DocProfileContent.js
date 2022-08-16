@@ -5,15 +5,15 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 
 
-import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
+// import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
 
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import Profile from '../../../Images/Profile.png'
+import Profile from '../../Images/Profile.png'
 
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';

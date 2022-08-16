@@ -6,8 +6,8 @@ import Grid from '@mui/material/Grid';
 
 
 
-import SearchBar from '../../components/SearchBar';
-import AdCardPet from '../../components/AdCardPet';
+import SearchBar from '../../Components/SearchBar';
+import AdCardPet from '../../Components/AdCardPet';
 
 //colors for buttons
 const theme = createTheme({

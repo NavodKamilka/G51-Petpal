@@ -21,12 +21,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-import navbarList from '../../Components/navList';
-import StyledAvatar from '../../Components/StyledAvatar';
+import navbarList from '../../../Components/navList';
+import StyledAvatar from '../../../Components/StyledAvatar';
 
-import TopNavbar from '../../Components/TopNavbar';
-import Footer from '../../Components/Footer'
-import DocProfileContent from './DocProfileContent';
+import TopNavbar from '../../../Components/TopNavbar';
+import Footer from '../../../Components/Footer'
+import Articlesfromauthorcontent from './Articlesfromauthorcontent';
 
 
 
@@ -37,7 +37,7 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function DocProfile() {
+export default function MyProfile() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -282,6 +282,18 @@ export default function DocProfile() {
           >
             Navod Kamilka
           </Typography>
+          <Typography
+            component="span"
+            variant="body2"
+            sx={{
+              display: 'block',
+              whiteSpace: 'nowrap',
+              lineHeight: 'inherit',
+              color: 'lightgray',
+            }}
+          >
+            Pet Owner
+          </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
           <ExitToAppIcon />
@@ -337,7 +349,7 @@ export default function DocProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <DocProfileContent />
+        <Articlesfromauthorcontent />
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}
         
@@ -351,4 +363,3 @@ export default function DocProfile() {
     </Box>
   );
 }
-

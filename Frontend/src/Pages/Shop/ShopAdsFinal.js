@@ -21,15 +21,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-import navbarList from '../../Components/navList';
-import StyledAvatar from '../../Components/StyledAvatar';
+// import navbarList from '../../Components/navList'; changed
+import navListShop from '../../Components/navListShop';
 
+import StyledAvatar from '../../Components/StyledAvatar';
 import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
-import DocProfileContent from './DocProfileContent';
 
+//main page content
+import ShopAds from './ShopAds'
 
-
+// navListPetOwner
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
 const marginIconButton = 14;
@@ -37,7 +39,13 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function DocProfile() {
+
+
+
+
+
+
+export default function ShopAdsFinal() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -114,7 +122,8 @@ export default function DocProfile() {
       </Box>
 
       <List dense={true}>
-        {navbarList.map((key, index) => (
+        {/* changed - put the name of the corresponding side nav acc to user*/}
+        {navListShop.map((key, index) => (
           <>
             {index === 0 ? (
               <>
@@ -280,7 +289,19 @@ export default function DocProfile() {
               color: 'lightgray',
             }}
           >
-            Navod Kamilka
+            Pet store name
+          </Typography>
+          <Typography
+            component="span"
+            variant="body2"
+            sx={{
+              display: 'block',
+              whiteSpace: 'nowrap',
+              lineHeight: 'inherit',
+              color: 'lightgray',
+            }}
+          >
+            Pet Store
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
@@ -290,6 +311,18 @@ export default function DocProfile() {
     </>
   );
 
+
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer
@@ -337,18 +370,14 @@ export default function DocProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <DocProfileContent />
-        {/* <h1>Hello</h1> */}
-        {/* <Typography>Hello Bro</Typography> */}
-        
-        <Footer />
-       
-        
-        
-      </Box>
-      
-      
+
+
+        {/* put page content here */}
+
+      <ShopAds/>
+
+        <Footer />  
+      </Box>      
     </Box>
   );
 }
-

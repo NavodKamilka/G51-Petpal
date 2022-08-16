@@ -21,15 +21,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-import navbarList from '../../components/navList';
-import StyledAvatar from '../../components/StyledAvatar';
-import TopNavbar from '../../components/TopNavbar';
-import Footer from '../../components/Footer'
+// import navbarList from '../../Components/navList'; changed
+import navListShop from '../../Components/navListShop';
+
+import StyledAvatar from '../../Components/StyledAvatar';
+import TopNavbar from '../../Components/TopNavbar';
+import Footer from '../../Components/Footer'
 
 //main page content
 import AddUpdatePet from './AddUpdatePet'
 
-
+// navListPetOwner
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
 const marginIconButton = 14;
@@ -120,7 +122,8 @@ export default function Test() {
       </Box>
 
       <List dense={true}>
-        {navbarList.map((key, index) => (
+        {/* changed - put the name of the corresponding side nav acc to user*/}
+        {navListShop.map((key, index) => (
           <>
             {index === 0 ? (
               <>
@@ -286,7 +289,7 @@ export default function Test() {
               color: 'lightgray',
             }}
           >
-            Navod Kamilka
+            Pet store name
           </Typography>
           <Typography
             component="span"
@@ -298,7 +301,7 @@ export default function Test() {
               color: 'lightgray',
             }}
           >
-            Pet Owner
+            Pet Store
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
