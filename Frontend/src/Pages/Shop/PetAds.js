@@ -6,22 +6,26 @@ import Grid from '@mui/material/Grid';
 
 
 
+
+
 import SearchBar from '../../Components/SearchBar';
 import AdCardPet from '../../Components/AdCardPet';
+
+
 
 //colors for buttons
 const theme = createTheme({
   palette: {
     //name given as view, update and delete to declare buttons
-
-    shopButton: {
-      main: '#000000',
-    //   change the text color inside the button to another color
-      contrastText: "#fff" 
-    },
-    productButton: {
+   
+    blueButton: {
       main: '#1D168F',
-      contrastText: "#fff" 
+      contrastText: "#fff" ,
+
+      // not working
+      '&:hover': {
+        main: "#ff0000",
+     },
     },
     
   },
@@ -36,9 +40,9 @@ export default function PetAds() {
       <br></br>
 
       <Stack spacing={10} direction="row" justifyContent="center" >
-        <ThemeProvider theme={theme}><Button variant="contained" color='productButton'>Shops</Button></ThemeProvider>
-        <ThemeProvider theme={theme}><Button variant="contained" color='productButton'>Products</Button></ThemeProvider>
-        <ThemeProvider theme={theme}><Button variant="contained" color='shopButton'>Pets</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
       </Stack>
 
         <br></br>

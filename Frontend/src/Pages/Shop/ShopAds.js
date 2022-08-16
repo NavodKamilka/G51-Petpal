@@ -38,9 +38,9 @@ export default function ShopAds() {
       <h1>Pet Stores</h1>
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center">
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Shops</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Products</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Pets</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
       </Stack>
         <br></br>
 
@@ -48,7 +48,7 @@ export default function ShopAds() {
 
       <br></br>
 
-          <Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center">
+          <Grid container spacing={{ xs: 2, md:3}} columns={{ xs: 2, md:5}} alignItems="center" justifyContent="center">
                       {Array.from(Array(10)).map((index) => (
                         <AdCardShop/>
                       ))}

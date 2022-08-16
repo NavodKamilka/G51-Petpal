@@ -40,9 +40,9 @@ export default function ProductAds() {
       <h1>Products</h1>
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Shops</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Products</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Pets</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
       </Stack>
         <br></br>
           <SearchBar/>
