@@ -1,0 +1,54 @@
+/*used for registrationPetOwner.js
+            login.js*/
+
+.regbody{
+    background-color: #CEFFFC;  /* fallback for old browsers */
+    max-height:100%;
+  /* without this the background will not be applied for the whole page */
+    overflow:auto;
+   }
+.center{
+    display: flex;
+    justify-content: center
+}
+
+.box{
+    background-color: #9BABCF;
+    border-radius: 5px;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px;
+    height: auto; 
+    text-align: center;
+
+}
+
+.logo{
+    float: left;
+}
+/* 
+.form-body{
+    text-align: left;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.form-body > *{
+    padding: 5px;
+}
+
+.form__label{
+    width: 40%;
+}
+
+.form_input{
+    width: 60%;
+}
+
+.footer{
+    text-align: center;
+}
+
+.login{
+    color:blue;
+} */

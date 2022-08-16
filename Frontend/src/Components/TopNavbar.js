@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import logo from '../Images/logo.png'
+import logo from '../Images/Logo.png'
 
 const pages = ['Home', 'Who We Are', 'Health Care', 'Shop','Events','Our Services','Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
