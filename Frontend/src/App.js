@@ -22,6 +22,15 @@ import Login from './Pages/Guest/Login.js'
 
 import MyProfile from './Pages/Petowner/MyProfile/MyProfile'
 import PetProfile from './Pages/Petowner/MyProfile/PetProfile'
+import Vaccinations from './Pages/Petowner/MyProfile/Vaccinations'
+
+import Discussion from "./Pages/Petowner/Discussion/Discussion";
+import DiscussionStart from "./Pages/Petowner/Discussion/DiscussionStart"
+
+import PetProducts from "./Pages/Petowner/PetProducts/PetProducts"
+
+import PetMart from "./Pages/Petowner/PetMart/PetMart"
+import PetSell from "./Pages/Petowner/PetMart/PetSell"
 
 
 //shopkeeper
@@ -71,6 +80,16 @@ function App() {
           {/* PetOwner */}
           <Route path="/MyProfile" element={<MyProfile />} />
           <Route path="/PetProfile/Alex" element={<PetProfile />} />
+	    <Route path="/PetProfile/Alex/Vaccinations" element={<Vaccinations />} />
+
+          <Route path="/Discussion" element={<Discussion />} />
+          <Route path="/Discussion/Start" element={<DiscussionStart />} />
+
+          <Route path="/PetProducts" element={<PetProducts />} />
+
+          <Route path="/PetMart" element={<PetMart />} />
+          <Route path="/PetMart/PetSell" element={<PetSell />} />
+
 
 
           {/* shopkeeper */}
