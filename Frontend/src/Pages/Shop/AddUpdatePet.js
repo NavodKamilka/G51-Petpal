@@ -12,7 +12,12 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 import Stack from '@mui/material/Stack';
-import '../../css/ShopProfile.css'
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import { blueGrey } from '@mui/material/colors';
+
+
+import '../../Style/Shop/ShopProfile.css'
 
 // import { color } from '@mui/system';
 
@@ -33,17 +38,18 @@ const theme = createTheme({
   });
 
 
+// the box-grey
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:1200,
-    top:10
+    height:800,
+    top:10,
   }));
 
-function AddUpdateProduct() {
+function AddUpdatePet() {
     // used for drop down list 
     const [value, setValue] = React.useState('');
 
@@ -54,7 +60,7 @@ function AddUpdateProduct() {
     return(
         <div>
             <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} justifyContent="center">
             <Item>
             <h3>Pet Details</h3>
             <Divider />
@@ -143,12 +149,19 @@ function AddUpdateProduct() {
                         </td>
                     </tr>
                     <tr>
+                        {/* upload pet image */}
+                        <p>upload pet image</p>
                     <Stack spacing={10} direction="row" justifyContent="center" >
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Add pet image</Button></ThemeProvider>   
+                        <IconButton  sx={{ color: blueGrey[900] }} aria-label="upload picture" component="label">
+                            <input hidden accept="image/*" type="file" />
+                            <PhotoCamera />
+                        </IconButton>
                     </Stack>
+
+
                     </tr>
                     <tr>
-                    <Stack spacing={10} direction="row" justifyContent="center" >    
+                    <Stack spacing={10} direction="row" justifyContent="center" marginTop={3}>    
                         <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Update</Button></ThemeProvider>
                     </Stack>
                     </tr>
@@ -161,4 +174,4 @@ function AddUpdateProduct() {
         
     )       
 }
-export default AddUpdateProduct;
+export default AddUpdatePet;

@@ -1,0 +1,21 @@
+    /* table {
+    width: 800px;
+    height: 200px;
+    }
+     */
+    body{
+        background-color: white;
+    }
+    td {
+    text-align: center;
+    padding: 20px;
+    }
+    
+    .Image{
+        height:150px;
+        width:150px;
+    }
+    
+    .Button.contained{
+        color: black;
+    }

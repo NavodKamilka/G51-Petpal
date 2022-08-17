@@ -1,3 +1,4 @@
+// pet details table
 import * as React from 'react';
 import { styled} from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -9,26 +10,31 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../Components/SearchBar';
 
 
-import { Grid} from "@material-ui/core";
+// import {Grid} from "@material-ui/core";
+import Grid from '@mui/material/Grid';
 
 
 
 //related to changing colors in  (view, update, delete) buttons
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Box } from '@mui/material';
 const theme = createTheme({
   palette: {
     //name given as view, update and delete to declare buttons
     view: {
       main: '#63B8BB',
+      contrastText: "#fff"
     },
     update: {
-      main: '#1C884C',
+      main: '#059862',
+      contrastText: "#fff"
     },
     delete: {
-      main: '#F5222D',
+      main: '#f00e0e',
+      contrastText: "#fff"
     },
   },
 });
@@ -67,13 +73,13 @@ function createData(PetImage, PetType, Breed, PricePerOne, AvailableQty, LastUpd
 }
 
 const rows = [
-  createData('prod image','Puppy', 'Labrador', 45000, 5, '24-07-2022'),
-  createData('prod image','Puppy', 'German Shepherd', 25000, 1,'25-07-2022'),
+  createData('pet image','Puppy', 'Labrador', 45000, 5, '24-07-2022'),
+  createData('pet image','Puppy', 'German Shepherd', 25000, 1,'25-07-2022'),
 ];
 
-export default function Products() {
+export default function Pets() {
   return (
-    <div>
+    <Box>
       <SearchBar/>
 
   
@@ -119,6 +125,6 @@ export default function Products() {
         </TableBody>
       </Table>
     </TableContainer>
-    </div>
+    </Box>
   );
 }

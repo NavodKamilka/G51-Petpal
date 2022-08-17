@@ -29,7 +29,7 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import AddUpdatePet from './AddUpdatePet'
+import Pets from './Pets'
 
 // navListPetOwner
 const drawerWidthOpen = 240;
@@ -45,7 +45,7 @@ const drawerWidthClose =
 
 
 
-export default function Test() {
+export default function PetsFinal() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -372,21 +372,9 @@ export default function Test() {
         <TopNavbar  /> <br/>
 
 
-{/* put page content here */}
+        {/* put page content here */}
 
-      <AddUpdatePet/>
-
-
-        
-       
-        
-
-
-
-
-
-
-
+      <Pets/>
 
         <Footer />  
       </Box>      

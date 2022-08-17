@@ -11,8 +11,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 
 
-import SearchBar from '../../components/SearchBar';
-import AdCardProduct from '../../components/AdCardProduct';
+import SearchBar from '../../Components/SearchBar';
+import AdCardProduct from '../../Components/AdCardProduct';
 
 //colors for buttons
 const theme = createTheme({
