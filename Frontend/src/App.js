@@ -50,17 +50,20 @@ import PaymentFinal from './Pages/Shop/PaymentFinal'
 
 // Veterinary Doctor
 
-//import VetArticleList from "./Pages/VetDoctor/VetArticleList";
-import VetTodayAppointments from "./Pages/VetDoctor/TodayAppointments";
-import VetPrevJobs from "./Pages/VetDoctor/PrevJobs";
-//import AddArticlePopup from "./Pages/VetDoctor/AddArticlePopup";
-import ArticleList from "./Pages/VetDoctor/ArticlesAsAList";
-//import VetArticleList1 from "./Pages/VetDoctor/VetArticleList1";
-import ArticlesFromAuthor from "./Pages/VetDoctor/ArticlesFromAuthor";
-//import AppointmentDetails from "./Pages/VetDoctor/AppointmentDetails";
-import DocProfile from "./Pages/VetDoctor/DocProfile";
-import DocProfileContent from "./Pages/VetDoctor/DocProfileContent";
-import Aticlesblah from "./Pages/VetDoctor/Aticlesblah"
+//appointment handling
+import TodayAppointments from "./Pages/VetDoctor/MyAppointments/TodayAppointments";
+import PrevJobs from "./Pages/VetDoctor/MyAppointments/PrevJobs";
+import UpcomingJobs from "./Pages/VetDoctor/MyAppointments/UpcomingJobs"
+import UpcomingAppointmentDetails from "./Pages/VetDoctor/MyAppointments/UpcomingAppointmentDetail";
+import PrevAppointmentDetails from "./Pages/VetDoctor/MyAppointments/PrevAppointmentDetail";
+import TodayAppointmentDetails from "./Pages/VetDoctor/MyAppointments/TodayAppointmentDetail";
+//My articles
+import DocArticles from "./Pages/VetDoctor/Articles/Articles";
+import ArticlesFromAuthor from "./Pages/VetDoctor/Articles/ArticlesFromAuthor";
+import PendingArticles from "./Pages/VetDoctor/Articles/PendingArticles";
+//Doc profile
+import DocProfile from "./Pages/VetDoctor/MyProfile/DocProfile";
+import DocProfileContent from "./Pages/VetDoctor/MyProfile/DocProfileContent";
 
 function App() {
   return (
@@ -111,13 +114,17 @@ function App() {
           
 
         {/* Veterinary Doctor */}
-      <Route path="/VetTodayAppointments" element={<VetTodayAppointments/>} />
-      <Route path="/VetPrevJobs" element={<VetPrevJobs/>} />
-      <Route path="/ArticleList" element={<ArticleList/>} />    
-      <Route path="/ArticlesFromAuthor" element={<ArticlesFromAuthor/>} />
+      <Route path="/TodayAppointments" element={<TodayAppointments/>} />
+      <Route path="/TodayAppointmentDetails" element={<TodayAppointmentDetails/>} />
+      <Route path="/PrevJobs" element={<PrevJobs/>} />
+      <Route path="/PrevAppointmentDetails" element={<PrevAppointmentDetails/>} />
+      <Route path="/UpcomingJobs" element={<UpcomingJobs/>} />
+      <Route path="/UpcomingAppointmentDetails" element={<UpcomingAppointmentDetails/>} />
+      <Route path="/DocArticles" element={<DocArticles/>} />    
+      <Route path="/ArticlesFrom" element={<ArticlesFromAuthor/>} />
+      <Route path="/PendingArticles" element={<PendingArticles/>} />
       <Route path="/DocProfile" element={<DocProfile/>} />
       <Route path="/DocProfileContent" element={<DocProfileContent/>} />
-      <Route path="/Aticlesblah" element={<Aticlesblah/>} />
         </Routes>
       </BrowserRouter>
     </div>

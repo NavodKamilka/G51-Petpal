@@ -21,12 +21,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-import navbarList from '../../../Components/navList';
+import navbarList from '../../../Components/navListDoctor';
 import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
-import Footer from '../../../Components/Footer'
-import Articlesfromauthorcontent from './Articlesfromauthorcontent';
+import Footer from '../../../Components/Footer';
+import PrevJobsContent from './PrevJobsContent';
 
 
 
@@ -37,7 +37,7 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function MyProfile() {
+export default function PrevJobs() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -349,9 +349,7 @@ export default function MyProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <Articlesfromauthorcontent />
-        {/* <h1>Hello</h1> */}
-        {/* <Typography>Hello Bro</Typography> */}
+        <PrevJobsContent />
         
         <Footer />
        
