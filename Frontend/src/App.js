@@ -66,6 +66,23 @@ import PaymentMain from "./Pages/Clinic/PaymentMain"
 
 //test - keshani
 
+// Veterinary Doctor
+
+//appointment handling
+import TodayAppointments from "./Pages/VetDoctor/MyAppointments/TodayAppointments";
+import PrevJobs from "./Pages/VetDoctor/MyAppointments/PrevJobs";
+import UpcomingJobs from "./Pages/VetDoctor/MyAppointments/UpcomingJobs"
+import UpcomingAppointmentDetails from "./Pages/VetDoctor/MyAppointments/UpcomingAppointmentDetail";
+import PrevAppointmentDetails from "./Pages/VetDoctor/MyAppointments/PrevAppointmentDetail";
+import TodayAppointmentDetails from "./Pages/VetDoctor/MyAppointments/TodayAppointmentDetail";
+//My articles
+import DocArticles from "./Pages/VetDoctor/Articles/Articles";
+import ArticlesFromAuthor from "./Pages/VetDoctor/Articles/ArticlesFromAuthor";
+import PendingArticles from "./Pages/VetDoctor/Articles/PendingArticles";
+//Doc profile
+import DocProfile from "./Pages/VetDoctor/MyProfile/DocProfile";
+import DocProfileContent from "./Pages/VetDoctor/MyProfile/DocProfileContent";
+
 function App() {
   return (
     <div > 
@@ -133,7 +150,18 @@ function App() {
           {/* test keshani */}
           
 
-        
+        {/* Veterinary Doctor */}
+      <Route path="/TodayAppointments" element={<TodayAppointments/>} />
+      <Route path="/TodayAppointmentDetails" element={<TodayAppointmentDetails/>} />
+      <Route path="/PrevJobs" element={<PrevJobs/>} />
+      <Route path="/PrevAppointmentDetails" element={<PrevAppointmentDetails/>} />
+      <Route path="/UpcomingJobs" element={<UpcomingJobs/>} />
+      <Route path="/UpcomingAppointmentDetails" element={<UpcomingAppointmentDetails/>} />
+      <Route path="/DocArticles" element={<DocArticles/>} />    
+      <Route path="/ArticlesFrom" element={<ArticlesFromAuthor/>} />
+      <Route path="/PendingArticles" element={<PendingArticles/>} />
+      <Route path="/DocProfile" element={<DocProfile/>} />
+      <Route path="/DocProfileContent" element={<DocProfileContent/>} />
         </Routes>
       </BrowserRouter>
     </div>
