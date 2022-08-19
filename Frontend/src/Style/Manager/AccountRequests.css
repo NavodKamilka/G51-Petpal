@@ -1,0 +1,39 @@
+.notice-requests-outerbox{
+    box-shadow: 0 0 10px lightgray;
+
+}
+.general-notice-requests-container , .donation-volunteering-notice-requests-container{
+    box-shadow: 0 0 10px lightgray;
+    width: 100%;
+}
+.notice-card-box{
+    box-shadow: 0 0 10px lightgray;
+    width: 40px;
+
+}
+.notice-item-box{
+    box-shadow: 0 0 10px lightgray;
+    width: 40px;
+    height: 80px;
+    width: 100px;
+}
+.table-header-date{
+    margin-left: 0px;
+}
+.request-row-container{
+    height: 45px;
+    background-color: #E0E9FF;
+}
+.row-detail-box{
+    color:#57837B;
+    width: 220px;
+}
+.user-name-box{
+    margin-left: 60px;
+}
+.row-detail-buttons{
+    width: 250px;
+}
+.modal-profile-container{
+    width: 200px;
+}

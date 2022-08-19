@@ -1,5 +1,6 @@
 import React from "react";
-import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Guest
 
@@ -57,6 +58,13 @@ import PaymentFinal from './Pages/Shop/PaymentFinal'
 
 //test - keshani
 
+//common
+import  Articles from './Pages/Manager/Annoucement/Articles';
+
+//requests
+import  NoticesRequests from './Pages/Manager/Requests/Notices';
+import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
+
 function App() {
   return (
     <div > 
@@ -113,7 +121,13 @@ function App() {
           <Route path='/Payment' element={<Payment/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
           {/* test keshani */}
-          
+
+          {/*common*/}
+          <Route path='/Articles' element={<Articles/>} />
+
+          {/*requests*/}
+          <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
+          <Route path='/AccountRequests' element={<AccountRequests/>}/>
 
         
         </Routes>

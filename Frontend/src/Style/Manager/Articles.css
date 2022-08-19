@@ -1,0 +1,33 @@
+
+.Articles_Outer_Container{
+    box-shadow: 0 0 10px lightgray;
+    padding: 20px;
+    height: 90%;
+    overflow-y:scroll ;
+}
+
+.Article_Container{
+    box-shadow: 0 0 10px lightgray;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 35px;
+}
+.Article_Image_box{
+
+}
+
+.Article_Text_Box{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Article_Button_Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 5px;
+}
+.Article_Button_Container > Button{
+    font-size: 10px;
+}

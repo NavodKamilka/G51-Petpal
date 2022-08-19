@@ -13,7 +13,7 @@ import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import Profile from '../../../Images/Profile.png'
+import Profile from '../../../Images/Profile.png';
 import alex from '../../../Images/alex.png'
 import tom from '../../../Images/tom.png'
 import wicky from '../../../Images/wicky.png'
