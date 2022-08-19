@@ -1,6 +1,5 @@
 import React from "react";
-import {BrowserRouter,Route,Routes} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
 
 // Guest
 
@@ -23,15 +22,6 @@ import Login from './Pages/Guest/Login.js'
 
 import MyProfile from './Pages/Petowner/MyProfile/MyProfile'
 import PetProfile from './Pages/Petowner/MyProfile/PetProfile'
-import Vaccinations from './Pages/Petowner/MyProfile/Vaccinations'
-
-import Discussion from "./Pages/Petowner/Discussion/Discussion";
-import DiscussionStart from "./Pages/Petowner/Discussion/DiscussionStart"
-
-import PetProducts from "./Pages/Petowner/PetProducts/PetProducts"
-
-import PetMart from "./Pages/Petowner/PetMart/PetMart"
-import PetSell from "./Pages/Petowner/PetMart/PetSell"
 
 
 //shopkeeper
@@ -56,14 +46,25 @@ import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
 import Payment from './Pages/Shop/Payment'
 import PaymentFinal from './Pages/Shop/PaymentFinal'
 
+
+//Clinic
+import ClinicAdsMain from "./Pages/Clinic/ClinicAdsMain"
+import ClinicViewMain from "./Pages/Clinic/ClinicViewMain"
+import ClinicDocProfile from "./Pages/Clinic/MyProfile"
+import ClinicProfile from "./Pages/Clinic/ClinicProfile"
+import DoctorMain from "./Pages/Clinic/DoctorMain"
+import AppointmentMain from "./Pages/Clinic/AppointmentMain"
+import AddProfile from "./Pages/Clinic/AddProfile"
+import ViewNoticeMain from "./Pages/Clinic/ViewNoticeMain"
+import AddNotice from "./Pages/Clinic/AddNotice"
+import AddAppoMain from "./Pages/Clinic/AddAppoMain"
+import TodayAppoMain from "./Pages/Clinic/TodayAppoMain"
+import PreviousAppoMain from "./Pages/Clinic/PreviousAppoMain"
+import UpAppoMain from "./Pages/Clinic/UpAppoMain"
+import ViewAppo from "./Pages/Clinic/ViewAppo"
+import PaymentMain from "./Pages/Clinic/PaymentMain"
+
 //test - keshani
-
-//common
-import  Articles from './Pages/Manager/Annoucement/Articles';
-
-//requests
-import  NoticesRequests from './Pages/Manager/Requests/Notices';
-import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
 
 function App() {
   return (
@@ -88,16 +89,6 @@ function App() {
           {/* PetOwner */}
           <Route path="/MyProfile" element={<MyProfile />} />
           <Route path="/PetProfile/Alex" element={<PetProfile />} />
-	    <Route path="/PetProfile/Alex/Vaccinations" element={<Vaccinations />} />
-
-          <Route path="/Discussion" element={<Discussion />} />
-          <Route path="/Discussion/Start" element={<DiscussionStart />} />
-
-          <Route path="/PetProducts" element={<PetProducts />} />
-
-          <Route path="/PetMart" element={<PetMart />} />
-          <Route path="/PetMart/PetSell" element={<PetSell />} />
-
 
 
           {/* shopkeeper */}
@@ -120,14 +111,27 @@ function App() {
           <Route path='/ShopProfileGuestView' element={<ShopProfileGuestView/>} />
           <Route path='/Payment' element={<Payment/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
+           
+
+          {/*Clinic*/}
+          <Route path='/ClinicAdsMain' element={<ClinicAdsMain/>}/>
+          <Route path='/ClinicViewMain' element={<ClinicViewMain/>}/>
+          <Route path='/ClinicDocProfile' element={<ClinicDocProfile/>}/>
+          <Route path='/ClinicProfile' element={<ClinicProfile/>}/>
+          <Route path='/DoctorMain' element={<DoctorMain/>}/>
+          <Route path='/AppointmentMain' element={<AppointmentMain/>}/>
+          <Route path='/AddProfile' element={<AddProfile/>}/>
+          <Route path='/ViewNoticeMain' element={<ViewNoticeMain/>}/>
+          <Route path='/AddNotice' element={<AddNotice/>}/>
+          <Route path='/AddAppoMain' element={<AddAppoMain/>}/>
+          <Route path='/TodayAppoMain' element={<TodayAppoMain/>}/>
+          <Route path='/PreviousAppoMain' element={<PreviousAppoMain/>}/>
+          <Route path='/UpAppoMain' element={<UpAppoMain/>}/>
+          <Route path='/ViewAppo' element={<ViewAppo/>}/>
+          <Route path='/PaymentMain' element={<PaymentMain/>}/>
+
           {/* test keshani */}
-
-          {/*common*/}
-          <Route path='/Articles' element={<Articles/>} />
-
-          {/*requests*/}
-          <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
-          <Route path='/AccountRequests' element={<AccountRequests/>}/>
+          
 
         
         </Routes>
