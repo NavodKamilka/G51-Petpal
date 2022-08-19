@@ -64,6 +64,7 @@ import  Articles from './Pages/Manager/Annoucement/Articles';
 //requests
 import  NoticesRequests from './Pages/Manager/Requests/Notices';
 import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
+import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
 
 function App() {
   return (
@@ -128,6 +129,7 @@ function App() {
           {/*requests*/}
           <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
           <Route path='/AccountRequests' element={<AccountRequests/>}/>
+          <Route path='/AccountManagement' element={<AccountManagement/>}/>
 
         
         </Routes>
