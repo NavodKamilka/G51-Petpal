@@ -1,0 +1,20 @@
+.notice-requests-outerbox{
+    box-shadow: 0 0 10px lightgray;
+    height: 100%;
+
+}
+.general-notice-requests-container , .donation-volunteering-notice-requests-container{
+    box-shadow: 0 0 10px lightgray;
+    width: 100%;
+}
+.notice-card-box{
+    box-shadow: 0 0 10px lightgray;
+    width: 40px;
+
+}
+.notice-item-box{
+    box-shadow: 0 0 10px lightgray;
+    width: 40px;
+    height: 80px;
+    width: 100px;
+}

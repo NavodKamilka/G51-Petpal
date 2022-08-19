@@ -46,6 +46,24 @@ import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
 import Payment from './Pages/Shop/Payment'
 import PaymentFinal from './Pages/Shop/PaymentFinal'
 
+
+//Clinic
+import ClinicAdsMain from "./Pages/Clinic/ClinicAdsMain"
+import ClinicViewMain from "./Pages/Clinic/ClinicViewMain"
+import ClinicDocProfile from "./Pages/Clinic/MyProfile"
+import ClinicProfile from "./Pages/Clinic/ClinicProfile"
+import DoctorMain from "./Pages/Clinic/DoctorMain"
+import AppointmentMain from "./Pages/Clinic/AppointmentMain"
+import AddProfile from "./Pages/Clinic/AddProfile"
+import ViewNoticeMain from "./Pages/Clinic/ViewNoticeMain"
+import AddNotice from "./Pages/Clinic/AddNotice"
+import AddAppoMain from "./Pages/Clinic/AddAppoMain"
+import TodayAppoMain from "./Pages/Clinic/TodayAppoMain"
+import PreviousAppoMain from "./Pages/Clinic/PreviousAppoMain"
+import UpAppoMain from "./Pages/Clinic/UpAppoMain"
+import ViewAppo from "./Pages/Clinic/ViewAppo"
+import PaymentMain from "./Pages/Clinic/PaymentMain"
+
 //test - keshani
 
 function App() {
@@ -93,6 +111,25 @@ function App() {
           <Route path='/ShopProfileGuestView' element={<ShopProfileGuestView/>} />
           <Route path='/Payment' element={<Payment/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
+           
+
+          {/*Clinic*/}
+          <Route path='/ClinicAdsMain' element={<ClinicAdsMain/>}/>
+          <Route path='/ClinicViewMain' element={<ClinicViewMain/>}/>
+          <Route path='/ClinicDocProfile' element={<ClinicDocProfile/>}/>
+          <Route path='/ClinicProfile' element={<ClinicProfile/>}/>
+          <Route path='/DoctorMain' element={<DoctorMain/>}/>
+          <Route path='/AppointmentMain' element={<AppointmentMain/>}/>
+          <Route path='/AddProfile' element={<AddProfile/>}/>
+          <Route path='/ViewNoticeMain' element={<ViewNoticeMain/>}/>
+          <Route path='/AddNotice' element={<AddNotice/>}/>
+          <Route path='/AddAppoMain' element={<AddAppoMain/>}/>
+          <Route path='/TodayAppoMain' element={<TodayAppoMain/>}/>
+          <Route path='/PreviousAppoMain' element={<PreviousAppoMain/>}/>
+          <Route path='/UpAppoMain' element={<UpAppoMain/>}/>
+          <Route path='/ViewAppo' element={<ViewAppo/>}/>
+          <Route path='/PaymentMain' element={<PaymentMain/>}/>
+
           {/* test keshani */}
           
 
