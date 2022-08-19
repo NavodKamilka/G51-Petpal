@@ -1,5 +1,6 @@
 .notice-requests-outerbox{
     box-shadow: 0 0 10px lightgray;
+    height: 100%;
 
 }
 .general-notice-requests-container , .donation-volunteering-notice-requests-container{
