@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
+import Rating from '@mui/material/Rating';
 
 
 import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
@@ -13,10 +13,8 @@ import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import Profile from '../../../Images/Profile.png';
-import alex from '../../../Images/alex.png'
-import tom from '../../../Images/tom.png'
-import wicky from '../../../Images/wicky.png'
+import Profile from '../../../Images/Profile.png'
+
 
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
@@ -34,7 +32,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
-
+import Timeslots from './Timeslots';
+import NewTimeSlot from './NewTimeslot';
 
 
 
@@ -49,7 +48,7 @@ const Item = styled(Paper)(({ theme }) => ({
     
   }));
 
-  export default function  MyProfileContent() {
+  export default function  DocProfileContent() {
 
     const [values, setValues] = React.useState({
       amount: '',
@@ -79,6 +78,7 @@ const Item = styled(Paper)(({ theme }) => ({
     const [value3] = React.useState('HelloNavod');
     const [value4, setValue4] = React.useState('0778393860');
     const [value5, setValue5] = React.useState('Ambalangoda');
+    const [value6] = React.useState('567');
 
     const handleChange1 = (event) => {
       setValue1(event.target.value);
@@ -95,29 +95,9 @@ const Item = styled(Paper)(({ theme }) => ({
     const handleChange5 = (event) => {
       setValue5(event.target.value);
     };
-
-    // const [values, setValues] = React.useState({
-    //   amount: '',
-    //   password: '',
-    //   weight: '',
-    //   weightRange: '',
-    //   showPassword: false,
-    // });
   
-    // const handleChange1 = (prop) => (event) => {
-    //   setValues({ ...values, [prop]: event.target.value });
-    // };
-  
-    // const handleClickShowPassword = () => {
-    //   setValues({
-    //     ...values,
-    //     showPassword: !values.showPassword,
-    //   });
-    // };
-  
-    // const handleMouseDownPassword = (event) => {
-    //   event.preventDefault();
-    // };
+    
+      // const [value] = React.useState<number | null>(2);
 
   return (
     <div>
@@ -226,42 +206,31 @@ const Item = styled(Paper)(({ theme }) => ({
                 value={value5}
                 onChange={handleChange5}
               /> 
+               <TextField
+                id="outlined-multiline-flexible"
+                label="Registration no"
+                multiline
+                maxRows={4}
+                value={value6}
+                // onChange={handleChange2}
+              />
               </Stack>
             </div>
             
           </Box>
-          <Stack spacing={10} direction="row" style={{
-            marginLeft:'34%',
+          <Stack spacing={20} direction="row" style={{
+            marginLeft:'20%',
             marginTop: -280
           }}>
-              <Button variant="contained">Edit</Button>
+            
+            <Rating name="read-only" value={2} readOnly />
+            <Button>Reviews</Button>
               <Button variant="contained">Save Changes</Button>
           </Stack>
-          <Stack spacing={20} direction="row" style={{
-            // left:'-45%',
-            marginLeft:'10%',
-            marginRight:'10%',
-            marginTop: 120
-          }}>
-            <img src={alex}  alt="Logo" height='70%' width={'24%'} className='image'/>
-            <img src={tom}  alt="Logo" height='50%' width={'22%'} className='image'/>
-            <img src={wicky}  alt="Logo" height='70%' width={'24%'} className='image'/>
-             
+          <Stack spacing={15} direction="row" sx={{position:'relative',top:'5%',left:'15%'}}>
+            {/* <NewTimeSlot/> */}
+            <Timeslots/>
           </Stack>
-
-          <Stack spacing={45} direction="row" style={{
-            // left:'-45%',
-            marginLeft:'18%',
-            marginRight:'10%',
-            marginTop: 20
-          }}>
-            <Link href="/PetProfile/Alex">Alex</Link>
-            <Link href="#">Tomm</Link>
-            <Link href="#">Wicky</Link>
-             
-          </Stack>
-          <br/><br/><br/>
-          <Button variant="contained">Add New Pet</Button>
           </Item>
         </Grid>
       </Grid>

@@ -5,18 +5,18 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
+//import Link from '@mui/material/Link';
 
 
-import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
+import '../../Style/Clinic/MyProfile/MyProfileContent.css'
 
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import Profile from '../../../Images/Profile.png';
-import alex from '../../../Images/alex.png'
-import tom from '../../../Images/tom.png'
-import wicky from '../../../Images/wicky.png'
+import Profile from '../../Images/vet1.png'
+// import alex from '../../../Images/alex.png'
+// import tom from '../../../Images/tom.png'
+// import wicky from '../../../Images/wicky.png'
 
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
@@ -44,7 +44,7 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:1230,
+    height:850,
     top:10
     
   }));
@@ -74,11 +74,11 @@ const Item = styled(Paper)(({ theme }) => ({
       event.preventDefault();
     };
   
-    const [value1, setValue1] = React.useState('Navod Kamilka');
-    const [value2, setValue2] = React.useState('navodkamilka98@gmail.com');
-    const [value3] = React.useState('HelloNavod');
+    const [value1, setValue1] = React.useState('Janaki Collure');
+    const [value2, setValue2] = React.useState('JanakiCollure@gmail.com');
+    // const [value3] = React.useState('HelloNavod');
     const [value4, setValue4] = React.useState('0778393860');
-    const [value5, setValue5] = React.useState('Ambalangoda');
+    const [value5, setValue5] = React.useState('79-8564');
 
     const handleChange1 = (event) => {
       setValue1(event.target.value);
@@ -161,7 +161,7 @@ const Item = styled(Paper)(({ theme }) => ({
               >
               <TextField
                 id="outlined-multiline-flexible"
-                label="Pet Owner"
+                label="Name"
                 multiline
                 maxRows={4}
                 value={value1}
@@ -185,7 +185,7 @@ const Item = styled(Paper)(({ theme }) => ({
                 onChange={handleChange3}
               /> 
               // <br/> */}
-              <br/>
+              {/* <br/>
               
               <FormControl sx={{ m: 1, width: '42%' }} variant="outlined" style={{top:-400, left:'50%'}}>
                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -209,10 +209,10 @@ const Item = styled(Paper)(({ theme }) => ({
                   }
                   label="Password"
                 />
-              </FormControl> <br/>
+              </FormControl> <br/> */}
               <TextField
                 id="outlined-multiline-flexible"
-                label="Tel No"
+                label="Mobile No"
                 multiline
                 maxRows={4}
                 value={value4}
@@ -220,7 +220,7 @@ const Item = styled(Paper)(({ theme }) => ({
               /><br/>
               <TextField
                 id="outlined-multiline-flexible"
-                label="Address"
+                label="Register No"
                 multiline
                 maxRows={4}
                 value={value5}
@@ -234,8 +234,8 @@ const Item = styled(Paper)(({ theme }) => ({
             marginLeft:'34%',
             marginTop: -280
           }}>
-              <Button variant="contained">Edit</Button>
               <Button variant="contained">Save Changes</Button>
+              <Button variant="contained">Cancel</Button>
           </Stack>
           <Stack spacing={20} direction="row" style={{
             // left:'-45%',
@@ -243,9 +243,9 @@ const Item = styled(Paper)(({ theme }) => ({
             marginRight:'10%',
             marginTop: 120
           }}>
-            <img src={alex}  alt="Logo" height='70%' width={'24%'} className='image'/>
+            {/* <img src={alex}  alt="Logo" height='70%' width={'24%'} className='image'/>
             <img src={tom}  alt="Logo" height='50%' width={'22%'} className='image'/>
-            <img src={wicky}  alt="Logo" height='70%' width={'24%'} className='image'/>
+            <img src={wicky}  alt="Logo" height='70%' width={'24%'} className='image'/> */}
              
           </Stack>
 
@@ -255,13 +255,13 @@ const Item = styled(Paper)(({ theme }) => ({
             marginRight:'10%',
             marginTop: 20
           }}>
-            <Link href="/PetProfile/Alex">Alex</Link>
+            {/* <Link href="/PetProfile/Alex">Alex</Link>
             <Link href="#">Tomm</Link>
-            <Link href="#">Wicky</Link>
+            <Link href="#">Wicky</Link> */}
              
           </Stack>
-          <br/><br/><br/>
-          <Button variant="contained">Add New Pet</Button>
+          {/* <br/><br/><br/>
+          <Button variant="contained">Add New Pet</Button> */}
           </Item>
         </Grid>
       </Grid>
