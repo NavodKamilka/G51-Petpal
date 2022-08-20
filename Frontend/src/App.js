@@ -60,11 +60,15 @@ import PaymentFinal from './Pages/Shop/PaymentFinal'
 
 //common
 import  Articles from './Pages/Manager/Annoucement/Articles';
+import LostAndFound from './Pages/Manager/Annoucement/LostAndFound'
 
 //requests
 import  NoticesRequests from './Pages/Manager/Requests/Notices';
 import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
 import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
+
+// dashboard
+import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard'
 
 function App() {
   return (
@@ -125,13 +129,16 @@ function App() {
 
           {/*common*/}
           <Route path='/Articles' element={<Articles/>} />
+          <Route path='/LostAndFound' element={<LostAndFound/>} />
 
           {/*requests*/}
           <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
           <Route path='/AccountRequests' element={<AccountRequests/>}/>
           <Route path='/AccountManagement' element={<AccountManagement/>}/>
 
-        
+          {/*dashboard*/}
+          <Route path='/AdminDashboard' element={<AdminDashboard/>}/>
+
         </Routes>
       </BrowserRouter>
     </div>

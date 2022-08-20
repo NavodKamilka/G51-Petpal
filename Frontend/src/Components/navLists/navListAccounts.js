@@ -25,7 +25,7 @@ const navbarList = [
         secondDesc: 'Message from andi',
         badge: 2,
         subList: [],
-    // must addlogics to update the badges
+    // must add logics to update the badges
     },
 
 ];
