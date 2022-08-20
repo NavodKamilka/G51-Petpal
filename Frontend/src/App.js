@@ -32,6 +32,12 @@ import PetProducts from "./Pages/Petowner/PetProducts/PetProducts"
 import PetMart from "./Pages/Petowner/PetMart/PetMart"
 import PetSell from "./Pages/Petowner/PetMart/PetSell"
 
+import Notice from './Pages/Petowner/Notice/Notice'
+import PostNotice from "./Pages/Petowner/Notice/PostNotice"
+
+import PetOwnerAppointment from "./Pages/Petowner/Appointment/PetOwnerAppointment"
+import MakeAppointment from "./Pages/Petowner/Appointment/MakeAppointment"
+
 
 //shopkeeper
 
@@ -80,7 +86,7 @@ function App() {
           {/* PetOwner */}
           <Route path="/MyProfile" element={<MyProfile />} />
           <Route path="/PetProfile/Alex" element={<PetProfile />} />
-	    <Route path="/PetProfile/Alex/Vaccinations" element={<Vaccinations />} />
+          <Route path="/PetProfile/Alex/Vaccinations" element={<Vaccinations />} />
 
           <Route path="/Discussion" element={<Discussion />} />
           <Route path="/Discussion/Start" element={<DiscussionStart />} />
@@ -89,6 +95,12 @@ function App() {
 
           <Route path="/PetMart" element={<PetMart />} />
           <Route path="/PetMart/PetSell" element={<PetSell />} />
+          
+          <Route path="/Notice" element={<Notice />} />
+          <Route path="/Notice/PostNotice" element={<PostNotice />} />
+
+          <Route path="/PetOwnerAppointment" element={<PetOwnerAppointment />} />
+          <Route path="/MakeAppointment" element={<MakeAppointment />} />
 
 
 
