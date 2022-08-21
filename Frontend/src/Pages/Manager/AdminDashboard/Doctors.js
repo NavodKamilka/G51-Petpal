@@ -12,21 +12,14 @@ function preventDefault(event: React.MouseEvent) {
 export default function Doctors() {
     return (
         <React.Fragment>
-            <Stack direction='row' gap={3}>
-                <Title>Doctors</Title>
-                <AccountCircleIcon />
+            <Stack direction='column' alignItems='center'>
+                <AccountCircleIcon color='primary'/>
+                <Title >Doctors</Title>
             </Stack>
-            <Typography component="p" variant="h4">
-                $3,024.00
+            <Typography component="p" variant="h4" textAlign="center">
+               100
             </Typography>
-            <Typography color="text.secondary" sx={{ flex: 1 }}>
-                on 15 March, 2019
-            </Typography>
-            <div>
-                <Link color="primary" href="#" onClick={preventDefault}>
-                    View balance
-                </Link>
-            </div>
+
         </React.Fragment>
     );
 }

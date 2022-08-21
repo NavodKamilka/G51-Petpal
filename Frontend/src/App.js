@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Guest
@@ -68,7 +68,11 @@ import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
 import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
 
 // dashboard
-import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard'
+import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard';
+import AdminDashboardTransactions from './Pages/Manager/AdminDashboard/AdminDashboardTransactions';
+import AdminDashboardPublications from './Pages/Manager/AdminDashboard/AdminDashboardPublications';
+
+
 
 function App() {
   return (
@@ -138,6 +142,8 @@ function App() {
 
           {/*dashboard*/}
           <Route path='/AdminDashboard' element={<AdminDashboard/>}/>
+          <Route path='/AdminDashboardTransactions' element={<AdminDashboardTransactions/>}/>
+          <Route path='/AdminDashboardPublications' element={<AdminDashboardPublications/>}/>
 
         </Routes>
       </BrowserRouter>

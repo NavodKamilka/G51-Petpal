@@ -2,12 +2,19 @@
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import Search from '@mui/icons-material/Search';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const navbarList = [
     {
         icon: Search,
         desc: 'Search',
+        secondDesc: '',
+        badge: 0,
+        subList: [],
+    },
+    {
+        icon: DashboardIcon ,
+        desc: 'Dashboard',
         secondDesc: '',
         badge: 0,
         subList: [],
