@@ -38,7 +38,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function Login() {
     return(
         <div>
-            <img src ={logo} alt="petpalLogo" className='logo'/>
+            <img src ={logo} alt="petpalLogo" width={'10%'}  className='logo'/>
             <Box sx={{ flexGrow: 1 }} >
             <Grid container spacing={2} justifyContent="center">
                 <Item style={{backgroundColor: '#9BABCF'}}>

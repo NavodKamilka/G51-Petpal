@@ -1,16 +1,20 @@
 import * as React from 'react';
-// import { styled, alpha } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
+import Stack from '@mui/material/Stack'; 
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 
+
 import SearchBar from '../../Components/SearchBar';
-import AdCardShop from '../../Components/AdCardShop';
-
-
-
-
+// import AdCardProduct from '../../Components/AdCardProduct';
+import petFoodImage from '../../Images/petFood1.png';
+import food2 from '../../Images/food2.png';
+import food3 from '../../Images/food3.jpg';
 
 //colors for buttons
 const theme = createTheme({
@@ -32,43 +36,66 @@ const theme = createTheme({
 
 
 
-export default function ShopAds() {
+export default function ProductAds() {
   return (
     <div>
-      <h1>Pet Stores</h1>
+      <h1>Products</h1>
       <br></br>
-      <Stack spacing={10} direction="row" justifyContent="center">
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
+      <Stack spacing={10} direction="row" justifyContent="center" >
+      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
       <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
       </Stack>
         <br></br>
-
-      <SearchBar/>
-
+          <SearchBar/>
         <br></br>
         <br></br>
-          <Grid container spacing={{ xs: 2}} columns={{ xs: 2, md:5}} alignItems="center" justifyContent="center">
-                      {Array.from(Array(10)).map((index) => (
-                        <AdCardShop/>
-                      ))}
-          </Grid>
- {/* show the cards in a row */}
- {/* <Stack spacing={10} direction="row" justifyContent="center" > */}
-        {/* <Card sx={{ maxWidth: 345 }}>
+
+        <Grid container alignItems="stretch" spacing={{ xs: 2, md:3}} columns={{ xs: 2, md: 5}} justifyContent="center">
+        <Card sx={{ maxWidth: 240, minWidth:240, padding:1 }}>
             <CardMedia
               component="img"
-              height="140"
-              image={shopImage}
-              alt="shop image"
+              height="240"
+              image={petFoodImage}
+              alt="Product image"
           
              />
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Pet store 1
+                Petmart
               </Typography>
               <Typography variant="body2" color="text.secondary">
+              198 Nawala Rd, Sri Jayawardenepura Kotte<br></br><br></br>
+               
+              081-2233445
+              </Typography>
+            </CardContent>
+
+          <CardActions>
+            <Button size="small">View shop</Button>
+          </CardActions>
+          </Card>  
+
+
+
+
+           <Card sx={{ maxWidth: 240, minWidth:240, padding:1 }}>
+            <CardMedia
+              component="img"
+              height="240"
+              image={food3}
+              alt="Product image"
+          
+             />
+
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+              Whiskas
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+              Adult wet food (Mackaral flavour)<br></br>
+                Rs 500.00<br></br>
               No10, Yatinuwara street,Kandy <br></br>
               081-2233445
               </Typography>
@@ -77,57 +104,37 @@ export default function ShopAds() {
           <CardActions>
             <Button size="small">View shop</Button>
           </CardActions>
-        </Card> */}
+          </Card> 
 
-      {/* card 2 */}
-    {/* <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={shopImage}
-            alt="green iguana"
-        
-          />
+
+
+          <Card sx={{ maxWidth: 240, minWidth:240, padding:1 }}>
+            <CardMedia
+              component="img"
+              height="240"
+              image={food2}
+              alt="Product image"
           
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Pet store 1
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            No10, Yatinuwara street,Kandy <br></br>
-            081-2233445
-            </Typography>
-          </CardContent>
+             />
+
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+              Pedegree
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+              Chicken and Milk<br></br>
+                Rs 1500.00<br></br>
+              No10, Kotte <br></br>
+              011-2233445
+              </Typography>
+            </CardContent>
+
           <CardActions>
-            
             <Button size="small">View shop</Button>
           </CardActions>
-        </Card> */}
-
-        {/* <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={shopImage}
-            alt="green iguana"
+          </Card> 
+        </Grid>
         
-          />
-          
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Pet store 1
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            No10, Yatinuwara street,Kandy <br></br>
-            081-2233445
-            </Typography>
-          </CardContent>
-          <CardActions>
-            
-            <Button size="small">View shop</Button>
-          </CardActions>
-        </Card> */}
-        {/* </Stack> */}
      
     </div>
   );
