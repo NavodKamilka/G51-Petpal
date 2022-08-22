@@ -25,8 +25,8 @@ import navbarList from '../../../Components/navListDoctor';
 import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
-import Footer from '../../../Components/Footer';
-import UpcomingAppointmentDetailContent from './UpcomingAppointmentDetailContent';
+import Footer from '../../../Components/Footer'
+import NoticeContent from './NoticeContent';
 
 
 
@@ -37,7 +37,7 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function MyProfile() {
+export default function Notice() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -387,7 +387,7 @@ export default function MyProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <UpcomingAppointmentDetailContent/>
+        <NoticeContent />
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}
         

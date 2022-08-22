@@ -47,7 +47,7 @@ export default function ArticleList1() {
             left: "0%",
           }}
         >
-          <Stack>
+          <Stack spacing={1} direction='column'>
             <h2
               style={{
                 width: "100%",
@@ -60,45 +60,7 @@ export default function ArticleList1() {
               {" "}
               How to take care of a dog correctly{" "}
             </h2>{" "}
-          </Stack>
-          {/* button view more */}
-          <Stack>
-            <Button
-              variant="contained"
-              style={{
-                display: "inline-block",
-                width: "fit-content",
-                margin: 10,
-                position: "relative",
-                top: "0%",
-                left: "0%",
-              }}
-            >
-              Read{" "}
-            </Button>
-          </Stack>
-        </Box>
-        {/* box for pet owner name */}
-        <Box
-          style={{
-            width: window.width,
-            height: 40,
-            "&:hover": {
-              backgroundColor: "primary.main",
-              opacity: [0.9, 0.8, 0.7],
-            },
-            fontSize: 15,
-            textAlign: "center",
-            margin: "10px 10px",
-            flexDirection: "row",
-            display: "inline-flex",
 
-            position: "relative",
-            top: "0%",
-            left: "0%",
-          }}
-        >
-          <Stack>
             <h3
               style={{
                 width: "100%",
@@ -112,9 +74,23 @@ export default function ArticleList1() {
               Dr. Kasun Perera
             </h3>
           </Stack>
-
           {/* button view more */}
-          <Stack>
+          <Stack spacing={10} direction='column'>
+            <Button
+              variant="contained"
+              style={{
+                display: "inline-block",
+                width: "fit-content",
+                margin: 10,
+              
+                position: "relative",
+                top: "0%",
+                left: "50%",
+              }}
+            >
+              Read{" "}
+            </Button>
+
             <Button
               variant="contained"
               style={{
@@ -129,6 +105,7 @@ export default function ArticleList1() {
               More from Author
             </Button>
           </Stack>
+              
         </Box>
       </div>
     </div>

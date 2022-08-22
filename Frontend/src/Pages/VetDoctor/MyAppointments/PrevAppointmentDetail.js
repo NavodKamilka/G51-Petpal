@@ -23,7 +23,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 // import Logo from '../../../Components/Logo';
 import navbarList from '../../../Components/navListDoctor';
 import StyledAvatar from '../../../Components/StyledAvatar';
-
+import {useNavigate} from "react-router-dom";
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
 import PrevAppointmentDetailContent from './PrevAppointmentDetailContent';
@@ -41,6 +41,43 @@ export default function PrevAppointmentDetail() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
+  const navigate = useNavigate();
+
+  const handleSideNavClick = (event,desc) =>{
+    event.preventDefault();
+
+    switch (desc) {
+      case 'My Profile' :
+          navigate("/DocProfile", {replace: true})
+          console.log(desc);
+          break;
+      case 'My Appointments' :
+          navigate("/TodayAppointments", {replace: true})
+          console.log(desc);
+          break;
+      case 'My Articles' :
+          navigate("/DocArticles", {replace: true})
+          console.log(desc);
+          break;
+      case 'Discussion' :
+          navigate("/DocArticles", {replace: true})
+          console.log(desc);
+          break;
+      case 'Pet Mart' :
+          navigate("/DocPetMart", {replace: true})
+          console.log(desc);
+          break;
+      case 'Product Mart' :
+          navigate("/DocProductMart", {replace: true})
+          console.log(desc);
+          break;
+      case 'Notices' :
+          navigate("/DocNotice", {replace: true})
+          console.log(desc);
+          break;
+  }
+
+}
 
   function toogleOpen() {
     setOpen(!open);
@@ -194,6 +231,7 @@ export default function PrevAppointmentDetail() {
                 }}
               >
                 <ListItemButton
+                onClick={(event)=>handleSideNavClick(event,key.desc)}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

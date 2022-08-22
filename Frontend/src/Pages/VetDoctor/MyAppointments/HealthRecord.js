@@ -16,18 +16,15 @@ function createData(
   }
   
   const rows = [
-    createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgshgb dcfvdgh vccdfngnfgdf fddgydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-    createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-    createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-    createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-    createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
+    createData("2022-01-10", "Ear Infections", "amoxicillin-clavulanate anti-fungal."),
+    createData("2022-01-25", "Itchy skin/Skin Infections", "cephalexin, erythromycin"),
   ];
 
 export default function HealthRecord() {
   return (
     <div>
       <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 300 }} aria-label="simple table">
+                    <Table sx={{ minWidth: 100 }} aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell>Date</TableCell>

@@ -92,9 +92,9 @@ export default function PreviousAppo() {
         {/* <SearchBar/>  */}
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Previous</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Today</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Upcomming</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/PreviousAppoMain' color='blackButton'>Previous</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blueButton'>Today</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/UpAppoMain' color='blueButton'>Upcomming</Button></ThemeProvider>
       </Stack>
 
       <br></br>

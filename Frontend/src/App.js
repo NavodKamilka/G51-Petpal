@@ -93,10 +93,13 @@ import ArticlesFromAuthor from "./Pages/VetDoctor/Articles/ArticlesFromAuthor";
 import PendingArticles from "./Pages/VetDoctor/Articles/PendingArticles";
 //Doc profile
 import DocProfile from "./Pages/VetDoctor/MyProfile/DocProfile";
-import DocProfileContent from "./Pages/VetDoctor/MyProfile/DocProfileContent";
 import ContactUsContent from "./Pages/Guest/ContactUsContent"
 //review
 import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
+import DocDiscussion from './Pages/VetDoctor/Discussion/Discussion'
+import DocPetMart from './Pages/VetDoctor/PetMart/PetMart'
+import DocProductMart from './Pages/VetDoctor/ProdcuctMart/PetProducts'
+import DocNotice from './Pages/VetDoctor/Notice/Notice'
 
 
 import Articles from "./Pages/Manager/Annoucement/Articles";
@@ -222,8 +225,13 @@ function App() {
       <Route path="/PendingArticles" element={<PendingArticles/>} />
       <Route path="/DocProfile" element={<DocProfile/>} />
       <Route path="/ContactUsContent" element={<ContactUsContent/>} />
-      <Route path="/DocProfileContent" element={<DocProfileContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
+      <Route path="/DocDiscussion" element={<DocDiscussion/>} />
+      <Route path="/DocPetMart" element={<DocPetMart/>} />
+      <Route path="/DocProductMart" element={<DocProductMart/>} />
+      <Route path="/DocNotice" element={<DocNotice/>} />
+
+
    </Routes>
       </BrowserRouter>
     </div>
