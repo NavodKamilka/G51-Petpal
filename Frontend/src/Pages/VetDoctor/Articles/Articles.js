@@ -194,6 +194,7 @@ export default function Articles() {
                 }}
               >
                 <ListItemButton
+                href = {key.href}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

@@ -92,6 +92,9 @@ import PendingArticles from "./Pages/VetDoctor/Articles/PendingArticles";
 //Doc profile
 import DocProfile from "./Pages/VetDoctor/MyProfile/DocProfile";
 import DocProfileContent from "./Pages/VetDoctor/MyProfile/DocProfileContent";
+import ContactUsContent from "./Pages/Guest/ContactUsContent"
+//review
+import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
 
 
 //manager
@@ -192,16 +195,10 @@ function App() {
       <Route path="/ArticlesFrom" element={<ArticlesFromAuthor/>} />
       <Route path="/PendingArticles" element={<PendingArticles/>} />
       <Route path="/DocProfile" element={<DocProfile/>} />
+      <Route path="/ContactUsContent" element={<ContactUsContent/>} />
       <Route path="/DocProfileContent" element={<DocProfileContent/>} />
-
-
-
-      {/* manager */}
-      <Route path="/ArticleContent" element={<ArticleContent/>} />
-      <Route path="/Articles" element={<Articles/>} />
-      <Route path="/AccountRequests" element={<AccountRequests/>} />
-
-      </Routes>
+      <Route path="/DocReviews" element={<DocReview/>} />
+   </Routes>
       </BrowserRouter>
     </div>
   );

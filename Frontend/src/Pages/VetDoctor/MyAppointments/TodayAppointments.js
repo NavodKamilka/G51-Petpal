@@ -194,6 +194,7 @@ export default function MyProfile() {
                 }}
               >
                 <ListItemButton
+                href = {key.href}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
@@ -349,7 +350,6 @@ export default function MyProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <TodayAppointmentsContent />
         <TodayAppointmentsContent />
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}

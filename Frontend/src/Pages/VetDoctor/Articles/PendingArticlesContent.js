@@ -208,7 +208,7 @@ export default function ArticlesContent() {
                     width: "250px",
                     margin: 10,
                     fontSize: "15px",
-                    backgroundColor: "#68FD22",
+                    backgroundColor: "#005A2B",
                   }}
                   >
                     Add{" "}

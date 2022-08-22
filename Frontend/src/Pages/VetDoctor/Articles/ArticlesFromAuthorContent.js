@@ -72,8 +72,8 @@ export default function ArticlesFromAuthorContent() {
                     width: window.width,
                     textAlign: "center",
                     position: "relative",
-                    top: "0%",
-                    left: "50%",
+                    top: "30%",
+                    left: "20%",
                     transform: "translate(-50%, -50%)",
                   }}
                 >
@@ -96,8 +96,8 @@ export default function ArticlesFromAuthorContent() {
                     width: window.width,
                     textAlign: "center",
                     position: "relative",
-                    top: "0%",
-                    left: "30%",
+                    top: "30%",
+                    left: "50%",
                     transform: "translate(-50%, -50%)",
                   }}
                 >
@@ -132,7 +132,7 @@ export default function ArticlesFromAuthorContent() {
                 }}
               >
                
-                <Stack spacing={2} sx={{ width: 300, marginRight: "10px" }}>
+                {/* <Stack spacing={2} sx={{ width: 300, marginRight: "10px" }}>
                   <Autocomplete
                     id="free-solo-demo-author-date"
                     freeSolo
@@ -151,11 +151,11 @@ export default function ArticlesFromAuthorContent() {
                       <TextField {...params} label="Sort By Likes" />
                     )}
                   />
-                </Stack>
+                </Stack> */}
               </div>
 
               {/* artcle list */}
-              <div style={{ position: "relative", top: "0%", left: "0%" }}>
+              <div style={{ position: "relative", top: "5%", left: "0%" }}>
                 <ArticleListForAuthor />
         
               </div>
