@@ -1,5 +1,10 @@
 import React from "react";
+<<<<<<< HEAD
+import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+=======
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
+>>>>>>> 65ebf49c4c6be9476871c630eaca419c12563551
 
 // Guest
 
@@ -102,6 +107,26 @@ import ArticleContent from "./Pages/Manager/Annoucement/ArticleContent";
 import Articles from "./Pages/Manager/Annoucement/Articles";
 import AccountRequests from "./Pages/Manager/Requests/AccountRequests";
 
+<<<<<<< HEAD
+//test - keshani
+
+//common
+import  Articles from './Pages/Manager/Annoucement/Articles';
+import LostAndFound from './Pages/Manager/Annoucement/LostAndFound'
+
+//requests
+import  NoticesRequests from './Pages/Manager/Requests/Notices';
+import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
+import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
+
+// dashboard
+import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard';
+import AdminDashboardTransactions from './Pages/Manager/AdminDashboard/AdminDashboardTransactions';
+import AdminDashboardPublications from './Pages/Manager/AdminDashboard/AdminDashboardPublications';
+
+
+=======
+>>>>>>> 65ebf49c4c6be9476871c630eaca419c12563551
 
 function App() {
   return (
@@ -158,6 +183,25 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
+<<<<<<< HEAD
+          {/* test keshani */}
+
+          {/*common*/}
+          <Route path='/Articles' element={<Articles/>} />
+          <Route path='/LostAndFound' element={<LostAndFound/>} />
+
+          {/*requests*/}
+          <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
+          <Route path='/AccountRequests' element={<AccountRequests/>}/>
+          <Route path='/AccountManagement' element={<AccountManagement/>}/>
+
+          {/*dashboard*/}
+          <Route path='/AdminDashboard' element={<AdminDashboard/>}/>
+          <Route path='/AdminDashboardTransactions' element={<AdminDashboardTransactions/>}/>
+          <Route path='/AdminDashboardPublications' element={<AdminDashboardPublications/>}/>
+
+        </Routes>
+=======
           <Route path='/AccessoriesTableFinal' element={<AccessoriesTableFinal/>} />
           <Route path='/SkinCareTableFinal' element={<SkinCareTableFinal/>} />
           <Route path='/ViewProductFinal' element={<ViewProductFinal/>} />
@@ -199,6 +243,7 @@ function App() {
       <Route path="/DocProfileContent" element={<DocProfileContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
    </Routes>
+>>>>>>> 65ebf49c4c6be9476871c630eaca419c12563551
       </BrowserRouter>
     </div>
   );

@@ -17,12 +17,12 @@ import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import navListAccounts from '../../../Components/navLists/navListAccounts';
 import StyledAvatar from '../../../Components/StyledAvatar';
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import AccountRequestsContent from './AccountRequestsContent';
+import AdminDashboardTransactionsContent from './AdminDashboardTransactionsContent';
 import {useNavigate} from "react-router-dom";
-import navListAccounts from "../../../Components/navLists/navListAccounts";
 
 
 const drawerWidthOpen = 240;
@@ -30,6 +30,7 @@ const paddingIconButton = 10;
 const marginIconButton = 14;
 const iconFontSize = 20;
 const drawerWidthClose = (paddingIconButton + marginIconButton) * 2 + iconFontSize;
+
 
 export default function MyProfile() {
     const theme = useTheme();
@@ -109,7 +110,6 @@ export default function MyProfile() {
                 >
                     PetPal
                 </Typography>
-
                 <Button
                     onClick={toogleOpen}
                     sx={{
@@ -155,6 +155,7 @@ export default function MyProfile() {
                                             padding: '10px',
                                             borderRadius: '8px',
                                             backgroundColor: '#26284687',
+
                                         }}
                                     >
                                         <ListItemIcon sx={{ minWidth: '46px' }}>
@@ -215,7 +216,7 @@ export default function MyProfile() {
                                         padding: '10px',
                                         borderRadius: '8px',
                                         '&:hover': {
-                                            backgroundColor: '#26284687',
+                                            backgroundColor: '#26284687'
                                         },
                                     }}
                                 >
@@ -365,7 +366,8 @@ export default function MyProfile() {
                 }}
             >
                 <TopNavbar  /> <br/>
-                <AccountRequestsContent />
+                <AdminDashboardTransactionsContent />
+                {/*disable the buttons if the account is banned or unbanned*/}
                 <Footer />
             </Box>
         </Box>
