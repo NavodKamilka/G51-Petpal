@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-// import Link from '@mui/material/Link';
+import Link from '@mui/material/Link';
 import ClinicImage from "../../Images/PetClinic.png";
 import ClinicMapImage from "../../Images/clinicLo.png";
 import Divider from '@mui/material/Divider';
@@ -16,32 +16,14 @@ import Divider from '@mui/material/Divider';
 import '../../Style/Clinic/MyProfile/Content1.css'
 
 import TextField from '@mui/material/TextField';
-// import Stack from '@mui/material/Stack';
 
-// import Profile from '../../Iamges/vet1.png'
-// import alex from '../../../Images/alex.png'
-// import tom from '../../../Images/tom.png'
-// import wicky from '../../../Images/wicky.png'
-
-// import IconButton from '@mui/material/IconButton';
-// import PhotoCamera from '@mui/icons-material/PhotoCamera';
-
-
-
-
-// import OutlinedInput from '@mui/material/OutlinedInput';
-// import InputLabel from '@mui/material/InputLabel';
-// import InputAdornment from '@mui/material/InputAdornment';
 
 import FormControl from '@mui/material/FormControl';
-
-// import Visibility from '@mui/icons-material/Visibility';
-// import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 
 const style={
-    width: 300
+    width: 400
 }
 
 
@@ -51,7 +33,7 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:1250,
+    height:1000,
     top:10
     
   }));
@@ -69,20 +51,24 @@ const Item = styled(Paper)(({ theme }) => ({
             <FormControl>
             <h3>Login Credentials</h3>
             <Divider />
+            <br></br>
                 <table>
                     <tr>
+                        <br></br>
                         <td><TextField
                             id="outlined-helperText"
                             label="Email"
                             defaultValue="PetLove@gmail.com"
                             style={style}
                             /></td>
-                        <td> <Button variant="contained" className='Button'>Edit Profile</Button></td>
+                        <td> <Button variant="contained" href='/clinicProfile' className='Button'>Save Changes</Button></td>
+                        <br></br>
                     </tr>
                 </table>
 
                 <h3>Clinic Details</h3>
                 <Divider />
+                <br></br>
                 <table>
                     <tr>
                         <td><TextField
@@ -98,6 +84,7 @@ const Item = styled(Paper)(({ theme }) => ({
                             style={style}
                             /></td>
                     </tr>
+                    <br></br>
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
@@ -112,6 +99,7 @@ const Item = styled(Paper)(({ theme }) => ({
                             style={style}
                             /></td>
                     </tr>
+                    <br></br>
                     <tr>
                         <td> <img src ={ClinicImage} alt="sampleimage" className='Image'/></td>
                         <td><img src ={ClinicMapImage} alt="sampleimage"  className='Image'/></td>
@@ -119,7 +107,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
                 </table> 
                 <h3>Clinic Main Doctor Details</h3>
-                <Divider />
+                <Divider/>
+                <br></br>
                 <table>
                     <tr>
                         <td><TextField
@@ -135,6 +124,7 @@ const Item = styled(Paper)(({ theme }) => ({
                             style={style}
                             /></td>
                     </tr>
+                    <br></br>
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
@@ -152,7 +142,8 @@ const Item = styled(Paper)(({ theme }) => ({
                 </table> 
 
                 <h3>Clinic Available Time</h3>
-                <Divider />
+                <Divider/>
+                <br></br>
                 <table>
                     <tr>
                         <td><TextField
@@ -174,6 +165,7 @@ const Item = styled(Paper)(({ theme }) => ({
                             style={style}
                             /></td>
                     </tr>
+                    <br></br>
                     <tr>
                     <td><TextField
                             id="outlined-helperText"

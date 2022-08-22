@@ -24,14 +24,14 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 
 
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
+// import OutlinedInput from '@mui/material/OutlinedInput';
+// import InputLabel from '@mui/material/InputLabel';
+// import InputAdornment from '@mui/material/InputAdornment';
 
-import FormControl from '@mui/material/FormControl';
+// import FormControl from '@mui/material/FormControl';
 
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+// import Visibility from '@mui/icons-material/Visibility';
+// import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 
@@ -51,28 +51,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
   export default function  MyProfileContent() {
 
-    const [values, setValues] = React.useState({
-      amount: '',
-      password: '',
-      weight: '',
-      weightRange: '',
-      showPassword: false,
-    });
-  
-    const handleChange = (prop) => (event) => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
-  
-    const handleClickShowPassword = () => {
-      setValues({
-        ...values,
-        showPassword: !values.showPassword,
-      });
-    };
-  
-    const handleMouseDownPassword = (event) => {
-      event.preventDefault();
-    };
   
     const [value1, setValue1] = React.useState('Janaki Collure');
     const [value2, setValue2] = React.useState('JanakiCollure@gmail.com');
@@ -234,8 +212,8 @@ const Item = styled(Paper)(({ theme }) => ({
             marginLeft:'34%',
             marginTop: -280
           }}>
-              <Button variant="contained">Save Changes</Button>
-              <Button variant="contained">Cancel</Button>
+              <Button variant="contained" href='/DoctorMain'>Save Changes</Button>
+              <Button variant="contained" href='/DoctorMain'>Cancel</Button>
           </Stack>
           <Stack spacing={20} direction="row" style={{
             // left:'-45%',
