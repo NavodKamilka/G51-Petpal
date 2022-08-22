@@ -60,7 +60,7 @@ export default function MyProfile() {
           console.log(desc);
           break;
       case 'Discussion' :
-          navigate("/DocArticles", {replace: true})
+          navigate("/DocDiscussion", {replace: true})
           console.log(desc);
           break;
       case 'Pet Mart' :
