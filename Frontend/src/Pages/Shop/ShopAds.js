@@ -39,16 +39,16 @@ export default function ShopAds() {
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center">
       <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
       </Stack>
         <br></br>
 
       <SearchBar/>
 
-      <br></br>
-
-          <Grid container spacing={{ xs: 2, md:3}} columns={{ xs: 2, md:5}} alignItems="center" justifyContent="center">
+        <br></br>
+        <br></br>
+          <Grid container spacing={{ xs: 2}} columns={{ xs: 2, md:5}} alignItems="center" justifyContent="center">
                       {Array.from(Array(10)).map((index) => (
                         <AdCardShop/>
                       ))}

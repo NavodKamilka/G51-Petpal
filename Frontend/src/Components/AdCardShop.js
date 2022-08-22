@@ -30,7 +30,7 @@ export default function AdCardShop() {
             </CardContent>
 
           <CardActions>
-            <Button size="small">View shop</Button>
+            <Button size="small" href="/ShopProfileGuestView">View shop</Button>
           </CardActions>
             
         </Card>

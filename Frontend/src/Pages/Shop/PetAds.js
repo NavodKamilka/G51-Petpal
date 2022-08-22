@@ -10,6 +10,7 @@ import Grid from '@mui/material/Grid';
 
 import SearchBar from '../../Components/SearchBar';
 import AdCardPet from '../../Components/AdCardPet';
+import { Typography } from '@mui/material';
 
 
 
@@ -36,12 +37,15 @@ const theme = createTheme({
 export default function PetAds() {
   return (
     <div>
-      <h1>Pets</h1>
+      <Typography variant="h3" style={{align:"center"}}>
+        Pets
+
+      </Typography>
       <br></br>
 
       <Stack spacing={10} direction="row" justifyContent="center" >
-        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
-        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
         <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
       </Stack>
 
@@ -52,7 +56,7 @@ export default function PetAds() {
 
 
           <Grid container spacing={{ xs: 2 }} columns={{ xs: 2}} alignItems="center" justifyContent="center" >
-            {Array.from(Array(8)).map((index) => (
+            {Array.from(Array(10)).map((index) => (
               <AdCardPet/>
             ))}
           </Grid>

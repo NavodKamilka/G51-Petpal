@@ -37,7 +37,7 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:1230,
+    height:1250,
     top:10
     
   }));
@@ -202,8 +202,8 @@ const Item = styled(Paper)(({ theme }) => ({
             marginLeft:'34%',
             marginTop: -280
           }}>
-              <Button variant="contained">Edit</Button>
-              <Button variant="contained">Save Changes</Button>
+              <Button variant="contained" style={{backgroundColor:'#1D168F'}}>Edit</Button>
+              <Button variant="contained" style={{backgroundColor:'#1D168F'}}>Save Changes</Button>
           </Stack>
           <Stack spacing={20} direction="row" style={{
             // left:'-45%',
@@ -229,7 +229,7 @@ const Item = styled(Paper)(({ theme }) => ({
              
           </Stack>
           <br/><br/><br/>
-          <Button variant="contained">Add New Pet</Button>
+          <Button variant="contained" style={{backgroundColor:'#005A2B'}}>Add New Pet</Button>
           </Item>
         </Grid>
       </Grid>

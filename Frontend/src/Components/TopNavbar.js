@@ -19,6 +19,7 @@ import logo from '../Images/Logo.png'
 
 const pages = ['Home', 'Who We Are', 'Health Care', 'Shop','Events','Our Services','Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const links = ['/Whoweare', '/Whoweare', '/Whoweare', 'Whoweare','Whoweare','Whoweare','Whoweare'];
 
 const TopNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -80,6 +81,7 @@ const TopNavbar = () => {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -104,6 +106,7 @@ const TopNavbar = () => {
                 </MenuItem>
               ))}
             </Menu>
+
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
@@ -120,7 +123,7 @@ const TopNavbar = () => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-            }}
+            }} 
           >
             LOGO
           </Typography>
@@ -130,6 +133,7 @@ const TopNavbar = () => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                
               >
                 {page}
               </Button>
