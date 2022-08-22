@@ -3,16 +3,7 @@ import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-
-import Stack from "@mui/material/Stack";
-  import Button from "@mui/material/Button";
+import HealthRecord from "./HealthRecord";
 import "../../../Style/VetDoctor/CompletedAppointment.css";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -25,21 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   top: 10,
 }));
 
-function createData(
-  date: string,
-  description: string,
-  prescription: string
-) {
-  return { date, description, prescription };
-}
 
-const rows = [
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgshgb dcfvdgh vccdfngnfgdf fddgydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-];
 
 export default function PrevAppointmentDetailContent() {
   return (
@@ -183,32 +160,7 @@ export default function PrevAppointmentDetailContent() {
 
                 <div style={{ position: "relative", top: "5%",left:"-0%" }}>
                 
-                  <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Date</TableCell>
-                          <TableCell align="left">Description</TableCell>
-                          <TableCell align="left">Prescription</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {rows.map((row) => (
-                          <TableRow
-                            key={row.date}
-                            sx={{
-                              "&:last-child td, &:last-child th": { border: 0 },
-                            }}
-                          >
-                            <TableCell component="th" scope="row">{row.date}
-                            </TableCell>
-                            <TableCell align="left" >{row.description}</TableCell>
-                            <TableCell align="left">{row.prescription}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
+                  <HealthRecord/>
                 </div>
               
             </Item>

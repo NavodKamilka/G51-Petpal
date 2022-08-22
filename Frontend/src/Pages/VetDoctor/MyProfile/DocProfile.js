@@ -185,6 +185,7 @@ export default function DocProfile() {
                 }}
               >
                 <ListItemButton
+                href = {key.href}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

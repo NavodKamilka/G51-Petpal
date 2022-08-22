@@ -20,13 +20,12 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
-// import Logo from '../../../Components/Logo';
 import navbarList from '../../../Components/navListDoctor';
 import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
-import Footer from '../../../Components/Footer';
-import TodayAppointmentsContent from './TodayAppointmentsContent';
+import Footer from '../../../Components/Footer'
+import Review from './Review';
 
 
 
@@ -37,7 +36,7 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function MyProfile() {
+export default function ReviewFinal() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -68,15 +67,7 @@ export default function MyProfile() {
           alignItems: 'flex-end',
         }}
       >
-        {/* <Box
-          sx={{
-            flexShrink: 0,
-            display: open ? 'none' : { xs: 'none', sm: 'initial' },
-            marginBottom: '9px',
-          }}
-        >
-          <Logo />
-        </Box> */}
+        
         <Typography
           variant="h1"
           noWrap={true}
@@ -194,7 +185,6 @@ export default function MyProfile() {
                 }}
               >
                 <ListItemButton
-                href = {key.href}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
@@ -283,18 +273,6 @@ export default function MyProfile() {
           >
             Navod Kamilka
           </Typography>
-          <Typography
-            component="span"
-            variant="body2"
-            sx={{
-              display: 'block',
-              whiteSpace: 'nowrap',
-              lineHeight: 'inherit',
-              color: 'lightgray',
-            }}
-          >
-            
-          </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
           <ExitToAppIcon />
@@ -350,8 +328,7 @@ export default function MyProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <TodayAppointmentsContent />
-        {/* <h1>Hello</h1> */}
+        <Review />
         {/* <Typography>Hello Bro</Typography> */}
         
         <Footer />
@@ -364,3 +341,4 @@ export default function MyProfile() {
     </Box>
   );
 }
+

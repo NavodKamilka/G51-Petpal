@@ -4,16 +4,10 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-
 import Stack from "@mui/material/Stack";
-  import Button from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import "../../../Style/VetDoctor/CompletedAppointment.css";
+import HealthRecord from "./HealthRecord";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
@@ -24,22 +18,6 @@ const Item = styled(Paper)(({ theme }) => ({
   height: 1000,
   top: 10,
 }));
-
-function createData(
-  date: string,
-  description: string,
-  prescription: string
-) {
-  return { date, description, prescription };
-}
-
-const rows = [
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgshgb dcfvdgh vccdfngnfgdf fddgydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-  createData("2022-02-10", "ghhdhjbndvfnjhbhjds jhjsdh hgsydtr hgfdyu", "sbdcjhgdyb dvhjgjas ggsdgjkc hsgdjdh"),
-];
 
 export default function UpcomingAppointmentDetailContent() {
   return (
@@ -78,13 +56,13 @@ export default function UpcomingAppointmentDetailContent() {
               >
                 <table className="">
                   <tbody>
-                  <tr>
+                    <tr>
                       <td colspan="5">
                         <hr />
                       </td>
                     </tr>
-                  <tr>
-                    <td colspan="2">
+                    <tr>
+                      <td colspan="2">
                         <h3 className="orderitemtopic">Timeslot details</h3>
                       </td>
                       <td colspan="2">
@@ -100,10 +78,8 @@ export default function UpcomingAppointmentDetailContent() {
                       <td className="orderitemx" id="date">
                         kasun perera
                       </td>
-                      
-                    
-                      </tr>
-                      <tr>
+                    </tr>
+                    <tr>
                       <td className="orderitem">Time</td>
                       <td className="orderitemx" id="timeslot">
                         10 pm
@@ -114,7 +90,7 @@ export default function UpcomingAppointmentDetailContent() {
                       </td>
                     </tr>
                     <tr>
-                    <td className="orderitem">Home visit</td>
+                      <td className="orderitem">Home visit</td>
                       <td className="orderitemx" id="timeslot">
                         yes
                       </td>
@@ -126,7 +102,12 @@ export default function UpcomingAppointmentDetailContent() {
                     </tr>
                     <tr>
                       <td colspan="4">
-                        <h3 className="orderitemtopic" style={{textAlign:'center'}}>Pet details</h3>
+                        <h3
+                          className="orderitemtopic"
+                          style={{ textAlign: "center" }}
+                        >
+                          Pet details
+                        </h3>
                       </td>
                     </tr>
                     <tr>
@@ -134,12 +115,11 @@ export default function UpcomingAppointmentDetailContent() {
                       <td className="orderitemx" id="date">
                         Bobby
                       </td>
-    
+
                       <td className="orderitem">Type</td>
                       <td className="orderitemx" id="type">
                         Dog
                       </td>
-                      
                     </tr>
                     <tr>
                       <td className="orderitem">Breed</td>
@@ -150,10 +130,9 @@ export default function UpcomingAppointmentDetailContent() {
                       <td className="orderitemx" id="age">
                         10
                       </td>
-                      
                     </tr>
                     <tr>
-                    <td className="orderitem">Gender</td>
+                      <td className="orderitem">Gender</td>
                       <td className="orderitemx" id="gender">
                         Male
                       </td>
@@ -161,7 +140,6 @@ export default function UpcomingAppointmentDetailContent() {
                       <td className="orderitemx" id="blood">
                         Dunno
                       </td>
-
                     </tr>
                     <tr>
                       <td colspan="5">
@@ -170,63 +148,38 @@ export default function UpcomingAppointmentDetailContent() {
                     </tr>
                     <tr>
                       <td colspan="2">
-                        <h3 className="orderitemtopic" style={{textAlign:'center'}}>Health records</h3>
+                        <h3
+                          className="orderitemtopic"
+                          style={{ textAlign: "center" }}
+                        >
+                          Health records
+                        </h3>
                       </td>
                       <td colspan="2">
-                      <Stack>
-                  <Button
-                  variant="contained"
-                  // onClick={handleClickOpen}
-                  style={{
-                    display: "inline-block",
-                    width: "250px",
-                    margin: 10,
-                    fontSize: "15px",
-                    backgroundColor: "#68FD22",
-                  }}
-                  >
-                    Add{" "}
-                  </Button>
-                </Stack>
+                        <Stack>
+                          <Button
+                            variant="contained"
+                            // onClick={handleClickOpen}
+                            style={{
+                              display: "inline-block",
+                              width: "250px",
+                              margin: 10,
+                              fontSize: "15px",
+                              backgroundColor: "#005A2B",
+                            }}
+                          >
+                            Add{" "}
+                          </Button>
+                        </Stack>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-             
-                  
-         
 
-                <div style={{ position: "relative", top: "5%",left:"-0%" }}>
-                
-                  <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 300,width:'300px' }} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Date</TableCell>
-                          <TableCell align="left">Description</TableCell>
-                          <TableCell align="left">Prescription</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {rows.map((row) => (
-                          <TableRow
-                            key={row.date}
-                            sx={{
-                              "&:last-child td, &:last-child th": { border: 0 },
-                            }}
-                          >
-                            <TableCell component="th" scope="row">{row.date}
-                            </TableCell>
-                            <TableCell align="left" >{row.description}</TableCell>
-                            <TableCell align="left">{row.prescription}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </div>
-              
+              <div style={{ position: "relative", top: "5%", left: "-0%" }}>
+                <HealthRecord />
+              </div>
             </Item>
           </Grid>
         </Grid>
