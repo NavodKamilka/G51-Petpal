@@ -6,7 +6,6 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Button } from "@mui/material";
 
@@ -43,7 +42,7 @@ export default function Timeslots() {
                     {row.startTime} - {row.endTime}
                   </TableCell>
                   <TableCell align="left">
-                    <Button href='NewTimeslot'>Edit</Button>
+                    <Button>Edit</Button>
                   </TableCell>
                 </TableRow>
               ))}

@@ -20,6 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function UpcomingAppointmentDetailContent() {
+  
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -72,17 +73,17 @@ export default function UpcomingAppointmentDetailContent() {
                     <tr>
                       <td className="orderitem">Date</td>
                       <td className="orderitemx" id="date">
-                        2022-2-2
+                        2022-02-02
                       </td>
                       <td className="orderitem">Name</td>
                       <td className="orderitemx" id="date">
-                        kasun perera
+                        Kasun Perera
                       </td>
                     </tr>
                     <tr>
                       <td className="orderitem">Time</td>
                       <td className="orderitemx" id="timeslot">
-                        10 pm
+                        6 pm - 6 30 pm
                       </td>
                       <td className="orderitem">Mobile no</td>
                       <td className="orderitemx" id="mobile">
@@ -124,7 +125,7 @@ export default function UpcomingAppointmentDetailContent() {
                     <tr>
                       <td className="orderitem">Breed</td>
                       <td className="orderitemx" id="breed">
-                        fgkjdfn
+                        labrador
                       </td>
                       <td className="orderitem">Age</td>
                       <td className="orderitemx" id="age">
@@ -138,7 +139,7 @@ export default function UpcomingAppointmentDetailContent() {
                       </td>
                       <td className="orderitem">Blood Group</td>
                       <td className="orderitemx" id="blood">
-                        Dunno
+                      DEA 7
                       </td>
                     </tr>
                     <tr>

@@ -16,24 +16,20 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
-
 import {useNavigate} from "react-router-dom";
-
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-// import navbarList from '../../Components/navList'; changed
-import navListShop from '../../Components/navListShop';
+import navbarList from '../../../Components/navListDoctor';
+import StyledAvatar from '../../../Components/StyledAvatar';
 
-import StyledAvatar from '../../Components/StyledAvatar';
-import TopNavbar from '../../Components/TopNavbar';
-import Footer from '../../Components/Footer'
+import TopNavbar from '../../../Components/TopNavbar';
+import Footer from '../../../Components/Footer'
+import NoticeContent from './NoticeContent';
 
-//main page content
-import Pets from './Pets'
 
-// navListPetOwner
+
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
 const marginIconButton = 14;
@@ -41,41 +37,46 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-
-
-
-
-
-
-export default function PetsFinal() {
+export default function Notice() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
+  const navigate = useNavigate();
 
-
-  //navigation new method
-const navigate = useNavigate();
-const handleSideNavClick = (event,desc) =>{
+  const handleSideNavClick = (event,desc) =>{
     event.preventDefault();
 
     switch (desc) {
-        case 'My Profile' :
-            navigate("/ShopProfileFinal", {replace: true})
-            console.log(desc);
-            break;
-        case 'Products' :
-            navigate("/FoodTableFinal", {replace: true})
-            console.log(desc);
-            break;
-        case 'Pets' :
-            navigate("/PetsFinal", {replace: true})
-            console.log(desc);
-            break;
-        case 'Payment' :
-            navigate("/PaymentFinal", {replace: true})
-            console.log(desc);
-            break;
-    }
+      case 'My Profile' :
+          navigate("/DocProfile", {replace: true})
+          console.log(desc);
+          break;
+      case 'My Appointments' :
+          navigate("/TodayAppointments", {replace: true})
+          console.log(desc);
+          break;
+      case 'My Articles' :
+          navigate("/DocArticles", {replace: true})
+          console.log(desc);
+          break;
+      case 'Discussion' :
+          navigate("/DocArticles", {replace: true})
+          console.log(desc);
+          break;
+      case 'Pet Mart' :
+          navigate("/DocPetMart", {replace: true})
+          console.log(desc);
+          break;
+      case 'Product Mart' :
+          navigate("/DocProductMart", {replace: true})
+          console.log(desc);
+          break;
+      case 'Notices' :
+          navigate("/DocNotice", {replace: true})
+          console.log(desc);
+          break;
+  }
+
 }
 
   function toogleOpen() {
@@ -150,8 +151,7 @@ const handleSideNavClick = (event,desc) =>{
       </Box>
 
       <List dense={true}>
-        {/* changed - put the name of the corresponding side nav acc to user*/}
-        {navListShop.map((key, index) => (
+        {navbarList.map((key, index) => (
           <>
             {index === 0 ? (
               <>
@@ -231,10 +231,7 @@ const handleSideNavClick = (event,desc) =>{
                 }}
               >
                 <ListItemButton
-                 // TRY TO ADD A LINK TO A BUTTON
-                // component={Link} to='./PetAds'
                 onClick={(event)=>handleSideNavClick(event,key.desc)}
-                
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
@@ -321,7 +318,7 @@ const handleSideNavClick = (event,desc) =>{
               color: 'lightgray',
             }}
           >
-            Pet store name
+            Navod Kamilka
           </Typography>
           <Typography
             component="span"
@@ -333,7 +330,7 @@ const handleSideNavClick = (event,desc) =>{
               color: 'lightgray',
             }}
           >
-            Pet Store
+            Pet Owner
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
@@ -343,18 +340,6 @@ const handleSideNavClick = (event,desc) =>{
     </>
   );
 
-
-
-
-
-
-
-
-
-
-
-
-  
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer
@@ -402,14 +387,17 @@ const handleSideNavClick = (event,desc) =>{
         }}
       >
         <TopNavbar  /> <br/>
-
-
-        {/* put page content here */}
-
-      <Pets/>
-
-        <Footer />  
-      </Box>      
+        <NoticeContent />
+        {/* <h1>Hello</h1> */}
+        {/* <Typography>Hello Bro</Typography> */}
+        
+        <Footer />
+       
+        
+        
+      </Box>
+      
+      
     </Box>
   );
 }

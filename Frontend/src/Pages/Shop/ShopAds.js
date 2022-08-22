@@ -6,10 +6,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 
 import SearchBar from '../../Components/SearchBar';
-import AdCardShop from '../../Components/AdCardShop';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 
-
+import petmartshop from '../../Images/petmartshop.jpg';
 
 
 //colors for buttons
@@ -49,17 +53,12 @@ export default function ShopAds() {
         <br></br>
         <br></br>
           <Grid container spacing={{ xs: 2}} columns={{ xs: 2, md:5}} alignItems="center" justifyContent="center">
-                      {Array.from(Array(10)).map((index) => (
-                        <AdCardShop/>
-                      ))}
-          </Grid>
- {/* show the cards in a row */}
- {/* <Stack spacing={10} direction="row" justifyContent="center" > */}
-        {/* <Card sx={{ maxWidth: 345 }}>
+                     {/* show the cards in a row */}
+         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
               height="140"
-              image={shopImage}
+              image={petmartshop}
               alt="shop image"
           
              />
@@ -77,21 +76,21 @@ export default function ShopAds() {
           <CardActions>
             <Button size="small">View shop</Button>
           </CardActions>
-        </Card> */}
+        </Card>
 
       {/* card 2 */}
-    {/* <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }}>
           <CardMedia
             component="img"
             height="140"
-            image={shopImage}
+            image={petmartshop}
             alt="green iguana"
         
           />
           
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Pet store 1
+              Pet store 2
             </Typography>
             <Typography variant="body2" color="text.secondary">
             No10, Yatinuwara street,Kandy <br></br>
@@ -102,20 +101,20 @@ export default function ShopAds() {
             
             <Button size="small">View shop</Button>
           </CardActions>
-        </Card> */}
+        </Card>
 
-        {/* <Card sx={{ maxWidth: 345 }}>
+         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
             component="img"
             height="140"
-            image={shopImage}
+            image={petmartshop}
             alt="green iguana"
         
           />
           
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Pet store 1
+              Pet store 3
             </Typography>
             <Typography variant="body2" color="text.secondary">
             No10, Yatinuwara street,Kandy <br></br>
@@ -126,8 +125,9 @@ export default function ShopAds() {
             
             <Button size="small">View shop</Button>
           </CardActions>
-        </Card> */}
-        {/* </Stack> */}
+        </Card>
+          </Grid>
+
      
     </div>
   );

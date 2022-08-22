@@ -28,6 +28,8 @@ import StyledAvatar from '../../Components/StyledAvatar';
 import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
+
+import {useNavigate} from "react-router-dom";
 //main page content
 import ShopProfile from './ShopProfile'
 
@@ -49,6 +51,31 @@ export default function Test() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
+
+//navigation new method
+  const navigate = useNavigate();
+  const handleSideNavClick = (event,desc) =>{
+      event.preventDefault();
+
+      switch (desc) {
+          case 'My Profile' :
+              navigate("/ShopProfileFinal", {replace: true})
+              console.log(desc);
+              break;
+          case 'Products' :
+              navigate("/FoodTableFinal", {replace: true})
+              console.log(desc);
+              break;
+          case 'Pets' :
+              navigate("/PetsFinal", {replace: true})
+              console.log(desc);
+              break;
+          case 'Payment' :
+              navigate("/PaymentFinal", {replace: true})
+              console.log(desc);
+              break;
+      }
+  }
 
   function toogleOpen() {
     setOpen(!open);
@@ -205,8 +232,8 @@ export default function Test() {
                 <ListItemButton
                 // TRY TO ADD A LINK TO A BUTTON
                 // component={Link} to='./PetAds'
-                href={key.href}
-                
+                onClick={(event)=>handleSideNavClick(event,key.desc)}            
+
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
