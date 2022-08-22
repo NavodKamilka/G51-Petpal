@@ -157,7 +157,7 @@ export default function UpcomingAppointmentDetailContent() {
                   
          
 
-                <div style={{ position: "relative", top: "5%",left:"-0%", width:'100px' }}>
+                <div style={{ position: "relative", top: "5%",left:"-0%" }}>
                 
                   <HealthRecord/>
                 </div>

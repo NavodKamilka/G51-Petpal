@@ -11,8 +11,6 @@ import List2 from './List1';
 
 import List1 from './List1 copy'
 
-import {useNavigate} from "react-router-dom";
-
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
     ...theme.typography.body2,
@@ -60,7 +58,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
         </div>
         <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
+            position:"relative",top: '2%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             // top:'180px',left:'0%'

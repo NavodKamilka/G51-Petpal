@@ -187,7 +187,7 @@ export default function ArticlesContent() {
 
                 <Stack>
                   <Button
-                  
+                  href="PendingArticles"
                     variant="outlined"
                     style={{
                       display: "inline-block",
