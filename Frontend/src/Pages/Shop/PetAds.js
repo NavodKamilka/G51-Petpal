@@ -43,10 +43,7 @@ const theme = createTheme({
 export default function PetAds() {
   return (
     <div>
-      <Typography variant="h3" style={{align:"center"}}>
-        Pets
-
-      </Typography>
+           <h1>Pets</h1>
       <br></br>
 
       <Stack spacing={10} direction="row" justifyContent="center" >
