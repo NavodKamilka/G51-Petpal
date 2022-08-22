@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../Images/logo.png'
+import image from '../Images/Logo.png'
 import '../Style/Guest/HomeNavbar.css'
 import { Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
