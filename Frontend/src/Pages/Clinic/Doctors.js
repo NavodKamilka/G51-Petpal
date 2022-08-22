@@ -9,6 +9,7 @@ import SearchBar from '../../Components/SearchBar.js';
 import AdCardDoctor from '../../Components/AdCardDoctor';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 //import AddIcon from '@mui/icons-material/Add';
+import Link from '@mui/material/Link';
 
 
 
@@ -46,12 +47,12 @@ export default function Doctors() {
      
       {/* align the 'add doctor' button to the right */}
        {/* <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Doctor</Button></ThemeProvider>  </Grid>  */}
-       <ThemeProvider theme={theme}><Button variant="contained" color='addButton' startIcon={<AddCircleRoundedIcon />}>
+       <ThemeProvider theme={theme}><Button variant="contained" href='/AddProfile'color='addButton' startIcon={<AddCircleRoundedIcon />}>
         Add Doctors
       </Button></ThemeProvider>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='doctorsButton'>Doctor List</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='productButton'>Make Appointments</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='doctorsButton'>Doctor List</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/AppointmentMain'color='productButton'>Make Appointments</Button></ThemeProvider>
       
       </Stack>
         <br></br>
