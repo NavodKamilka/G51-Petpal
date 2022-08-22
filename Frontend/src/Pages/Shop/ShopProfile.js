@@ -14,7 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import { Link } from 'react-router-dom';
 
 
-import '../../Style/Shop/ShopProfile.css'
+// import '../../Style/Shop/ShopProfile.css'
 // import logo from "../../images/Logo.png";
 import { FormControl } from '@mui/material';
 
@@ -26,8 +26,9 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    // color: theme.palette.text.secondary,
     height:1000,
+    width:'60%',
     top:10,
   }));
 
@@ -46,34 +47,40 @@ const Item = styled(Paper)(({ theme }) => ({
 function ShopProfile() {
     return(
         <div>
+            <br></br>
             <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
             <Item>
             <FormControl>
             <h3>Login Credentials</h3>
             <Divider />
+            <br></br>
                 <table>
                     <tr>
-                        <td><TextField id="outlined-basic" label="Email" variant="outlined" style={{float:"left"}}/></td>
+                        <td><TextField id="outlined-basic" label="Email" variant="outlined" style={{float:"left", width:'100%'}} defaultValue="petmart@gmail.com"/></td>
                         <td> <ThemeProvider theme={theme}><Button variant="contained" className='Button' color='blueButton' style={{float:"right"}}>Edit</Button></ThemeProvider></td>
                     </tr>
                 </table>
 
                 <h3>Shop Details</h3>
                 <Divider />
+                <br></br>
                 <table>
                     <tr>
-                        <td><TextField id="outlined-basic" label="Shop name" variant="outlined" /></td>
-                        <td><TextField id="outlined-basic" label="Shop registraiton number" variant="outlined" /></td>
+                        <td><TextField id="outlined-basic" label="Shop name" variant="outlined" defaultValue="Pet Mart" /></td>
+                        <td><TextField id="outlined-basic" label="Shop registraiton number" variant="outlined" defaultValue="XXXX"/></td>
                     </tr>
+                    <br></br>
                     <tr>
-                        <td><TextField id="outlined-basic" label="Shop Address" variant="outlined" /></td>
-                        <td><TextField id="outlined-basic" label="Contact number" variant="outlined" /></td>
+                        <td><TextField id="outlined-basic" label="Shop Address" variant="outlined" defaultValue="Sri Jayawardanapura Kotte"/></td>
+                        <td><TextField id="outlined-basic" label="Contact number" variant="outlined" defaultValue="070-780 0 800 "/></td>
                     </tr>
+                    <br></br>
                     <tr>
                         <td> <img src ={ShopImage} alt="sampleimage" className='Image'/></td>
                         <td><img src ={MapImage} alt="sampleimage"  className='Image'/></td>
                     </tr>
+                    <br></br>
                     <tr>
                         <td></td>
                         <td style={{float:"right"}}>
@@ -85,16 +92,18 @@ function ShopProfile() {
 
                 <h3>Shop Owner Details</h3>
                 <Divider />
+                <br></br>
                 <table>
                     <tr>
-                        <td><TextField id="outlined-basic" label="Name" variant="outlined" /></td>
-                        <td><TextField id="outlined-basic" label="Email" variant="outlined" /></td>
+                        <td><TextField id="outlined-basic" label="Name" variant="outlined" defaultValue="Kamal Perera"/></td>
+                        <td><TextField id="outlined-basic" label="Email" variant="outlined" defaultValue="kamal@gmail.com"/></td>
                     </tr>
+                    <br></br>
                     <tr>
-                        <td><TextField id="outlined-basic" label="Address" variant="outlined" /></td>
-                        <td><TextField id="outlined-basic" label="Contact number" variant="outlined" /></td>
+                        <td><TextField id="outlined-basic" label="Address" variant="outlined" defaultValue="Sri Jayawardanapura Kotte"/></td>
+                        <td><TextField id="outlined-basic" label="Contact number" variant="outlined" defaultValue="070-780 0 800 "/></td>
                     </tr>
-
+<br></br>
                     <tr>
                         <td></td>
                         <td style={{float:"right"}}>

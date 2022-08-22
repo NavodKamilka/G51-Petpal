@@ -16,6 +16,9 @@ import RegistrationVetDoc from './Pages/Guest/RegistrationVetDoc.js'
 import RegistrationClinic from './Pages/Guest/RegistrationClinic.js'
 import RegistrationShop from './Pages/Guest/RegistrationShop.js'
 import Login from './Pages/Guest/Login.js'
+import ShopProfileGuestViewFinal from './Pages/Guest/ShopProfileGuestViewFinal'
+import ShopProductAdsFinal from './Pages/Guest/ShopProductAdsFinal'
+import ShopPetAdsFinal from './Pages/Guest/ShopPetAdsFinal'
 
 
 // PetOwner
@@ -40,26 +43,18 @@ import MakeAppointment from "./Pages/Petowner/Appointment/MakeAppointment"
 
 
 //shopkeeper
-
-import ShopProfile from './Pages/Shop/ShopProfile.js'
 import ShopProfileFinal from './Pages/Shop/ShopProfileFinal.js'
-import Products from './Pages/Shop/Products.js'
-import ProductsFinal from './Pages/Shop/ProductsFinal.js'
-import Pets from './Pages/Shop/Pets.js'
+import FoodTableFinal from './Pages/Shop/FoodTableFinal.js'
 import PetsFinal from './Pages/Shop/PetsFinal'
-import ShopAds from './Pages/Shop/ShopAds'
 import ShopAdsFinal from './Pages/Shop/ShopAdsFinal'
-import ProductAds from './Pages/Shop/ProductAds'
 import ProductAdsFinal from './Pages/Shop/ProductAdsFinal'
-import PetAds from './Pages/Shop/PetAds'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
-import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
-import AddUpdatePet from './Pages/Shop/AddUpdatePet'
-import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
-import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
-import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
-import Payment from './Pages/Shop/Payment'
+import AddPetFinal from './Pages/Shop/AddPetFinal'
+import AddProductFinal from './Pages/Shop/AddProductFinal'
 import PaymentFinal from './Pages/Shop/PaymentFinal'
+import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
+import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
+import ViewProductFinal from './Pages/Shop/ViewProductFinal'
 
 
 //Clinic
@@ -79,7 +74,7 @@ import UpAppoMain from "./Pages/Clinic/UpAppoMain"
 import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
 
-//test - keshani
+
 
 // Veterinary Doctor
 
@@ -101,6 +96,13 @@ import ContactUsContent from "./Pages/Guest/ContactUsContent"
 //review
 import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
 
+
+//manager
+import ArticleContent from "./Pages/Manager/Annoucement/ArticleContent";
+import Articles from "./Pages/Manager/Annoucement/Articles";
+import AccountRequests from "./Pages/Manager/Requests/AccountRequests";
+
+
 function App() {
   return (
     <div > 
@@ -112,6 +114,7 @@ function App() {
           <Route path="/Healthcare" element={<Healthcare />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Ourservices" element={<Ourservices />} />
+          {/* <Route path="/OurservicesBody" element={<OurservicesBody/>} /> */}
           <Route path="/Shops" element={<Shops />} />
           <Route path="/Whoweare" element={<Whoweare />} />
           <Route path='/RegistrationPetOwner' element={<RegistrationPetOwner/>} /> 
@@ -119,6 +122,8 @@ function App() {
           <Route path='/RegistrationClinic' element={<RegistrationClinic/>} /> 
           <Route path='/RegistrationShop' element={<RegistrationShop/>} /> 
           <Route path='/Login' element={<Login/>} />
+          <Route path='/ShopProductAdsFinal' element={<ShopProductAdsFinal/>} />
+          <Route path='/ShopPetAdsFinal' element={<ShopPetAdsFinal/>} />
 
 
           {/* PetOwner */}
@@ -143,26 +148,21 @@ function App() {
 
 
           {/* shopkeeper */}
-          <Route path='/ShopProfile' element={<ShopProfile/>} /> 
           <Route path='/ShopProfileFinal' element={<ShopProfileFinal/>} /> 
-          <Route path='/Products' element={<Products/>} />
-          <Route path='/ProductsFinal' element={<ProductsFinal/>} />
-          <Route path='/Pets' element={<Pets/>} />
+          <Route path='/FoodTableFinal' element={<FoodTableFinal/>} />
           <Route path='/PetsFinal' element={<PetsFinal/>} />
-          <Route path='/ShopAds' element={<ShopAds/>} />
           <Route path='/ShopAdsFinal' element={<ShopAdsFinal/>} />
-          <Route path='/ProductAds' element={<ProductAds/>} />
           <Route path='/ProductAdsFinal' element={<ProductAdsFinal/>} />
-          <Route path='/PetAds' element={<PetAds/>} />
           <Route path='/PetAdsFinal' element={<PetAdsFinal/>} />
-          <Route path='/AddUpdateProduct' element={<AddUpdateProduct/>} />
-          <Route path='/AddUpdatePet' element={<AddUpdatePet/>} />
-          <Route path='/AddUpdatePetFinal' element={<AddUpdatePetFinal/>} />
-          <Route path='/AddUpdateProductFinal' element={<AddUpdateProductFinal/>} />
-          <Route path='/ShopProfileGuestView' element={<ShopProfileGuestView/>} />
-          <Route path='/Payment' element={<Payment/>} />
+          <Route path='/AddPetFinal' element={<AddPetFinal/>} />
+          <Route path='/AddProductFinal' element={<AddProductFinal/>} />
+          <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
-           
+          <Route path='/AccessoriesTableFinal' element={<AccessoriesTableFinal/>} />
+          <Route path='/SkinCareTableFinal' element={<SkinCareTableFinal/>} />
+          <Route path='/ViewProductFinal' element={<ViewProductFinal/>} />
+
+
 
           {/*Clinic*/}
           <Route path='/ClinicAdsMain' element={<ClinicAdsMain/>}/>
@@ -181,7 +181,7 @@ function App() {
           <Route path='/ViewAppo' element={<ViewAppo/>}/>
           <Route path='/PaymentMain' element={<PaymentMain/>}/>
 
-          {/* test keshani */}
+         
           
 
         {/* Veterinary Doctor */}
