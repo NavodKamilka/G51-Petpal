@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import '../../Style/Guest/Login.css'
 
 import logo from "../../Images/Logo.png";
 
@@ -55,7 +56,7 @@ function RegistrationClinic() {
 
     return(
         <div>
-          <img src ={logo} alt="petpalLogo" style={{float:"left"}}/>  
+          <img src ={logo} alt="petpalLogo" width={200}/>  
             <Box sx={{ flexGrow: 1 }} >
             <Grid container spacing={2} justifyContent="center">
                 <Item style={{backgroundColor: '#9BABCF'}}>

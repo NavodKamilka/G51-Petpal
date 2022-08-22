@@ -21,7 +21,8 @@
 
 .logo{
     float: left;
-    margin-top: 10;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .form-body{

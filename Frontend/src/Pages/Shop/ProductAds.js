@@ -14,7 +14,7 @@ import SearchBar from '../../Components/SearchBar';
 // import AdCardProduct from '../../Components/AdCardProduct';
 import petFoodImage from '../../Images/petFood1.png';
 import food2 from '../../Images/food2.png';
-import food3 from '../../Images/food3.jpg';
+import wiskasCatFood from '../../Images/wiskasCatFood.jpg';
 
 //colors for buttons
 const theme = createTheme({
@@ -85,7 +85,7 @@ export default function ProductAds() {
             <CardMedia
               component="img"
               height="240"
-              image={food3}
+              image={wiskasCatFood}
               alt="Product image"
           
              />
