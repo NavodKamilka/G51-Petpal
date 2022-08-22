@@ -1,5 +1,7 @@
 import React from "react";
+
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
+
 
 // Guest
 
@@ -97,10 +99,18 @@ import ContactUsContent from "./Pages/Guest/ContactUsContent"
 import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
 
 
-//manager
-import ArticleContent from "./Pages/Manager/Annoucement/ArticleContent";
 import Articles from "./Pages/Manager/Annoucement/Articles";
-import AccountRequests from "./Pages/Manager/Requests/AccountRequests";
+import LostAndFound from './Pages/Manager/Annoucement/LostAndFound'
+
+//requests
+import  NoticesRequests from './Pages/Manager/Requests/Notices';
+import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
+import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
+
+// dashboard
+import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard';
+import AdminDashboardTransactions from './Pages/Manager/AdminDashboard/AdminDashboardTransactions';
+import AdminDashboardPublications from './Pages/Manager/AdminDashboard/AdminDashboardPublications';
 
 
 function App() {
@@ -158,6 +168,22 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
+
+          {/*common*/}
+          <Route path='/Articles' element={<Articles/>} />
+          <Route path='/LostAndFound' element={<LostAndFound/>} />
+
+          {/*requests*/}
+          <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
+          <Route path='/AccountRequests' element={<AccountRequests/>}/>
+          <Route path='/AccountManagement' element={<AccountManagement/>}/>
+
+          {/*dashboard*/}
+          <Route path='/AdminDashboard' element={<AdminDashboard/>}/>
+          <Route path='/AdminDashboardTransactions' element={<AdminDashboardTransactions/>}/>
+          <Route path='/AdminDashboardPublications' element={<AdminDashboardPublications/>}/>
+
+
           <Route path='/AccessoriesTableFinal' element={<AccessoriesTableFinal/>} />
           <Route path='/SkinCareTableFinal' element={<SkinCareTableFinal/>} />
           <Route path='/ViewProductFinal' element={<ViewProductFinal/>} />

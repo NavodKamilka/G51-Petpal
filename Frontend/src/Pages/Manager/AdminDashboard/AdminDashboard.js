@@ -17,12 +17,12 @@ import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import navListAccounts from '../../../Components/navLists/navListAccounts';
 import StyledAvatar from '../../../Components/StyledAvatar';
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import AccountRequestsContent from './AccountRequestsContent';
+import AdminDashboardContent from './AdminDashboardContent';
 import {useNavigate} from "react-router-dom";
-import navListAccounts from "../../../Components/navLists/navListAccounts";
 
 
 const drawerWidthOpen = 240;
@@ -109,7 +109,6 @@ export default function MyProfile() {
                 >
                     PetPal
                 </Typography>
-
                 <Button
                     onClick={toogleOpen}
                     sx={{
@@ -365,7 +364,8 @@ export default function MyProfile() {
                 }}
             >
                 <TopNavbar  /> <br/>
-                <AccountRequestsContent />
+                <AdminDashboardContent />
+                {/*disable the buttons if the account is banned or unbanned*/}
                 <Footer />
             </Box>
         </Box>
