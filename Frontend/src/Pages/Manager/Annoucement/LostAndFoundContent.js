@@ -15,7 +15,7 @@ import Modal from '@mui/material/Modal';
 import puppy from '../../../Images/puppy.jpg';
 import Avatar from '@mui/material/Avatar';
 import CloseIcon from '@mui/icons-material/Close';
-import { Carousel } from '@trendyol-js/react-carousel';
+// import { Carousel } from '@trendyol-js/react-carousel';
 import IconButton from "@mui/material/IconButton";
 
 const Item = styled(Paper)(({theme}) => ({
