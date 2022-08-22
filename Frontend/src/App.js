@@ -97,6 +97,7 @@ import ContactUsContent from "./Pages/Guest/ContactUsContent"
 //review
 import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
 import DocDiscussion from './Pages/VetDoctor/Discussion/Discussion'
+import DocDiscussionContent from './/Pages/VetDoctor/Discussion/DiscussionContent';
 import DocPetMart from './Pages/VetDoctor/PetMart/PetMart'
 import DocProductMart from './Pages/VetDoctor/ProdcuctMart/PetProducts'
 import DocNotice from './Pages/VetDoctor/Notice/Notice'
@@ -227,6 +228,7 @@ function App() {
       <Route path="/ContactUsContent" element={<ContactUsContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
       <Route path="/DocDiscussion" element={<DocDiscussion/>} />
+            <Route path="/DocDiscussionContent" element={<DocDiscussionContent/>} />
       <Route path="/DocPetMart" element={<DocPetMart/>} />
       <Route path="/DocProductMart" element={<DocProductMart/>} />
       <Route path="/DocNotice" element={<DocNotice/>} />
