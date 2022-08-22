@@ -9,7 +9,7 @@ import puppyImage from '../Images/puppy.jpg';
 
 export default function AdCardPet() {
     return (
-        <Card sx={{ maxWidth: 240, padding:5 }}>
+        <Card sx={{ maxWidth: 240, padding:1 }}>
 
             <CardMedia
               component="img"
