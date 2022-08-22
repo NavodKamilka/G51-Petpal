@@ -30,7 +30,7 @@ export default function AdCardClinic() {
             </CardContent>
 
           <CardActions>
-            <Button size="small">View Clinic</Button>
+            <Button size="small" href='/ClinicViewMain'>View Clinic</Button>
           </CardActions>
             
         </Card>

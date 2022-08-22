@@ -47,37 +47,42 @@ function Payment() {
             <Item>
                 <h1>Bill summary</h1>
             <table>
+                <br></br>
                 <tr>
                     <td>Monthly charge</td>
                     <td>100</td>
                 </tr>
+                <br></br>
 
                 <tr>
                     <td>Number of Appointments</td>
                     <td>150</td>
 
                 </tr>
+                <br></br>
 
                 <tr>
                     <td>Price per 1 Appointment</td>
                     <td>10</td>
                     
                 </tr>
+                <br></br>
 
                 <tr>
                     <td>Arrears amount</td>
                     <td>0</td>
                     
                 </tr>
+                <br></br>
                 <tr>
-                    <td>Total Amount</td>
-                    <td>1600</td>
-                    
+                    <td><b>Total Amount</b></td>
+                    <td><b>1600</b></td>  
                 </tr>
             </table>
 
 
             <Divider></Divider> 
+            <br></br>
             <h1>Make Payment</h1>
             <table>
                 <tr>
@@ -92,6 +97,7 @@ function Payment() {
                             /> 
                     </td>
                 </tr>
+                <br></br>
 
                 <tr>
                         <td><TextField
@@ -106,6 +112,7 @@ function Payment() {
                             />
                         </td>
                     </tr>
+                    <br></br>
 
                     <tr>
                         <td>

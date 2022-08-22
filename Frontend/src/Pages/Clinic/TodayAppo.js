@@ -92,9 +92,9 @@ export default function Products() {
         {/* <SearchBar/>  */}
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Previous</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Today</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Upcomming</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/PreviousAppoMain' color='blueButton'>Previous</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blackButton'>Today</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/UpAppoMainMain' color='blueButton'>Upcomming</Button></ThemeProvider>
       </Stack>
 
       <br></br>
