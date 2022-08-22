@@ -20,6 +20,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import SearchBar from '../../Components/SearchBar';
 
+import food2 from '../../Images/food2.png';
+import food3 from '../../Images/food3.jpg';
+
 const theme = createTheme({
   palette: {
     //name given as view, update and delete to declare buttons
@@ -32,6 +35,10 @@ const theme = createTheme({
       main: '#1D168F',
     //   change the text color inside the button to another color
       contrastText: "#fff" 
+    },
+    addButton: {
+      main: '#005A2B',
+      contrastText: "#fff"
     },
     view: {
       main: '#63B8BB',
@@ -53,8 +60,10 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: '#A689FC',
+    color: theme.palette.common.black,
+    fontSize: 15,
+    fontWeight:'bold',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -76,13 +85,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-function createData(ProductImage, Brand, ProductName, PricePerOne, AvailableQty, LastUpdate) {
-  return { ProductImage, Brand, ProductName, PricePerOne, AvailableQty, LastUpdate};
+function createData(ProductImage, Brand, ProductName, weight, PricePerOne, AvailableQty, LastUpdate) {
+  return { ProductImage, Brand, ProductName, weight, PricePerOne, AvailableQty, LastUpdate};
 }
 
 const rows = [
-  createData('prod image','Pedegree', 'chicken and vegetable', 15000, 5, '24-07-2022'),
-  createData('prod image','Petma', 'Grooming shampoo', 250, 20,'25-07-2022'),
+  createData(<img src ={food2} alt="food" style={{width:'25%', height:'25%'}}/>,'Pedegree', 'chicken and vegetable', '500g', 1500, 5, '24-07-2022'),
+  createData(<img src ={food3} alt="food" style={{width:'25%', height:'25%'}}/>,'Whiskas', 'Adult wet food (Mackaral flavour)','85g', 500, 5, '24-07-2022'),
+
+  
 ];
 
 export default function Products() {
@@ -90,20 +101,20 @@ export default function Products() {
     <div>  
         <SearchBar/> 
         
-      <h1>Product details</h1>
+      <h1>Product Details</h1>
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Food</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Accessories</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Skin care</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/FoodTableFinal'>Food</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href='/AccessoriesTableFinal'>Accessories</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href='/SkinCareTableFinal'>Skin care</Button></ThemeProvider>
       </Stack>
 
       <br></br>
     
    
       {/* align the 'add product' button to the right */}
-      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Product</Button></ThemeProvider>  </Grid>  
-
+      <Grid style={{align:'right'}}><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton" href='./AddProductFinal'>Add Product</Button></ThemeProvider>  </Grid>  
+      <br></br>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 600 }} aria-label="customized table">
         <TableHead>
@@ -111,6 +122,7 @@ export default function Products() {
             <StyledTableCell align="left">Product</StyledTableCell>
             <StyledTableCell align="left">Brand</StyledTableCell>
             <StyledTableCell align="left">Product Name</StyledTableCell>
+            <StyledTableCell align="left">Weight</StyledTableCell>
             <StyledTableCell align="left">Price per 1 (Rs)</StyledTableCell>
             <StyledTableCell align="left">Available quantity</StyledTableCell>
             <StyledTableCell align="left">Last update</StyledTableCell>
@@ -125,12 +137,13 @@ export default function Products() {
               <StyledTableCell align="left">{row.ProductImage}</StyledTableCell>
               <StyledTableCell align="left">{row.Brand}</StyledTableCell>
               <StyledTableCell align="left">{row.ProductName}</StyledTableCell>
+              <StyledTableCell align="left">{row.weight}</StyledTableCell>
               <StyledTableCell align="left">{row.PricePerOne}</StyledTableCell>
               <StyledTableCell align="left">{row.AvailableQty}</StyledTableCell>
               <StyledTableCell align="left">{row.LastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" href="./ViewProductFinal">View</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  href="./ViewProductFinal">Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>

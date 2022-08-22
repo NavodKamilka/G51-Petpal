@@ -8,9 +8,14 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import WhoweareContent from './WhoweareContent'
+import ShopProfileGuestView from './ShopProfileGuestView'
 
-export default function Contactus() {
+
+
+
+
+
+export default function PetAdsFinal() {
   
   return (
     <Box sx={{ display: 'flex' }}>
@@ -24,17 +29,15 @@ export default function Contactus() {
           
         }}
       >
-        <TopNavbar  />
-         <br/>
+        <TopNavbar  /> <br/>
 
 
         {/* put page content here */}
 
-      <WhoweareContent/>
+      <ShopProfileGuestView/>
       
         <Footer />  
       </Box>      
     </Box>
   );
 }
-

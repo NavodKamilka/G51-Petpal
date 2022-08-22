@@ -28,12 +28,6 @@ import petdiary4 from '../../../Images/pet diary 4.png'
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 
 
@@ -216,89 +210,32 @@ const Item = styled(Paper)(({ theme }) => ({
           }}>
               <Button variant="contained">Edit</Button>
               <Button variant="contained">Save Changes</Button>
-              
+          </Stack>
+          <Stack spacing={20} direction="row" style={{
+            // left:'-45%',
+            marginLeft:'10%',
+            marginRight:'10%',
+            marginTop: 120
+          }}>
+            <img src={alex}  alt="Logo" height='70%' width={'24%'} className='image'/>
+            <img src={tom}  alt="Logo" height='50%' width={'22%'} className='image'/>
+            <img src={wicky}  alt="Logo" height='70%' width={'24%'} className='image'/>
+             
+          </Stack>
+
+          <Stack spacing={45} direction="row" style={{
+            // left:'-45%',
+            marginLeft:'18%',
+            marginRight:'10%',
+            marginTop: 20
+          }}>
+            <Link href="/PetProfile/Alex">Alex</Link>
+            <Link href="#">Tomm</Link>
+            <Link href="#">Wicky</Link>
+             
           </Stack>
           <br/><br/><br/>
-          <Box>
-          {/* <Box  sx={{ marginLeft:-100 }}> */}
-            <Typography variant="h4" color={'ActiveBorder'} >Health History</Typography>
-          </Box> <br/><br/><br/>
-          <Stack spacing={10} direction="row" marginLeft={20}>
-              <TextField
-                  sx={{width:'30%'}}
-                  name="someDate"
-                  label="Date"
-                  InputLabelProps={{ shrink: true, required: true }}
-                  type="date"
-                  defaultValue={values.someDate}
-                />
-                <TextField
-                sx={{width:'30%'}}
-                  name="someDate"
-                  label="Date"
-                  InputLabelProps={{ shrink: true, required: true }}
-                  type="date"
-                  defaultValue={values.someDate}
-                />
-                <Button variant="contained">Filter</Button>
-            </Stack>
-            <br/><br/><br/>
-            <Box>
-          {/* <Box  sx={{ marginLeft:-100 }}> */}
-            <Typography variant="h4" color={'ActiveBorder'} >Pet Diary</Typography>
-          </Box> <br/><br/><br/>
-          <Stack spacing={10} direction="row" marginLeft={20}>
-              <TextField
-                  sx={{width:'30%'}}
-                  name="someDate"
-                  label="Date"
-                  InputLabelProps={{ shrink: true, required: true }}
-                  type="date"
-                  defaultValue={values.someDate}
-                />
-                <TextField
-                sx={{width:'30%'}}
-                  name="someDate"
-                  label="Date"
-                  InputLabelProps={{ shrink: true, required: true }}
-                  type="date"
-                  defaultValue={values.someDate}
-                />
-                <Button variant="contained">Filter</Button>
-            </Stack>
-            <br/><br/><br/><br/><br/>
-            <Stack spacing={10} direction="row" marginLeft='10%' marginRight='10%'>
-                <img src={petdiary1}  alt="Logo" height='40%' width={'25%'} className='image' style={{
-                    // marginLeft: '-55%',
-                    // marginTop:40
-                  }}/>
-                  <img src={petdiary2}  alt="Logo" height='40%' width={'25%'} className='image' style={{
-                    // marginLeft: '-55%',
-                    // marginTop:40
-                  }}/>
-                  <img src={petdiary3}  alt="Logo" height='40%' width={'25%'} className='image' style={{
-                    // marginLeft: '-55%',
-                    // marginTop:40
-                  }}/>
-                  <img src={petdiary4}  alt="Logo" height='40%' width={'25%'} className='image' style={{
-                    // marginLeft: '-55%',
-                    // marginTop:40
-                  }}/>
-            </Stack>
-
-
-            <IconButton color="primary" aria-label="upload picture" component="label" style={{
-                left:'0%',
-                top:40
-          }}> Add New Photo
-                            <input hidden accept="image/*" type="file" />
-                            <PhotoCamera />
-          </IconButton>
-
-
-
-          
-          
+          <Button variant="contained">Add New Pet</Button>
           </Item>
         </Grid>
       </Grid>

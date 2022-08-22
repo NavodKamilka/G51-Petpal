@@ -29,7 +29,10 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import ShopProfile from './ShopProfile'
+import AddPet from './AddPet'
+
+
+
 
 // navListPetOwner
 const drawerWidthOpen = 240;
@@ -127,6 +130,7 @@ export default function Test() {
           <>
             {index === 0 ? (
               <>
+              {/* display the nav list in left nav bar one by one */}
                 <Tooltip
                   title={open ? key.desc : ''}
                   placement={'right'}
@@ -162,6 +166,7 @@ export default function Test() {
                       </Badge>
                     </ListItemIcon>
 
+                    {/*search bar  */}
                     <InputBase
                       inputRef={refFocus}
                       margin="dense"
@@ -378,7 +383,7 @@ export default function Test() {
 
 {/* put page content here */}
 
-      <ShopProfile/>
+      <AddPet/>
 
 
         

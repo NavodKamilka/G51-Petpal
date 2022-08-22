@@ -29,7 +29,7 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import AddUpdateProduct from './AddUpdateProduct'
+import ViewProduct from './ViewProduct'
 
 // navListPetOwner
 const drawerWidthOpen = 240;
@@ -203,6 +203,10 @@ export default function Test() {
                 }}
               >
                 <ListItemButton
+                // TRY TO ADD A LINK TO A BUTTON
+                // component={Link} to='./PetAds'
+                href={key.href}
+                
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
@@ -374,7 +378,7 @@ export default function Test() {
 
         {/* put page content here */}
 
-      <AddUpdateProduct/>
+      <ViewProduct/>
 
         <Footer />  
       </Box>      

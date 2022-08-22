@@ -9,10 +9,11 @@ import Button from '@mui/material/Button';
 //  import productImage from '../../images/petFood1.png';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
 
 import SearchBar from '../../Components/SearchBar';
-import AdCardProduct from '../../Components/AdCardProduct';
+import AdCardPet from '../../Components/AdCardPet';
 
 //colors for buttons
 const theme = createTheme({
@@ -34,16 +35,13 @@ const theme = createTheme({
 
 
 
-export default function ProductAds() {
+export default function ShopPetAds() {
   return (
     <div>
-      <h1>Products</h1>
+     <Typography variant="h4" style={{textAlign: 'center'}}>
+               Pets
+      </Typography>
       <br></br>
-      <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
-      </Stack>
         <br></br>
           <SearchBar/>
         <br></br>
@@ -51,7 +49,7 @@ export default function ProductAds() {
 
         <Grid container spacing={{ xs: 2, md:3}} columns={{ xs: 2, md: 5}} alignItems="center" justifyContent="center">
             {Array.from(Array(10)).map((index) => (
-              <AdCardProduct/>
+              <AdCardPet/>
             ))}
         </Grid>
  {/* show the cards in a row */}

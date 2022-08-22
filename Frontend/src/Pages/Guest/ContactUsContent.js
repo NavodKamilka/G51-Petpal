@@ -11,7 +11,7 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import Image1 from "../../Images/Profile.png";
 import Image2 from '../../Images/vet1.png'
-import Image3 from '../../Images/contactus.jpg'
+// import Image3 from '../../Images/contactus.jpg'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",

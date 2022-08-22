@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 //  import productImage from '../../images/petFood1.png';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
 
 import SearchBar from '../../Components/SearchBar';
@@ -37,12 +38,15 @@ const theme = createTheme({
 export default function ProductAds() {
   return (
     <div>
-      <h1>Products</h1>
+      <Typography variant="h4" style={{textAlign: 'center'}}>
+               Products
+      </Typography>
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/ShopProductAdsFinal'>Food</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href='/'>Accessories</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href='/'>Skin care</Button></ThemeProvider>
+     
       </Stack>
         <br></br>
           <SearchBar/>

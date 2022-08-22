@@ -29,7 +29,7 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import ShopProfile from './ShopProfile'
+import SkinCareTable from './SkinCareTable'
 
 // navListPetOwner
 const drawerWidthOpen = 240;
@@ -45,7 +45,7 @@ const drawerWidthClose =
 
 
 
-export default function Test() {
+export default function ProductsFinal() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -206,7 +206,7 @@ export default function Test() {
                 // TRY TO ADD A LINK TO A BUTTON
                 // component={Link} to='./PetAds'
                 href={key.href}
-                
+
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
@@ -376,21 +376,9 @@ export default function Test() {
         <TopNavbar  /> <br/>
 
 
-{/* put page content here */}
+        {/* put page content here */}
 
-      <ShopProfile/>
-
-
-        
-       
-        
-
-
-
-
-
-
-
+      <SkinCareTable/>
 
         <Footer />  
       </Box>      
