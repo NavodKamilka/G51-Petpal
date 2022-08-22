@@ -24,6 +24,10 @@ import { Box } from '@mui/material';
 const theme = createTheme({
   palette: {
     //name given as view, update and delete to declare buttons
+    addButton: {
+      main: '#005A2B',
+      contrastText: "#fff"
+    },
     view: {
       main: '#63B8BB',
       contrastText: "#fff"
@@ -44,8 +48,10 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.black,
+    fontSize: 20,
+    fontWeight:'bold',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -83,14 +89,14 @@ export default function Pets() {
       <SearchBar/>
 
   
-      <h1>Pet details</h1>
+      <h1>Pet Details</h1>
       <br></br>
       
     
    
       {/* align the 'add product' button to the right */}
-      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Pet</Button></ThemeProvider>  </Grid>  
-
+      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton"  href='./AddPetFinal'>Add Pet</Button></ThemeProvider>  </Grid>  
+      <br></br>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 600 }} aria-label="customized table">
         <TableHead>

@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { fontWeight } from '@mui/system';
 
 
 
@@ -16,8 +17,9 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height:800,
+    // color: theme.palette.text.secondary,
+
+    height:'90%',
     top:10,
   }));
 
@@ -46,32 +48,32 @@ function Payment() {
             <Grid container spacing={2} justifyContent="center">
             <Item>
                 <h1>Bill summary</h1>
-            <table>
+            <table >
                 <tr>
-                    <td>Monthly charge</td>
-                    <td>100</td>
+                    <td style={{ textAlign: "left" }}>Monthly charge</td>
+                    <td style={{ textAlign: "right" }}>100</td>
                 </tr>
 
                 <tr>
-                    <td>Number of Advertisements</td>
-                    <td>10</td>
+                    <td style={{ textAlign: "left" }}>Number of Advertisements</td>
+                    <td style={{ textAlign: "right" }}>10</td>
 
                 </tr>
 
                 <tr>
-                    <td>Price per 1 Advertisement</td>
-                    <td>100</td>
+                    <td style={{ textAlign: "left" }}>Price per 1 Advertisement</td>
+                    <td style={{ textAlign: "right" }}>100</td>
                     
                 </tr>
 
                 <tr>
-                    <td>Arrears amount</td>
-                    <td>0</td>
+                    <td style={{ textAlign: "left" }}>Arrears amount</td>
+                    <td style={{ textAlign: "right" }}>0</td>
                     
                 </tr>
                 <tr>
-                    <td>Total Amount</td>
-                    <td>1100</td>
+                    <td style={{ textAlign: "left", fontWeight:'bold' }}>Total Amount</td>
+                    <td style={{ textAlign: "right", fontWeight:'bold' }}>1100</td>
                     
                 </tr>
             </table>
@@ -85,14 +87,14 @@ function Payment() {
                     <TextField
                             id="outlined-helperText"
                             label="Amount"
-                            defaultValue="Rs 100.00"
+                            defaultValue="Rs 1100.00"
                             style={style}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             /> 
                     </td>
                 </tr>
-
+                <br></br>
                 <tr>
                         <td><TextField
                                 id="outlined-multiline-static"
@@ -106,7 +108,7 @@ function Payment() {
                             />
                         </td>
                     </tr>
-
+                    <br></br>
                     <tr>
                         <td>
                         <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Pay Now</Button></ThemeProvider>

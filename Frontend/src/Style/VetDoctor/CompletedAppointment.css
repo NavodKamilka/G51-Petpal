@@ -1,0 +1,38 @@
+.table,tr,td{
+    border:hidden;
+    padding:0px;
+    margin-right: 30px;
+}
+.topic{
+    font-size: 30;
+    width: 50%;
+    display : inline;
+    margin-Right: 100px;
+    font-Weight: bold;
+    color: '#193498';
+}
+
+.box4{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 9px 166px; */
+    padding: 10px 0px 0px 0px;
+    background-color: whitesmoke;
+    border-radius: 27px;
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 40%); */
+    left: 10%;
+    top:10%;
+    position: relative;
+    font-size: smaller;
+}
+.orderitemtopic{
+    text-align:left; color:black; font-weight:bold; font-size: 20px;margin-right: 130px;
+}
+.orderitem {
+    text-align:left; color:#193498; font-weight:bold; font-size: 18px;margin-right: 40px;
+}
+
+.orderitemx {
+    text-align:left; color:#193498; font-size: 18px;margin-left: 40px;
+}

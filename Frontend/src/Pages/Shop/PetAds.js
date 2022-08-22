@@ -6,22 +6,27 @@ import Grid from '@mui/material/Grid';
 
 
 
+
+
 import SearchBar from '../../Components/SearchBar';
 import AdCardPet from '../../Components/AdCardPet';
+import { Typography } from '@mui/material';
+
+
 
 //colors for buttons
 const theme = createTheme({
   palette: {
     //name given as view, update and delete to declare buttons
-
-    shopButton: {
-      main: '#000000',
-    //   change the text color inside the button to another color
-      contrastText: "#fff" 
-    },
-    productButton: {
+   
+    blueButton: {
       main: '#1D168F',
-      contrastText: "#fff" 
+      contrastText: "#fff" ,
+
+      // not working
+      '&:hover': {
+        main: "#ff0000",
+     },
     },
     
   },
@@ -32,13 +37,16 @@ const theme = createTheme({
 export default function PetAds() {
   return (
     <div>
-      <h1>Pets</h1>
+      <Typography variant="h3" style={{align:"center"}}>
+        Pets
+
+      </Typography>
       <br></br>
 
       <Stack spacing={10} direction="row" justifyContent="center" >
-        <ThemeProvider theme={theme}><Button variant="contained" color='productButton'>Shops</Button></ThemeProvider>
-        <ThemeProvider theme={theme}><Button variant="contained" color='productButton'>Products</Button></ThemeProvider>
-        <ThemeProvider theme={theme}><Button variant="contained" color='shopButton'>Pets</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ShopAdsFinal">Shops</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="outlined" color='blueButton' href="/ProductAdsFinal">Products</Button></ThemeProvider>
+        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/PetAdsFinal">Pets</Button></ThemeProvider>
       </Stack>
 
         <br></br>
@@ -48,7 +56,7 @@ export default function PetAds() {
 
 
           <Grid container spacing={{ xs: 2 }} columns={{ xs: 2}} alignItems="center" justifyContent="center" >
-            {Array.from(Array(8)).map((index) => (
+            {Array.from(Array(10)).map((index) => (
               <AdCardPet/>
             ))}
           </Grid>

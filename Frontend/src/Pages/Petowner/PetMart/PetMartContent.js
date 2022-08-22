@@ -29,6 +29,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 // import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 
 // require('../../../Images/food1.png')
 
@@ -155,7 +157,10 @@ const Item = styled(Paper)(({ theme }) => ({
         <Grid item xs={12}>
         
           <Item>
-            <Stack marginLeft={'30%'}  marginTop={4} direction="row" spacing={4}>
+            {/* <Button variant="contained" sx={{marginLeft:'-55%' , marginTop:2}} endIcon={<AddCircleIcon />}>Post Your Pet Advertisement</Button> */}
+            <Stack marginLeft={'18%'}  marginTop={4} direction="row" spacing={5}>
+            <Button variant="contained" href='/PetMart/PetSell' endIcon={<AddCircleIcon />}>Post Your Pet Advertisement</Button>
+              {/* <Button variant="contained" >Post Your Pet Advertisement</Button> */}
             {/* <Button variant="contained"  sx={{top:-480, left:'34%'}} endIcon={<KeyboardDoubleArrowRightIcon />}>Pet sell</Button> */}
               <Search >
                   <SearchIconWrapper>

@@ -6,9 +6,14 @@
     body{
         background-color: white;
     }
+
+    tr{
+        padding:20px;
+    }
+    
     td {
     text-align: center;
-    padding: 20px;
+    padding: 50px;
     }
     
     .Image{
