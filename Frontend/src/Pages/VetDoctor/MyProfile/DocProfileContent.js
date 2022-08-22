@@ -202,7 +202,7 @@ const Item = styled(Paper)(({ theme }) => ({
           }}>
             
             <Rating name="read-only" value={2} readOnly />
-            <Button>Reviews</Button>
+            <Button href='/DocReviews'>Reviews</Button>
               <Button variant="contained">Save Changes</Button>
           </Stack>
           <Stack spacing={20} direction="row" style={{

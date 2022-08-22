@@ -22,12 +22,12 @@ export default function Timeslots() {
       <Stack>
         <TableContainer component={Paper} sx={{width:400,position:"relative",left:"30%",top:'40%'}}>
           <Table sx={{ width: 400 }} aria-label="simple table">
-            <TableHead>
+            {/* <TableHead>
               <TableRow>
                 <TableCell align="center">Day</TableCell>
                 <TableCell align="center">Time Duration</TableCell>
               </TableRow>
-            </TableHead>
+            </TableHead> */}
             <TableBody>
               {rows.map((row) => (
                 <TableRow
@@ -43,7 +43,7 @@ export default function Timeslots() {
                     {row.startTime} - {row.endTime}
                   </TableCell>
                   <TableCell align="left">
-                    <Button>Edit</Button>
+                    <Button href='NewTimeslot'>Edit</Button>
                   </TableCell>
                 </TableRow>
               ))}

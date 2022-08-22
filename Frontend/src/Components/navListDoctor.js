@@ -29,6 +29,7 @@ const navbarList = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href : 'DocProfile'
   },
   {
     icon: Appointment,
@@ -36,6 +37,7 @@ const navbarList = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href : 'TodayAppointments'
   },
   {
     icon: Article,
@@ -43,6 +45,7 @@ const navbarList = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href : 'DocArticles'
   },
   {
     icon: Forum,
@@ -81,27 +84,7 @@ const navbarList = [
     badge: 0,
     subList: [],
   },
-  {
-    icon: Analytics,
-    desc: 'Analytics',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
-  {
-    icon: FolderOpen,
-    desc: 'Folder',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
-  {
-    icon: BorderColor,
-    desc: 'Edit',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
+  
 ];
 
 export default navbarList;
