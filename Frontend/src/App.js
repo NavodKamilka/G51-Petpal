@@ -1,10 +1,7 @@
 import React from "react";
-<<<<<<< HEAD
-import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-=======
+
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
->>>>>>> d612a8a319fd8b2d15627c98a253f9ec9d72494a
+
 
 // Guest
 
@@ -102,16 +99,7 @@ import ContactUsContent from "./Pages/Guest/ContactUsContent"
 import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
 
 
-//manager
-import ArticleContent from "./Pages/Manager/Annoucement/ArticleContent";
 import Articles from "./Pages/Manager/Annoucement/Articles";
-import AccountRequests from "./Pages/Manager/Requests/AccountRequests";
-
-<<<<<<< HEAD
-//test - keshani
-
-//common
-import  Articles from './Pages/Manager/Annoucement/Articles';
 import LostAndFound from './Pages/Manager/Annoucement/LostAndFound'
 
 //requests
@@ -124,9 +112,6 @@ import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard';
 import AdminDashboardTransactions from './Pages/Manager/AdminDashboard/AdminDashboardTransactions';
 import AdminDashboardPublications from './Pages/Manager/AdminDashboard/AdminDashboardPublications';
 
-
-=======
->>>>>>> d612a8a319fd8b2d15627c98a253f9ec9d72494a
 
 function App() {
   return (
@@ -183,8 +168,6 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
-<<<<<<< HEAD
-          {/* test keshani */}
 
           {/*common*/}
           <Route path='/Articles' element={<Articles/>} />
@@ -200,8 +183,7 @@ function App() {
           <Route path='/AdminDashboardTransactions' element={<AdminDashboardTransactions/>}/>
           <Route path='/AdminDashboardPublications' element={<AdminDashboardPublications/>}/>
 
-        </Routes>
-=======
+
           <Route path='/AccessoriesTableFinal' element={<AccessoriesTableFinal/>} />
           <Route path='/SkinCareTableFinal' element={<SkinCareTableFinal/>} />
           <Route path='/ViewProductFinal' element={<ViewProductFinal/>} />
@@ -243,7 +225,6 @@ function App() {
       <Route path="/DocProfileContent" element={<DocProfileContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
    </Routes>
->>>>>>> d612a8a319fd8b2d15627c98a253f9ec9d72494a
       </BrowserRouter>
     </div>
   );
