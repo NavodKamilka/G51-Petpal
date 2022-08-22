@@ -144,7 +144,7 @@ function App() {
           <Route path="/PetProfile/Alex" element={<PetProfile />} />
           <Route path="/PetProfile/Alex/Vaccinations" element={<Vaccinations />} />
 
-          <Route path="/Discussion" element={<Discussion />} />
+              <Route path="/Discussion" element={<Discussion />} />
           <Route path="/Discussion/Start" element={<DiscussionStart />} />
 
           <Route path="/PetProducts" element={<PetProducts />} />
