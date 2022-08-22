@@ -28,39 +28,39 @@ export default function Review() {
           <Grid item xs={12}>
             <Item>
               <Box>
-                <Typography sx={{ fontSize: "20px" }}><h1
-                  style={{
-                    width: "50%",
-                    display: "inline",
-                    marginRight: "100px",
-                    fontWeight: "bold",
-                    color: "#193498",
-                  }}
-                >
-                  {" "}
-                  Reviews
-                </h1></Typography>
+                <Typography sx={{ fontSize: "20px" }}>
+                  <h1
+                    style={{
+                      width: "50%",
+                      display: "inline",
+                      marginRight: "100px",
+                      fontWeight: "bold",
+                      color: "#193498",
+                    }}
+                  >
+                    {" "}
+                    Reviews
+                  </h1>
+                </Typography>
               </Box>
               <br />
               <div>
-                <Stack spacing={2} direction='column'>
-                {Array.from(Array(1)).map((index) => (
-                
-              
-                  <Card sx={{ maxWidth: '800px' }}>
-                    <CardActionArea>
-                      <CardMedia height="140px" direction='row'>
-                        <Typography>Kasun Perera</Typography>
-                        <Typography>Veterinary Doctor</Typography>
-                       </CardMedia>
-                        
-                      <CardContent>
-                        <Typography variant="body2" color="text.secondary">
-                          Great service!!
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
+                <Stack spacing={2} direction="column">
+                  {Array.from(Array(1)).map((index) => (
+                    <Card sx={{ maxWidth: "800px" }}>
+                      <CardActionArea>
+                        <CardMedia height="140px" direction="row">
+                          <Typography>Kasun Perera</Typography>
+                          <Typography>Veterinary Doctor</Typography>
+                        </CardMedia>
+
+                        <CardContent>
+                          <Typography variant="body2" color="text.secondary">
+                            Great service!!
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
                   ))}
                 </Stack>
               </div>

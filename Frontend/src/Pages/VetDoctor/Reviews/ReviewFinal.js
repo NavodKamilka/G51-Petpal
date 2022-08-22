@@ -1,33 +1,31 @@
-import * as React from 'react';
-import { useState, useRef } from 'react';
-import { useTheme } from '@mui/material/styles';
+import * as React from "react";
+import { useState, useRef } from "react";
+import { useTheme } from "@mui/material/styles";
 
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import Tooltip from '@mui/material/Tooltip';
-import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
-import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
-import IconButton from '@mui/material/IconButton';
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
+import Badge from "@mui/material/Badge";
+import Tooltip from "@mui/material/Tooltip";
+import InputBase from "@mui/material/InputBase";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import IconButton from "@mui/material/IconButton";
 
-import MenuIcon from '@mui/icons-material/Menu';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MenuIcon from "@mui/icons-material/Menu";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
-import navbarList from '../../../Components/navListDoctor';
-import StyledAvatar from '../../../Components/StyledAvatar';
+import navbarList from "../../../Components/navListDoctor";
+import StyledAvatar from "../../../Components/StyledAvatar";
 
-import TopNavbar from '../../../Components/TopNavbar';
-import Footer from '../../../Components/Footer'
-import Review from './Review';
-
-
+import TopNavbar from "../../../Components/TopNavbar";
+import Footer from "../../../Components/Footer";
+import Review from "./Review";
 
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
@@ -56,30 +54,29 @@ export default function ReviewFinal() {
     <>
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          height: '42px',
-          width: 'auto',
-          backgroundColor: 'transparent',
-          margin: '14px 14px',
-          padding: '12px 0px',
-          borderBottom: '1px solid lightgray',
-          alignItems: 'flex-end',
+          display: "flex",
+          justifyContent: "space-between",
+          height: "42px",
+          width: "auto",
+          backgroundColor: "transparent",
+          margin: "14px 14px",
+          padding: "12px 0px",
+          borderBottom: "1px solid lightgray",
+          alignItems: "flex-end",
         }}
       >
-        
         <Typography
           variant="h1"
           noWrap={true}
           gutterBottom
           sx={{
-            display: { xs: 'none', sm: 'initial' },
-            fontSize: '18px',
+            display: { xs: "none", sm: "initial" },
+            fontSize: "18px",
             fontWeight: 600,
-            color: 'lightgray',
-            width: '154px',
-            marginLeft: open ? '0px' : '8px',
-            paddingBottom: '3px',
+            color: "lightgray",
+            width: "154px",
+            marginLeft: open ? "0px" : "8px",
+            paddingBottom: "3px",
           }}
         >
           PetPal
@@ -88,18 +85,18 @@ export default function ReviewFinal() {
         <Button
           onClick={toogleOpen}
           sx={{
-            minWidth: 'initial',
-            padding: '10px',
-            color: 'gray',
-            borderRadius: '8px',
-            backgroundColor: open ? 'transparent' : 'transparent',
-            '&:hover': {
-              backgroundColor: '#26284687',
+            minWidth: "initial",
+            padding: "10px",
+            color: "gray",
+            borderRadius: "8px",
+            backgroundColor: open ? "transparent" : "transparent",
+            "&:hover": {
+              backgroundColor: "#26284687",
             },
           }}
         >
           <MenuIcon
-            sx={{ fontSize: '20px', color: open ? 'lightgray' : 'lightGray' }}
+            sx={{ fontSize: "20px", color: open ? "lightgray" : "lightGray" }}
           ></MenuIcon>
         </Button>
       </Box>
@@ -110,15 +107,15 @@ export default function ReviewFinal() {
             {index === 0 ? (
               <>
                 <Tooltip
-                  title={open ? key.desc : ''}
-                  placement={'right'}
+                  title={open ? key.desc : ""}
+                  placement={"right"}
                   componentsProps={{
                     tooltip: {
                       sx: {
-                        backgroundColor: 'gray',
-                        color: 'white',
-                        marginLeft: '22px !important',
-                        boxShadow: '0px 0px 22px -2px rgba(0,0,0,0.20)',
+                        backgroundColor: "gray",
+                        color: "white",
+                        marginLeft: "22px !important",
+                        boxShadow: "0px 0px 22px -2px rgba(0,0,0,0.20)",
                       },
                     },
                   }}
@@ -126,20 +123,20 @@ export default function ReviewFinal() {
                   <ListItemButton
                     onClick={toogleOpenSearch}
                     sx={{
-                      margin: '6px 14px',
-                      padding: '10px',
-                      borderRadius: '8px',
-                      backgroundColor: '#26284687',
+                      margin: "6px 14px",
+                      padding: "10px",
+                      borderRadius: "8px",
+                      backgroundColor: "#26284687",
                     }}
                   >
-                    <ListItemIcon sx={{ minWidth: '46px' }}>
+                    <ListItemIcon sx={{ minWidth: "46px" }}>
                       <Badge
                         badgeContent={key.badge}
                         color="secondary"
                         variant="dot"
                       >
                         <key.icon
-                          sx={{ fontSize: '20px', color: 'lightgray' }}
+                          sx={{ fontSize: "20px", color: "lightgray" }}
                         />
                       </Badge>
                     </ListItemIcon>
@@ -150,10 +147,10 @@ export default function ReviewFinal() {
                       fullWidth={true}
                       placeholder="Search"
                       sx={{
-                        fontSize: '0.875rem',
-                        lineHeight: '1.43em',
-                        '& .MuiInputBase-input': {
-                          color: 'lightgray',
+                        fontSize: "0.875rem",
+                        lineHeight: "1.43em",
+                        "& .MuiInputBase-input": {
+                          color: "lightgray",
                           padding: 0,
                         },
                       }}
@@ -171,59 +168,59 @@ export default function ReviewFinal() {
               </>
             ) : (
               <Tooltip
-                title={open ? key.desc : ''}
-                placement={'right'}
+                title={open ? key.desc : ""}
+                placement={"right"}
                 componentsProps={{
                   tooltip: {
                     sx: {
-                      backgroundColor: 'gray',
-                      color: 'white',
-                      marginLeft: '22px !important',
-                      boxShadow: '0px 0px 22px -2px rgba(0,0,0,0.20)',
+                      backgroundColor: "gray",
+                      color: "white",
+                      marginLeft: "22px !important",
+                      boxShadow: "0px 0px 22px -2px rgba(0,0,0,0.20)",
                     },
                   },
                 }}
               >
                 <ListItemButton
                   sx={{
-                    margin: '6px 14px',
-                    padding: '10px',
-                    borderRadius: '8px',
-                    '&:hover': {
-                      backgroundColor: '#26284687',
+                    margin: "6px 14px",
+                    padding: "10px",
+                    borderRadius: "8px",
+                    "&:hover": {
+                      backgroundColor: "#26284687",
                     },
                   }}
                 >
-                  <ListItemIcon sx={{ minWidth: '46px' }}>
+                  <ListItemIcon sx={{ minWidth: "46px" }}>
                     <Badge
                       badgeContent={key.badge}
                       color="secondary"
                       variant="dot"
                     >
-                      <key.icon sx={{ fontSize: '20px', color: 'lightgray' }} />
+                      <key.icon sx={{ fontSize: "20px", color: "lightgray" }} />
                     </Badge>
                   </ListItemIcon>
 
                   <ListItemText
                     primary={key.desc}
                     primaryTypographyProps={{
-                      variant: 'body2',
+                      variant: "body2",
                     }}
                     sx={{
-                      display: 'inline',
-                      margin: '0px',
-                      overflowX: 'hidden',
-                      color: 'lightgray',
-                      whiteSpace: 'nowrap',
-                      minWidth: '126px',
+                      display: "inline",
+                      margin: "0px",
+                      overflowX: "hidden",
+                      color: "lightgray",
+                      whiteSpace: "nowrap",
+                      minWidth: "126px",
                     }}
                   />
                   {key.badge !== 0 ? (
                     <Chip
                       label={key.badge}
-                      color={'secondary'}
+                      color={"secondary"}
                       size="small"
-                      sx={{ height: 'auto' }}
+                      sx={{ height: "auto" }}
                     />
                   ) : (
                     <></>
@@ -238,43 +235,43 @@ export default function ReviewFinal() {
 
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-          alignContents: 'center',
-          margin: '14px 14px',
-          padding: '12px 4px',
-          borderTop: '1px solid lightgray',
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          alignContents: "center",
+          margin: "14px 14px",
+          padding: "12px 4px",
+          borderTop: "1px solid lightgray",
         }}
       >
         <Box
           sx={{
-            display: 'flex',
-            marginRight: '18px',
-            paddingLeft: '0px',
-            alignItems: 'center',
-            alignContent: 'center',
+            display: "flex",
+            marginRight: "18px",
+            paddingLeft: "0px",
+            alignItems: "center",
+            alignContent: "center",
           }}
         >
           <StyledAvatar />
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
           <Typography
             component="span"
             variant="body2"
             sx={{
-              fontFamily: 'inherit',
-              display: 'block',
-              whiteSpace: 'nowrap',
-              lineHeight: 'inherit',
+              fontFamily: "inherit",
+              display: "block",
+              whiteSpace: "nowrap",
+              lineHeight: "inherit",
               fontWeight: 500,
-              color: 'lightgray',
+              color: "lightgray",
             }}
           >
             Navod Kamilka
           </Typography>
         </Box>
-        <IconButton contained sx={{ color: 'lightGray' }}>
+        <IconButton contained sx={{ color: "lightGray" }}>
           <ExitToAppIcon />
         </IconButton>
       </Box>
@@ -282,31 +279,31 @@ export default function ReviewFinal() {
   );
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <Drawer
         variant="permanent"
         open={open}
         sx={{
           width: open
-            ? { xs: '0px', sm: drawerWidthClose }
+            ? { xs: "0px", sm: drawerWidthClose }
             : { xs: drawerWidthClose, sm: drawerWidthOpen },
-          transition: theme.transitions.create('width', {
+          transition: theme.transitions.create("width", {
             easing: theme.transitions.easing.sharp,
             duration: open
               ? theme.transitions.duration.leavingScreen
               : theme.transitions.duration.enteringScreen,
           }),
-          '& .MuiDrawer-paper': {
-            justifyContent: 'space-between',
-            overflowX: 'hidden',
+          "& .MuiDrawer-paper": {
+            justifyContent: "space-between",
+            overflowX: "hidden",
             width: open
-              ? { xs: '0px', sm: drawerWidthClose }
+              ? { xs: "0px", sm: drawerWidthClose }
               : { xs: drawerWidthClose, sm: drawerWidthOpen },
-            borderRight: '0px',
-            borderRadius: '0px 16px 16px 0px',
+            borderRight: "0px",
+            borderRadius: "0px 16px 16px 0px",
             boxShadow: theme.shadows[8],
-            backgroundColor: open ? '#11101D' : '#11101D',
-            transition: theme.transitions.create('width', {
+            backgroundColor: open ? "#11101D" : "#11101D",
+            transition: theme.transitions.create("width", {
               easing: theme.transitions.easing.sharp,
               duration: open
                 ? theme.transitions.duration.leavingScreen
@@ -320,25 +317,17 @@ export default function ReviewFinal() {
       <Box
         component="main"
         sx={{
-          backgroundColor: '#FFFFFF',
-          padding: '8px',
-          margin: '6px 14px',
-          width : '1450px',
-          
+          backgroundColor: "#FFFFFF",
+          padding: "8px",
+          margin: "6px 14px",
+          width: "1450px",
         }}
       >
-        <TopNavbar  /> <br/>
+        <TopNavbar /> <br />
         <Review />
         {/* <Typography>Hello Bro</Typography> */}
-        
         <Footer />
-       
-        
-        
       </Box>
-      
-      
     </Box>
   );
 }
-
