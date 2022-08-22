@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 // import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+//import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -29,16 +29,16 @@ const Item = styled(Paper)(({ theme }) => ({
     
   }));
 
-  const theme = createTheme({
-    palette: {
-      //name given as view, update and delete to declare buttons
-      blueButton: {
-        main: '#1D168F',
-      //   change the text color inside the button to another color
-        contrastText: "#fff" 
-      } ,     
-    },
-  });
+  // const theme = createTheme({
+  //   palette: {
+  //     //name given as view, update and delete to declare buttons
+  //     blueButton: {
+  //       main: '#1D168F',
+  //     //   change the text color inside the button to another color
+  //       contrastText: "#fff" 
+  //     } ,     
+  //   },
+  // });
 
 
   export default function  MyProfileContent() {
@@ -125,8 +125,8 @@ const Item = styled(Paper)(({ theme }) => ({
             marginLeft:'34%',
             marginTop: -280
           }}>
-              <Button variant="contained">Save</Button>
-              <Button variant="contained">Cancel</Button>
+              <Button variant="contained" href='/DoctorMain'>Save</Button>
+              <Button variant="contained" href='/DoctorMain'>Cancel</Button>
           </Stack>
             {/* <Stack spacing={10} direction="row" justifyContent="center" marginTop={3}>    
               <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Request</Button></ThemeProvider>

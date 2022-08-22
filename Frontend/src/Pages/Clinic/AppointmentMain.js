@@ -25,8 +25,7 @@ import navbarList from '../../Components/navListClinic';
 import StyledAvatar from '../../Components/StyledAvatar';
 
 import TopNavbar from '../../Components/TopNavbar';
-import Footer from '../../Components/Footer'
-import Doctors from './Appointments'
+import Footer from '../../Components/Footer';
 import Appointments from './Appointments';
 
 

@@ -29,7 +29,7 @@ export default function AdCardDoctor() {
             </CardContent>
 
           <CardActions>
-            <Button size="small">View Doctor</Button>
+            <Button size="small" href='/ClinicDocProfile'>View Doctor</Button>
           </CardActions>
             
         </Card>
