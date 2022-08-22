@@ -20,6 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function UpcomingAppointmentDetailContent() {
+  
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>

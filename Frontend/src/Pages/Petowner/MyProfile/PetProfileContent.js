@@ -6,8 +6,11 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-
+import tom from  '../../../Images/tom.png';
+import wicky from  '../../../Images/wicky.png';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+
+
 import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
 
 import TextField from '@mui/material/TextField';
@@ -19,9 +22,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-import alex from '../../../Images/alex.png';
-import tom from '../../../Images/tom.png'
-import wicky from '../../../Images/wicky.png'
+import alex from '../../../Images/alex.png'
 import petdiary1 from '../../../Images/pet diary 1.png'
 import petdiary2 from '../../../Images/pet diary 2.png'
 import petdiary3 from '../../../Images/pet diary 3.png'
@@ -80,7 +81,7 @@ const Item = styled(Paper)(({ theme }) => ({
       setValue5(event.target.value);
     };
 
-    
+
 
   return (
     <div>
