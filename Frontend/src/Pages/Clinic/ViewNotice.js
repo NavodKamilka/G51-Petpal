@@ -96,7 +96,7 @@ export default function Products() {
     
    
       {/* align the 'add product' button to the right */}
-      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Notice</Button></ThemeProvider>  </Grid>  
+      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" href='/AddNotice' startIcon={<AddCircleRoundedIcon/>} color="update">Add Notice</Button></ThemeProvider>  </Grid>  
 
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">

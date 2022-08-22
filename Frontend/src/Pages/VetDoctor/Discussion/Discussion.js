@@ -16,7 +16,7 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
-import {useNavigate} from "react-router-dom";
+
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
@@ -25,10 +25,10 @@ import navbarList from '../../../Components/navListDoctor';
 import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
-import Footer from '../../../Components/Footer';
-import UpcomingAppointmentDetailContent from './UpcomingAppointmentDetailContent';
+import Footer from '../../../Components/Footer'
+import DiscussionContent from './DiscussionContent';
 
-
+import {useNavigate} from "react-router-dom";
 
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
@@ -37,7 +37,7 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function MyProfile() {
+export default function Discussion() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -387,7 +387,7 @@ export default function MyProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <UpcomingAppointmentDetailContent/>
+        <DiscussionContent />
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}
         

@@ -92,16 +92,16 @@ export default function Products() {
         {/* <SearchBar/>  */}
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Previous</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Today</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Upcomming</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/PreviousAppoMain' color='blueButton'>Previous</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blueButton'>Today</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/UpAppoMain' color='blackButton'>Upcomming</Button></ThemeProvider>
       </Stack>
 
       <br></br>
     
    
       {/* align the 'add product' button to the right */}
-      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Appointment</Button></ThemeProvider>  </Grid>  
+      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" href='/AddAppoMain' startIcon={<AddCircleRoundedIcon/>} color="update">Add Appointment</Button></ThemeProvider>  </Grid>  
 
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -127,7 +127,7 @@ export default function Products() {
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell> */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/UpAppoMain'color="delete">Cancel</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
           ))}
