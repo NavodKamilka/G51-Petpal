@@ -9,8 +9,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
-import Image1 from "../../Images/Profile.png";
-import Image2 from '../../Images/vet1.png'
+import navod from "../../Images/navod.jpg";
+import prasadani from '../../Images/prasadani.jpg'
+import pavani from "../../Images/pavani.jpg";
+import keshani from "../../Images/keshani.jpeg";
+import Dhanika from "../../Images/Dhanika.jpg";
 // import Image3 from '../../Images/contactus.jpg'
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -27,7 +30,7 @@ export default function ArticlesContent() {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
+        <Grid container alignItems="stretch" spacing={2}>
           <Grid item xs={12}>
             <Item>
               <Box>
@@ -41,7 +44,8 @@ export default function ArticlesContent() {
                     <CardActionArea>
                       <CardMedia
                       height='140px'
-                      ><img src={Image1}  alt="Logo" height='200' className='image' style={{
+                      width='100px'
+                      ><img src={navod}  alt="Logo" height='200' className='image' style={{
                           marginLeft: '0%',
                           marginTop:40                            
                         
@@ -67,7 +71,8 @@ export default function ArticlesContent() {
                     <CardActionArea>
                       <CardMedia
                         height='140px'
-                        ><img src={Image1}  alt="Logo" height='200' className='image' style={{
+                        width='100px'
+                        ><img src={Dhanika}  alt="Logo" height='200' className='image' style={{
                             marginLeft: '0%',
                             marginTop:40                            
                           
@@ -79,9 +84,9 @@ export default function ArticlesContent() {
                         For Financial assistance 
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            <Typography>Assitant manager : Dhanika Herath</Typography>
-                            <Typography>Telphone no : +94 77 647 7890</Typography>
-                            <Typography>Email : navodkamilaka@gmail.com</Typography>              
+                            <Typography>Assitant manager : Pinsara Dhanika</Typography>
+                            <Typography>Telphone no : +94 77 112 1134</Typography>
+                            <Typography>Email : dhanika@gmail.com</Typography>              
                         </Typography>
                       </CardContent>
                     </CardActionArea>
@@ -93,7 +98,8 @@ export default function ArticlesContent() {
                     <CardActionArea>
                       <CardMedia
                         height='140px'
-                        ><img src={Image2}  alt="Logo" height='200' className='image' style={{
+                        width='100px'
+                        ><img src={keshani}  alt="Logo" height='200' className='image' style={{
                             marginLeft: '0%',
                             marginTop:40                            
                           
@@ -107,7 +113,7 @@ export default function ArticlesContent() {
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <Typography>System Administrator : Keshani Ekanayake</Typography>
-                            <Typography>Telphone no : +94 77 647 7890</Typography>
+                            <Typography>Telphone no : +94 77 777 8889</Typography>
                             <Typography>Email : keshaniekanayake@gmail.com</Typography>              
                         </Typography>
                       </CardContent>
@@ -123,7 +129,8 @@ export default function ArticlesContent() {
                     <CardActionArea>
                       <CardMedia
                        height='140px'
-                       ><img src={Image2}  alt="Logo" height='200' className='image' style={{
+                       width='100px'
+                       ><img src={prasadani}  alt="Logo" height='200' className='image' style={{
                            marginLeft: '0%',
                            marginTop:40                            
                          
@@ -137,7 +144,7 @@ export default function ArticlesContent() {
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <Typography>Assitant manager : Prasadani Aluthwathta</Typography>
-                            <Typography>Telphone no : +94 77 647 7890</Typography>
+                            <Typography>Telphone no : +94 77 666 1111</Typography>
                             <Typography>Email : prasadanialuthwathta@gmail.com</Typography>              
                         </Typography>
                       </CardContent>
@@ -149,7 +156,8 @@ export default function ArticlesContent() {
                     <CardActionArea>
                       <CardMedia
                         height='140px'
-                        ><img src={Image2}  alt="Logo" height='200' className='image' style={{
+                        width='100px'
+                        ><img src={pavani}  alt="Logo" height='200' className='image' style={{
                             marginLeft: '0%',
                             marginTop:40                            
                           
@@ -162,7 +170,7 @@ export default function ArticlesContent() {
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <Typography>Assitant manager : Pavani Marasinghe</Typography>
-                            <Typography>Telphone no : +94 77 647 7890</Typography>
+                            <Typography>Telphone no : +94 77 333 4445</Typography>
                             <Typography>Email : pavanimarasinghe@gmail.com</Typography>              
                         </Typography>
                       </CardContent>
