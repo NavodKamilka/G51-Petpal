@@ -58,8 +58,8 @@ import ViewProductFinal from './Pages/Shop/ViewProductFinal'
 
 
 //Clinic
-import ClinicAdsMain from "./Pages/Clinic/ClinicAdsMain"
-import ClinicViewMain from "./Pages/Clinic/ClinicViewMain"
+import ClinicAdsMain from "./Pages/Guest/ClinicAdsMain"
+import ClinicViewMain from "./Pages/Guest/ClinicViewMain"
 import ClinicDocProfile from "./Pages/Clinic/MyProfile"
 import ClinicProfile from "./Pages/Clinic/ClinicProfile"
 import DoctorMain from "./Pages/Clinic/DoctorMain"

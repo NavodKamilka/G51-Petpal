@@ -194,6 +194,7 @@ export default function AddProfile() {
                 }}
               >
                 <ListItemButton
+                href={key.href}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

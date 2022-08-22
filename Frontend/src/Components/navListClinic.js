@@ -23,7 +23,7 @@ const navbarListClinic = [
   // },
   {
     icon: Person,
-    desc: 'Clinc Profile',
+    desc: 'Clinic Profile',
     secondDesc: '',
     badge: 0,
     subList: [],
@@ -51,7 +51,7 @@ const navbarListClinic = [
     secondDesc: '',
     badge: 0,
     subList: [],
-    href :'AppointmentMain'
+    href :'DoctorMain'
   },
   // {
   //   icon: FolderOpen,
