@@ -228,7 +228,7 @@ const Item = styled(Paper)(({ theme }) => ({
               <Button variant="contained">Save Changes</Button>
           </Stack>
           <Stack spacing={15} direction="row" sx={{position:'relative',top:'5%',left:'15%'}}>
-            <NewTimeSlot/>
+            {/* <NewTimeSlot/> */}
             <Timeslots/>
           </Stack>
           </Item>
