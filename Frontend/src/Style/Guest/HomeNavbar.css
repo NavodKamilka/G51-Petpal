@@ -1,0 +1,34 @@
+.navbackground{
+    background-color: #ffffff;
+}
+
+.logo{
+    width: '5%';
+    height: '5%';
+    background-color: #ffffff;
+    margin-top: -750px;
+    margin-left: 30px;
+}
+
+
+
+.navC{
+
+    position: absolute;
+    /* width: 1000px; */
+    /* height: 45px; */
+    left: 400px;
+    top: 10px;
+    /* background-color: #CEFFFC; */
+
+    /* padding: auto; */
+}
+
+.nav-link{
+    text-decoration: none;
+    font-size: 20px;
+    color: #8244d2;
+    padding-left: 20px;
+    
+}
+

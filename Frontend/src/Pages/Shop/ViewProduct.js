@@ -30,7 +30,11 @@ const theme = createTheme({
       //   change the text color inside the button to another color
         contrastText: "#fff" 
       },
-      
+      blueButton: {
+        main: '#1D168F',
+      //   change the text color inside the button to another color
+        contrastText: "#fff" 
+      },
     },
   });
 
@@ -159,7 +163,7 @@ function AddUpdateProduct() {
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Add</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Add</Button></ThemeProvider>
 
                     </Stack>
                     </tr>

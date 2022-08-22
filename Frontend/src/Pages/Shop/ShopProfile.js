@@ -2,7 +2,7 @@ import *as React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import ShopImage from "../../Images/shop.jpg";
-import MapImage from "../../Images/map.png";
+// import MapImage from "../../Images/map.png";
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
@@ -72,13 +72,13 @@ function ShopProfile() {
                     </tr>
                     <br></br>
                     <tr>
-                        <td><TextField id="outlined-basic" label="Shop Address" variant="outlined" defaultValue="Sri Jayawardanapura Kotte"/></td>
+                        <td><TextField id="outlined-basic" label="Shop Address" variant="outlined" defaultValue="No 10, Kotte"/></td>
                         <td><TextField id="outlined-basic" label="Contact number" variant="outlined" defaultValue="070-780 0 800 "/></td>
                     </tr>
                     <br></br>
                     <tr>
-                        <td> <img src ={ShopImage} alt="sampleimage" className='Image'/></td>
-                        <td><img src ={MapImage} alt="sampleimage"  className='Image'/></td>
+                        <td colSpan={2}> <img src ={ShopImage} alt="sampleimage" className='Image'/></td>
+                        {/* <td><img src ={MapImage} alt="sampleimage"  className='Image'/></td> */}
                     </tr>
                     <br></br>
                     <tr>
@@ -100,7 +100,7 @@ function ShopProfile() {
                     </tr>
                     <br></br>
                     <tr>
-                        <td><TextField id="outlined-basic" label="Address" variant="outlined" defaultValue="Sri Jayawardanapura Kotte"/></td>
+                        <td><TextField id="outlined-basic" label="Address" variant="outlined" defaultValue="No 10, Kotte"/></td>
                         <td><TextField id="outlined-basic" label="Contact number" variant="outlined" defaultValue="070-780 0 800 "/></td>
                     </tr>
 <br></br>
