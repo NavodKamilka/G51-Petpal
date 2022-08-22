@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import List1 from './List1';
+import List2 from './List1 copy'
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -62,7 +63,7 @@ const Item = styled(Paper)(({ theme }) => ({
             transform: 'translate(-50%, -50%)',
             // top:'180px',left:'0%'
             }}>
-            <h3 >Calendar</h3>
+            {/* <h3 >Calendar</h3> */}
         </div>
         <div style={{width:window.width, textAlign:'center',
             position:"relative",top: '0%',
@@ -80,7 +81,8 @@ const Item = styled(Paper)(({ theme }) => ({
         </div>
 
 <List1/>
-<List1/>
+<List2/>
+
 
        
           </Item>

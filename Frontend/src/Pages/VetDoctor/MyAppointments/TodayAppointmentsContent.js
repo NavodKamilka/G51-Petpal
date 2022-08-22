@@ -9,6 +9,9 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import List2 from './List1';
 
+import List1 from './List1 copy'
+
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -71,6 +74,7 @@ const Item = styled(Paper)(({ theme }) => ({
         </div>
 
 <List2/>
+<List1/>
 
 
        

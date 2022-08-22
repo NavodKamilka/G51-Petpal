@@ -24,7 +24,7 @@ export default function HealthRecord() {
   return (
     <div>
       <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 300 }} aria-label="simple table">
+                    <Table sx={{ minWidth: 100 }} aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell>Date</TableCell>
