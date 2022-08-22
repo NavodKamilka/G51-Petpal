@@ -348,7 +348,8 @@ export default function Ourservices() {
           
         }}
       >
-        <HomeNavbar  /> <br/>
+        {/* <HomeNavbar  /> */}
+         <br/>
         <OurServicesBody/>
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}

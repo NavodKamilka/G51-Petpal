@@ -15,7 +15,7 @@ function Navbar() {
 
   return (
     <div className='navbackground'>
-        <div className='logo'><img src={image}  alt="Logo"/></div>
+        <div className='logo'><img src={image} width={200}  alt="Logo"/></div>
 
         <nav className="navC">
             <ul className='navUl'>
