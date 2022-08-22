@@ -43,7 +43,7 @@ export default function Timeslots() {
                     {row.startTime} - {row.endTime}
                   </TableCell>
                   <TableCell align="left">
-                    <Button href='NewTimeslot'>Edit</Button>
+                    <Button>Edit</Button>
                   </TableCell>
                 </TableRow>
               ))}

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-// import Link from '@mui/material/Link';
+import Link from '@mui/material/Link';
 
 
 import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
@@ -13,13 +13,15 @@ import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
-import alex from '../../../Images/alex.png'
+import alex from '../../../Images/alex.png';
+import tom from '../../../Images/tom.png'
+import wicky from '../../../Images/wicky.png'
 import petdiary1 from '../../../Images/pet diary 1.png'
 import petdiary2 from '../../../Images/pet diary 2.png'
 import petdiary3 from '../../../Images/pet diary 3.png'

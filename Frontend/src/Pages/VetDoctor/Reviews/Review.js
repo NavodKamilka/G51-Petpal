@@ -44,14 +44,30 @@ export default function Review() {
                 </Typography>
               </Box>
               <br />
-              <div>
+              <div direction='column' spacing={5}>
+              
+                 <Stack spacing={2} direction="column">
+                   <Card sx={{ maxWidth: "800px" }}>
+                     <CardActionArea>
+                       <CardMedia height="140px" direction="row">
+                         <Typography>Damith Wickramsinghe</Typography>
+                       </CardMedia>
+
+                       <CardContent>
+                         <Typography variant="body2" color="text.secondary">
+                           good                         </Typography>
+                       </CardContent>
+                     </CardActionArea>
+                   </Card>
+               </Stack>
+             
                 <Stack spacing={2} direction="column">
                   {Array.from(Array(1)).map((index) => (
                     <Card sx={{ maxWidth: "800px" }}>
                       <CardActionArea>
                         <CardMedia height="140px" direction="row">
                           <Typography>Kasun Perera</Typography>
-                          <Typography>Veterinary Doctor</Typography>
+                          
                         </CardMedia>
 
                         <CardContent>
@@ -63,6 +79,44 @@ export default function Review() {
                     </Card>
                   ))}
                 </Stack>
+
+                <Stack spacing={2} direction="column">
+                  {Array.from(Array(1)).map((index) => (
+                    <Card sx={{ maxWidth: "800px" }}>
+                      <CardActionArea>
+                        <CardMedia height="140px" direction="row">
+                          <Typography>Dasuni Ratghnayake</Typography>
+                        </CardMedia>
+
+                        <CardContent>
+                          <Typography variant="body2" color="text.secondary">
+                            Friendly service
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
+                  ))}
+                </Stack>
+
+                <Stack spacing={2} direction="column">
+                  {Array.from(Array(1)).map((index) => (
+                    <Card sx={{ maxWidth: "800px" }}>
+                      <CardActionArea>
+                        <CardMedia height="140px" direction="row">
+                          <Typography>Nimal Arachchi</Typography>
+                          
+                        </CardMedia>
+
+                        <CardContent>
+                          <Typography variant="body2" color="text.secondary">
+                            Friendly service
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
+                  ))}
+                </Stack>
+                
               </div>
             </Item>
           </Grid>

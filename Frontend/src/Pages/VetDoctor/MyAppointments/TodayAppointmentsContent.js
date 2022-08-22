@@ -71,7 +71,7 @@ const Item = styled(Paper)(({ theme }) => ({
         </div>
 
 <List2/>
-<List2/>
+
 
        
           </Item>
