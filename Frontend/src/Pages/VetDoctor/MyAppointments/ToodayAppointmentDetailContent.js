@@ -157,20 +157,20 @@ export default function UpcomingAppointmentDetailContent() {
                         </h3>
                       </td>
                       <td colspan="2">
-                        <Stack>
-                          <Button
-                            variant="contained"
-                            // onClick={handleClickOpen}
-                            style={{
-                              display: "inline-block",
-                              width: "250px",
-                              margin: 10,
-                              fontSize: "15px",
-                              backgroundColor: "#005A2B",
-                            }}
-                          >
-                            Add{" "}
-                          </Button>
+                      <Stack>
+                <Button
+                  variant="contained"
+                  // onClick={handleClickOpen}
+                  style={{
+                    display: "inline-block",
+                    width: "250px",
+                    margin: 10,
+                    fontSize: "15px",
+                    backgroundColor: "#005A2B",
+                  }}
+                  >
+                    Add{" "}
+                  </Button>
                         </Stack>
                       </td>
                     </tr>
@@ -181,6 +181,7 @@ export default function UpcomingAppointmentDetailContent() {
               <div style={{ position: "relative", top: "5%", left: "-0%" }}>
                 <HealthRecord />
               </div>
+              
             </Item>
           </Grid>
         </Grid>

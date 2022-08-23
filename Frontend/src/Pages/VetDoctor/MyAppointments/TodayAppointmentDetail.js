@@ -26,7 +26,7 @@ import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import UpcomingAppointmentDetailContent from './UpcomingAppointmentDetailContent';
+import UpcomingAppointmentDetailContent from './ToodayAppointmentDetailContent';
 
 
 
