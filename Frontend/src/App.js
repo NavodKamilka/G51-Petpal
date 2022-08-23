@@ -41,24 +41,24 @@ import MakeAppointment from "./Pages/Petowner/Appointment/MakeAppointment"
 
 //shopkeeper
 
-import ShopProfile from './Pages/Shop/ShopProfile.js'
+// import ShopProfile from './Pages/Shop/ShopProfile.js'
 import ShopProfileFinal from './Pages/Shop/ShopProfileFinal.js'
-import Products from './Pages/Shop/Products.js'
+// import Products from './Pages/Shop/Products.js'
 import ProductsFinal from './Pages/Shop/ProductsFinal.js'
-import Pets from './Pages/Shop/Pets.js'
+// import Pets from './Pages/Shop/Pets.js'
 import PetsFinal from './Pages/Shop/PetsFinal'
-import ShopAds from './Pages/Shop/ShopAds'
+// import ShopAds from './Pages/Shop/ShopAds'
 import ShopAdsFinal from './Pages/Shop/ShopAdsFinal'
-import ProductAds from './Pages/Shop/ProductAds'
+// import ProductAds from './Pages/Shop/ProductAds'
 import ProductAdsFinal from './Pages/Shop/ProductAdsFinal'
-import PetAds from './Pages/Shop/PetAds'
+// import PetAds from './Pages/Shop/PetAds'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
-import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
-import AddUpdatePet from './Pages/Shop/AddUpdatePet'
+// import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
+// import AddUpdatePet from './Pages/Shop/AddUpdatePet'
 import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
 import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
 import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
-import Payment from './Pages/Shop/Payment'
+// import Payment from './Pages/Shop/Payment'
 import PaymentFinal from './Pages/Shop/PaymentFinal'
 
 
@@ -76,7 +76,7 @@ import AddAppoMain from "./Pages/Clinic/AddAppoMain"
 import TodayAppoMain from "./Pages/Clinic/TodayAppoMain"
 import PreviousAppoMain from "./Pages/Clinic/PreviousAppoMain"
 import UpAppoMain from "./Pages/Clinic/UpAppoMain"
-import ViewAppo from "./Pages/Clinic/ViewAppo"
+// import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
 
 //test - keshani
@@ -104,10 +104,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Guest */}
+          <Route path="/" element={<Home />} />
           <Route path="/Contactus" element={<Contactus />} />
           <Route path="/Events" element={<Events />} />
           <Route path="/Healthcare" element={<Healthcare />} />
-          <Route path="/Home" element={<Home />} />
+          
           <Route path="/Ourservices" element={<Ourservices />} />
           <Route path="/Shops" element={<Shops />} />
           <Route path="/Whoweare" element={<Whoweare />} />
@@ -140,24 +141,24 @@ function App() {
 
 
           {/* shopkeeper */}
-          <Route path='/ShopProfile' element={<ShopProfile/>} /> 
+          {/* <Route path='/ShopProfile' element={<ShopProfile/>} />  */}
           <Route path='/ShopProfileFinal' element={<ShopProfileFinal/>} /> 
-          <Route path='/Products' element={<Products/>} />
+          {/* <Route path='/Products' element={<Products/>} /> */}
           <Route path='/ProductsFinal' element={<ProductsFinal/>} />
-          <Route path='/Pets' element={<Pets/>} />
+          {/* <Route path='/Pets' element={<Pets/>} /> */}
           <Route path='/PetsFinal' element={<PetsFinal/>} />
-          <Route path='/ShopAds' element={<ShopAds/>} />
+          {/* <Route path='/ShopAds' element={<ShopAds/>} /> */}
           <Route path='/ShopAdsFinal' element={<ShopAdsFinal/>} />
-          <Route path='/ProductAds' element={<ProductAds/>} />
+          {/* <Route path='/ProductAds' element={<ProductAds/>} /> */}
           <Route path='/ProductAdsFinal' element={<ProductAdsFinal/>} />
-          <Route path='/PetAds' element={<PetAds/>} />
+          {/* <Route path='/PetAds' element={<PetAds/>} /> */}
           <Route path='/PetAdsFinal' element={<PetAdsFinal/>} />
-          <Route path='/AddUpdateProduct' element={<AddUpdateProduct/>} />
-          <Route path='/AddUpdatePet' element={<AddUpdatePet/>} />
+          {/* <Route path='/AddUpdateProduct' element={<AddUpdateProduct/>} /> */}
+          {/* <Route path='/AddUpdatePet' element={<AddUpdatePet/>} /> */}
           <Route path='/AddUpdatePetFinal' element={<AddUpdatePetFinal/>} />
           <Route path='/AddUpdateProductFinal' element={<AddUpdateProductFinal/>} />
           <Route path='/ShopProfileGuestView' element={<ShopProfileGuestView/>} />
-          <Route path='/Payment' element={<Payment/>} />
+          {/* <Route path='/Payment' element={<Payment/>} /> */}
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
            
 
@@ -175,7 +176,7 @@ function App() {
           <Route path='/TodayAppoMain' element={<TodayAppoMain/>}/>
           <Route path='/PreviousAppoMain' element={<PreviousAppoMain/>}/>
           <Route path='/UpAppoMain' element={<UpAppoMain/>}/>
-          <Route path='/ViewAppo' element={<ViewAppo/>}/>
+          {/* <Route path='/ViewAppo' element={<ViewAppo/>}/> */}
           <Route path='/PaymentMain' element={<PaymentMain/>}/>
 
           {/* test keshani */}
