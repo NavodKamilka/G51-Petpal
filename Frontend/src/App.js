@@ -110,7 +110,7 @@ import LostAndFound from './Pages/Manager/Annoucement/LostAndFound'
 import  NoticesRequests from './Pages/Manager/Requests/Notices';
 import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
 import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
-
+import  AddManager from './Pages/Manager/Requests/addManager';
 // dashboard
 import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard';
 import AdminDashboardTransactions from './Pages/Manager/AdminDashboard/AdminDashboardTransactions';
@@ -181,6 +181,7 @@ function App() {
           <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
           <Route path='/AccountRequests' element={<AccountRequests/>}/>
           <Route path='/AccountManagement' element={<AccountManagement/>}/>
+            <Route path='/AddManager' element={<AddManager/>}/>
 
           {/*dashboard*/}
           <Route path='/AdminDashboard' element={<AdminDashboard/>}/>

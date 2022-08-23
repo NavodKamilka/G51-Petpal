@@ -21,7 +21,7 @@ import navListAccounts from '../../../Components/navLists/navListAccounts';
 import StyledAvatar from '../../../Components/StyledAvatar';
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import AdminDashboardContent from './AdminDashboardContent';
+import AdminManagerContent from './addManagerContent';
 import {useNavigate} from "react-router-dom";
 
 
@@ -213,14 +213,14 @@ export default function MyProfile() {
                                 }}
                             >
                                 <ListItemButton onClick={(event)=>handleSideNavClick(event,key.desc)}
-                                    sx={{
-                                        margin: '6px 14px',
-                                        padding: '10px',
-                                        borderRadius: '8px',
-                                        '&:hover': {
-                                            backgroundColor: '#26284687',
-                                        },
-                                    }}
+                                                sx={{
+                                                    margin: '6px 14px',
+                                                    padding: '10px',
+                                                    borderRadius: '8px',
+                                                    '&:hover': {
+                                                        backgroundColor: '#26284687',
+                                                    },
+                                                }}
                                 >
                                     <ListItemIcon sx={{ minWidth: '46px' }}>
                                         <Badge
@@ -368,7 +368,7 @@ export default function MyProfile() {
                 }}
             >
                 <TopNavbar  /> <br/>
-                <AdminDashboardContent />
+                <AdminManagerContent />
                 {/*disable the buttons if the account is banned or unbanned*/}
                 <Footer />
             </Box>

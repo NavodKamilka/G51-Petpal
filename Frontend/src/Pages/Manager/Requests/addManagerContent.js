@@ -31,14 +31,10 @@ const Item = styled(Paper)(({theme}) => ({
 
 export default function MyProfileContent(){
     const [blogs, setBlogs] = useState([
-        { date: '2019.05.30', usertype: 'Shop  Keeper', fullname: 'R.Perera', imagepath:'../../../Images/alex.png',id: 1 },
-        { date: '2019.05.30', usertype: 'Veterinary Doctor', fullname: 'K.A.Silva',imagepath:'../../../Images/Profile.png', id: 2 },
-        { date: '2019.05.30', usertype: 'Pet Clinic', fullname: 'Y.P.Hewagamage',imagepath:'../../../Images/tom.png', id: 3 },
-        { date: '2014.04.20', usertype: 'Veterinary Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 4 },
-        { date: '2019.05.30', usertype: 'Pet Clinic', fullname: 'E.H.Gunathilaka', imagepath:'../../../Images/alex.png',id: 5 },
-        { date: '2019.05.30', usertype: 'Shop Keeper', fullname: 'P.D.Ranasinghe',imagepath:'../../../Images/Profile.png', id: 6 },
-        { date: '2019.05.30', usertype: 'Pet Clinic', fullname: 'W.A.C.Collure',imagepath:'../../../Images/tom.png', id: 7 },
-        { date: '2014.04.20', usertype: 'Veterinary Doctor', fullname: 'G.L. Kumari',imagepath:'../../../Images/wicky.png', id: 8 }
+        { startDate: '2019.05.30', usertype: 'Manager', fullname: 'R.Perera', imagepath:'../../../Images/alex.png',id: 1 },
+        { startDate: '2019.05.30', usertype: 'Manager', fullname: 'K.A.Silva',imagepath:'../../../Images/Profile.png', id: 2 },
+        { startDate: '2019.05.30', usertype: 'Manager', fullname: 'Y.P.Hewagamage',imagepath:'../../../Images/tom.png', id: 3 },
+
     ]);
 
     const [open, setOpen] = useState(false);
@@ -83,7 +79,7 @@ export default function MyProfileContent(){
                                     borderColor: 'primary.main',
                                     borderWidth: '2px'
                                 }}>
-                                    <div className='table-header-date'>Date</div>
+                                    <div className='table-header-date'>Start Date</div>
                                     <div>User Type</div>
                                     <div>User Name</div>
                                 </Stack>
@@ -93,7 +89,7 @@ export default function MyProfileContent(){
                                         <Stack className='request-row-container' mb={2} pt={0} key={blog.id} >
                                             <Stack direction="row" justifyContent="flex-start" alignItems='flex-start' p={1}>
                                                 <div className='row-detail-box' >
-                                                    {blog.date}
+                                                    {blog.startDate}
                                                 </div>
                                                 <div className='row-detail-box ' >
                                                     {blog.usertype}
@@ -101,18 +97,18 @@ export default function MyProfileContent(){
                                                 <div className='row-detail-box user-name-box'>
                                                     {blog.fullname}
                                                 </div>
-                                                <Stack className="row-detail-buttons" direction='row' ml={20} mt={-1} p={1}
+                                                <Stack  width='200px'  direction='row' ml={10} mt={-1} p={1} pl={4} pr={4}
                                                        justifyContent='space-around'>
-                                                    <Button variant="contained" size='small'
-                                                            style={{backgroundColor:'#1C884C',
-                                                                borderRadius:'15px',
-                                                                fontSize:'12px',
-                                                                textTransform:'capitalize',}}>Accept
-                                                    </Button>
+                                                    {/*<Button variant="contained" size='small'*/}
+                                                    {/*        style={{backgroundColor:'#1C884C',*/}
+                                                    {/*            borderRadius:'15px',*/}
+                                                    {/*            fontSize:'12px',*/}
+                                                    {/*            textTransform:'capitalize',}}>Accept*/}
+                                                    {/*</Button>*/}
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
-                                                        textTransform:'capitalize',}}>Reject</Button>
+                                                        textTransform:'capitalize',}}>Remove</Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#63B8BB',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
@@ -160,17 +156,17 @@ export default function MyProfileContent(){
                                                                     </Typography>
                                                                 </Stack>
                                                                 <Stack direction='row' justifyContent='flex-end' gap={2} mt={2} mr={1.5}>
-                                                                    <Button variant="contained" size='small'
-                                                                            style={{backgroundColor:'#1C884C',
-                                                                                borderRadius:'15px',
-                                                                                fontSize:'12px',
-                                                                                textTransform:'capitalize',}}>Accept
-                                                                    </Button>
+                                                                    {/*<Button variant="contained" size='small'*/}
+                                                                    {/*        style={{backgroundColor:'#1C884C',*/}
+                                                                    {/*            borderRadius:'15px',*/}
+                                                                    {/*            fontSize:'12px',*/}
+                                                                    {/*            textTransform:'capitalize',}}>Accept*/}
+                                                                    {/*</Button>*/}
                                                                     <Button variant="contained" size='small'
                                                                             style={{backgroundColor:'#F5222D',
                                                                                 borderRadius:'15px',
                                                                                 fontSize:'12px',
-                                                                                textTransform:'capitalize',}}>Reject
+                                                                                textTransform:'capitalize',}}>Remove
                                                                     </Button>
                                                                 </Stack>
                                                             </Stack>

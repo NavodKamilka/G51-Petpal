@@ -54,6 +54,10 @@ export default function MyProfile() {
                 navigate("/AccountManagement", {replace: true})
                 console.log(desc);
                 break;
+            case 'Handle Managers' :
+                navigate("/AddManager", {replace: true})
+                console.log(desc);
+                break;
         }
 
     }
