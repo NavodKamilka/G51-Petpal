@@ -10,6 +10,7 @@ import Article from '@mui/icons-material/Newspaper';
 import PetsIcon from '@mui/icons-material/Pets';
 import CartIcon from '@mui/icons-material/AddShoppingCart';
 import NoticeIcon from '@mui/icons-material/FeaturedVideo';
+import PaidIcon from '@mui/icons-material/Paid';
 
 const navbarList = [
   {
@@ -84,7 +85,13 @@ const navbarList = [
     badge: 0,
     subList: [],
   },
-  
+  {
+    icon: PaidIcon,
+    desc: 'Payment',
+    secondDesc: '',
+    badge: 0,
+    subList: [],
+  },
   
 ];
 
