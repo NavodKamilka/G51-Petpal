@@ -18,7 +18,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import logo from '../Images/Logo.png'
 import {useNavigate} from "react-router-dom";
 
-const pages = ['Home', 'Who We Are', 'Health Care', 'Shop','Events','Our Services','Contact Us','Discussion'];
+const pages = ['Home', 'Who We Are', 'Health Care', 'Shop','Events','Our Services','Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 // const links = ['/Whoweare', '/Whoweare', '/Whoweare', 'Whoweare','Whoweare','Whoweare','Whoweare'];
 
@@ -39,7 +39,7 @@ const TopNavbar = () => {
                 navigate("/Whoweare", {replace: true})
                 break;
             case 'Health Care' :
-                navigate("/Healthcare", {replace: true})
+                navigate("/ClinicAdsMain", {replace: true})
                 break;
             case 'Contact Us' :
                 navigate("/Contactus", {replace: true})
@@ -54,7 +54,7 @@ const TopNavbar = () => {
                 navigate("/ShopAdsFinal", {replace: true})
                 break;
             case 'Discussion' :
-                navigate("/Discussion", {replace: true})
+                navigate("/DocDiscussionContent", {replace: true})
                 break;
             case 'Events' :
                 navigate("/AccountManagement", {replace: true})
@@ -165,7 +165,7 @@ const TopNavbar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },border:'1px solid red' }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}

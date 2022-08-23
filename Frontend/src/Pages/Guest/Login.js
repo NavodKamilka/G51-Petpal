@@ -38,10 +38,11 @@ const Item = styled(Paper)(({ theme }) => ({
 function Login() {
     return(
         <div>
-            <img src ={logo} alt="petpalLogo" width={200}  className='logo'/>
+            
             <Box sx={{ flexGrow: 1 }} >
+            <img src ={logo} alt="petpalLogo" width={200}  style={{ alignSelf: 'center', marginTop:5}}  className='logo'/>
             <Grid container spacing={2} justifyContent="center">
-                <Item style={{backgroundColor: '#9BABCF'}}>
+                <Item style={{backgroundColor: '#1bbcb6'}}>
  
                   <h1>Login</h1>
                   <FormControl>
