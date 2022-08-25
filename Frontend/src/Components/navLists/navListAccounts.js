@@ -3,6 +3,7 @@ import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import Search from '@mui/icons-material/Search';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import AccessibilityIcon from '@mui/icons-material/Accessibility';
 
 const navbarList = [
     {
@@ -33,6 +34,13 @@ const navbarList = [
         badge: 2,
         subList: [],
     // must add logics to update the badges
+    },
+    {
+        icon: AccessibilityIcon ,
+        desc: 'Handle Managers',
+        secondDesc: '',
+        badge: 1,
+        subList: [],
     },
 
 ];

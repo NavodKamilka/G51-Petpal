@@ -38,25 +38,29 @@ export default function MyProfile() {
 
     const navigate = useNavigate();
 
-    const handleSideNavClick = (event,desc) =>{
-        event.preventDefault();
+        const handleSideNavClick = (event,desc) =>{
+            event.preventDefault();
 
-        switch (desc) {
-            case 'Requests' :
-                navigate("/AccountRequests", {replace: true})
-                console.log(desc);
-                break;
-            case 'Dashboard' :
-                navigate("/AdminDashboard", {replace: true})
-                console.log(desc);
-                break;
-            case 'Manage Accounts' :
-                navigate("/AccountManagement", {replace: true})
-                console.log(desc);
-                break;
+            switch (desc) {
+                case 'Requests' :
+                    navigate("/AccountRequests", {replace: true})
+                    console.log(desc);
+                    break;
+                case 'Dashboard' :
+                    navigate("/AdminDashboard", {replace: true})
+                    console.log(desc);
+                    break;
+                case 'Manage Accounts' :
+                    navigate("/AccountManagement", {replace: true})
+                    console.log(desc);
+                    break;
+                case 'Handle Managers' :
+                    navigate("/AddManager", {replace: true})
+                    console.log(desc);
+                    break;
+            }
+
         }
-
-    }
 
     function toogleOpen() {
         setOpen(!open);
