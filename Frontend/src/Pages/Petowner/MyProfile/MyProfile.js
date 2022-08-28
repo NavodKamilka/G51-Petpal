@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useState, useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
 
+import {useNavigate} from "react-router-dom";
+
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -30,6 +32,9 @@ import MyProfileContent from './MyProfileContent';
 
 
 
+
+
+
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
 const marginIconButton = 14;
@@ -38,6 +43,32 @@ const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
 export default function MyProfile() {
+
+  const navigate = useNavigate();
+  const handleSideNavClick = (event,desc) =>{
+      event.preventDefault();
+
+      switch (desc) {
+          case 'My Profile' :
+              navigate("/DocProfile", {replace: true})
+              console.log(desc);
+              break;
+          case 'My Appointments' :
+              navigate("/TodayAppointments", {replace: true})
+              console.log(desc);
+              break;
+          case 'My Articles' :
+              navigate("/DocArticles", {replace: true})
+              console.log(desc);
+              break;
+
+      }
+
+  }
+
+
+
+
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -193,7 +224,7 @@ export default function MyProfile() {
                   },
                 }}
               >
-                <ListItemButton
+                <ListItemButton onClick={(event)=>handleSideNavClick(event,key.desc)}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

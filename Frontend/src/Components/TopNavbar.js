@@ -79,7 +79,7 @@ const TopNavbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{borderRadius: '8px' }} style={{background:'#8DE777'}}>
+    <AppBar position="static" sx={{borderRadius: '8px' }} style={{background:'#3ECCAD '}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
