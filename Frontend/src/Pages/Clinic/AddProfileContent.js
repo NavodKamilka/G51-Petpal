@@ -53,9 +53,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
           <img src={Profile}  alt="Logo" height='370' className='image' style={{
           marginLeft: '-55%',
-          marginTop:40
+          marginTop:40,
+          background:'#1D168F',
 
-          
         
         }}/>
 
@@ -125,8 +125,9 @@ const Item = styled(Paper)(({ theme }) => ({
             marginLeft:'34%',
             marginTop: -280
           }}>
-              <Button variant="contained">Save</Button>
-              <Button variant="contained">Cancel</Button>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton'>Save Changes</Button></ThemeProvider>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain'color='blueButton'>Cancel</Button></ThemeProvider>
+              
           </Stack>
             {/* <Stack spacing={10} direction="row" justifyContent="center" marginTop={3}>    
               <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Request</Button></ThemeProvider>

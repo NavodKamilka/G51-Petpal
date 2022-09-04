@@ -38,7 +38,7 @@ const theme = createTheme({
       contrastText: "#fff"
     },
     update: {
-      main: '#059862',
+      main: '#005A2B',
       contrastText: "#fff"
     },
     delete: {
@@ -53,8 +53,11 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
+    color: theme.palette.common.black,
+    fontSize: 15,
+    fontWeight:'bold',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -81,8 +84,8 @@ function createData(PetOwnerName, PetOwnerNo, RequiredDate, RequiredTime, PetDes
 }
 
 const rows = [
-  createData('Nimal Perera','078-9654786', '2022-08-23', '11.00am', 'Dog'),
-  createData('Sunil Kure','077-5624786', '2022-08-23', '1.00pm', 'Cat'),
+  createData('Rishini Hasini','077-8697524', '2022-08-24', '10.00am', 'Dog eye infection'),
+  createData('Thilina Shan','077-5654786', '2022-08-24', '2.00pm', 'Cat ear infection'),
   
 ];
 
@@ -92,16 +95,16 @@ export default function Products() {
         {/* <SearchBar/>  */}
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Previous</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Today</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Upcomming</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" href='/PreviousAppoMain' color='blueButton'>Previous</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" href='/TodayAppoMain' color='blueButton'>Today</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/UpAppoMain' color='blueButton'>Upcomming</Button></ThemeProvider>
       </Stack>
 
       <br></br>
     
    
       {/* align the 'add product' button to the right */}
-      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Appointment</Button></ThemeProvider>  </Grid>  
+      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" href='/AddAppoMain' startIcon={<AddCircleRoundedIcon/>} color="update">Add Appointment</Button></ThemeProvider>  </Grid>  
 
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -127,7 +130,7 @@ export default function Products() {
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell> */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/UpAppoMain'color="delete">Cancel</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
           ))}

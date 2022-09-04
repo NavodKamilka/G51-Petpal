@@ -17,11 +17,12 @@ import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import navbarList from '../../../Components/navList';
 import StyledAvatar from '../../../Components/StyledAvatar';
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
 import AccountRequestsContent from './AccountRequestsContent';
+import {useNavigate} from "react-router-dom";
+import navListAccounts from "../../../Components/navLists/navListAccounts";
 
 
 const drawerWidthOpen = 240;
@@ -34,6 +35,28 @@ export default function MyProfile() {
     const theme = useTheme();
     const [open, setOpen] = useState(false);
     const refFocus = useRef();
+
+    const navigate = useNavigate();
+
+    const handleSideNavClick = (event,desc) =>{
+        event.preventDefault();
+
+        switch (desc) {
+            case 'Requests' :
+                navigate("/AccountRequests", {replace: true})
+                console.log(desc);
+                break;
+            case 'Dashboard' :
+                navigate("/AdminDashboard", {replace: true})
+                console.log(desc);
+                break;
+            case 'Manage Accounts' :
+                navigate("/AccountManagement", {replace: true})
+                console.log(desc);
+                break;
+        }
+
+    }
 
     function toogleOpen() {
         setOpen(!open);
@@ -107,7 +130,7 @@ export default function MyProfile() {
             </Box>
 
             <List dense={true}>
-                {navbarList.map((key, index) => (
+                {navListAccounts.map((key, index) => (
                     <>
                         {index === 0 ? (
                             <>
@@ -186,7 +209,7 @@ export default function MyProfile() {
                                     },
                                 }}
                             >
-                                <ListItemButton
+                                <ListItemButton onClick={(event)=>handleSideNavClick(event,key.desc)}
                                     sx={{
                                         margin: '6px 14px',
                                         padding: '10px',

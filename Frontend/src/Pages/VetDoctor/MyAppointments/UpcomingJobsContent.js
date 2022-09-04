@@ -7,7 +7,10 @@ import Grid from '@mui/material/Grid';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import List2 from './List2';
+import List1 from './List2';
+
+import List2 from './List2 copy'
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -78,8 +81,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
         </div>
 
+<List1/>
 <List2/>
-<List2/>
+
 
        
           </Item>

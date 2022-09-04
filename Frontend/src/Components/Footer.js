@@ -13,8 +13,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="#FFFFFF" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/Home">
+        PetPal
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -46,9 +46,12 @@ function Footer() {
               }}>About Us <br />
                   
               </div>
-              <p style={{color: '#D4D4D4',marginLeft: 250 }}>dghfgdhgfdjgfjh sbsdvsvdsvdbvfdvfvdfj <br />ddgsdaghfghdfahdgfahfdsdahgdjas<br />
-              sdhgdshjadgahjsgjjdhgfjdfgjhgfdhgfh<br />shfdkfhsdjhfjdsfhjdgfjhdhfgjd <br/>jfhsjhfjdhjfhd
-              sghdahgjhghjgfhdgfhjddfdh<br/>gshjgdhjfgdhjgfsjdg</p>
+              <p style={{color: '#D4D4D4',marginLeft: 250 }}>PetPal creates a web based solution to <br></br> 
+              interconnect pet enthusiasts and reduce time <br></br>
+                and effort spent on ensuring <br></br>
+                well being of pets <br></br>
+                while supporting the welfare <br></br>
+                of street animals. </p>
           <div style={{
                   marginTop: -180,
                   marginLeft: 670,
@@ -124,7 +127,7 @@ function Footer() {
                   // fontFamily: 'Poppins',
                   // fontSize: '34px',
                   color: '#D4D4D4'
-              }}>petpal@gmial.com</div></ol><br />
+              }}>petpal@gmail.com</div></ol><br />
                 </ul>
                 {/* <div style={{marginTop: -200 ,marginLeft: -710,}}>
                   <PetsIcon sx={{ fontSize: 150}} color="primary" />  

@@ -112,7 +112,7 @@ function Home() {
     // </div>
     <div
       style={{
-        marginTop : -37,
+        marginTop : -69,
         // backgroundColor: '#FFC71C',
         background: 'linear-gradient(132.19deg, #CEFFFC 15.52%, rgba(211, 209, 202, 0) 80.08%)',
         width: '100%',
@@ -148,8 +148,8 @@ function Home() {
           >Register</Button> */}
 
 
-        <React.Fragment>     
-          <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button"  sx={{marginTop:53, marginLeft:17}} >
+        <React.Fragment >     
+          <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button"  sx={{marginTop:45, marginLeft:44}} >
             <Button href='/RegistrationPetOwner' style={{backgroundColor: '#31ba32', height:45}} onClick={handleClick}>{options[selectedIndex]} Register</Button>
             <Button
 
@@ -223,7 +223,7 @@ function Home() {
       </div>
            {/* <div className='actorpng'><img src={image}  alt="Logo"/></div>
            <div className='events'>Donations and volunteering</div>  */}
-           <Stack direction="row" spacing={15} sx={{marginLeft:15, marginTop:20}}>
+           <Stack direction="row" spacing={15} sx={{marginLeft:15, marginTop:10}}>
             <img src={circle7}   alt="Logo"/>
             <img src={circle8}   alt="Logo" style={{
               // marginLeft: '1700px',
@@ -256,7 +256,7 @@ function Home() {
               <Typography variant='h6'>Animal Clinics</Typography>
               <Typography variant='h6'>Pet Stores</Typography>
            </Stack>
-
+            
            <div className='events'>Donations and volunteering</div>
 
 

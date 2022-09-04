@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import TextField from '@mui/material/TextField';
 // import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
@@ -12,6 +11,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 import logo from "../../Images/Logo.png";
+import '../../Style/Guest/Login.css'
 
 //change the length of the textfield
 // const style={
@@ -37,7 +37,7 @@ const theme = createTheme({
     padding: theme.spacing(0.2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:650,
+    height:'60%',
     top:10,
     width:'40%'
   }));
@@ -55,16 +55,16 @@ function RegistrationShop() {
     
 
     return(
-        <div style={{backgroundColor: '#CEFFFC'}}>
-          <img src ={logo} alt="petpalLogo" style={{float:"left"}}/>  
+        <div>
+          <img src ={logo} alt="petpalLogo" width={200}/>  
             <Box sx={{ flexGrow: 1 }} >
             <Grid container spacing={2} justifyContent="center">
-            <Item style={{backgroundColor: '#9BABCF'}}>
+            <Item style={{backgroundColor: '#1bbcb6'}}>
             <h1>Sign up</h1>
-            <div><p>Already have an account?  <a href={'/'}>Login</a> </p> 
+            <div><p>Already have an account?  <a href={'./Login'}>Login</a> </p> 
             </div>
                 <FormControl>
-                    <table>
+                    <table style={{borderSpacing: '0px 20px'}}>
                         <tr>
                             <td>
                                 <div className="shopname">

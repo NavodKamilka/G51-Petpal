@@ -16,13 +16,52 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import logo from '../Images/Logo.png'
+import {useNavigate} from "react-router-dom";
 
 const pages = ['Home', 'Who We Are', 'Health Care', 'Shop','Events','Our Services','Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const links = ['/Whoweare', '/Whoweare', '/Whoweare', 'Whoweare','Whoweare','Whoweare','Whoweare'];
 
 const TopNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const navigate = useNavigate();
+
+    const handleSideNavClick = (event,key) =>{
+        event.preventDefault();
+
+        switch (key) {
+            case 'Home' :
+                navigate("/", {replace: true})
+                break;
+            case 'Who We Are' :
+                navigate("/Whoweare", {replace: true})
+                break;
+            case 'Health Care' :
+                navigate("/ClinicAdsMain", {replace: true})
+                break;
+            case 'Contact Us' :
+                navigate("/Contactus", {replace: true})
+                break;
+            case 'Our Services' :
+                navigate("/Ourservices", {replace: true})
+                break;
+            case 'Events' :
+                navigate("/Events", {replace: true})
+                break;
+            case 'Shop' :
+                navigate("/ShopAdsFinal", {replace: true})
+                break;
+            case 'Discussion' :
+                navigate("/DocDiscussionContent", {replace: true})
+                break;
+            case 'Events' :
+                navigate("/AccountManagement", {replace: true})
+                break;
+        }
+
+    }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -80,6 +119,7 @@ const TopNavbar = () => {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -104,6 +144,7 @@ const TopNavbar = () => {
                 </MenuItem>
               ))}
             </Menu>
+
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
@@ -120,7 +161,7 @@ const TopNavbar = () => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-            }}
+            }} 
           >
             LOGO
           </Typography>
@@ -129,7 +170,10 @@ const TopNavbar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
+                    onClick={(event)=>handleSideNavClick(event,page)
+              }
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                
               >
                 {page}
               </Button>

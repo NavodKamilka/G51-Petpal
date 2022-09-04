@@ -25,8 +25,8 @@ import navbarList from '../../Components/navListClinic';
 import StyledAvatar from '../../Components/StyledAvatar';
 
 import TopNavbar from '../../Components/TopNavbar';
-import Footer from '../../Components/Footer'
-import Doctors from './Appointments'
+import Footer from '../../Components/Footer';
+import {useNavigate} from "react-router-dom";
 import Appointments from './Appointments';
 
 
@@ -42,6 +42,32 @@ export default function AppointmentMain() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
+
+  const navigate = useNavigate();
+  const handleSideNavClick = (event,desc) =>{
+      event.preventDefault();
+
+      switch (desc) {
+          case 'Clinic Profile' :
+              navigate("/ClinicProfile", {replace: true})
+              console.log(desc);
+              break;
+          case 'Appointments' :
+              navigate("/DoctorMain", {replace: true})
+              console.log(desc);
+              break;
+          case 'Notices' :
+              navigate("/ViewNoticeMain", {replace: true})
+              console.log(desc);
+              break;
+          case 'Payment' :
+              navigate("/PaymentMain", {replace: true})
+              console.log(desc);
+              break;
+
+      }
+
+  }
 
   function toogleOpen() {
     setOpen(!open);
@@ -195,6 +221,8 @@ export default function AppointmentMain() {
                 }}
               >
                 <ListItemButton
+                //href={key.href}
+                onClick={(event)=>handleSideNavClick(event,key.desc)}  
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

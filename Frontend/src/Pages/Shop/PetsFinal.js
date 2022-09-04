@@ -17,6 +17,8 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
 
+import {useNavigate} from "react-router-dom";
+
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
@@ -49,6 +51,32 @@ export default function PetsFinal() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
+
+
+  //navigation new method
+const navigate = useNavigate();
+const handleSideNavClick = (event,desc) =>{
+    event.preventDefault();
+
+    switch (desc) {
+        case 'My Profile' :
+            navigate("/ShopProfileFinal", {replace: true})
+            console.log(desc);
+            break;
+        case 'Products' :
+            navigate("/FoodTableFinal", {replace: true})
+            console.log(desc);
+            break;
+        case 'Pets' :
+            navigate("/PetsFinal", {replace: true})
+            console.log(desc);
+            break;
+        case 'Payment' :
+            navigate("/PaymentFinal", {replace: true})
+            console.log(desc);
+            break;
+    }
+}
 
   function toogleOpen() {
     setOpen(!open);
@@ -203,6 +231,10 @@ export default function PetsFinal() {
                 }}
               >
                 <ListItemButton
+                 // TRY TO ADD A LINK TO A BUTTON
+                // component={Link} to='./PetAds'
+                onClick={(event)=>handleSideNavClick(event,key.desc)}
+                
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

@@ -7,8 +7,9 @@ import Grid from '@mui/material/Grid';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import List2 from './List1';
+import List2 from './List3';
 
+import List1 from './List3 copy'
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -24,6 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
   export default function  TodayAppointmentsContent() {
     const current = new Date();
     const date = `${current.getFullYear()} - ${current.getMonth()+1} - ${current.getDate()}`;
+    
 
   return (
     <div>
@@ -56,7 +58,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
         </div>
         <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
+            position:"relative",top: '2%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             // top:'180px',left:'0%'
@@ -71,7 +73,8 @@ const Item = styled(Paper)(({ theme }) => ({
         </div>
 
 <List2/>
-<List2/>
+<List1/>
+
 
        
           </Item>

@@ -4,6 +4,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const indexRouter = require('./router.js');
+const AppointmentRouterPetOwner = require('./api/PetOwner/Appointment.router');
+const DiscussionRouterPetOwner = require('./api/PetOwner/Discussion.router');
+const NoticeRouterPetOwner = require('./api/PetOwner/Notice.router');
+
  
 const app = express();
  
@@ -16,8 +20,13 @@ app.use(bodyParser.urlencoded({
 }));
  
 app.use(cors());
+
+
  
 app.use('/api', indexRouter);
+app.use('/api', AppointmentRouterPetOwner);
+app.use('/api', DiscussionRouterPetOwner);
+app.use('/api', NoticeRouterPetOwner);
  
 // Handling Errors
 app.use((err, req, res, next) => {

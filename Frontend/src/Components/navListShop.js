@@ -11,7 +11,7 @@ const navListShop = [
     desc: 'Search',
     secondDesc: '',
     badge: 0,
-    subList: [],
+    subList: [], 
   },
   // {
   //   icon: DashboardOutlined,
@@ -26,12 +26,14 @@ const navListShop = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href:'ShopProfileFinal'
   },
   {
     icon: Product,
     desc: 'Products',
     secondDesc: '',
     badge: 0,
+    href:'FoodTableFinal',
     subList: [
       // {
       //   desc: 'chat',
@@ -48,6 +50,7 @@ const navListShop = [
     desc: 'Pets',
     secondDesc: '',
     badge: 0,
+    href:'PetsFinal',
     subList: [],
   },
   {
@@ -55,6 +58,7 @@ const navListShop = [
     desc: 'Payment',
     secondDesc: '',
     badge: 0,
+    href:'PaymentFinal',
     subList: [],
   },
   // {

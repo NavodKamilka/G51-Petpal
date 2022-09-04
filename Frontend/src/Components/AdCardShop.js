@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -29,7 +30,7 @@ export default function AdCardShop() {
             </CardContent>
 
           <CardActions>
-            <Button size="small">View shop</Button>
+            <Button size="small" href="/ShopProfileGuestView">View shop</Button>
           </CardActions>
             
         </Card>

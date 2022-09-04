@@ -66,8 +66,9 @@ function Login() {
   };
 
   return (
-    <div className="regbody">
-      <img src={logo} alt="petpalLogo" className="logo" />
+    // <div className="regbody">
+    <div>
+      <img src={logo} alt="petpalLogo" width={200} className="logo" />
       <div className="box">
         <h1>Login</h1>
 
