@@ -121,11 +121,11 @@ const Item = styled(Paper)(({ theme }) => ({
 
     const n = 3;
 
-    const n1 = [food1,food2,food3]
+    // const n1 = [food1,food2,food3]
 
-    // const n1 = [{ id: 1, item:food1 },
-    //             { id: 2, item:food2 },
-    //             { id: 3, item:food3 }]
+    const n1 = [{ id: 1, product:food1 },
+                { id: 2, product:food2 },
+                { id: 3, product:food3 }]
 
 
 
@@ -170,9 +170,9 @@ const Item = styled(Paper)(({ theme }) => ({
                 Food
               </Typography>
           <Stack marginLeft={'5.2%'}  marginTop={7} direction="row" spacing={8}>
-          {[...Array(n1.length)].map((index) => ( 
+          {n1.map((item, index) => ( 
           
-              <Card sx={{ maxWidth: '28%' }}>
+              <Card key={index} sx={{ maxWidth: '28%' }}>
                 <CardHeader
                   avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -190,7 +190,7 @@ const Item = styled(Paper)(({ theme }) => ({
                 <CardMedia
                   component="img"
                   height="194"
-                  image={n1[0]}
+                  image={item.product}
                   alt="Paella dish"
                 />
                 <CardContent>
