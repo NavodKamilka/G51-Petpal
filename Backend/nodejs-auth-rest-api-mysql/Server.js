@@ -7,7 +7,7 @@ const indexRouter = require('./router.js');
 const AppointmentRouterPetOwner = require('./api/PetOwner/Appointment.router');
 const DiscussionRouterPetOwner = require('./api/PetOwner/Discussion.router');
 const NoticeRouterPetOwner = require('./api/PetOwner/Notice.router');
-
+const AccountRequestRouterManager = require('./api/Manager/Requests/AccountRequestRouter');
  
 const app = express();
  
@@ -27,6 +27,7 @@ app.use('/api', indexRouter);
 app.use('/api', AppointmentRouterPetOwner);
 app.use('/api', DiscussionRouterPetOwner);
 app.use('/api', NoticeRouterPetOwner);
+app.use('/api', AccountRequestRouterManager);
  
 // Handling Errors
 app.use((err, req, res, next) => {
