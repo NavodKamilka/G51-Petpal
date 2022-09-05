@@ -11,12 +11,8 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
 import logo from "../../Images/Logo.png";
-<<<<<<< HEAD
-import '../../Style/Guest/Login.css'
-=======
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
->>>>>>> c7cb85d52fc8a6bcdd35765a9d77162b79dbf5a4
 
 //change the length of the textfield
 // const style={
@@ -35,18 +31,6 @@ const theme = createTheme({
 });
 
 // the grey box
-<<<<<<< HEAD
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
-    ...theme.typography.body2,
-    padding: theme.spacing(0.2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height:'60%',
-    top:10,
-    width:'40%'
-  }));
-=======
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
   ...theme.typography.body2,
@@ -57,7 +41,6 @@ const Item = styled(Paper)(({ theme }) => ({
   top: 10,
   width: "40%",
 }));
->>>>>>> c7cb85d52fc8a6bcdd35765a9d77162b79dbf5a4
 
 function RegistrationPetOwner() {
   // // used for input may be for password
@@ -105,22 +88,6 @@ function RegistrationPetOwner() {
     }
   };
 
-<<<<<<< HEAD
-    
-
-    return(
-        <div>
-          <img src ={logo} alt="petpalLogo" width={200}/>  
-            <Box sx={{ flexGrow: 1 }} >
-            <Grid container spacing={2} justifyContent="center">
-            <Item style={{backgroundColor: '#1bbcb6'}}>
-            <h1>Sign up</h1>
-            <div><p>Already have an account?  <a href={'./Login'}>Login</a> </p> 
-            </div>
-                <FormControl>
-                    <table style={{borderSpacing: '0px 20px'}}>
-                        {/* <tr> 
-=======
   return (
     <div style={{ backgroundColor: "#CEFFFC" }}>
       <img src={logo} alt="petpalLogo" style={{ float: "left" }} />
@@ -136,7 +103,6 @@ function RegistrationPetOwner() {
             <FormControl>
               <table>
                 {/* <tr> 
->>>>>>> c7cb85d52fc8a6bcdd35765a9d77162b79dbf5a4
                             <td>
                                 <TextField
                                     value={value}

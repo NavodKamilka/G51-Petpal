@@ -45,7 +45,6 @@ import MakeAppointment from "./Pages/Petowner/Appointment/MakeAppointment"
 
 
 //shopkeeper
-<<<<<<< HEAD
 import ShopProfileFinal from './Pages/Shop/ShopProfileFinal.js'
 import FoodTableFinal from './Pages/Shop/FoodTableFinal.js'
 import PetsFinal from './Pages/Shop/PetsFinal'
@@ -54,27 +53,7 @@ import ProductAdsFinal from './Pages/Shop/ProductAdsFinal'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
 import AddPetFinal from './Pages/Shop/AddPetFinal'
 import AddProductFinal from './Pages/Shop/AddProductFinal'
-=======
 
-// import ShopProfile from './Pages/Shop/ShopProfile.js'
-import ShopProfileFinal from './Pages/Shop/ShopProfileFinal.js'
-// import Products from './Pages/Shop/Products.js'
-import ProductsFinal from './Pages/Shop/ProductsFinal.js'
-// import Pets from './Pages/Shop/Pets.js'
-import PetsFinal from './Pages/Shop/PetsFinal'
-// import ShopAds from './Pages/Shop/ShopAds'
-import ShopAdsFinal from './Pages/Shop/ShopAdsFinal'
-// import ProductAds from './Pages/Shop/ProductAds'
-import ProductAdsFinal from './Pages/Shop/ProductAdsFinal'
-// import PetAds from './Pages/Shop/PetAds'
-import PetAdsFinal from './Pages/Shop/PetAdsFinal'
-// import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
-// import AddUpdatePet from './Pages/Shop/AddUpdatePet'
-import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
-import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
-import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
-// import Payment from './Pages/Shop/Payment'
->>>>>>> c7cb85d52fc8a6bcdd35765a9d77162b79dbf5a4
 import PaymentFinal from './Pages/Shop/PaymentFinal'
 import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
@@ -185,7 +164,7 @@ function App() {
 
 
           {/* shopkeeper */}
-<<<<<<< HEAD
+
           <Route path='/ShopProfileFinal' element={<ShopProfileFinal/>} /> 
           <Route path='/FoodTableFinal' element={<FoodTableFinal/>} />
           <Route path='/PetsFinal' element={<PetsFinal/>} />
@@ -195,26 +174,7 @@ function App() {
           <Route path='/AddPetFinal' element={<AddPetFinal/>} />
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
-=======
-          {/* <Route path='/ShopProfile' element={<ShopProfile/>} />  */}
-          <Route path='/ShopProfileFinal' element={<ShopProfileFinal/>} /> 
-          {/* <Route path='/Products' element={<Products/>} /> */}
-          <Route path='/ProductsFinal' element={<ProductsFinal/>} />
-          {/* <Route path='/Pets' element={<Pets/>} /> */}
-          <Route path='/PetsFinal' element={<PetsFinal/>} />
-          {/* <Route path='/ShopAds' element={<ShopAds/>} /> */}
-          <Route path='/ShopAdsFinal' element={<ShopAdsFinal/>} />
-          {/* <Route path='/ProductAds' element={<ProductAds/>} /> */}
-          <Route path='/ProductAdsFinal' element={<ProductAdsFinal/>} />
-          {/* <Route path='/PetAds' element={<PetAds/>} /> */}
-          <Route path='/PetAdsFinal' element={<PetAdsFinal/>} />
-          {/* <Route path='/AddUpdateProduct' element={<AddUpdateProduct/>} /> */}
-          {/* <Route path='/AddUpdatePet' element={<AddUpdatePet/>} /> */}
-          <Route path='/AddUpdatePetFinal' element={<AddUpdatePetFinal/>} />
-          <Route path='/AddUpdateProductFinal' element={<AddUpdateProductFinal/>} />
-          <Route path='/ShopProfileGuestView' element={<ShopProfileGuestView/>} />
-          {/* <Route path='/Payment' element={<Payment/>} /> */}
->>>>>>> c7cb85d52fc8a6bcdd35765a9d77162b79dbf5a4
+
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
 
           {/*common*/}

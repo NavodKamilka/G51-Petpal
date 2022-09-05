@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import Box from '@mui/material/Box';
 
 export default function NewTimeslot() {
  
@@ -83,6 +84,17 @@ export default function NewTimeslot() {
       </Stack>
     </LocalizationProvider>
         
+    <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '30ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+     
+    </Box>
 
         <Button>Submit</Button>
       </Stack>

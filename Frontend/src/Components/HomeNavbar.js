@@ -53,24 +53,6 @@ function HomeNavbar() {
   return (
     <>
     <div className='navbackground'>
-<<<<<<< HEAD
-        <div className='logo'><img src={image} width={200}  alt="Logo"/></div>
-
-        <nav className="navC">
-            <ul className='navUl'>
-                <Link className="nav-link" to="/">Home</Link>
-                <Link className="nav-link" to="/Whoweare">Who We Are</Link>
-                <Link className="nav-link" to="/Healthcare">Health Care</Link>
-                <Link className="nav-link" to="/Shops">Shop</Link>
-                <Link className="nav-link" to="/Events">Events</Link>
-                <Link className="nav-link" to="/Ourservices">Our Services</Link>
-                <Link className="nav-link" to="/Contactus">Contact Us</Link>
-            </ul>  
-        </nav>
-
-        <div className='loginbtn'> 
-          <Button endIcon={<LoginIcon />} variant="contained" 
-=======
         <div className='logo'><img src={image} height={150}  alt="Logo"/></div>
           <div>
             <nav className="navC">
@@ -114,7 +96,6 @@ function HomeNavbar() {
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}
->>>>>>> c7cb85d52fc8a6bcdd35765a9d77162b79dbf5a4
             style={{
               transformOrigin:
                 placement === 'bottom' ? 'center top' : 'center bottom',

@@ -9,11 +9,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import { Button } from "@mui/material";
 
-function createData(daay: string, startTime: string, endTime: string) {
-    return { daay, startTime, endTime };
+function createData(daay: string, startTime: string, endTime: string,maxSlots:Int) {
+    return { daay, startTime, endTime,maxSlots };
   }
 
-  const rows = [createData("Saturday", "6pm", "10 pm"),createData("Sunday", "6pm", "10 pm")];
+  const rows = [createData("Saturday", "6pm", "10 pm",5),createData("Sunday", "6pm", "10 pm",6)];
 export default function Timeslots() {
   
   return (
@@ -40,6 +40,9 @@ export default function Timeslots() {
                   </TableCell>
                   <TableCell align="left">
                     {row.startTime} - {row.endTime}
+                  </TableCell>
+                  <TableCell align="left">
+                    {row.maxSlots} 
                   </TableCell>
                   <TableCell align="left">
                     <Button>Edit</Button>
