@@ -3,7 +3,7 @@ var conn = mysql.createConnection({
   host: 'localhost', 
   user: 'root',      
   password: '',      
-  database: 'node-app' 
+  database: 'petpal' 
 }); 
  
 conn.connect(function(err) {
