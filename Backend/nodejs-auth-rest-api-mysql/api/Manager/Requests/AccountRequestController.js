@@ -8,17 +8,17 @@ const jwt = require("jsonwebtoken");
 
 
 router.get("/AccountRequest",  (req, res, next) => {
-    if (
-        !req.headers.authorization ||
-        !req.headers.authorization.startsWith("Bearer") ||
-        !req.headers.authorization.split(" ")[1]
-    ) {
-        return res.status(422).json({
-            message: "Please provide the token",
-        });
-    }
-    const theToken = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+    // if (
+    //     !req.headers.authorization ||
+    //     !req.headers.authorization.startsWith("Bearer") ||
+    //     !req.headers.authorization.split(" ")[1]
+    // ) {
+    //     return res.status(422).json({
+    //         message: "Please provide the token",
+    //     });
+    // }
+    // const theToken = req.headers.authorization.split(" ")[1];
+    // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
         `SELECT * FROM user_requests`,
