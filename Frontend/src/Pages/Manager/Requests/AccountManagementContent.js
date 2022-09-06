@@ -14,6 +14,7 @@ import puppy from '../../../Images/puppy.jpg';
 import Avatar from '@mui/material/Avatar';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from "@mui/material/IconButton";
+import Axios from "axios";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -30,16 +31,43 @@ const Item = styled(Paper)(({theme}) => ({
 
 
 export default function MyProfileContent(){
-    const [blogs, setBlogs] = useState([
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 1 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 2 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 3 },
-        { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 4 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 5 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 6 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 7 },
-        { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 8 }
-    ]);
+
+    const [userList,setUserList] = useState([]);
+
+    useEffect( () => {
+        Axios.get("http://localhost:3001/api/AccountManagement").then((response) =>{
+            setUserList(response.data);
+        })
+    },[]);
+
+    const handlePetOwnerClick = () =>{
+        Axios.get("http://localhost:3001/api/AccountManagement/PetOwner").then((response) =>{
+            setUserList(response.data);
+        })
+    }
+
+    const handleAllClick = () => {
+        Axios.get("http://localhost:3001/api/AccountManagement").then((response) => {
+            setUserList(response.data);
+        })
+    }
+    const handleDoctorClick = () => {
+        Axios.get("http://localhost:3001/api/AccountManagement/Doctor").then((response) => {
+            setUserList(response.data);
+        })
+    }
+
+    const handleClinicClick = () => {
+        Axios.get("http://localhost:3001/api/AccountManagement/Clinic").then((response) => {
+            setUserList(response.data);
+        })
+    }
+
+    const handleShopClick = () => {
+        Axios.get("http://localhost:3001/api/AccountManagement/Shop").then((response) => {
+            setUserList(response.data);
+        })
+    }
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -71,11 +99,11 @@ export default function MyProfileContent(){
                         <Stack direction="column" spacing={2} padding={3} className="notice-requests-outerbox">
                             <Stack direction="row"mb={2} spacing={2} justifyContent="right" alignItems="center">
                                 <FilterSearchBar />
-                                <Button variant="contained">All</Button>
-                                <Button variant="contained">Pet Owner</Button>
-                                <Button variant="contained">Doctor</Button>
-                                <Button variant="contained">Clinics</Button>
-                                <Button variant="contained">Shops</Button>
+                                <Button variant="contained" onClick={handleAllClick}>All</Button>
+                                <Button variant="contained" onClick={handlePetOwnerClick}>Pet Owner</Button>
+                                <Button variant="contained" onClick={handleDoctorClick}>Doctor</Button>
+                                <Button variant="contained" onClick={handleClinicClick}>Clinics</Button>
+                                <Button variant="contained" onClick={handleShopClick}>Shops</Button>
                             </Stack>
                             <Stack direction='column' >
                                 <Stack direction="row" justifyContent="flex-start" spacing={25} p={1} sx={{
@@ -90,17 +118,17 @@ export default function MyProfileContent(){
                                 </Stack>
                                 {/*request list rows*/}
                                 <Stack sx={{overflowY:'scroll'}} mt={2} height='440px'>
-                                    {blogs.map( (blog)=> (
-                                        <Stack className='request-row-container' mb={2} pt={0} key={blog.id} >
+                                    {userList.map( (val)=> (
+                                        <Stack className='request-row-container' mb={2} pt={0} key={val.Id} >
                                             <Stack direction="row" justifyContent="flex-start" alignItems='flex-start' p={1}>
                                                 <div className='row-detail-box' >
-                                                    {blog.date}
+                                                    {val.Date}
                                                 </div>
                                                 <div className='row-detail-box ' >
-                                                    {blog.usertype}
+                                                    {val.UserRole}
                                                 </div>
                                                 <div className='row-detail-box user-name-box'>
-                                                    {blog.fullname}
+                                                    {val.UserName}
                                                 </div>
                                                 <Stack className="row-detail-buttons" direction='row' ml={20} mt={-1} p={1}
                                                        justifyContent='space-around'>
