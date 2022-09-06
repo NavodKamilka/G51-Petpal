@@ -1,10 +1,164 @@
-.main{
-    top: -10;
-    /* background-color: rgb(102, 216, 71); */
+
+.homeBody{
+    background-color: #ffffff;
+    /* left: 200px; */
+    /* margin-right: -7px; */
+    height: 900px;
 }
 
-/* body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.Group{
+    /* background-color: #CEFFFC; */
+    /* width: 1000px;
+    height: 1000px; */
+    /* height: 900px; */
+    /* margin-top: -250px;
+    margin-left: 610px; */
+    top: 10px;
+    margin-left: 880px;
+}
+
+.welcome{
+    position: absolute;
+    width: 527px;
+    height: 75px;
+    left: 286px;
+    top: 300px;
+
+    font-family: 'Hahmlet';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 75px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+.para{
+    position: absolute;
+    width: 501px;
+    height: 76px;
+    left: 330px;
+    top: 370px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+.actors{
+    position: absolute;
+    width: 325px;
+    height: 52px;
+    left: 286px;
+    top: 800px;
+
+    font-family: 'Merienda';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 52px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+}
+
+/* .actorpng{
+    
 } */
+
+.actorpng{
+    /* margin-top: 410px; */
+    /* top: 100px; */
+    margin-top: 90px;
+    margin-left: 160px;
+    /* background-color: #000000; */
+}
+
+.events{
+    position: absolute;
+    width: 397px;
+    height: 49px;
+    left: 600px;
+    top: 1250px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+
+    color: #000000;
+
+    mix-blend-mode: normal;
+}
+
+/* .slider{
+    background-color: #ffffff;
+} */
+
+.topic{
+    position: absolute;
+    width: 714px;
+    height: 230px;
+    left: 150px;
+    top: 1710px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 48px;
+
+    color: #000000;
+}
+
+.list{
+    margin-top: 50px;
+    position: absolute;
+    width: 714px;
+    height: 230px;
+    left: 190px;
+    top: 1730px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    padding: -20;
+
+    color: #000000;
+}
+
+ul.b {
+    list-style-type: square;
+    
+}
+
+ul.b li{
+	padding: -10px;
+}
+
+.homeCat{
+    position: absolute;
+    width: 484px;
+    height: 408px;
+    right: 150px;
+    bottom: -1370px;
+
+    background: url(../../Images/homeCat.png);
+    border-radius: 20px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
