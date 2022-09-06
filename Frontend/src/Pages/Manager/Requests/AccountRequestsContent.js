@@ -46,13 +46,38 @@ export default function MyProfileContent(){
     const [requestList,setRequestList] = useState ([]);
 
     useEffect(()=>{
-
         Axios.get('http://localhost:3001/api/AccountRequest').then((response)=>{
             setRequestList(response.data);
 
         });
     },[]);
 
+    const handleDoctorFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest/Doctor').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+
+    const handleClinicFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest/Clinic').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+    const handleShopFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest/Shop').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+
+    const handleAllFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -83,10 +108,10 @@ export default function MyProfileContent(){
                         <Stack direction="column" spacing={2} padding={3} className="notice-requests-outerbox">
                             <Stack direction="row"mb={2} spacing={2} justifyContent="right" alignItems="center">
                                 <FilterSearchBar />
-                                <Button variant="contained">All</Button>
-                                <Button variant="contained">Doctor</Button>
-                                <Button variant="contained">Clinics</Button>
-                                <Button variant="contained">Shops</Button>
+                                <Button variant="contained" onClick={handleAllFilterClick}>All</Button>
+                                <Button variant="contained" onClick={handleDoctorFilterClick}>Doctor</Button>
+                                <Button variant="contained"onClick={handleClinicFilterClick}>Clinics</Button>
+                                <Button variant="contained"onClick={handleShopFilterClick}>Shops</Button>
                             </Stack>
                             <Stack direction='column' >
                                 <Stack direction="row" justifyContent="flex-start" spacing={25} p={1} sx={{
