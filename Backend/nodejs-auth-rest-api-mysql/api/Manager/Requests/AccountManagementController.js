@@ -27,7 +27,7 @@ router.get("/AccountManagement",  (req, res, next) => {
                 res.send(error);
             }
             res.send(results)
-            // console.log(results);
+
         }
     );
 
@@ -53,7 +53,7 @@ router.get("/AccountManagement/PetOwner",  (req, res, next) => {
                 res.send(error);
             }
             res.send(results)
-            // console.log(results);
+
         }
     );
 
@@ -79,7 +79,7 @@ router.get("/AccountManagement/Clinic",  (req, res, next) => {
                 res.send(error);
             }
             res.send(results)
-            // console.log(results);
+
         }
     );
 
@@ -105,7 +105,7 @@ router.get("/AccountManagement/Doctor",  (req, res, next) => {
                 res.send(error);
             }
             res.send(results)
-            // console.log(results);
+
         }
     );
 
@@ -131,7 +131,7 @@ router.get("/AccountManagement/Shop",  (req, res, next) => {
                 res.send(error);
             }
             res.send(results)
-            // console.log(results);
+
         }
     );
 
