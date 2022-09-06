@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 //import MenuItem from '@mui/material/MenuItem';
 // import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -38,6 +39,18 @@ const Item = styled(Paper)(({ theme }) => ({
     
   }));
 
+  const theme = createTheme({
+    palette: {
+      //name given as view, update and delete to declare buttons
+      blueButton: {
+        main: '#1D168F',
+      //   change the text color inside the button to another color
+        contrastText: "#fff" 
+      } ,     
+    },
+  });
+
+
   export default function  ClinicProfileContent() {
 
   return (
@@ -61,7 +74,9 @@ const Item = styled(Paper)(({ theme }) => ({
                             defaultValue="PetLove@gmail.com"
                             style={style}
                             /></td>
-                        <td> <Button variant="contained" href='/clinicProfile' className='Button'>Save Changes</Button></td>
+                            <td><ThemeProvider theme={theme}><Button variant="contained" href='/ClinicProfile' color='blueButton'>Save Changes</Button></ThemeProvider></td>
+              
+                        
                         <br></br>
                     </tr>
                 </table>

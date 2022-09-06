@@ -53,7 +53,7 @@ function HomeNavbar() {
   return (
     <>
     <div className='navbackground'>
-        <div className='logo'><img src={image} height={150}  alt="Logo"/></div>
+        <div className='logo'><img src={image} height={150}   alt="Logo"/></div>
           <div>
             <nav className="navC">
                 <ul className='navUl'>
@@ -69,8 +69,8 @@ function HomeNavbar() {
           </div>
           {/* <Button variant="contained" sx={{top:60, left:1150}}>Hello</Button> */}
       </div>
-      <React.Fragment>     
-    <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button" sx={{marginTop:7.9, marginLeft:125}} >
+      {/* <React.Fragment>     
+    <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button" sx={{marginTop:-30, marginLeft:160}} >
         <Button href='/login'  onClick={handleClick}>{options[selectedIndex]} Login</Button>
         <Button
           size="small"
@@ -120,11 +120,10 @@ function HomeNavbar() {
           </Grow>
         )}
       </Popper>
-      </React.Fragment>
+      </React.Fragment> */}
       </> 
                
   );      
 }
 
 export default HomeNavbar
-

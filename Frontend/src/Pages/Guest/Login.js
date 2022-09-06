@@ -7,11 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
-import {useNavigate} from "react-router-dom";import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
-// import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { FormControl } from '@mui/material';
+import {useNavigate} from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -70,8 +66,9 @@ function Login() {
   };
 
   return (
-    <div className="regbody">
-      <img src={logo} alt="petpalLogo" className="logo" />
+    // <div className="regbody">
+    <div>
+      <img src={logo} alt="petpalLogo" width={200} className="logo" />
       <div className="box">
         <h1>Login</h1>
 

@@ -23,10 +23,11 @@ const navbarListClinic = [
   // },
   {
     icon: Person,
-    desc: 'Clinc Profile',
+    desc: 'Clinic Profile',
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'ClinicProfile'
   },
   // {
   //   icon: Forum,
@@ -46,10 +47,11 @@ const navbarListClinic = [
   // },
   {
     icon: Analytics,
-    desc: 'Make Appointments',
+    desc: 'Appointments',
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'DoctorMain'
   },
   // {
   //   icon: FolderOpen,
@@ -64,6 +66,7 @@ const navbarListClinic = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'ViewNoticeMain'
   },
 
   {
@@ -72,6 +75,7 @@ const navbarListClinic = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'PaymentMain'
   },
 
   

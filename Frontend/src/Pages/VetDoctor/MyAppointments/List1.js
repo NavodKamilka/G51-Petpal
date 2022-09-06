@@ -30,7 +30,7 @@ justifyContent: 'center',spacing:'4' }}>
     display: 'inline',
     marginRight: '80px',
     fontWeight: 'bold',
-    color: '#193498'}}> 7 pm - 7 30 pm</h2> </Box>
+    color: '#193498'}}> 4 00 pm - 5 00 pm</h2> </Box>
 {/* box for pet owner name */}
 <Box style={{ 
     width: window.width, height: 40,  
@@ -42,7 +42,7 @@ justifyContent: 'center',spacing:'4' }}>
     display: 'inline',
     marginRight: '80px',
     fontWeight: 'bold',
-    color: '#193498'}}> Kasun Perera</h2></Box>
+    color: '#193498'}}> Damitha Rathnayake</h2></Box>
 {/* box for checkbox home visit or not */}
 <Box style={{ 
     width: window.width, height: 40,  

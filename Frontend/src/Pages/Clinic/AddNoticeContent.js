@@ -58,6 +58,7 @@ function AddNoticeContent() {
             <Item>
             <h3>Add Notice</h3>
             <Divider />
+            <br></br>
             <FormControl>
                 <table>
 
@@ -69,6 +70,7 @@ function AddNoticeContent() {
                             />
                         </td>
                     </tr>
+                    <br></br>
 
                     <tr>
                         
@@ -79,6 +81,7 @@ function AddNoticeContent() {
                             />
                         </td>
                     </tr>
+                    <br></br>
 
                     <tr>
                         <td><TextField
@@ -90,6 +93,7 @@ function AddNoticeContent() {
                             />
                         </td>
                     </tr>
+                    <br></br>
                     <tr>
                         <p>Upload Notice</p>
                     <Stack spacing={10} direction="row" justifyContent="center" >
@@ -104,7 +108,7 @@ function AddNoticeContent() {
                     <br></br>
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3}>    
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Request</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" href='/ViewNoticeMain'color='blueButton'>Request</Button></ThemeProvider>
                     </Stack>
                     </tr>
                 </table>

@@ -19,13 +19,18 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+
+const values = {
+  someDate: "2017-05-24"
+};
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
-  height: 900,
+  height: 1500,
   top: 10,
 }));
 
@@ -103,10 +108,79 @@ export default function PetSellContent() {
                 id="outlined-basic"
                 label="Notice Topic"
                 variant="outlined"
-              />{" "}
+              />
               <br />
               <br />
               <br />  
+
+              <TextField
+                sx={{ marginLeft: "0%", width: "70%" }}
+                id="outlined-basic"
+                label="Publisher Name"
+                variant="outlined"
+              />
+              <br />
+              <br />
+              <br /> 
+              <TextField
+                sx={{ marginLeft: "0%", width: "70%" }}
+                id="outlined-basic"
+                label="NIC"
+                variant="outlined"
+              />
+              <br />
+              <br />
+              <br /> 
+
+              <TextField
+                sx={{ marginLeft: "0%", width: "70%" }}
+                id="outlined-basic"
+                label="Publisher Address"
+                variant="outlined"
+              />
+              <br />
+              <br />
+              <br /> 
+              <TextField
+                sx={{ marginLeft: "0%", width: "70%" }}
+                id="outlined-basic"
+                label="Telephone Number"
+                variant="outlined"
+              />
+              <br />
+              <br />
+              <br /> 
+              <TextField
+                sx={{ marginLeft: "0%", width: "70%" }}
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+              />
+              <br />
+              <br />
+              <br /> 
+
+              <TextField
+                sx={{ marginLeft: "0%", width: "70%" }}
+                name="someDate"
+                label="Requested Date"
+                InputLabelProps={{ shrink: true, required: true }}
+                type="date"
+                defaultValue={values.someDate}
+              />
+              <br />
+              <br />
+              <br />
+
+              <TextField
+                sx={{ marginLeft: "0%", width: "70%" }}
+                id="outlined-basic"
+                label="Distric"
+                variant="outlined"
+              />
+              <br />
+              <br />
+              <br /> 
               <FormControl sx={{ m: 1, width: "70%" }}>
                 <InputLabel id="demo-simple-select-label">Notice Type</InputLabel>
                 <Select

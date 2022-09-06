@@ -36,7 +36,7 @@ const theme = createTheme({
       main: '#63B8BB',
     },
     update: {
-      main: '#1C884C',
+      main: '#005A2B',
     },
     delete: {
       main: '#F5222D',
@@ -49,8 +49,11 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
+    color: theme.palette.common.black,
+    fontSize: 15,
+    fontWeight:'bold',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -77,9 +80,9 @@ function createData(DoctorName, NoOfAppointments) {
 }
 
 const rows = [
-  createData('Dr.Dayani Siriwardane','03'),
-  createData('Dr.Janaki Collure','02'),
-  createData('Dr.Ashan Perera','01'),
+  createData('Dr. Dayani Siriwardane','03'),
+  createData('Dr. Janaki Collure','02'),
+  createData('Dr. Prabath Wickramasinghe','01'),
 ];
 
 export default function Appointments() {
@@ -91,8 +94,8 @@ export default function Appointments() {
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
       
-      <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='accessoriesButton'>Doctors</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" href='/AppointmentMain' color='foodButton'>Make Appointments</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" href='/DoctorMain' color='accessoriesButton'>Doctor List</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/AppointmentMain' color='accessoriesButton'>Appointments</Button></ThemeProvider>
       </Stack>
 
       <br></br>
@@ -118,8 +121,8 @@ export default function Appointments() {
               <StyledTableCell align="left">{row.DoctorName}</StyledTableCell>
               <StyledTableCell align="left">{row.NoOfAppointments}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Add</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/TodayAppoMain' color="view">View</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/AddAppoMain' color="update">Add</Button></ThemeProvider></StyledTableCell>
               {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Blocked</Button></ThemeProvider></StyledTableCell> */}
 
             </StyledTableRow>

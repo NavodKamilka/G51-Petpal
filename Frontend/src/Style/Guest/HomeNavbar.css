@@ -7,8 +7,13 @@
     height: 1000; */
     background-color: #CEFFFC;
     margin-top: 70px;
+    
   
+<<<<<<< HEAD
     margin-left: 70px;
+=======
+    margin-left: -1300px;
+>>>>>>> 33f2b7417344d5a1084d50d06aeea9e7319644f9
 }
 
 
@@ -32,4 +37,3 @@
     padding-left: 20px;
     
 }
-

@@ -1,7 +1,5 @@
 import React from "react";
-
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-
 
 // Guest
 
@@ -45,19 +43,23 @@ import MakeAppointment from "./Pages/Petowner/Appointment/MakeAppointment"
 
 
 //shopkeeper
-
-import ShopProfile from './Pages/Shop/ShopProfile.js'
 import ShopProfileFinal from './Pages/Shop/ShopProfileFinal.js'
 import FoodTableFinal from './Pages/Shop/FoodTableFinal.js'
 import PetsFinal from './Pages/Shop/PetsFinal'
 import ShopAds from './Pages/Shop/ShopAds'
 import ShopAdsFinal from './Pages/Shop/ShopAdsFinal'
-import ProductAds from './Pages/Shop/ProductAds'
+// import ProductsFinal from './Pages/Shop/ProductsFinal'
 import ProductAdsFinal from './Pages/Shop/ProductAdsFinal'
 import PetAds from './Pages/Shop/PetAds'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
 import AddPetFinal from './Pages/Shop/AddPetFinal'
 import AddProductFinal from './Pages/Shop/AddProductFinal'
+// import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
+// import AddUpdatePet from './Pages/Shop/AddUpdatePet'
+// import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
+// import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
+// import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
+// import Payment from './Pages/Shop/Payment'
 import PaymentFinal from './Pages/Shop/PaymentFinal'
 import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
@@ -65,8 +67,8 @@ import ViewProductFinal from './Pages/Shop/ViewProductFinal'
 
 
 //Clinic
-import ClinicAdsMain from "./Pages/Clinic/ClinicAdsMain"
-import ClinicViewMain from "./Pages/Clinic/ClinicViewMain"
+import ClinicAdsMain from "./Pages/Guest/ClinicAdsMain"
+import ClinicViewMain from "./Pages/Guest/ClinicViewMain"
 import ClinicDocProfile from "./Pages/Clinic/MyProfile"
 import ClinicProfile from "./Pages/Clinic/ClinicProfile"
 import DoctorMain from "./Pages/Clinic/DoctorMain"
@@ -78,7 +80,7 @@ import AddAppoMain from "./Pages/Clinic/AddAppoMain"
 import TodayAppoMain from "./Pages/Clinic/TodayAppoMain"
 import PreviousAppoMain from "./Pages/Clinic/PreviousAppoMain"
 import UpAppoMain from "./Pages/Clinic/UpAppoMain"
-// import ViewAppo from "./Pages/Clinic/ViewAppo"
+import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
 
 //test - keshani
@@ -98,10 +100,14 @@ import ArticlesFromAuthor from "./Pages/VetDoctor/Articles/ArticlesFromAuthor";
 import PendingArticles from "./Pages/VetDoctor/Articles/PendingArticles";
 //Doc profile
 import DocProfile from "./Pages/VetDoctor/MyProfile/DocProfile";
-import DocProfileContent from "./Pages/VetDoctor/MyProfile/DocProfileContent";
 import ContactUsContent from "./Pages/Guest/ContactUsContent"
 //review
 import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
+import DocDiscussion from './Pages/VetDoctor/Discussion/Discussion'
+import DocDiscussionContent from './/Pages/VetDoctor/Discussion/DiscussionContent';
+import DocPetMart from './Pages/VetDoctor/PetMart/PetMart'
+import DocProductMart from './Pages/VetDoctor/ProdcuctMart/PetProducts'
+import DocNotice from './Pages/VetDoctor/Notice/Notice'
 
 
 import Articles from "./Pages/Manager/Annoucement/Articles";
@@ -130,6 +136,7 @@ function App() {
           <Route path="/Healthcare" element={<Healthcare />} />
           
           <Route path="/Ourservices" element={<Ourservices />} />
+          {/* <Route path="/OurservicesBody" element={<OurservicesBody/>} /> */}
           <Route path="/Shops" element={<Shops />} />
           <Route path="/Whoweare" element={<Whoweare />} />
           <Route path='/RegistrationPetOwner' element={<RegistrationPetOwner/>} /> 
@@ -146,7 +153,7 @@ function App() {
           <Route path="/PetProfile/Alex" element={<PetProfile />} />
           <Route path="/PetProfile/Alex/Vaccinations" element={<Vaccinations />} />
 
-          <Route path="/Discussion" element={<Discussion />} />
+              <Route path="/Discussion" element={<Discussion />} />
           <Route path="/Discussion/Start" element={<DiscussionStart />} />
 
           <Route path="/PetProducts" element={<PetProducts />} />
@@ -163,15 +170,12 @@ function App() {
 
 
           {/* shopkeeper */}
-          <Route path='/ShopProfile' element={<ShopProfile/>} /> 
           <Route path='/ShopProfileFinal' element={<ShopProfileFinal/>} /> 
           <Route path='/FoodTableFinal' element={<FoodTableFinal/>} />
+          {/* <Route path='/ProductsFinal' element={<ProductsFinal/>} /> */}
           <Route path='/PetsFinal' element={<PetsFinal/>} />
-          <Route path='/ShopAds' element={<ShopAds/>} />
           <Route path='/ShopAdsFinal' element={<ShopAdsFinal/>} />
-          <Route path='/ProductAds' element={<ProductAds/>} />
           <Route path='/ProductAdsFinal' element={<ProductAdsFinal/>} />
-          <Route path='/PetAds' element={<PetAds/>} />
           <Route path='/PetAdsFinal' element={<PetAdsFinal/>} />
           <Route path='/AddPetFinal' element={<AddPetFinal/>} />
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
@@ -213,10 +217,10 @@ function App() {
           <Route path='/TodayAppoMain' element={<TodayAppoMain/>}/>
           <Route path='/PreviousAppoMain' element={<PreviousAppoMain/>}/>
           <Route path='/UpAppoMain' element={<UpAppoMain/>}/>
-          {/* <Route path='/ViewAppo' element={<ViewAppo/>}/> */}
+          <Route path='/ViewAppo' element={<ViewAppo/>}/>
           <Route path='/PaymentMain' element={<PaymentMain/>}/>
 
-          {/* test keshani */}
+         
           
 
         {/* Veterinary Doctor */}
@@ -231,8 +235,14 @@ function App() {
       <Route path="/PendingArticles" element={<PendingArticles/>} />
       <Route path="/DocProfile" element={<DocProfile/>} />
       <Route path="/ContactUsContent" element={<ContactUsContent/>} />
-      <Route path="/DocProfileContent" element={<DocProfileContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
+      <Route path="/DocDiscussion" element={<DocDiscussion/>} />
+            <Route path="/DocDiscussionContent" element={<DocDiscussionContent/>} />
+      <Route path="/DocPetMart" element={<DocPetMart/>} />
+      <Route path="/DocProductMart" element={<DocProductMart/>} />
+      <Route path="/DocNotice" element={<DocNotice/>} />
+
+
    </Routes>
       </BrowserRouter>
     </div>

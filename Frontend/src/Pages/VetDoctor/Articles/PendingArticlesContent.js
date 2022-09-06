@@ -221,7 +221,7 @@ export default function ArticlesContent() {
 
               
 
-              {Array.from(Array(4)).map((index) => (
+              {Array.from(Array(1)).map((index) => (
                 <div style={{ position: "relative", top: "5%", left: "0%" }}>
                   <ArticleList3 />
                 </div>
