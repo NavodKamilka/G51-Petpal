@@ -34,26 +34,64 @@ module.exports = {
       },
 
 
-      //insert details
+      //insert product details
       create: (data,callBack) => {
         pool.query(
             `insert into food(brand, name, weight, pricePerOne, totalQty, availableQty, description) 
             values(?,?,?,?,?,?,?)`,
-  [
-    data.brand,
-    data.foodName,
-    data.weight,
-    data.pricePerOne,
-    data.totalQty,
-    data.availableQty,
-    data.desc,
-  ],
-  (error, results, fields) => {
-    if (error) {
-      callBack(error);
-    }
-    return callBack(null, results);
-  }
+          [
+            data.brand,
+            data.foodName,
+            data.weight,
+            data.pricePerOne,
+            data.totalQty,
+            data.availableQty,
+            data.desc,
+          ],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+         );
+  },
+
+      //insert pet details
+      createPet: (data,callBack) => {
+        pool.query(
+            `insert into food(brand, name, weight, pricePerOne, totalQty, availableQty, description) 
+            values(?,?,?,?,?,?,?)`,
+          [
+            data.brand,
+            data.foodName,
+            data.weight,
+            data.pricePerOne,
+            data.totalQty,
+            data.availableQty,
+            data.desc,
+          ],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
         );
       },
+
+
+      //get details of all products
+      getShopList: (callBack) => {
+      pool.query(
+        "SELECT * FROM shop",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
 }

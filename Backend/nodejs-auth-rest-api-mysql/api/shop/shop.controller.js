@@ -1,6 +1,6 @@
     // functions in services - getAllProducts
 
-    const {getProduct, create, getOneFood} = require("./shop.service");
+    const {getProduct, create, getOneFood, getShopList, } = require("./shop.service");
 
 
 
@@ -68,7 +68,38 @@
           },
 
 
+            //get the product details stored in the database
+            getShopList: (req, res) => {
+              getShopList((err, results) => {
+                if (err) {
+                  console.log(err);
+                  return;
+                }
+                return res.json({
+                  success: 1,
+                  data: results
+                });
+              });
+            },
 
+             
+             //insert a product to the database
+          insertPet: (req, res) => {
+            console.log("hello");
+            const body = req.body;
+            create(body, (err, results) => {
+              if (err) {
+                console.log(err);
+                return res.status(500).json({
+                  success: 0,
+                  message: "Database connection error"
+                });
+              }
+              return res.status(200).json({
+                success: 1,
+                data: results
+              });
+            });
+          },
 
-          
-        }
+ }

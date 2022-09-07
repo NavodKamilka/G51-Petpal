@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -61,7 +61,7 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    // backgroundColor: '#A689FC',
+    backgroundColor: '#d0f0e9',
     color: theme.palette.common.black,
     fontSize: 15,
     fontWeight:'bold',
@@ -102,6 +102,7 @@ export default function FoodTable() {
 // backend
 const[foodList, setFoodList]=useState([]);
 
+const ref = useRef(null);
 
 // here we don't have to click any button to display data
 useEffect(() =>{
@@ -110,6 +111,14 @@ useEffect(() =>{
   console.log(response);
   });
 }, []);
+
+
+// view one product
+const getOneFood = event => {
+  console.log(event.currentTarget.id);
+
+  console.log(ref.current.id);
+};
 
 
   return (
@@ -165,7 +174,7 @@ useEffect(() =>{
               <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
               <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" href="./ViewProductFinal">View</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" onClick={getOneFood} ref={ref}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  href="./ViewProductFinal">Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 

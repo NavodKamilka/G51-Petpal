@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 // import { styled, alpha } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -11,6 +11,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Axios from "axios";
 
 
 import petmartshop from '../../Images/petmartshop.jpg';
@@ -37,6 +38,19 @@ const theme = createTheme({
 
 
 export default function ShopAds() {
+
+  const[shopList, setShopList]=useState([]);
+
+// here we don't have to click any button to display data
+useEffect(() =>{
+  Axios.get("http://localhost:3001/api/shop/getShopList").then((response)=>{
+    setShopList(response.data.data);   
+  console.log(response);
+  });
+}, []);
+
+
+
   return (
     <div>
       <h1>Pet Stores</h1>
@@ -52,80 +66,38 @@ export default function ShopAds() {
 
         <br></br>
         <br></br>
-          <Grid container spacing={{ xs: 2}} columns={{ xs: 2, md:5}} alignItems="center" justifyContent="center">
-                     {/* show the cards in a row */}
-         <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image={petmartshop}
-              alt="shop image"
-          
-             />
+          <Grid container alignItems="stretch"  justifyContent="center">
+            {/* show the cards in a row */}
+            <Grid item style={{display: 'flex'}} padding={5}>
 
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Pet store 1
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-              No10, Yatinuwara street,Kandy <br></br>
-              081-2233445
-              </Typography>
-            </CardContent>
+            {shopList.map((val) => {
+                return(
+                <Card sx={{ maxWidth: 240 , padding:1}}>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image={val.Picture}
+                      alt="shop image"
+                  
+                    />
 
-          <CardActions>
-            <Button size="small">View shop</Button>
-          </CardActions>
-        </Card>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                      {val.Name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                      {val.Address} <br></br>
+                      {val.OwnerTelNum}
+                      </Typography>
+                    </CardContent>
 
-      {/* card 2 */}
-    <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={petmartshop}
-            alt="green iguana"
-        
-          />
-          
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Pet store 2
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            No10, Yatinuwara street,Kandy <br></br>
-            081-2233445
-            </Typography>
-          </CardContent>
-          <CardActions>
-            
-            <Button size="small">View shop</Button>
-          </CardActions>
-        </Card>
-
-         <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={petmartshop}
-            alt="green iguana"
-        
-          />
-          
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Pet store 3
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            No10, Yatinuwara street,Kandy <br></br>
-            081-2233445
-            </Typography>
-          </CardContent>
-          <CardActions>
-            
-            <Button size="small">View shop</Button>
-          </CardActions>
-        </Card>
+                  <CardActions>
+                    <Button size="small">View shop</Button>
+                  </CardActions>
+                </Card>
+                )
+                })}
+      </Grid>
           </Grid>
 
      
