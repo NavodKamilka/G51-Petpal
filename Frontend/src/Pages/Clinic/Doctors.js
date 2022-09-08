@@ -76,6 +76,7 @@ export default function Doctors() {
               <AdCardDoctor/>
 
             ))} */}
+          <Grid item style={{display: 'flex'}} padding={2}>
             <Card sx={{ maxWidth: 240, padding:1 }}>
             <CardMedia
               component="img"
@@ -99,6 +100,8 @@ export default function Doctors() {
           </CardActions>
             
         </Card>
+        </Grid>
+        <Grid item style={{display: 'flex'}} padding={2}>
         <Card sx={{ maxWidth: 240, padding:1 }}>
             <CardMedia
               component="img"
@@ -122,6 +125,8 @@ export default function Doctors() {
           </CardActions>
             
         </Card>
+        </Grid>
+        <Grid item style={{display: 'flex'}} padding={2}>
         <Card sx={{ maxWidth: 240, padding:1 }}>
             <CardMedia
               component="img"
@@ -145,6 +150,7 @@ export default function Doctors() {
           </CardActions>
             
         </Card>
+        </Grid>
           </Grid>
 
           <div>

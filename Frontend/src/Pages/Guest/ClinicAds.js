@@ -4,6 +4,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import ClinicImage from '../../Images/PetClinic.png';
 import clinicImage2 from '../../Images/petClinic2.png';
@@ -13,12 +15,23 @@ import Grid from '@mui/material/Grid';
 import SearchBar from '../../Components/SearchBar';
 //import AdCardClinic from '../../Components/AdCardClinic';
 
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   // textAlign: 'center',
+//   // color: theme.palette.text.secondary,
+// }));
+
 
 
 export default function ClinicAds() {
   return (
     <div>
-      <h1>Pet Clinics</h1>
+      <Typography variant="h4" style={{textAlign: 'center'}}>
+                Pet Clinics
+            </Typography>
+      {/* <h1>Pet Clinics</h1> */}
       <br></br>
       
         <br></br>
@@ -27,10 +40,11 @@ export default function ClinicAds() {
 
       <br></br>
 
-          <Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center">
+          <Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center" padding={5}>
                       {/* {Array.from(Array(10)).map((index) => (
                         <AdCardClinic/>
                       ))} */}
+            <Grid item style={{display: 'flex'}} padding={2}>
               <Card sx={{ maxWidth: 240, padding:1 }}>
                   <CardMedia
                     component="img"
@@ -55,6 +69,10 @@ export default function ClinicAds() {
                 </CardActions>
                   
               </Card>
+
+            </Grid>
+
+            <Grid item style={{display: 'flex'}} padding={2}> 
               <Card sx={{ maxWidth: 240, padding:1 }}>
                   <CardMedia
                     component="img"
@@ -79,9 +97,10 @@ export default function ClinicAds() {
                 </CardActions>
                   
               </Card>
+              </Grid>
           </Grid>
 
      
     </div>
-  );
+  )
 }
