@@ -93,6 +93,37 @@ router.get("/ViewAppointments/Upcomming", async (req, res) => {
   }
 });
 
+router.get("/ViewAppointments/Past", async (req, res) => {
+  console.log();
+  try {
+    var pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 10);
+    var result = await asyncDB(
+      "select * from doctor_appointments da join appointments a on da.AppointmentID = a.AppointmentID where DoctorID = ? and status = ? and Date < ? and Date >= ?",
+      [1, "0", Formatter.format(new Date(), "yyyy-MM-dd"), pastDate]
+    );
+
+    await Promise.all(
+      result.map(async (r) => {
+        var ownerDetails = await getOwnerDetails(r.OwnerID);
+        r.OwnerDetails = ownerDetails[0];
+        var petDetails = await getPetDetails(r.PetID);
+        r.PetDetails = petDetails[0];
+        r.Date = Formatter.format(r.Date, "yyyy-MM-dd");
+
+        //   remove unwanted details
+        delete r.PetID;
+        delete r.OwnerID;
+        delete r.DoctorID;
+      })
+    );
+
+    res.send(result);
+  } catch (e) {
+    res.send(e);
+  }
+});
+
 async function getOwnerDetails(ownerID) {
   try {
     return await asyncDB("select * from pet_owner where OwnerID = ?", [
