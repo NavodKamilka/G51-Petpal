@@ -4,6 +4,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const indexRouter = require('./router.js');
+const AppointmentRouterPetOwner = require('./api/PetOwner/Appointment.router');
+const DiscussionRouterPetOwner = require('./api/PetOwner/Discussion.router');
+const NoticeRouterPetOwner = require('./api/PetOwner/Notice.router');
+const AccountRequestRouterManager = require('./api/Manager/Requests/AccountRequestRouter');
+//Vetdoctor
+const ViewTimeslot = require('./api/VetDoctor/Timeslots/ViewTimeslotsRouter');
+const AddDocTimeslot = require('./api/VetDoctor/Timeslots/AddTimeslotRouter');
  
 const app = express();
  
@@ -16,8 +23,17 @@ app.use(bodyParser.urlencoded({
 }));
  
 app.use(cors());
+
+
  
 app.use('/api', indexRouter);
+app.use('/api', AppointmentRouterPetOwner);
+app.use('/api', DiscussionRouterPetOwner);
+app.use('/api', NoticeRouterPetOwner);
+app.use('/api', AccountRequestRouterManager);
+//vet doctor
+app.use('/api',ViewTimeslot);
+app.use('/api',AddDocTimeslot)
  
 // Handling Errors
 app.use((err, req, res, next) => {

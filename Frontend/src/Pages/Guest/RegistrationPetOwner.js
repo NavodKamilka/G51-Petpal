@@ -13,6 +13,7 @@ import axios from "axios";
 import logo from "../../Images/Logo.png";
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
+import '../../Style/Guest/Login.css'
 
 //change the length of the textfield
 // const style={
@@ -90,10 +91,10 @@ function RegistrationPetOwner() {
 
   return (
     <div style={{ backgroundColor: "#CEFFFC" }}>
-      <img src={logo} alt="petpalLogo" style={{ float: "left" }} />
+      <img src={logo} alt="petpalLogo" width={200} />
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2} justifyContent="center">
-          <Item style={{ backgroundColor: "#9BABCF" }}>
+          <Item style={{ backgroundColor: "#1bbcb6" }}>
             <h1>Sign up</h1>
             <div>
               <p>
@@ -143,6 +144,7 @@ function RegistrationPetOwner() {
                     </div>
                   </td>
                 </tr>
+                <br/>
 
                 {/* <tr>
                             
@@ -171,7 +173,7 @@ function RegistrationPetOwner() {
                     </div>
                   </td>
                 </tr>
-
+                <br/>
                 <tr>
                   <td>
                     <div className="password">
@@ -205,6 +207,7 @@ function RegistrationPetOwner() {
                             </div>
                             </td>
                         </tr> */}
+                        <br/>
                 <tr>
                   <td>
                     <input type="checkbox" />

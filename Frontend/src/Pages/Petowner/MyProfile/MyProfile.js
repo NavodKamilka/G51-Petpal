@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState, useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
-
 import {useNavigate} from "react-router-dom";
 
 import Box from '@mui/material/Box';
@@ -23,15 +22,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-import navbarList from '../../../Components/navList';
+import navListPetOwner from '../../../Components/navListPetOwner';
 import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer'
 import MyProfileContent from './MyProfileContent';
-
-
-
 
 
 
@@ -50,23 +46,36 @@ export default function MyProfile() {
 
       switch (desc) {
           case 'My Profile' :
-              navigate("/DocProfile", {replace: true})
+              navigate("/MyProfile", {replace: true})
               console.log(desc);
               break;
-          case 'My Appointments' :
-              navigate("/TodayAppointments", {replace: true})
+          case 'Discussion' :
+              navigate("/Discussion", {replace: true})
               console.log(desc);
               break;
-          case 'My Articles' :
-              navigate("/DocArticles", {replace: true})
+          case 'Pet Products' :
+              navigate("/PetProducts", {replace: true})
               console.log(desc);
               break;
+
+          case 'Pet Mart' :
+                navigate("/PetMart", {replace: true})
+                console.log(desc);
+                break;
+
+          case 'Notice' :
+                  navigate("/Notice", {replace: true})
+                  console.log(desc);
+                  break;
+
+          case 'Appointment' :
+                    navigate("/PetOwnerAppointment", {replace: true})
+                    console.log(desc);
+                    break;
 
       }
 
   }
-
-
 
 
   const theme = useTheme();
@@ -145,7 +154,7 @@ export default function MyProfile() {
       </Box>
 
       <List dense={true}>
-        {navbarList.map((key, index) => (
+        {navListPetOwner.map((key, index) => (
           <>
             {index === 0 ? (
               <>

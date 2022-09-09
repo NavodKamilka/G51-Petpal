@@ -35,9 +35,10 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 // require('../../../Images/food1.png')
 
 
-import pet1 from '../../../Images/pet diary 1.png'
-import pet2 from '../../../Images/pet diary 2.png'
-import pet3 from '../../../Images/pet diary 3.png'
+// import pet1 from '../../../Images/pet diary 1.png'
+import pet1 from '../../../Images/pet diary 4.jpg'
+import pet3 from '../../../Images/pet diary 6.jpg'
+import pet2 from '../../../Images/pet diary 5.jpeg'
 
 
 

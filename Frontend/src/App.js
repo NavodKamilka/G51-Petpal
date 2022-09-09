@@ -1,7 +1,5 @@
 import React from "react";
-
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-
 
 // Guest
 
@@ -48,12 +46,20 @@ import MakeAppointment from "./Pages/Petowner/Appointment/MakeAppointment"
 import ShopProfileFinal from './Pages/Shop/ShopProfileFinal.js'
 import FoodTableFinal from './Pages/Shop/FoodTableFinal.js'
 import PetsFinal from './Pages/Shop/PetsFinal'
+import ShopAds from './Pages/Shop/ShopAds'
 import ShopAdsFinal from './Pages/Shop/ShopAdsFinal'
+// import ProductsFinal from './Pages/Shop/ProductsFinal'
 import ProductAdsFinal from './Pages/Shop/ProductAdsFinal'
+import PetAds from './Pages/Shop/PetAds'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
 import AddPetFinal from './Pages/Shop/AddPetFinal'
 import AddProductFinal from './Pages/Shop/AddProductFinal'
-
+// import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
+// import AddUpdatePet from './Pages/Shop/AddUpdatePet'
+// import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
+// import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
+// import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
+// import Payment from './Pages/Shop/Payment'
 import PaymentFinal from './Pages/Shop/PaymentFinal'
 import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
@@ -77,7 +83,7 @@ import UpAppoMain from "./Pages/Clinic/UpAppoMain"
 // import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
 
-
+//test - keshani
 
 // Veterinary Doctor
 
@@ -164,9 +170,9 @@ function App() {
 
 
           {/* shopkeeper */}
-
           <Route path='/ShopProfileFinal' element={<ShopProfileFinal/>} /> 
           <Route path='/FoodTableFinal' element={<FoodTableFinal/>} />
+          {/* <Route path='/ProductsFinal' element={<ProductsFinal/>} /> */}
           <Route path='/PetsFinal' element={<PetsFinal/>} />
           <Route path='/ShopAdsFinal' element={<ShopAdsFinal/>} />
           <Route path='/ProductAdsFinal' element={<ProductAdsFinal/>} />
@@ -174,7 +180,6 @@ function App() {
           <Route path='/AddPetFinal' element={<AddPetFinal/>} />
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
-
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
 
           {/*common*/}

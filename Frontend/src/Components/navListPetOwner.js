@@ -8,7 +8,7 @@ import PetsIcon from '@mui/icons-material/Pets';
 import BookOnlineIcon from '@mui/icons-material/BookOnline';
 
 
-const navbarList = [
+const navListPetOwner = [
   {
     icon: Search,
     desc: 'Search',
