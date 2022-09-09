@@ -25,10 +25,10 @@ router.post("/AddDocTimeslot",  (req, res, next) => {
         `INSERT INTO time_slot_doctors(DocID, Day,StartTime,EndTime,MaxSlots) VALUES (?,?,?,?,?)`,
         [
             1,
-            req.headers.day,
-            req.headers.starttime,
-            req.headers.endtime,
-            req.headers.slots
+            req.body.day,
+            req.body.starttime,
+            req.body.endtime,
+            req.body.slots
             
           ],
           // (error, results, fields) => {
