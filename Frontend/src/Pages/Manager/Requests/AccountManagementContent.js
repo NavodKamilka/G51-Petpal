@@ -69,6 +69,12 @@ export default function MyProfileContent(){
         })
     }
 
+    const handleBannedClick = () => {
+        Axios.get("http://localhost:3001/api/AccountManagement/Banned").then((response) => {
+            setUserList(response.data);
+        })
+    }
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -104,6 +110,7 @@ export default function MyProfileContent(){
                                 <Button variant="contained" onClick={handleDoctorClick}>Doctor</Button>
                                 <Button variant="contained" onClick={handleClinicClick}>Clinics</Button>
                                 <Button variant="contained" onClick={handleShopClick}>Shops</Button>
+                                <Button variant="contained" onClick={handleBannedClick}>Banned</Button>
                             </Stack>
                             <Stack direction='column' >
                                 <Stack direction="row" justifyContent="flex-start" spacing={25} p={1} sx={{
