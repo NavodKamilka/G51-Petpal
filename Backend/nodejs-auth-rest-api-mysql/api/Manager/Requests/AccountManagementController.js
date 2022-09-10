@@ -137,4 +137,30 @@ router.get("/AccountManagement/Shop",  (req, res, next) => {
 
 });
 
+router.get("/AccountManagement/Banned",  (req, res, next) => {
+    // if (
+    //     !req.headers.authorization ||
+    //     !req.headers.authorization.startsWith("Bearer") ||
+    //     !req.headers.authorization.split(" ")[1]
+    // ) {
+    //     return res.status(422).json({
+    //         message: "Please provide the token",
+    //     });
+    // }
+    // const theToken = req.headers.authorization.split(" ")[1];
+    // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+
+    db.query(
+        `SELECT * FROM users WHERE isBanned = '1'`,
+        (error, results) => {
+            if (error) {
+                res.send(error);
+            }
+            res.send(results)
+
+        }
+    );
+
+});
+
 module.exports = router;
