@@ -6,7 +6,7 @@ const {getProduct, insertProducts, getOneFood, getShopList,insertPet}=require(".
 router.get("/getproduct",getProduct);
 
 //view details of one product
-router.get(`/getOneFood/`,getOneFood);
+router.get(`/getOneFood/:id`,getOneFood);
 
 //insert product details
 router.post("/insertproduct",insertProducts);

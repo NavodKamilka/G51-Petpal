@@ -24,7 +24,8 @@
 
           //get details of one product
           getOneFood: (req, res) => {
-            const body = req.body;
+            const id = req.params.foodId;
+            console.log(id);
             getOneFood(body.foodId, (err, results) => {
               if (err) {
                 console.log(err);

@@ -23,6 +23,8 @@ import SearchBar from '../../Components/SearchBar';
 
 import food2 from '../../Images/food2.png';
 import food3 from '../../Images/food3.jpg';
+// import { Link } from '@mui/material';
+import {Link} from 'react-router-dom'
 
 const theme = createTheme({
   palette: {
@@ -165,6 +167,7 @@ const getOneFood = event => {
         <TableBody>
         {foodList.map((val) => {
             return(
+              console.log(val),
             <StyledTableRow> 
               <StyledTableCell align="left"><img src={val.foodImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell>
               <StyledTableCell align="left">{val.brand}</StyledTableCell>
@@ -174,7 +177,7 @@ const getOneFood = event => {
               <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
               <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" onClick={getOneFood} ref={ref}>View</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewProductFinal"} state={{id:val.foodId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  href="./ViewProductFinal">Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 

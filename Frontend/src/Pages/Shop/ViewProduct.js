@@ -1,4 +1,4 @@
-import *as React from 'react';
+import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
@@ -15,6 +15,10 @@ import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
+
+import { useLocation } from 'react-router-dom';
+import Axios from "axios";
+
 
 
 //change the length of the textfield
@@ -49,7 +53,22 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10,
   }));
   
-function AddUpdateProduct() {
+function ViewProduct() {
+    const oneFood = useLocation();
+
+    console.log(oneFood.state.id);
+
+    const[foodList, setFoodList]=useState([]);
+    // here we don't have to click any button to display data
+    useEffect(() =>{
+        console.log(oneFood.id)
+        Axios.get(`http://localhost:3001/api/shop/getOneFood/{oneFood.foodId}`).then((response)=>{
+        setFoodList(response.data.data);   
+        console.log(response);
+        });
+  }, []);
+
+
     return(
         <div>
             <br></br>
@@ -64,7 +83,8 @@ function AddUpdateProduct() {
                         <td><TextField 
                             id="outlined-helperText"
                             label="Brand"
-                            defaultValue="Pedegree"
+                            defaultValue={oneFood.state.brand}
+                            
                             style={style}
                             // change the lenght of the text field
                             // sx={{ width: 500 }}
@@ -77,7 +97,6 @@ function AddUpdateProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Product Name"
-                            defaultValue="Vegeable and chicken"
                             style={style}
 
                             // sx={{ width: 500 }}
@@ -177,4 +196,4 @@ function AddUpdateProduct() {
         
     )       
 }
-export default AddUpdateProduct;
+export default ViewProduct;

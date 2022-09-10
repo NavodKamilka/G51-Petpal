@@ -19,7 +19,6 @@ module.exports = {
 
       //get details of one product
       getOneFood: (foodId, callBack) => {
-        
         pool.query(
           `select foodId, brand, name, weight, pricePerOne, totalQty, availableQty from food where foodId = ?;`,
           [foodId],
