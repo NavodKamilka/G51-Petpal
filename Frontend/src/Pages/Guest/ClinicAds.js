@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState, useEffect} from 'react';
+import Axios from "axios";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -26,6 +27,15 @@ import SearchBar from '../../Components/SearchBar';
 
 
 export default function ClinicAds() {
+  const[clinicList, setClinicList]=useState([]);
+
+  // here we don't have to click any button to display data
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/api/clinic/getclinic").then((response)=>{
+      setClinicList(response.data.data);   
+    console.log(response);
+    });
+  }, []);
   return (
     <div>
       <Typography variant="h4" style={{textAlign: 'center'}}>
@@ -45,6 +55,8 @@ export default function ClinicAds() {
                         <AdCardClinic/>
                       ))} */}
             <Grid item style={{display: 'flex'}} padding={2}>
+              {clinicList.map((val) => {
+                return(
               <Card sx={{ maxWidth: 240, padding:1 }}>
                   <CardMedia
                     component="img"
@@ -56,11 +68,10 @@ export default function ClinicAds() {
 
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      Pet Love
+                      {val.ClinicName}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    No10, Flower street,Colombo 07 <br></br>
-                    011-2233446
+                      {val.ClinicAddress}
                     </Typography>
                   </CardContent>
 
@@ -69,36 +80,13 @@ export default function ClinicAds() {
                 </CardActions>
                   
               </Card>
+                )
+              })}
 
             </Grid>
 
-            <Grid item style={{display: 'flex'}} padding={2}> 
-              <Card sx={{ maxWidth: 240, padding:1 }}>
-                  <CardMedia
-                    component="img"
-                    height="240"
-                    image={clinicImage2}
-                    alt="Clinic Image"
-                
-                  />
-
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Life 
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                    N0 78/D, Colombo 10 <br></br>
-                    011-24567895
-                    </Typography>
-                  </CardContent>
-
-                <CardActions>
-                  <Button size="small" href='/ClinicViewMain'>View Clinic</Button>
-                </CardActions>
-                  
-              </Card>
+           
               </Grid>
-          </Grid>
 
      
     </div>

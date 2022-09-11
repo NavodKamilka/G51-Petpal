@@ -8,7 +8,12 @@ const AppointmentRouterPetOwner = require('./api/PetOwner/Appointment.router');
 const DiscussionRouterPetOwner = require('./api/PetOwner/Discussion.router');
 const NoticeRouterPetOwner = require('./api/PetOwner/Notice.router');
 
- 
+ //clinic-doctor
+ const DoctorRouter = require("./api/Clinic/Doctor/clinic.router.js");
+
+ //clinic
+ const ClinicRouter = require("./api/Guest/HealthCare/clinicMain.router.js");
+
 const app = express();
  
 app.use(express.json());
@@ -28,6 +33,12 @@ app.use('/api', AppointmentRouterPetOwner);
 app.use('/api', DiscussionRouterPetOwner);
 app.use('/api', NoticeRouterPetOwner);
  
+//doctor
+app.use("/api/doctor",DoctorRouter);
+
+//guest
+app.use("/api/clinic",ClinicRouter);
+
 // Handling Errors
 app.use((err, req, res, next) => {
     // console.log(err);
