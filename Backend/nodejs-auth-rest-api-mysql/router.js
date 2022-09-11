@@ -120,7 +120,7 @@ router.post("/get-user", signupValidation, (req, res, next) => {
       return res.send({
         error: false,
         data: results[0],
-        message: "Fetch Successfully.",
+        message: "Fetch Successfully."
       });
     }
   );
