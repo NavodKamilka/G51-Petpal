@@ -3,7 +3,7 @@
 const pool = require("../../Connection/dbConnection");
 
 module.exports = {
-  //get details of all products
+  //get details of all food products
     getProduct: (callBack) => {
         pool.query(
           "SELECT * FROM food",
@@ -17,10 +17,10 @@ module.exports = {
       },
 
 
-      //get details of one product
+      //get details of one food product
       getOneFood: (id, callBack) => {
         pool.query(
-          `select foodId, brand, name, weight, pricePerOne, totalQty, availableQty from food where foodId = ?;`,
+          `select foodId, brand, name, weight, pricePerOne, totalQty, availableQty, description from food where foodId = ?;`,
           [id],
           (error, results, fields) => {
             if (error) {
@@ -33,7 +33,7 @@ module.exports = {
       },
 
 
-      //insert product details
+      //insert food product details
       create: (data,callBack) => {
         pool.query(
             `insert into food(brand, name, weight, pricePerOne, totalQty, availableQty, description) 
@@ -107,6 +107,17 @@ module.exports = {
 //       );
 //     }
 
-
+      //get details of all  accessories
+      getAllAccessories: (callBack) => {
+        pool.query(
+          "SELECT * FROM accessories",
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+},
 
 }

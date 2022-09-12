@@ -54,7 +54,18 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
   
 function UpdateProduct() {
-   
+//     const oneFood = useLocation();
+//     const foodId = oneFood.state.id;
+
+//     const[foodList, setFoodList]=useState([]);
+ 
+//     // here we don't have to click any button to display data
+//     useEffect(() =>{
+//         Axios.get(`http://localhost:3001/api/shop/updateFood/${foodId}`).then((response)=>{
+//         setFoodList(response.data.data);   
+//         });
+//   }, [oneFood.state.id]);
+
 
 
     return(

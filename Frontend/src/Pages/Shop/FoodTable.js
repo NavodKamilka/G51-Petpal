@@ -21,8 +21,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import SearchBar from '../../Components/SearchBar';
 
-// import food2 from '../../Images/food2.png';
-// import food3 from '../../Images/food3.jpg';
+
 // import { Link } from '@mui/material';
 import {Link} from 'react-router-dom'
 
@@ -178,7 +177,7 @@ useEffect(() =>{
               <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewProductFinal"} state={{id:val.foodId}}>View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  href="./ViewProductFinal">Update</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  component={Link} to={"/UpdateProductFinal"} state={{id:val.foodId}}>Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>

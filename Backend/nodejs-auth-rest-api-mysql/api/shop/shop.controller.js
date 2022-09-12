@@ -5,7 +5,7 @@
 
 
     module.exports = {
-        //get the product details stored in the database
+        //coomon to get * food and accessories - get all the food product details stored in the database
         getProduct: (req, res) => {
             getProduct((err, results) => {
               if (err) {
@@ -135,4 +135,5 @@
           //     response.status(200).send(`User deleted with ID: ${id}`)
           //   })
           // }
+
  }

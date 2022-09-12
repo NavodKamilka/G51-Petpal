@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,15 +10,13 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
-
-// import { Grid} from "@material-ui/core";
 import Grid from '@mui/material/Grid';
-
-
 //related to changing colors in  (view, update, delete) buttons
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import Axios from "axios";
 import SearchBar from '../../Components/SearchBar';
+
+
 
 import toy from "../../Images/toy.jpg";
 import dogCollar from "../../Images/dogCollar.jpg";
@@ -85,16 +83,28 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-function createData(ProductImage, ProductName, PricePerOne, AvailableQty, LastUpdate) {
-  return { ProductImage, ProductName, PricePerOne, AvailableQty, LastUpdate};
-}
+// function createData(ProductImage, ProductName, PricePerOne, AvailableQty, LastUpdate) {
+//   return { ProductImage, ProductName, PricePerOne, AvailableQty, LastUpdate};
+// }
 
-const rows = [
-  createData(<img src ={toy} alt="toy" style={{width:'25%', height:'25%'}}/>,'Embark Dog Toy Bone', 750.00, 5, '21-08-2022'),
-  createData(<img src ={dogCollar} alt="toy" style={{width:'25%', height:'25%'}}/>,'Iydia - Delicate Safety Casual Nylon Dog, Cat Camo Collar Neck Strap Belt', 690.00, 1, '21-08-2022'),
-];
+// const rows = [
+//   createData(<img src ={toy} alt="toy" style={{width:'25%', height:'25%'}}/>,'Embark Dog Toy Bone', 750.00, 5, '21-08-2022'),
+//   createData(<img src ={dogCollar} alt="toy" style={{width:'25%', height:'25%'}}/>,'Iydia - Delicate Safety Casual Nylon Dog, Cat Camo Collar Neck Strap Belt', 690.00, 1, '21-08-2022'),
+// ];
 
-export default function Products() {
+export default function AccessoriesTable() {
+  const[accList, setAccList]=useState([]);
+
+  
+// here we don't have to click any button to display data
+useEffect(() =>{
+  Axios.get("http://localhost:3001/api/shop/getproduct").then((response)=>{
+  setAccList(response.data.data);   
+  console.log(response);
+  });
+}, []);
+
+
   return (
     <div>  
         <SearchBar/> 
@@ -128,20 +138,22 @@ export default function Products() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}> 
-              <StyledTableCell align="left">{row.ProductImage}</StyledTableCell>
-              <StyledTableCell align="left">{row.ProductName}</StyledTableCell>
-              <StyledTableCell align="left">{row.PricePerOne}</StyledTableCell>
-              <StyledTableCell align="left">{row.AvailableQty}</StyledTableCell>
-              <StyledTableCell align="left">{row.LastUpdate}</StyledTableCell>
+          {accList.map((val) => {
+          return(
+            <StyledTableRow key={val.name}> 
+              <StyledTableCell align="left">{val.ProductImage}</StyledTableCell>
+              <StyledTableCell align="left">{val.ProductName}</StyledTableCell>
+              <StyledTableCell align="left">{val.PricePerOne}</StyledTableCell>
+              <StyledTableCell align="left">{val.AvailableQty}</StyledTableCell>
+              <StyledTableCell align="left">{val.LastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
-          ))}
+          )
+          })}
         </TableBody>
       </Table>
     </TableContainer>

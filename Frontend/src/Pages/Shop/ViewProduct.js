@@ -61,10 +61,8 @@ function ViewProduct() {
  
     // here we don't have to click any button to display data
     useEffect(() =>{
-
         Axios.get(`http://localhost:3001/api/shop/getOneFood/${foodId}`).then((response)=>{
         setFoodList(response.data.data);   
-       
         });
   }, [oneFood.state.id]);
 
@@ -82,11 +80,11 @@ function ViewProduct() {
             return(
 
                 <table key={oneFood.id}>
-                    <tr > 
+                    <tr> 
                         <td ><TextField 
                             id="outlined-helperText"
                             label="Brand"
-                            defaultValue={oneFood.brand}
+                            value={oneFood.brand}
                             
                             style={style}
                             // change the lenght of the text field
@@ -101,7 +99,7 @@ function ViewProduct() {
                             id="outlined-helperText"
                             label="Product Name"
                             style={style}
-
+                            value={oneFood.name}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -113,9 +111,8 @@ function ViewProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Weight"
-                            defaultValue="400g"
                             style={style}
-
+                            value={oneFood.weight}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -126,9 +123,9 @@ function ViewProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Price per 1 (Rs)"
-                            defaultValue="1500.00"
+                            value={oneFood.pricePerOne}
                             style={style}
-
+                           
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -140,7 +137,7 @@ function ViewProduct() {
                             <TextField
                             id="outlined-helperText"
                             label="Total Quantity"
-                            defaultValue="5"
+                            value={oneFood.totalQty}
                             sx={{ width: 250 }}
                             // helperText="Some important text"
                             />
@@ -148,7 +145,7 @@ function ViewProduct() {
                             <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
-                            defaultValue="5"
+                            value={oneFood.availableQty}
                             sx={{ width: 250 }}
                             //   helperText="Some important text"
                             />
@@ -161,9 +158,8 @@ function ViewProduct() {
                                 label="Description"
                                 multiline
                                 rows={4}
-                                defaultValue="Description about the product"
+                                value={oneFood.description}
                                 style={style}
-
                                 // sx={{ width: 500 }}
                             />
                         </td>
@@ -182,13 +178,13 @@ function ViewProduct() {
 
                     </tr>
                     <br></br>
-                    <tr>
+                    {/* <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
                         <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Add</Button></ThemeProvider>
 
                     </Stack>
-                    </tr>
+                    </tr> */}
                 </table>
 
                 )
