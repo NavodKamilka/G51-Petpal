@@ -18,10 +18,10 @@ module.exports = {
 
 
       //get details of one product
-      getOneFood: (foodId, callBack) => {
+      getOneFood: (id, callBack) => {
         pool.query(
           `select foodId, brand, name, weight, pricePerOne, totalQty, availableQty from food where foodId = ?;`,
-          [foodId],
+          [id],
           (error, results, fields) => {
             if (error) {
               callBack(error);
@@ -92,5 +92,21 @@ module.exports = {
         }
       );
     },
+
+// delete a porduct
+// deleteProduct: (foodId, callBack) => {
+//       pool.query(
+//         `delete from food where foodId = ?`,
+//         [foodId],
+//         (error, results, fields) => {
+//           if (error) {
+//             callBack(error);
+//           }
+//           return callBack(null, results[0]);
+//         }
+//       );
+//     }
+
+
 
 }

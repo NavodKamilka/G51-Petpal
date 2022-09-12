@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
 // import { Grid} from "@material-ui/core";
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import Axios from "axios";
 
 
@@ -21,8 +21,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import SearchBar from '../../Components/SearchBar';
 
-import food2 from '../../Images/food2.png';
-import food3 from '../../Images/food3.jpg';
+// import food2 from '../../Images/food2.png';
+// import food3 from '../../Images/food3.jpg';
 // import { Link } from '@mui/material';
 import {Link} from 'react-router-dom'
 
@@ -104,7 +104,7 @@ export default function FoodTable() {
 // backend
 const[foodList, setFoodList]=useState([]);
 
-const ref = useRef(null);
+// const ref = useRef(null);
 
 // here we don't have to click any button to display data
 useEffect(() =>{
@@ -116,11 +116,11 @@ useEffect(() =>{
 
 
 // view one product
-const getOneFood = event => {
-  console.log(event.currentTarget.id);
+// const getOneFood = event => {
+//   console.log(event.currentTarget.id);
 
-  console.log(ref.current.id);
-};
+//   console.log(ref.current.id);
+// };
 
 
   return (
