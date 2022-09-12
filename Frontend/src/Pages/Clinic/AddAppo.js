@@ -46,12 +46,6 @@ const theme = createTheme({
   }));
 
 function AddAppo() {
-    // used for drop down list 
-    // const [value, setValue] = React.useState('');
-
-    // const handleChange = (event) => {
-    //   setValue(event.target.value);
-    // };
 
     return(
         <div>
@@ -59,7 +53,8 @@ function AddAppo() {
             <Grid container spacing={2} justifyContent="center">
             <Item>
             <h3>Appointment</h3>
-            <Divider />
+            <Divider/>
+            <br></br>
             <FormControl>
                 <table>
                     <tr>
@@ -71,6 +66,7 @@ function AddAppo() {
                             />
                         </td>
                     </tr>
+                    <br></br>
 
                     <tr>
                         
@@ -81,6 +77,7 @@ function AddAppo() {
                             />
                         </td>
                     </tr>
+                    <br></br>
 
                     <tr>
                         
@@ -91,8 +88,10 @@ function AddAppo() {
                             />
                         </td>
                     </tr>
+                    <br></br>
 
                     <tr>
+                        
                         
                         <td><TextField
                             id="outlined-helperText"
@@ -101,6 +100,7 @@ function AddAppo() {
                             />
                         </td>
                     </tr>
+                    <br></br>
 
                     <tr>
                         <td><TextField
@@ -112,9 +112,11 @@ function AddAppo() {
                             />
                         </td>
                     </tr>
+                    <br></br>
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3}>    
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Add Appoitment</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blackButton'>Get Appoitment</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blackButton'>Cancel</Button></ThemeProvider>
                     </Stack>
                     </tr>
                 </table>

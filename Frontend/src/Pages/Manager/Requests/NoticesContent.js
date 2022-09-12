@@ -7,9 +7,9 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import '../../../Style/Manager/NoticesRequests.css';
 import Stack from "@mui/material/Stack";
-import {Carousel} from "react-responsive-carousel";
+// import {Carousel} from "react-responsive-carousel";
 import testImage from '../../../Images/dog3.png';
-import {Image} from "react-bootstrap";
+// import {Image} from "react-bootstrap";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -38,14 +38,14 @@ export default function MyProfileContent() {
                                 <Typography variant="h5" fontWeight="500" align="center" ml={4} mt={1}>
                                     General
                                 </Typography>
-                                <Carousel axis='horizontal' showIndicators={false}>
-                                    <Image src={testImage} className='w-25' fluid/>
-                                    <Image src={testImage} className='w-25' fluid/>
-                                    <Image src={testImage} className='w-25' fluid/>
-                                    <Image src={testImage} className='w-25' fluid/>
-                                    <Image src={testImage} className='w-25' fluid/>
-                                    <Image src={testImage} className='w-25' fluid/>
-                                </Carousel>
+                                {/*<Carousel axis='horizontal' showIndicators={false}>*/}
+                                {/*    <Image src={testImage} className='w-25' fluid/>*/}
+                                {/*    <Image src={testImage} className='w-25' fluid/>*/}
+                                {/*    <Image src={testImage} className='w-25' fluid/>*/}
+                                {/*    <Image src={testImage} className='w-25' fluid/>*/}
+                                {/*    <Image src={testImage} className='w-25' fluid/>*/}
+                                {/*    <Image src={testImage} className='w-25' fluid/>*/}
+                                {/*</Carousel>*/}
                                 {/*<NoticeItem/>*/}
                             </Stack>
                             <Stack direction="row" className="donation-volunteering-notice-requests-container">

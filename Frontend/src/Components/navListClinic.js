@@ -1,6 +1,6 @@
 // import DashboardOutlined from '@mui/icons-material/DashboardOutlined';
 import Person from '@mui/icons-material/Person';
-import Forum from '@mui/icons-material/Forum';
+//import Forum from '@mui/icons-material/Forum';
 import Analytics from '@mui/icons-material/Analytics';
 import BorderColor from '@mui/icons-material/BorderColor';
 import Payment from '@mui/icons-material/Payment';
@@ -23,10 +23,11 @@ const navbarListClinic = [
   // },
   {
     icon: Person,
-    desc: 'Clinc Profile',
+    desc: 'Clinic Profile',
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'ClinicProfile'
   },
   // {
   //   icon: Forum,
@@ -46,10 +47,11 @@ const navbarListClinic = [
   // },
   {
     icon: Analytics,
-    desc: 'Make Appointments',
+    desc: 'Appointments',
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'DoctorMain'
   },
   // {
   //   icon: FolderOpen,
@@ -64,6 +66,7 @@ const navbarListClinic = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'ViewNoticeMain'
   },
 
   {
@@ -72,6 +75,7 @@ const navbarListClinic = [
     secondDesc: '',
     badge: 0,
     subList: [],
+    href :'PaymentMain'
   },
 
   

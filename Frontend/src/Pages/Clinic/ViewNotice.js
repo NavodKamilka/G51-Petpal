@@ -38,13 +38,14 @@ const theme = createTheme({
       contrastText: "#fff"
     },
     update: {
-      main: '#059862',
+      main: '#005A2B',
       contrastText: "#fff"
     },
     delete: {
       main: '#f00e0e',
       contrastText: "#fff"
     },
+    
   },
 });
 
@@ -53,8 +54,11 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
+    color: theme.palette.common.black,
+    fontSize: 15,
+    fontWeight:'bold',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -82,7 +86,7 @@ function createData(Title, LastDate, Status) {
 
 const rows = [
   createData('Vaccine Campaign','2022-08-23','Pending'),
-  createData('Vaccine Camp', '2022-06-26', 'Accepted'),
+  createData('Pet Care Vaccine Camp', '2022-06-26', 'Accepted'),
   
 ];
 
@@ -96,7 +100,7 @@ export default function Products() {
     
    
       {/* align the 'add product' button to the right */}
-      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Notice</Button></ThemeProvider>  </Grid>  
+      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" href='/AddNotice' startIcon={<AddCircleRoundedIcon/>} color="update">Add Notice</Button></ThemeProvider>  </Grid>  
 
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">

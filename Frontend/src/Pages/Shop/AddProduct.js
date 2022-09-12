@@ -1,4 +1,4 @@
-import *as React from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
@@ -17,6 +17,9 @@ import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
 
 
+//related to backend
+import Axios from "axios";
+
 //change the length of the textfield
 const style={
     width: 500
@@ -30,6 +33,11 @@ const theme = createTheme({
       //   change the text color inside the button to another color
         contrastText: "#fff" 
       },
+      blueButton: {
+        main: '#1D168F',
+      //   change the text color inside the button to another color
+        contrastText: "#fff" 
+      },
       
     },
   });
@@ -40,12 +48,38 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    // color: theme.palette.text.secondary,
     height:800,
     top:10,
   }));
   
-function AddUpdateProduct() {
+function AddProduct() {
+    //raleted to backend
+
+    const [brand, setBrand] = useState("");
+    const [foodName, setFoodName] = useState("");
+    const [weight, setWeight] = useState("");
+    const [pricePerOne, setPricePerOne] = useState("");
+    const [totalQty, setTotalQty] = useState("");
+    const [availableQty, setAvailableQty] = useState("");
+    const [desc, setDesc] = useState("");
+
+    const addProduct = (event) =>{
+        event. preventDefault();
+        Axios.post("http://localhost:3001/api/shop/insertproduct", {
+            brand: brand, 
+            foodName: foodName, 
+            weight: weight, 
+            pricePerOne: pricePerOne, 
+            totalQty: totalQty, 
+            availableQty: availableQty,             
+            desc: desc
+        }).then(()=> {
+            alert("successful insert");
+        });
+    };
+
+
     return(
         <div>
             <br></br>
@@ -54,7 +88,7 @@ function AddUpdateProduct() {
             <Item>
             <h3>Product Details</h3>
             <Divider />
-            <FormControl>
+            <FormControl onSubmit={addProduct}>
                 <table>
                     <tr> 
                         <td><TextField 
@@ -62,6 +96,10 @@ function AddUpdateProduct() {
                             label="Brand"
                             // defaultValue="Pedegree"
                             style={style}
+                            value={brand}
+                            onChange={(e)=>{
+                                setBrand(e.target.value)    
+                            }}
                             // change the lenght of the text field
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
@@ -75,7 +113,10 @@ function AddUpdateProduct() {
                             label="Product Name"
                             // defaultValue="Vegeable and chicken 400g"
                             style={style}
-
+                            value={foodName}
+                            onChange={(e)=>{
+                                setFoodName(e.target.value)    
+                            }} 
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -89,7 +130,10 @@ function AddUpdateProduct() {
                             label="Weight"
                             // defaultValue="Vegeable and chicken 400g"
                             style={style}
-
+                            value={weight}
+                            onChange={(e)=>{
+                                setWeight(e.target.value)    
+                            }}  
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -102,7 +146,10 @@ function AddUpdateProduct() {
                             label="Price per 1 (Rs)"
                             // defaultValue="375.00"
                             style={style}
-
+                            value={pricePerOne}
+                            onChange={(e)=>{
+                                setPricePerOne(e.target.value)    
+                            }} 
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -116,6 +163,10 @@ function AddUpdateProduct() {
                             label="Total Quantity"
                             // defaultValue="10"
                             sx={{ width: 250 }}
+                            value={totalQty}
+                            onChange={(e)=>{
+                                setTotalQty(e.target.value)    
+                            }}
                             // helperText="Some important text"
                             />
 
@@ -125,6 +176,10 @@ function AddUpdateProduct() {
                             // defaultValue="10"
                             sx={{ width: 250 }}
                             //   helperText="Some important text"
+                            value={availableQty}
+                                onChange={(e)=>{
+                                    setAvailableQty(e.target.value)    
+                                }}
                             />
                         </td>
                     </tr>
@@ -137,7 +192,10 @@ function AddUpdateProduct() {
                                 rows={4}
                                 // defaultValue="Description about the product"
                                 style={style}
-
+                                value={desc}
+                                onChange={(e)=>{
+                                    setDesc(e.target.value)    
+                                }}
                                 // sx={{ width: 500 }}
                             />
                         </td>
@@ -159,7 +217,7 @@ function AddUpdateProduct() {
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Add</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={addProduct}>Add</Button></ThemeProvider>
 
                     </Stack>
                     </tr>
@@ -173,4 +231,4 @@ function AddUpdateProduct() {
         
     )       
 }
-export default AddUpdateProduct;
+export default AddProduct;

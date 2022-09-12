@@ -53,8 +53,11 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
+    color: theme.palette.common.black,
+    fontSize: 15,
+    fontWeight:'bold',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -81,8 +84,8 @@ function createData(PetOwnerName, PetOwnerNo, RequiredDate, RequiredTime, PetDes
 }
 
 const rows = [
-  createData('Nimal Perera','078-9654786', '2022-08-21', '11.00am', 'Dog'),
-  createData('Sunil Kure','077-5624786', '2022-08-20', '1.00pm', 'Cat'),
+  createData('Ajith Soori','075-9632147', '2022-08-21', '1.00pm', 'Dog blood issue '),
+  createData('Nimali Perera','077-9563214', '2022-08-20', '3.00pm', 'Clinic day'),
   
 ];
 
@@ -92,9 +95,9 @@ export default function PreviousAppo() {
         {/* <SearchBar/>  */}
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'>Previous</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Today</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Upcomming</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/PreviousAppoMain' color='blueButton'>Previous</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" href='/TodayAppoMain' color='blueButton'>Today</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" href='/UpAppoMain' color='blueButton'>Upcomming</Button></ThemeProvider>
       </Stack>
 
       <br></br>

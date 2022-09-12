@@ -37,7 +37,7 @@ export default function ArticleListForAuthor() {
                     </div>
 
                     <div style={{width: '50%',marginRight: '80px', color: '#193498',
-                            position:'absolute',top:'45%',left:'50%',
+                            position:'absolute',top:'45%',left:'70%',
                             lexDirection:'row',display:'inline-flex',
                             }}><p style={{marginRight:'7px'}}> 201</p> <ThumbUpIcon style={{marginTop:'3px',position:'absolute',top:'20%',left:'5%', }}/>
                     </div>

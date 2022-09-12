@@ -33,7 +33,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 import Timeslots from './Timeslots';
-import NewTimeSlot from './NewTimeslot';
+import NewTimeslot from './NewTimeslot';
 
 
 
@@ -141,7 +141,7 @@ const Item = styled(Paper)(({ theme }) => ({
               >
               <TextField
                 id="outlined-multiline-flexible"
-                label="Pet Owner"
+                label="Veterinary Doctor"
                 multiline
                 maxRows={4}
                 value={value1}
@@ -224,11 +224,11 @@ const Item = styled(Paper)(({ theme }) => ({
           }}>
             
             <Rating name="read-only" value={2} readOnly />
-            <Button>Reviews</Button>
+            <Button href='/DocReviews'>Reviews</Button>
               <Button variant="contained">Save Changes</Button>
           </Stack>
           <Stack spacing={15} direction="row" sx={{position:'relative',top:'5%',left:'15%'}}>
-            {/* <NewTimeSlot/> */}
+            <NewTimeslot/>
             <Timeslots/>
           </Stack>
           </Item>

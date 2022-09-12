@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import TextField from '@mui/material/TextField';
 // import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
@@ -12,6 +11,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 import logo from "../../Images/Logo.png";
+import '../../Style/Guest/Login.css'
 
 //change the length of the textfield
 // const style={
@@ -56,10 +56,10 @@ function RegistrationShop() {
 
     return(
         <div>
-          <img src ={logo} alt="petpalLogo" style={{float:"left"}}/>  
+          <img src ={logo} alt="petpalLogo" width={200}/>  
             <Box sx={{ flexGrow: 1 }} >
             <Grid container spacing={2} justifyContent="center">
-            <Item style={{backgroundColor: '#9BABCF'}}>
+            <Item style={{backgroundColor: '#1bbcb6'}}>
             <h1>Sign up</h1>
             <div><p>Already have an account?  <a href={'./Login'}>Login</a> </p> 
             </div>

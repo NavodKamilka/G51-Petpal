@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
 import ArticleList1 from "./ArticleList1";
-import ArticlList3 from "./ArticleList3";
+import ArticleList2 from "./ArticleList1 copy";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
@@ -187,7 +187,7 @@ export default function ArticlesContent() {
 
                 <Stack>
                   <Button
-                  
+                  href="PendingArticles"
                     variant="outlined"
                     style={{
                       display: "inline-block",
@@ -209,7 +209,7 @@ export default function ArticlesContent() {
                     width: "250px",
                     margin: 10,
                     fontSize: "15px",
-                    backgroundColor: "#68FD22",
+                    backgroundColor: "#005A2B",
                   }}
                   >
                     Add{" "}
@@ -261,9 +261,10 @@ export default function ArticlesContent() {
                 </Stack>
               </div>
 
-              {Array.from(Array(4)).map((index) => (
+              {Array.from(Array(1)).map((index) => (
                 <div style={{ position: "relative", top: "5%", left: "0%" }}>
                   <ArticleList1 />
+                  <ArticleList2 />
                 </div>
               ))}
             </Item>

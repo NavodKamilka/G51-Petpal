@@ -7,6 +7,10 @@ import BorderColor from '@mui/icons-material/BorderColor';
 import Search from '@mui/icons-material/Search';
 import Appointment from '@mui/icons-material/MedicalInformation';
 import Article from '@mui/icons-material/Newspaper';
+import PetsIcon from '@mui/icons-material/Pets';
+import CartIcon from '@mui/icons-material/AddShoppingCart';
+import NoticeIcon from '@mui/icons-material/FeaturedVideo';
+import PaidIcon from '@mui/icons-material/Paid';
 
 const navbarList = [
   {
@@ -61,47 +65,34 @@ const navbarList = [
     ],
   },
   {
-    icon: Person,
+    icon: PetsIcon,
     desc: 'Pet Mart',
     secondDesc: '',
     badge: 0,
     subList: [],
   },
   {
-    icon: Person,
-    desc: 'Product Ads',
+    icon: CartIcon,
+    desc: 'Product Mart',
     secondDesc: '',
     badge: 0,
     subList: [],
   },
   {
-    icon: Person,
+    icon: NoticeIcon,
     desc: 'Notices',
     secondDesc: '',
     badge: 0,
     subList: [],
   },
   {
-    icon: Analytics,
-    desc: 'Analytics',
+    icon: PaidIcon,
+    desc: 'Payment',
     secondDesc: '',
     badge: 0,
     subList: [],
   },
-  {
-    icon: FolderOpen,
-    desc: 'Folder',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
-  {
-    icon: BorderColor,
-    desc: 'Edit',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
+  
 ];
 
 export default navbarList;

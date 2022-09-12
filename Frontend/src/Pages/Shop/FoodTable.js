@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -12,7 +12,8 @@ import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
 // import { Grid} from "@material-ui/core";
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
+import Axios from "axios";
 
 
 //related to changing colors in  (view, update, delete) buttons
@@ -20,8 +21,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import SearchBar from '../../Components/SearchBar';
 
-import food2 from '../../Images/food2.png';
-import food3 from '../../Images/food3.jpg';
+
+// import { Link } from '@mui/material';
+import {Link} from 'react-router-dom'
 
 const theme = createTheme({
   palette: {
@@ -60,7 +62,7 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    // backgroundColor: '#A689FC',
+    backgroundColor: '#d0f0e9',
     color: theme.palette.common.black,
     fontSize: 15,
     fontWeight:'bold',
@@ -85,18 +87,41 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-function createData(ProductImage, Brand, ProductName, weight, PricePerOne, AvailableQty, LastUpdate) {
-  return { ProductImage, Brand, ProductName, weight, PricePerOne, AvailableQty, LastUpdate};
-}
+// function createData(ProductImage, Brand, ProductName, weight, PricePerOne, AvailableQty, LastUpdate) {
+//   return { ProductImage, Brand, ProductName, weight, PricePerOne, AvailableQty, LastUpdate};
+// }
 
-const rows = [
-  createData(<img src ={food2} alt="food" style={{width:'25%', height:'25%'}}/>,'Pedegree', 'chicken and vegetable', '500g', 1500, 5, '24-07-2022'),
-  createData(<img src ={food3} alt="food" style={{width:'25%', height:'25%'}}/>,'Whiskas', 'Adult wet food (Mackaral flavour)','85g', 500, 5, '24-07-2022'),
+// const rows = [
+//   createData(<img src ={food2} alt="food" style={{width:'25%', height:'25%'}}/>,'Pedegree', 'chicken and vegetable', '500g', 1500, 5, '24-07-2022'),
+//   createData(<img src ={food3} alt="food" style={{width:'25%', height:'25%'}}/>,'Whiskas', 'Adult wet food (Mackaral flavour)','85g', 500, 5, '24-07-2022'),
 
   
-];
+// ];
 
-export default function Products() {
+export default function FoodTable() {
+
+// backend
+const[foodList, setFoodList]=useState([]);
+
+// const ref = useRef(null);
+
+// here we don't have to click any button to display data
+useEffect(() =>{
+  Axios.get("http://localhost:3001/api/shop/getproduct").then((response)=>{
+  setFoodList(response.data.data);   
+  console.log(response);
+  });
+}, []);
+
+
+// view one product
+// const getOneFood = event => {
+//   console.log(event.currentTarget.id);
+
+//   console.log(ref.current.id);
+// };
+
+
   return (
     <div>  
         <SearchBar/> 
@@ -113,7 +138,14 @@ export default function Products() {
     
    
       {/* align the 'add product' button to the right */}
-      <Grid style={{align:'right'}}><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton" href='./AddProductFinal'>Add Product</Button></ThemeProvider>  </Grid>  
+      <Stack  justifyContent="right" spacing={10} direction="row">    
+
+        <ThemeProvider theme={theme}>
+          <Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton" href='./AddProductFinal'>Add Product</Button>
+        </ThemeProvider> 
+
+       
+      </Stack>  
       <br></br>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 600 }} aria-label="customized table">
@@ -132,22 +164,25 @@ export default function Products() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}> 
-              <StyledTableCell align="left">{row.ProductImage}</StyledTableCell>
-              <StyledTableCell align="left">{row.Brand}</StyledTableCell>
-              <StyledTableCell align="left">{row.ProductName}</StyledTableCell>
-              <StyledTableCell align="left">{row.weight}</StyledTableCell>
-              <StyledTableCell align="left">{row.PricePerOne}</StyledTableCell>
-              <StyledTableCell align="left">{row.AvailableQty}</StyledTableCell>
-              <StyledTableCell align="left">{row.LastUpdate}</StyledTableCell>
+        {foodList.map((val) => {
+            return(
+              console.log(val),
+            <StyledTableRow> 
+              <StyledTableCell align="left"><img src={val.foodImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell>
+              <StyledTableCell align="left">{val.brand}</StyledTableCell>
+              <StyledTableCell align="left">{val.name}</StyledTableCell>
+              <StyledTableCell align="left">{val.weight}</StyledTableCell>
+              <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
+              <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
+              <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" href="./ViewProductFinal">View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  href="./ViewProductFinal">Update</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewProductFinal"} state={{id:val.foodId}}>View</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  component={Link} to={"/UpdateProductFinal"} state={{id:val.foodId}}>Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
-          ))}
+          )
+            })}
         </TableBody>
       </Table>
     </TableContainer>

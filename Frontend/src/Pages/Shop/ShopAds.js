@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 // import { styled, alpha } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -6,10 +6,15 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 
 import SearchBar from '../../Components/SearchBar';
-import AdCardShop from '../../Components/AdCardShop';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Axios from "axios";
 
 
-
+import petmartshop from '../../Images/petmartshop.jpg';
 
 
 //colors for buttons
@@ -33,6 +38,19 @@ const theme = createTheme({
 
 
 export default function ShopAds() {
+
+  const[shopList, setShopList]=useState([]);
+
+// here we don't have to click any button to display data
+useEffect(() =>{
+  Axios.get("http://localhost:3001/api/shop/getShopList").then((response)=>{
+    setShopList(response.data.data);   
+  console.log(response);
+  });
+}, []);
+
+
+
   return (
     <div>
       <h1>Pet Stores</h1>
@@ -48,86 +66,40 @@ export default function ShopAds() {
 
         <br></br>
         <br></br>
-          <Grid container spacing={{ xs: 2}} columns={{ xs: 2, md:5}} alignItems="center" justifyContent="center">
-                      {Array.from(Array(10)).map((index) => (
-                        <AdCardShop/>
-                      ))}
+          <Grid container alignItems="stretch"  justifyContent="center">
+            {/* show the cards in a row */}
+            <Grid item style={{display: 'flex'}} padding={5}>
+
+            {shopList.map((val) => {
+                return(
+                <Card sx={{ maxWidth: 240 , padding:1}}>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image={val.Picture}
+                      alt="shop image"
+                  
+                    />
+
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                      {val.Name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                      {val.Address} <br></br>
+                      {val.OwnerTelNum}
+                      </Typography>
+                    </CardContent>
+
+                  <CardActions>
+                    <Button size="small">View shop</Button>
+                  </CardActions>
+                </Card>
+                )
+                })}
+      </Grid>
           </Grid>
- {/* show the cards in a row */}
- {/* <Stack spacing={10} direction="row" justifyContent="center" > */}
-        {/* <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image={shopImage}
-              alt="shop image"
-          
-             />
 
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Pet store 1
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-              No10, Yatinuwara street,Kandy <br></br>
-              081-2233445
-              </Typography>
-            </CardContent>
-
-          <CardActions>
-            <Button size="small">View shop</Button>
-          </CardActions>
-        </Card> */}
-
-      {/* card 2 */}
-    {/* <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={shopImage}
-            alt="green iguana"
-        
-          />
-          
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Pet store 1
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            No10, Yatinuwara street,Kandy <br></br>
-            081-2233445
-            </Typography>
-          </CardContent>
-          <CardActions>
-            
-            <Button size="small">View shop</Button>
-          </CardActions>
-        </Card> */}
-
-        {/* <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image={shopImage}
-            alt="green iguana"
-        
-          />
-          
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Pet store 1
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            No10, Yatinuwara street,Kandy <br></br>
-            081-2233445
-            </Typography>
-          </CardContent>
-          <CardActions>
-            
-            <Button size="small">View shop</Button>
-          </CardActions>
-        </Card> */}
-        {/* </Stack> */}
      
     </div>
   );
