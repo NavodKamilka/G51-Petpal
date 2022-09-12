@@ -406,7 +406,7 @@ export default function Test() {
 
         {/* put page content here */}
 
-      <ViewProduct />
+      <ViewProduct/>
 
         <Footer />  
       </Box>      
