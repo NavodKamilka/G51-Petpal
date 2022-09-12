@@ -1,11 +1,11 @@
     // functions in services - getAllProducts
 
-    const {getProduct, create, getOneFood, getShopList, deleteProduct} = require("./shop.service");
+    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories} = require("./shop.service");
 
 
 
     module.exports = {
-        //get the product details stored in the database
+        //get all the food product details stored in the database
         getProduct: (req, res) => {
             getProduct((err, results) => {
               if (err) {
@@ -135,4 +135,18 @@
           //     response.status(200).send(`User deleted with ID: ${id}`)
           //   })
           // }
+
+          //get all the food product details stored in the database
+          getAllAccessories: (req, res) => {
+            getAllAccessories((err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                data: results
+              });
+            });
+          },
  }
