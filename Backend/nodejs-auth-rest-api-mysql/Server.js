@@ -10,7 +10,9 @@ const NoticeRouterPetOwner = require('./api/PetOwner/Notice.router');
 const AccountRequestRouterManager = require('./api/Manager/Requests/AccountRequestRouter');
 const NoticeRequestRouterManager = require('./api/Manager/Requests/NoticeRequestRouter');
 const AccountManagementRouterManager = require('./api/Manager/Requests/AccountManagementRouter');
+const shopRouter = require("./api/shop/shop.route");
 const DashboardUsersRouterManager = require('./api/Manager/Dashboard/DashboardUsersRouter');
+
 
 const app = express();
  
@@ -35,6 +37,11 @@ app.use('/api', NoticeRequestRouterManager);
 app.use('/api', AccountManagementRouterManager);
 app.use('/api', DashboardUsersRouterManager);
  
+//shop
+//all routes related to shop will be stored here
+app.use("/api/shop",shopRouter);
+
+
 // Handling Errors
 app.use((err, req, res, next) => {
     // console.log(err);

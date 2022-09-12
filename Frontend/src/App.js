@@ -54,7 +54,6 @@ import PetAds from './Pages/Shop/PetAds'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
 import AddPetFinal from './Pages/Shop/AddPetFinal'
 import AddProductFinal from './Pages/Shop/AddProductFinal'
-// import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
 // import AddUpdatePet from './Pages/Shop/AddUpdatePet'
 // import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
 // import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
@@ -64,6 +63,7 @@ import PaymentFinal from './Pages/Shop/PaymentFinal'
 import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
 import ViewProductFinal from './Pages/Shop/ViewProductFinal'
+import UpdateProduct from './Pages/Shop/UpdateProduct'
 
 
 //Clinic
@@ -182,6 +182,8 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
+          <Route path='/UpdateProduct' element={<UpdateProduct/>} />
+
 
           {/*common*/}
           <Route path='/Articles' element={<Articles/>} />

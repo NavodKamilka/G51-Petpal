@@ -53,20 +53,8 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10,
   }));
   
-function ViewProduct() {
-    const oneFood = useLocation();
-    const foodId = oneFood.state.id;
-
-    const[foodList, setFoodList]=useState([]);
- 
-    // here we don't have to click any button to display data
-    useEffect(() =>{
-
-        Axios.get(`http://localhost:3001/api/shop/getOneFood/${foodId}`).then((response)=>{
-        setFoodList(response.data.data);   
-       
-        });
-  }, [oneFood.state.id]);
+function UpdateProduct() {
+   
 
 
     return(
@@ -78,15 +66,15 @@ function ViewProduct() {
             <h3>Product Details</h3>
             <Divider />
             <FormControl>
-            {foodList.map((oneFood) => {
-            return(
+            {/* {foodList.map((oneFood) => {
+            return( */}
 
-                <table key={oneFood.id}>
-                    <tr > 
-                        <td ><TextField 
+                <table>
+                    <tr> 
+                        <td><TextField 
                             id="outlined-helperText"
                             label="Brand"
-                            defaultValue={oneFood.brand}
+                            // defaultValue={oneFood.brand}
                             
                             style={style}
                             // change the lenght of the text field
@@ -191,8 +179,8 @@ function ViewProduct() {
                     </tr>
                 </table>
 
-                )
-                })}
+                {/* )
+                })} */}
                 </FormControl>
                 </Item>
                 </Grid>
@@ -202,4 +190,4 @@ function ViewProduct() {
         
     )       
 }
-export default ViewProduct;
+export default UpdateProduct;
