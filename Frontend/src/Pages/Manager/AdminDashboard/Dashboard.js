@@ -217,10 +217,13 @@ function DashboardContent() {
                                 </Paper>
                             </Grid>
                             {/* Chart */}
-                            <Grid item xs={12} md={8} lg={9}>
+                            <Grid item xs={12} md={8} lg={12} sx={{
+                               paddingLeft:100 ,width:'1100px',
+
+                            }}>
                                 <Paper
                                     sx={{
-                                        p: 2, pb:4,
+                                        p: 6, pb:4,m:'auto',
                                         display: 'flex',
                                         flexDirection: 'column',
                                         height: 400,width:'900px'

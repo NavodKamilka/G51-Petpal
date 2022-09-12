@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
-router.get("/AccountManagement",  (req, res, next) => {
+router.get("/NoticeRequest",  (req, res, next) => {
     // if (
     //     !req.headers.authorization ||
     //     !req.headers.authorization.startsWith("Bearer") ||
@@ -21,7 +21,7 @@ router.get("/AccountManagement",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM users `,
+        `SELECT * FROM notices_example`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -33,7 +33,7 @@ router.get("/AccountManagement",  (req, res, next) => {
 
 });
 
-router.get("/AccountManagement/PetOwner",  (req, res, next) => {
+router.get("/NoticeRequest/LostFound",  (req, res, next) => {
     // if (
     //     !req.headers.authorization ||
     //     !req.headers.authorization.startsWith("Bearer") ||
@@ -47,7 +47,7 @@ router.get("/AccountManagement/PetOwner",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM users WHERE UserRole = 'PetOwner'`,
+        `SELECT * FROM notices_example WHERE NoticeCategory= "LostFound"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -59,7 +59,7 @@ router.get("/AccountManagement/PetOwner",  (req, res, next) => {
 
 });
 
-router.get("/AccountManagement/Clinic",  (req, res, next) => {
+router.get("/NoticeRequest/Adoption",  (req, res, next) => {
     // if (
     //     !req.headers.authorization ||
     //     !req.headers.authorization.startsWith("Bearer") ||
@@ -73,7 +73,7 @@ router.get("/AccountManagement/Clinic",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM users WHERE UserRole = 'Clinic'`,
+        `SELECT * FROM notices_example WHERE NoticeCategory= "Adoption"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -85,7 +85,7 @@ router.get("/AccountManagement/Clinic",  (req, res, next) => {
 
 });
 
-router.get("/AccountManagement/Doctor",  (req, res, next) => {
+router.get("/NoticeRequest/Vaccination",  (req, res, next) => {
     // if (
     //     !req.headers.authorization ||
     //     !req.headers.authorization.startsWith("Bearer") ||
@@ -99,7 +99,7 @@ router.get("/AccountManagement/Doctor",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM users WHERE UserRole = 'Doctor'`,
+        `SELECT * FROM notices_example WHERE NoticeCategory= "Vaccination"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -111,7 +111,7 @@ router.get("/AccountManagement/Doctor",  (req, res, next) => {
 
 });
 
-router.get("/AccountManagement/Shop",  (req, res, next) => {
+router.get("/NoticeRequest/Breeding",  (req, res, next) => {
     // if (
     //     !req.headers.authorization ||
     //     !req.headers.authorization.startsWith("Bearer") ||
@@ -125,7 +125,7 @@ router.get("/AccountManagement/Shop",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM users WHERE UserRole = 'Shop'`,
+        `SELECT * FROM notices_example WHERE NoticeCategory= "Breeding"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -137,7 +137,7 @@ router.get("/AccountManagement/Shop",  (req, res, next) => {
 
 });
 
-router.get("/AccountManagement/Banned",  (req, res, next) => {
+router.get("/NoticeRequest/ShopAds",  (req, res, next) => {
     // if (
     //     !req.headers.authorization ||
     //     !req.headers.authorization.startsWith("Bearer") ||
@@ -151,7 +151,7 @@ router.get("/AccountManagement/Banned",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM users WHERE isBanned = '1'`,
+        `SELECT * FROM notices_example WHERE NoticeCategory= "ShopAd"`,
         (error, results) => {
             if (error) {
                 res.send(error);

@@ -32,49 +32,53 @@ const Item = styled(Paper)(({theme}) => ({
 
 export default function MyProfileContent(){
 
-    const [userList,setUserList] = useState([]);
+    const [requestList,setRequestList] = useState ([]);
 
-    useEffect( () => {
-        Axios.get("http://localhost:3001/api/AccountManagement").then((response) =>{
-            setUserList(response.data);
-        })
+    useEffect(()=>{
+        Axios.get('http://localhost:3001/api/NoticeRequest').then((response)=>{
+            setRequestList(response.data);
+
+        });
     },[]);
 
-    const handlePetOwnerClick = () =>{
-        Axios.get("http://localhost:3001/api/AccountManagement/PetOwner").then((response) =>{
-            setUserList(response.data);
-        })
+    const handleLostFoundFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/LostFound').then((response)=>{
+            setRequestList(response.data);
+
+        });
     }
 
-    const handleAllClick = () => {
-        Axios.get("http://localhost:3001/api/AccountManagement").then((response) => {
-            setUserList(response.data);
-        })
+    const handleAdoptionFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/Adoption').then((response)=>{
+            setRequestList(response.data);
+
+        });
     }
-    const handleDoctorClick = () => {
-        Axios.get("http://localhost:3001/api/AccountManagement/Doctor").then((response) => {
-            setUserList(response.data);
-        })
+    const handleVaccinationFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/Vaccination').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+    const handleBreedingFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/Breeding').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+    const handleShopAdsFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/ShopAds').then((response)=>{
+            setRequestList(response.data);
+
+        });
     }
 
-    const handleClinicClick = () => {
-        Axios.get("http://localhost:3001/api/AccountManagement/Clinic").then((response) => {
-            setUserList(response.data);
-        })
-    }
+    const handleAllFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest').then((response)=>{
+            setRequestList(response.data);
 
-    const handleShopClick = () => {
-        Axios.get("http://localhost:3001/api/AccountManagement/Shop").then((response) => {
-            setUserList(response.data);
-        })
+        });
     }
-
-    const handleBannedClick = () => {
-        Axios.get("http://localhost:3001/api/AccountManagement/Banned").then((response) => {
-            setUserList(response.data);
-        })
-    }
-
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -105,12 +109,12 @@ export default function MyProfileContent(){
                         <Stack direction="column" spacing={2} padding={3} className="notice-requests-outerbox">
                             <Stack direction="row"mb={2} spacing={2} justifyContent="right" alignItems="center">
                                 <FilterSearchBar />
-                                <Button variant="contained" onClick={handleAllClick}>All</Button>
-                                <Button variant="contained" onClick={handlePetOwnerClick}>Pet Owner</Button>
-                                <Button variant="contained" onClick={handleDoctorClick}>Doctor</Button>
-                                <Button variant="contained" onClick={handleClinicClick}>Clinics</Button>
-                                <Button variant="contained" onClick={handleShopClick}>Shops</Button>
-                                <Button variant="contained" onClick={handleBannedClick}>Banned</Button>
+                                <Button variant="contained" onClick={handleAllFilterClick}>All</Button>
+                                <Button variant="contained" onClick={handleLostFoundFilterClick}>Lost & Found</Button>
+                                <Button variant="contained"onClick={handleAdoptionFilterClick}>Adoption</Button>
+                                <Button variant="contained"onClick={handleVaccinationFilterClick}>Vaccination</Button>
+                                <Button variant="contained"onClick={handleBreedingFilterClick}>Breeding</Button>
+                                <Button variant="contained"onClick={handleShopAdsFilterClick}>Shop Ads</Button>
                             </Stack>
                             <Stack direction='column' >
                                 <Stack direction="row" justifyContent="flex-start" spacing={25} p={1} sx={{
@@ -120,22 +124,22 @@ export default function MyProfileContent(){
                                     borderWidth: '2px'
                                 }}>
                                     <div className='table-header-date'>Date</div>
-                                    <div>User Type</div>
-                                    <div>User Name</div>
+                                    <div>Notice Type</div>
+                                    <div>Requested By</div>
                                 </Stack>
                                 {/*request list rows*/}
                                 <Stack sx={{overflowY:'scroll'}} mt={2} height='440px'>
-                                    {userList.map( (val)=> (
+                                    {requestList.map( (val)=> (
                                         <Stack className='request-row-container' mb={2} pt={0} key={val.Id} >
                                             <Stack direction="row" justifyContent="flex-start" alignItems='flex-start' p={1}>
                                                 <div className='row-detail-box' >
-                                                    {val.Date}
+                                                    {val.RequestedDate}
                                                 </div>
                                                 <div className='row-detail-box ' >
-                                                    {val.UserRole}
+                                                    {val.NoticeCategory}
                                                 </div>
                                                 <div className='row-detail-box user-name-box'>
-                                                    {val.UserName}
+                                                    {val.PublisherName}
                                                 </div>
                                                 <Stack className="row-detail-buttons" direction='row' ml={20} mt={-1} p={1}
                                                        justifyContent='space-around'>
@@ -143,12 +147,12 @@ export default function MyProfileContent(){
                                                             style={{backgroundColor:'#1C884C',
                                                                 borderRadius:'15px',
                                                                 fontSize:'12px',
-                                                                textTransform:'capitalize',}}>Unban
+                                                                textTransform:'capitalize',}}>Accept
                                                     </Button>
-                                                    <Button variant="contained" size='small' style={{backgroundColor:'#d46b08',
+                                                    <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
-                                                        textTransform:'capitalize',}}>Ban</Button>
+                                                        textTransform:'capitalize',}}>Reject</Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#63B8BB',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
@@ -180,41 +184,18 @@ export default function MyProfileContent(){
                                                                                     width:'150px',
                                                                                     height:'150px',marginBottom:'10px',marginLeft:'75px'
                                                                                 }}/>
-                                                                        <Typography mt={2} fontSize={12}>Type:</Typography>
-                                                                        <Typography fontSize={12}>FullName:</Typography>
-                                                                        <Typography fontSize={12}>Email:</Typography>
+                                                                        <Typography mt={2} fontSize={12}>Type:  {val.UserType}</Typography>
+                                                                        <Typography fontSize={12}>FullName:  {val.UserName}</Typography>
+                                                                        <Typography fontSize={12}>Email: {val.Email}</Typography>
                                                                         <Typography fontSize={12}>Contact:</Typography>
-                                                                        <Typography fontSize={12}>Age:</Typography>
-                                                                        <Typography fontSize={12}>Registration Number:</Typography>
+                                                                        <Typography fontSize={12}>Age: {val.Age}</Typography>
+                                                                        <Typography fontSize={12}>Registration Number: {val.Registration}</Typography>
                                                                     </Stack>
                                                                     <Typography width={200} fontSize={12} pl={2}>
-                                                                        Details : Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                                        sed do eiusmod tempor incididunt ut labore et dolore
-                                                                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                                                        commodo consequat.
+                                                                        {val.Details}
                                                                     </Typography>
                                                                 </Stack>
-                                                                <Stack direction='row' justifyContent='flex-end' gap={2} mt={2} mr={1.5}>
-                                                                    <Button variant="contained" size='small'
-                                                                            style={{backgroundColor:'#1C884C',
-                                                                                borderRadius:'15px',
-                                                                                fontSize:'12px',
-                                                                                textTransform:'capitalize',}}>Unban
-                                                                    </Button>
-                                                                    <Button variant="contained" size='small'
-                                                                            style={{backgroundColor:'#d46b08',
-                                                                                borderRadius:'15px',
-                                                                                fontSize:'12px',
-                                                                                textTransform:'capitalize',}}>Ban
-                                                                    </Button>
-                                                                    <Button variant="contained" size='small'
-                                                                            style={{backgroundColor:'#F5222D',
-                                                                                borderRadius:'15px',
-                                                                                fontSize:'12px',
-                                                                                textTransform:'capitalize',}}>Delete
-                                                                    </Button>
-                                                                </Stack>
+
                                                             </Stack>
                                                         </Box>
                                                     </Modal>

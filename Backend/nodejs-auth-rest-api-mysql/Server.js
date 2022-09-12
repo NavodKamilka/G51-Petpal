@@ -8,10 +8,11 @@ const AppointmentRouterPetOwner = require('./api/PetOwner/Appointment.router');
 const DiscussionRouterPetOwner = require('./api/PetOwner/Discussion.router');
 const NoticeRouterPetOwner = require('./api/PetOwner/Notice.router');
 const AccountRequestRouterManager = require('./api/Manager/Requests/AccountRequestRouter');
+const NoticeRequestRouterManager = require('./api/Manager/Requests/NoticeRequestRouter');
 const AccountManagementRouterManager = require('./api/Manager/Requests/AccountManagementRouter');
-
-// shop
 const shopRouter = require("./api/shop/shop.route");
+const DashboardUsersRouterManager = require('./api/Manager/Dashboard/DashboardUsersRouter');
+
 
 const app = express();
  
@@ -32,7 +33,9 @@ app.use('/api', AppointmentRouterPetOwner);
 app.use('/api', DiscussionRouterPetOwner);
 app.use('/api', NoticeRouterPetOwner);
 app.use('/api', AccountRequestRouterManager);
+app.use('/api', NoticeRequestRouterManager);
 app.use('/api', AccountManagementRouterManager);
+app.use('/api', DashboardUsersRouterManager);
  
 //shop
 //all routes related to shop will be stored here
