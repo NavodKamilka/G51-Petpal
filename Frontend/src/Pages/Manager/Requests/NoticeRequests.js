@@ -20,7 +20,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import StyledAvatar from '../../../Components/StyledAvatar';
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import AccountRequestsContent from './AccountRequestsContent';
+import NoticeRequestsContent from './NoticeRequestsContent';
 import {useNavigate} from "react-router-dom";
 import navListAccounts from "../../../Components/navLists/navListAccounts";
 
@@ -215,14 +215,14 @@ export default function MyProfile() {
                                 }}
                             >
                                 <ListItemButton onClick={(event)=>handleSideNavClick(event,key.desc)}
-                                    sx={{
-                                        margin: '6px 14px',
-                                        padding: '10px',
-                                        borderRadius: '8px',
-                                        '&:hover': {
-                                            backgroundColor: '#26284687',
-                                        },
-                                    }}
+                                                sx={{
+                                                    margin: '6px 14px',
+                                                    padding: '10px',
+                                                    borderRadius: '8px',
+                                                    '&:hover': {
+                                                        backgroundColor: '#26284687',
+                                                    },
+                                                }}
                                 >
                                     <ListItemIcon sx={{ minWidth: '46px' }}>
                                         <Badge
@@ -370,7 +370,7 @@ export default function MyProfile() {
                 }}
             >
                 <TopNavbar  /> <br/>
-                <AccountRequestsContent />
+                <NoticeRequestsContent />
                 <Footer />
             </Box>
         </Box>
