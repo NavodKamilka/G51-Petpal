@@ -1,11 +1,11 @@
     // functions in services - getAllProducts
 
-    const {getProduct, create, getOneFood, getShopList, deleteProduct} = require("./shop.service");
+    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories} = require("./shop.service");
 
 
 
     module.exports = {
-        //coomon to get * food and accessories - get all the food product details stored in the database
+        //get all the food product details stored in the database
         getProduct: (req, res) => {
             getProduct((err, results) => {
               if (err) {
@@ -136,4 +136,17 @@
           //   })
           // }
 
+          //get all the food product details stored in the database
+          getAllAccessories: (req, res) => {
+            getAllAccessories((err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                data: results
+              });
+            });
+          },
  }

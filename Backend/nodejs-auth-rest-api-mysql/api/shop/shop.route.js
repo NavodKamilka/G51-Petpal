@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const {getProduct, insertProducts, getOneFood, getShopList, insertPet, deleteProduct}=require("./shop.controller");
+const {getProduct, insertProducts, getOneFood, getShopList, insertPet, deleteProduct, getAllAccessories}=require("./shop.controller");
 
 //view details of all food products
 router.get("/getproduct",getProduct);
@@ -21,7 +21,7 @@ router.post("/insertpet",insertPet);
 router.delete("/deleteProduct/:foodId", deleteProduct);
 
 //view all accessories 
-router.get("/getAllAccessories",getProduct);
+router.get("/getAllAccessories",getAllAccessories);
 
 
 module.exports = router;

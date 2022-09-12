@@ -98,7 +98,7 @@ export default function AccessoriesTable() {
   
 // here we don't have to click any button to display data
 useEffect(() =>{
-  Axios.get("http://localhost:3001/api/shop/getproduct").then((response)=>{
+  Axios.get("http://localhost:3001/api/shop/getAllAccessories").then((response)=>{
   setAccList(response.data.data);   
   console.log(response);
   });
@@ -119,10 +119,16 @@ useEffect(() =>{
 
       <br></br>
     
-   
-      {/* align the 'add product' button to the right */}
-      <Grid style={{align:'right'}}><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton" href='./AddUpdateProductFinal'>Add Product</Button></ThemeProvider>  </Grid>  
-      <br></br>
+   {/* align the 'add product' button to the right */}
+   <Stack  justifyContent="right" spacing={10} direction="row">    
+
+<ThemeProvider theme={theme}>
+  <Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton" href='./AddProductFinal'>Add Product</Button>
+</ThemeProvider> 
+
+
+</Stack> 
+  <br></br>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 600 }} aria-label="customized table">
         <TableHead>
@@ -141,11 +147,11 @@ useEffect(() =>{
           {accList.map((val) => {
           return(
             <StyledTableRow key={val.name}> 
-              <StyledTableCell align="left">{val.ProductImage}</StyledTableCell>
-              <StyledTableCell align="left">{val.ProductName}</StyledTableCell>
-              <StyledTableCell align="left">{val.PricePerOne}</StyledTableCell>
-              <StyledTableCell align="left">{val.AvailableQty}</StyledTableCell>
-              <StyledTableCell align="left">{val.LastUpdate}</StyledTableCell>
+              <StyledTableCell align="left"><img src={val.AccessoryImage} alt="accessory" style={{width:'25%', height:'25%'}}/></StyledTableCell>
+              <StyledTableCell align="left">{val.name}</StyledTableCell>
+              <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
+              <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
+              <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
