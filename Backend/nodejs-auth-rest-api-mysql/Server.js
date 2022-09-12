@@ -8,6 +8,7 @@ const AppointmentRouterPetOwner = require('./api/PetOwner/Appointment.router');
 const DiscussionRouterPetOwner = require('./api/PetOwner/Discussion.router');
 const NoticeRouterPetOwner = require('./api/PetOwner/Notice.router');
 const AccountRequestRouterManager = require('./api/Manager/Requests/AccountRequestRouter');
+const NoticeRequestRouterManager = require('./api/Manager/Requests/NoticeRequestRouter');
 const AccountManagementRouterManager = require('./api/Manager/Requests/AccountManagementRouter');
 const DashboardUsersRouterManager = require('./api/Manager/Dashboard/DashboardUsersRouter');
 
@@ -30,6 +31,7 @@ app.use('/api', AppointmentRouterPetOwner);
 app.use('/api', DiscussionRouterPetOwner);
 app.use('/api', NoticeRouterPetOwner);
 app.use('/api', AccountRequestRouterManager);
+app.use('/api', NoticeRequestRouterManager);
 app.use('/api', AccountManagementRouterManager);
 app.use('/api', DashboardUsersRouterManager);
  
