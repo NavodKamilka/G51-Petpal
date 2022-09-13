@@ -64,6 +64,7 @@ import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
 import ViewProductFinal from './Pages/Shop/ViewProductFinal'
 import UpdateProduct from './Pages/Shop/UpdateProduct'
+import ViewAccessoryFinal from './Pages/Shop/ViewAccessoryFinal'
 
 
 //Clinic
@@ -182,8 +183,8 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
-          <Route path='/UpdateProduct' element={<UpdateProduct/>} />
-
+          <Route path='/UpdateProduct' element={<UpdateProduct/>} />         
+          <Route path='/ViewAccessoryFinal' element={<ViewAccessoryFinal/>} />
 
           {/*common*/}
           <Route path='/Articles' element={<Articles/>} />
