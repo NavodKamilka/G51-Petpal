@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Axios from "axios";
 import SearchBar from '../../Components/SearchBar';
 
+import {Link} from 'react-router-dom'
 
 
 import toy from "../../Images/toy.jpg";
@@ -153,7 +154,7 @@ useEffect(() =>{
               <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
               <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewAccessoryFinal"} state={{id:val.accessoryId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
