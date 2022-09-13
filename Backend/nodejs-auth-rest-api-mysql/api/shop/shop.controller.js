@@ -1,6 +1,6 @@
     // functions in services - getAllProducts
 
-    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories} = require("./shop.service");
+    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories, getOneAccessory} = require("./shop.service");
 
 
 
@@ -147,6 +147,30 @@
                 success: 1,
                 data: results
               });
+            });
+          },
+
+          
+          //get details of one product
+          getOneAccessory: (req, res) => {
+            const id = req.params.accessoryId;
+            
+            getOneAccessory(id, (err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              if (!results) {               
+                return res.json({
+                  success: 0,
+                  message: "Record not Found",
+                });
+              }          
+              return res.json({
+                success: 1,
+                data: results,
+              });
+              
             });
           },
  }

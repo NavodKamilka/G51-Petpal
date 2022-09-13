@@ -120,4 +120,20 @@ module.exports = {
         );
 },
 
+
+        //get details of one food product
+        getOneAccessory: (id, callBack) => {
+          pool.query(
+            `select accessoryId, name, pricePerOne, totalQty, availableQty, description from accessories where accessoryId = ?;`,
+            [id],
+            (error, results, fields) => {
+              if (error) {
+                callBack(error);
+              }
+              return callBack(null, results);
+              
+            }
+          );
+        },
+
 }
