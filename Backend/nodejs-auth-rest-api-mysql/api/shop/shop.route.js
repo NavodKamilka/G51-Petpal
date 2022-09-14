@@ -7,7 +7,8 @@ const {getProduct,
      insertPet, 
      deleteProduct, 
      getAllAccessories,
-     getOneAccessory
+     getOneAccessory,
+     getAllSkincare,
     }=require("./shop.controller");
 
 //view details of all food products
@@ -33,5 +34,8 @@ router.get("/getAllAccessories",getAllAccessories);
 
 //view details of one food product
 router.get(`/getOneAccessory/:accessoryId`,getOneAccessory);
+
+//view all skincare products 
+router.get("/getAllSkincare",getAllSkincare);
 
 module.exports = router;

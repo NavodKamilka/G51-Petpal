@@ -1,6 +1,6 @@
     // functions in services - getAllProducts
 
-    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories, getOneAccessory} = require("./shop.service");
+    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories, getOneAccessory, getAllSkincare} = require("./shop.service");
 
 
 
@@ -173,4 +173,19 @@
               
             });
           },
+
+
+            //get all the food product details stored in the database
+            getAllSkincare: (req, res) => {
+              getAllSkincare((err, results) => {
+                if (err) {
+                  console.log(err);
+                  return;
+                }
+                return res.json({
+                  success: 1,
+                  data: results
+                });
+              });
+            },
  }
