@@ -26,6 +26,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
+import { useSelector } from 'react-redux';
 
 // import Profile from '../../../Images/Profile.png'
 // import alex from '../../../Images/alex.png'
@@ -64,6 +65,8 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
   export default function  MyProfileContent() {
+
+    const token = useSelector((state) => state.user.token);
 
     const [petOwnerName, setPetOwnerName] = React.useState("");
     const [petName, setPetName] = React.useState("");
@@ -113,8 +116,8 @@ const Item = styled(Paper)(({ theme }) => ({
       Time : time 
       
     },{
-      headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyNjM1Nzk4LCJleHAiOjE2NjI2NDY1OTh9.duI8_LU5euykMI8GqnJKzju3aOphic4ic_4L0i-9E94` }
-      // headers: { authorization : `Bearer ${this.Token}` }
+      // headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyNjM1Nzk4LCJleHAiOjE2NjI2NDY1OTh9.duI8_LU5euykMI8GqnJKzju3aOphic4ic_4L0i-9E94` }
+      headers: { authorization : `Bearer ${token}` }
     }).then(() => {
         console.log("Success");
     });

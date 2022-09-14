@@ -29,6 +29,7 @@ router.get("/viewAppointment", signupValidation, (req, res, next) => {
         `SELECT * FROM appointments_on_clinics`,
         // get details from the  appointments_on_clinics and appointments_on_doctors tables
         // decoded.id,
+  
 
         // (err,result) => {
         //     if(err){

@@ -10,6 +10,8 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 // // import Link from '@mui/material/Link';
 // import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import TextField from "@mui/material/TextField";
+import Axios from 'axios';
+import { useSelector } from 'react-redux';
 
 // import Visibility from '@mui/icons-material/Visibility';
 // import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -20,9 +22,9 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 
-const values = {
-  someDate: "2017-05-24"
-};
+// const values = {
+//   someDate: "2017-05-24"
+// };
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
@@ -36,10 +38,50 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function PetSellContent() {
 
-  const [age, setAge] = React.useState("");
+  const token = useSelector((state) => state.user.token);
+
+  const [NoticeType, setNoticeType] = React.useState("");
+  const [NoticeTopic, setNoticeTopic] = React.useState("");
+  const [PublisherName, setPublisherName] = React.useState("");
+  const [Nic, setNic] = React.useState("");
+  const [PublisherAdress, setPublisherAdress] = React.useState("");
+  const [TelephoneNumber, setTelephoneNumber] = React.useState("");
+  // const [values.someDate, setTelephoneNumber] = React.useState("");
+  const [Email, setEmail] = React.useState("");
+  const [District, setDistrict] = React.useState("");
+  const [file, handleFiles] = React.useState(null);
+  //const [date, setDate] = React.useState(new Date('2014-08-18T21:11:54'));
+  const [date, setDate] = React.useState("");
+
+  const handleChange2 = (event) => {
+    setNoticeTopic(event.target.value);
+  };
+  const handleChange3 = (event) => {
+    setPublisherName(event.target.value);
+  };
+  const handleChange4 = (event) => {
+    setNic(event.target.value);
+  };
+  const handleChange5 = (event) => {
+    setPublisherAdress(event.target.value);
+  };
+  const handleChange6 = (event) => {
+    setTelephoneNumber(event.target.value);
+  };
+  const handleChange7 = (event) => {
+    setEmail(event.target.value);
+  };
+  const handleChange8 = (event) => {
+    setDate(event.target.value);
+  };
+
+  const handleChange9 = (event) => {
+    setDistrict(event.target.value);
+  };
+  
 
   const handleChange1 = (event) => {
-    setAge(event.target.value);
+    setNoticeType(event.target.value);
   };
 
   const [dragActive, setDragActive] = React.useState(false);
@@ -71,7 +113,8 @@ export default function PetSellContent() {
   const handleChange = function (e) {
     e.preventDefault();
     if (e.target.files && e.target.files[0]) {
-      // handleFiles(e.target.files);
+      console.log(e.target.files);
+      handleFiles(e.target.files);
     }
   };
 
@@ -79,6 +122,34 @@ export default function PetSellContent() {
   const onButtonClick = () => {
     inputRef.current.click();
   };
+
+  const Post = () => {
+
+    // console.log(name);
+    const data = new FormData();
+    data.append('file', file)
+
+    Axios.post('http://localhost:3001/api/postNotice', {  
+      NoticeType : NoticeType,
+      NoticeTopic : NoticeTopic,
+      PublisherName : PublisherName,
+      NIC : Nic,
+      PublisherAddress : PublisherAdress,
+      TelNum : TelephoneNumber,
+      Email : Email, 
+      District : District,
+      Image : file,
+      RequestedDate : date
+
+      
+    },{
+      //headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYzMDUwNDk4LCJleHAiOjE2NjMwNjEyOTh9.v8aNDlQi8qKPI_urGeq1NQugXtdfMpZEqOxKB76Gvco` }
+      // headers: { authorization : `Bearer ${this.Token}` }
+      headers: { authorization : `Bearer ${token}` }
+    }).then(() => {
+        console.log("Success");
+    });
+};
 
 
   
@@ -108,6 +179,8 @@ export default function PetSellContent() {
                 id="outlined-basic"
                 label="Notice Topic"
                 variant="outlined"
+                value={NoticeTopic}
+                onChange={handleChange2}
               />
               <br />
               <br />
@@ -118,6 +191,8 @@ export default function PetSellContent() {
                 id="outlined-basic"
                 label="Publisher Name"
                 variant="outlined"
+                value={PublisherName}
+                onChange={handleChange3}
               />
               <br />
               <br />
@@ -127,6 +202,8 @@ export default function PetSellContent() {
                 id="outlined-basic"
                 label="NIC"
                 variant="outlined"
+                value={Nic}
+                onChange={handleChange4}
               />
               <br />
               <br />
@@ -137,6 +214,8 @@ export default function PetSellContent() {
                 id="outlined-basic"
                 label="Publisher Address"
                 variant="outlined"
+                value={PublisherAdress}
+                onChange={handleChange5}
               />
               <br />
               <br />
@@ -146,6 +225,8 @@ export default function PetSellContent() {
                 id="outlined-basic"
                 label="Telephone Number"
                 variant="outlined"
+                value={TelephoneNumber}
+                onChange={handleChange6}
               />
               <br />
               <br />
@@ -155,6 +236,8 @@ export default function PetSellContent() {
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
+                value={Email}
+                onChange={handleChange7}
               />
               <br />
               <br />
@@ -166,7 +249,9 @@ export default function PetSellContent() {
                 label="Requested Date"
                 InputLabelProps={{ shrink: true, required: true }}
                 type="date"
-                defaultValue={values.someDate}
+                // defaultValue={values.someDate}
+                value={date}
+                onChange={handleChange8}
               />
               <br />
               <br />
@@ -175,8 +260,10 @@ export default function PetSellContent() {
               <TextField
                 sx={{ marginLeft: "0%", width: "70%" }}
                 id="outlined-basic"
-                label="Distric"
+                label="District"
                 variant="outlined"
+                value={District}
+                onChange={handleChange9}
               />
               <br />
               <br />
@@ -186,17 +273,17 @@ export default function PetSellContent() {
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={age}
-                  label="{Pet Type}"
+                  value={NoticeType}
+                  label="{Notice Type}"
                   onChange={handleChange1}
                 >
-                  <MenuItem value={10}>Lost</MenuItem>
-                  <MenuItem value={20}>Blood Request</MenuItem>
-                  <MenuItem value={30}>Breeding</MenuItem>
-                  <MenuItem value={30}>Vaccination</MenuItem>
-                  <MenuItem value={30}>Donation/Volunteering</MenuItem>
-                  <MenuItem value={30}>Adoption</MenuItem>
-                  <MenuItem value={30}>Rescue Program(evevnts)</MenuItem>
+                  <MenuItem value={'Lost'}>Lost</MenuItem>
+                  <MenuItem value={'BloodRequest'}>Blood Request</MenuItem>
+                  <MenuItem value={'Breeding'}>Breeding</MenuItem>
+                  <MenuItem value={'Vaccination'}>Vaccination</MenuItem>
+                  <MenuItem value={'DonationVolunteering'}>Donation/Volunteering</MenuItem>
+                  <MenuItem value={'Adoption'}>Adoption</MenuItem>
+                  <MenuItem value={'RescueProgram'}>Rescue Program(evevnts)</MenuItem>
                 </Select>
               </FormControl><br/><br/><br/>
               <Typography
@@ -245,7 +332,7 @@ export default function PetSellContent() {
                     </form>
                 </Stack >
                 <Stack direction="row"  marginTop={8} marginLeft={'80%'} marginRight={'20%'}>
-                <Button variant="contained" sx={{fontSize: 14, height:40}} >Post </Button>
+                <Button variant="contained" onSubmit={Post} sx={{fontSize: 14, height:40}} >Post </Button>
 
                 </Stack>
             </Item>

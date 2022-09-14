@@ -17,13 +17,13 @@ router.post("/postNotice", signupValidation, (req, res, next) => {
         message: "Please provide the token",
       });
     }
-    const theToken = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+    // const theToken = req.headers.authorization.split(" ")[1];
+    // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
     
     
     db.query(
-        `insert into notices(NoticeTopic, PublisherName, NIC, PublisherAddress, TelNum, Email, RequestedDate, District, NoticeType) 
-                  values(?,?,?,?,?,?,?,?,?)`,
+        `insert into notices(NoticeTopic, PublisherName, NIC, PublisherAddress, TelNum, Email, RequestedDate, District, NoticeType, Image) 
+                  values(?,?,?,?,?,?,?,?,?,?)`,
         [
           req.body.NoticeTopic,
           req.body.PublisherName,
@@ -33,16 +33,27 @@ router.post("/postNotice", signupValidation, (req, res, next) => {
           req.body.Email,
           req.body.RequestedDate,
           req.body.District,
-          req.body.NoticeType
+          req.body.NoticeType,
+          req.body.Image
           
           
         ],
+        // (error, results, fields) => {
+        //   if (error) {
+        //     callBack(error);
+        //   }
+        //   return callBack(null, results);
+        // return console.log("Success");
+        // }
         (error, results, fields) => {
           if (error) {
-            callBack(error);
+            // callBack(error);
+            return res.status(400).send({
+              msg: "data is not saved!",
+            });
           }
-          return callBack(null, results);
-        // return console.log("Success");
+          // return callBack(null, results);
+          return res.status(200).send(results);
         }
       );
 
