@@ -136,4 +136,17 @@ module.exports = {
           );
         },
 
+
+         //get details of all  accessories
+      getAllSkincare: (callBack) => {
+        pool.query(
+          "SELECT brand, name, weight, pricePerOne, availableQty, lastUpdate FROM skincare",
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+      },
 }
