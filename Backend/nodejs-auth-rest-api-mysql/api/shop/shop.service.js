@@ -137,10 +137,10 @@ module.exports = {
         },
 
 
-         //get details of all  accessories
+         //get details of all  skincare
       getAllSkincare: (callBack) => {
         pool.query(
-          "SELECT brand, name, weight, pricePerOne, availableQty, lastUpdate FROM skincare",
+          "SELECT skincareId, brand, name, weight, pricePerOne, availableQty, lastUpdate FROM skincare",
           (error, results, fields) => {
             if (error) {
               callBack(error);
@@ -150,10 +150,10 @@ module.exports = {
         );
       },
 
-       //get details of one food product
+       //get details of one skincare product
        getOneSkincare: (id, callBack) => {
         pool.query(
-          `select skincareId, brand, name, pricePerOne, totalQty, availableQty, description from skincare where skincareId = ?;`,
+          `select skincareId, brand, name, weight, pricePerOne, totalQty, availableQty, description from skincare where skincareId = ?;`,
           [id],
           (error, results, fields) => {
             if (error) {

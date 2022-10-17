@@ -205,7 +205,7 @@ export default function ProductsFinal() {
                 <ListItemButton
                 // TRY TO ADD A LINK TO A BUTTON
                 // component={Link} to='./PetAds'
-                href={key.href}
+                href={key.href} 
 
                   sx={{
                     margin: '6px 14px',
