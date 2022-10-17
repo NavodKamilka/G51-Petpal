@@ -65,7 +65,7 @@ import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
 import ViewProductFinal from './Pages/Shop/ViewProductFinal'
 import UpdateProduct from './Pages/Shop/UpdateProduct'
 import ViewAccessoryFinal from './Pages/Shop/ViewAccessoryFinal'
-
+import ViewSkincareFinal from './Pages/Shop/ViewSkincareFinal'
 
 //Clinic
 import ClinicAdsMain from "./Pages/Guest/ClinicAdsMain"
@@ -185,6 +185,7 @@ function App() {
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
           <Route path='/UpdateProduct' element={<UpdateProduct/>} />         
           <Route path='/ViewAccessoryFinal' element={<ViewAccessoryFinal/>} />
+          <Route path='/ViewSkincareFinal' element={<ViewSkincareFinal/>} />
 
           {/*common*/}
           <Route path='/Articles' element={<Articles/>} />

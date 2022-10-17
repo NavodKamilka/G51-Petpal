@@ -1,6 +1,6 @@
     // functions in services - getAllProducts
 
-    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories, getOneAccessory, getAllSkincare} = require("./shop.service");
+    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories, getOneAccessory, getAllSkincare, getOneSkincare} = require("./shop.service");
 
 
 
@@ -188,4 +188,30 @@
                 });
               });
             },
+
+             //get details of one product
+            getOneSkincare: (req, res) => {
+            const id = req.params.skincareId;
+            
+            getOneSkincare(id, (err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              if (!results) {
+                
+                return res.json({
+                  success: 0,
+                  message: "Record not Found",
+                });
+              }
+              // results.password = undefined;
+
+              return res.json({
+                success: 1,
+                data: results,
+              });
+              
+            });
+          },
  }

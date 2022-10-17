@@ -149,4 +149,19 @@ module.exports = {
           }
         );
       },
+
+       //get details of one food product
+       getOneSkincare: (id, callBack) => {
+        pool.query(
+          `select skincareId, brand, name, pricePerOne, totalQty, availableQty, description from skincare where skincareId = ?;`,
+          [id],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);  
+          }
+        );
+      },
+
 }
