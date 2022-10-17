@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 //related to changing colors in  (view, update, delete) buttons
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Axios from "axios";
@@ -19,8 +19,7 @@ import SearchBar from '../../Components/SearchBar';
 import {Link} from 'react-router-dom'
 
 
-import toy from "../../Images/toy.jpg";
-import dogCollar from "../../Images/dogCollar.jpg";
+
 
 const theme = createTheme({
   palette: {

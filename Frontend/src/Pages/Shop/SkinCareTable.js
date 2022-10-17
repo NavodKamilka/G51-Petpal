@@ -22,7 +22,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import SearchBar from '../../Components/SearchBar';
 
-import shampoo from "../../Images/shampoo.jpg";
 
 const theme = createTheme({
   palette: {
@@ -153,7 +152,7 @@ export default function SkinCareTable() {
         {skincareList.map((val) => {
             return(
 
-            <StyledTableRow key={val.skincareId}> 
+            <StyledTableRow key={val.name}> 
               <StyledTableCell align="left">{val.ProductImage}</StyledTableCell>
               <StyledTableCell align="left">{val.brand}</StyledTableCell>
               <StyledTableCell align="left">{val.name}</StyledTableCell>

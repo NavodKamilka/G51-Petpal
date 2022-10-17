@@ -57,6 +57,7 @@ function ViewSkincare() {
     const oneSkincare= useLocation();
     const skincareId = oneSkincare.state.id;
     console.log(skincareId)
+
     const[skincareList, setSkincareList]=useState([]);
  
     // here we don't have to click any button to display data
@@ -84,7 +85,6 @@ function ViewSkincare() {
                             id="outlined-helperText"
                             label="Brand"
                             value={oneSkincare.brand}
-                            
                             style={style}
                             // change the lenght of the text field
                             // sx={{ width: 500 }}
@@ -166,13 +166,13 @@ function ViewSkincare() {
                     <br></br>
                     <tr>
                         {/* upload pet image */}
-                        <p>upload product image</p>
-                    <Stack spacing={10} direction="row" justifyContent="center" >
+                        <p>product image</p>
+                    {/* <Stack spacing={10} direction="row" justifyContent="center" >
                         <IconButton  sx={{ color: blueGrey[900] }} aria-label="upload picture" component="label">
                             <input hidden accept="image/*" type="file" />
                             <PhotoCamera />
                         </IconButton>
-                    </Stack>
+                    </Stack> */}
 
 
                     </tr>
