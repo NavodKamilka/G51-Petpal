@@ -9,7 +9,8 @@
           getAllSkincare, 
           getOneSkincare,
           deleteOneFood, 
-          deleteOneAccessory} = require("./shop.service");
+          deleteOneAccessory,
+          deleteOneSkincare} = require("./shop.service");
 
 
 
@@ -231,6 +232,31 @@
             const id = req.params.accessoryId; 
 
             deleteOneAccessory(id, (err, results) => {
+              if (err) {
+                console.log(err);
+                console.log(id);
+                return;
+              }
+              if (!results) {
+                return res.json({
+                  success: 0,
+                  message: "Record Not Found"
+                });
+              }
+              return res.json({
+                success: 1,
+                message: "product deleted successfully"
+              });
+            });
+          },
+
+
+
+           //delete one skin care item
+           deleteOneSkincare: (req, res) => {
+            const id = req.params.skincareId; 
+
+            deleteOneSkincare(id, (err, results) => {
               if (err) {
                 console.log(err);
                 console.log(id);

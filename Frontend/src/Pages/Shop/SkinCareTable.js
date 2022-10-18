@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
 // import { Grid} from "@material-ui/core";
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import Axios from "axios";
 import {Link} from 'react-router-dom'
 
@@ -108,6 +108,16 @@ export default function SkinCareTable() {
       console.log(response);
       });
     }, []);
+
+    //delete one skincare item
+    const deleteOneSkincare=(skincareId)=>{
+      //".then()" will refresh the page after one skincare item is deleted. 
+      Axios.delete(`http://localhost:3001/api/shop/deleteOneSkincare/${skincareId}`).then((response) => {
+        setSkincareList(skincareList.filter((val)=>{
+          return val.skincareId !== skincareId
+        }))
+      })
+    }
   return (
     <div>  
         <SearchBar/> 
@@ -163,7 +173,7 @@ export default function SkinCareTable() {
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewSkincareFinal"} state={{id:val.skincareId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete" onClick={()=>deleteOneSkincare(val.skincareId)}>Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
             )
