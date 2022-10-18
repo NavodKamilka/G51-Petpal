@@ -1,6 +1,14 @@
     // functions in services - getAllProducts
 
-    const {getProduct, create, getOneFood, getShopList, deleteProduct, getAllAccessories, getOneAccessory, getAllSkincare, getOneSkincare} = require("./shop.service");
+    const {getProduct, 
+          create,
+          getOneFood, 
+          getShopList, 
+          deleteOneFood, 
+          getAllAccessories, 
+          getOneAccessory, 
+          getAllSkincare, 
+          getOneSkincare} = require("./shop.service");
 
 
 
@@ -104,38 +112,6 @@
             });
           },
 
-          //delete product
-          deleteProduct: (req, res) => {
-            const foodId = req.body; 
-            deleteProduct(foodId, (err, results) => {
-              if (err) {
-                console.log(err);
-                return;
-              }
-              if (!results) {
-                return res.json({
-                  success: 0,
-                  message: "Record Not Found"
-                });
-              }
-              return res.json({
-                success: 1,
-                message: "product deleted successfully"
-              });
-            });
-          },
-
-          // deleteProduct : (request, response) => {
-          //   const id = parseInt(request.params.id)
-          
-          //   pool.query('DELETE FROM food WHERE foodId = ?', [id], (error, results) => {
-          //     if (error) {
-          //       throw error
-          //     }
-          //     response.status(200).send(`User deleted with ID: ${id}`)
-          //   })
-          // }
-
           //get all the food product details stored in the database
           getAllAccessories: (req, res) => {
             getAllAccessories((err, results) => {
@@ -212,6 +188,30 @@
                 data: results,
               });
               
+            });
+          },
+
+
+           //delete product
+           deleteOneFood: (req, res) => {
+            const id = req.params.foodId; 
+
+            deleteOneFood(id, (err, results) => {
+              if (err) {
+                console.log(err);
+                console.log(id);
+                return;
+              }
+              if (!results) {
+                return res.json({
+                  success: 0,
+                  message: "Record Not Found"
+                });
+              }
+              return res.json({
+                success: 1,
+                message: "product deleted successfully"
+              });
             });
           },
  }
