@@ -160,7 +160,6 @@ module.exports = {
           if (error) {
             callBack(error) 
           }
-          response.status(200).send(`User deleted with ID: ${id}`)
           return callBack(null, results);  
         }
         );
