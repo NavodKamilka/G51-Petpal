@@ -93,21 +93,9 @@ module.exports = {
       );
     },
 
-// delete a porduct
-// deleteProduct: (foodId, callBack) => {
-//       pool.query(
-//         `delete from food where foodId = ?`,
-//         [foodId],
-//         (error, results, fields) => {
-//           if (error) {
-//             callBack(error);
-//           }
-//           return callBack(null, results[0]);
-//         }
-//       );
-//     }
+   
 
-      //get details of all  accessories
+          //get details of all  accessories
       getAllAccessories: (callBack) => {
         pool.query(
           "SELECT * FROM accessories",
@@ -151,7 +139,7 @@ module.exports = {
       },
 
        //get details of one skincare product
-       getOneSkincare: (id, callBack) => {
+      getOneSkincare: (id, callBack) => {
         pool.query(
           `select skincareId, brand, name, weight, pricePerOne, totalQty, availableQty, description from skincare where skincareId = ?;`,
           [id],
@@ -164,4 +152,17 @@ module.exports = {
         );
       },
 
+       //delete one food item 
+      deleteOneFood : (id, callBack) => {
+        pool.query(
+          'DELETE FROM food WHERE foodId = ?', [id],
+          (error, results,fields) => {
+          if (error) {
+            callBack(error) 
+          }
+          response.status(200).send(`User deleted with ID: ${id}`)
+          return callBack(null, results);  
+        }
+        );
+      },
 }

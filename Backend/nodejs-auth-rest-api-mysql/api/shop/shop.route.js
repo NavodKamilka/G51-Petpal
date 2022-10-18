@@ -4,12 +4,12 @@ const {getProduct,
      insertProducts,
      getOneFood, 
      getShopList, 
-     insertPet, 
-     deleteProduct, 
+     insertPet,  
      getAllAccessories,
      getOneAccessory,
      getAllSkincare,
-     getOneSkincare
+     getOneSkincare,
+     deleteOneFood
     }=require("./shop.controller");
 
 //view details of all food products
@@ -27,9 +27,6 @@ router.get("/getShopList",getShopList);
 //insert pet details
 router.post("/insertpet",insertPet);
 
-//delete a food product
-router.delete("/deleteProduct/:foodId", deleteProduct);
-
 //view all accessories 
 router.get("/getAllAccessories",getAllAccessories);
 
@@ -41,5 +38,8 @@ router.get("/getAllSkincare",getAllSkincare);
 
 //view details of one skincare 
 router.get(`/getOneSkincare/:skincareId`,getOneSkincare);
+
+//delete a food product
+router.delete("/deleteOneFood/:foodId", deleteOneFood);
 
 module.exports = router;

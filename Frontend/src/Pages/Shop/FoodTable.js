@@ -99,7 +99,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 // ];
 
 export default function FoodTable() {
-
 // backend
 const[foodList, setFoodList]=useState([]);
 
@@ -112,6 +111,12 @@ useEffect(() =>{
   console.log(response);
   });
 }, []);
+
+
+//delete one food item
+const deleteOneFood=(foodId)=>{
+  Axios.delete(`http://localhost:3001/api/shop/deleteOneFood/${foodId}`)
+}
 
 
 // view one product
@@ -178,7 +183,7 @@ useEffect(() =>{
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewProductFinal"} state={{id:val.foodId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  component={Link} to={"/UpdateProductFinal"} state={{id:val.foodId}}>Update</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete" onClick={()=>deleteOneFood(val.foodId)}>Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
           )
