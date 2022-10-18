@@ -3,12 +3,13 @@
     const {getProduct, 
           create,
           getOneFood, 
-          getShopList, 
-          deleteOneFood, 
+          getShopList,  
           getAllAccessories, 
           getOneAccessory, 
           getAllSkincare, 
-          getOneSkincare} = require("./shop.service");
+          getOneSkincare,
+          deleteOneFood, 
+          deleteOneAccessory} = require("./shop.service");
 
 
 
@@ -57,7 +58,6 @@
 
 
 
-
           //insert a product to the database
           insertProducts: (req, res) => {
             
@@ -78,6 +78,7 @@
           },
 
 
+
             //get the product details stored in the database
             getShopList: (req, res) => {
               getShopList((err, results) => {
@@ -92,7 +93,8 @@
               });
             },
 
-             
+
+            
              //insert a product to the database
           insertPet: (req, res) => {
             console.log("hello");
@@ -112,6 +114,8 @@
             });
           },
 
+
+
           //get all the food product details stored in the database
           getAllAccessories: (req, res) => {
             getAllAccessories((err, results) => {
@@ -127,6 +131,7 @@
           },
 
           
+
           //get details of one product
           getOneAccessory: (req, res) => {
             const id = req.params.accessoryId;
@@ -151,6 +156,7 @@
           },
 
 
+
             //get all the food product details stored in the database
             getAllSkincare: (req, res) => {
               getAllSkincare((err, results) => {
@@ -164,6 +170,8 @@
                 });
               });
             },
+
+
 
              //get details of one product
             getOneSkincare: (req, res) => {
@@ -192,11 +200,37 @@
           },
 
 
+
            //delete product
            deleteOneFood: (req, res) => {
             const id = req.params.foodId; 
 
             deleteOneFood(id, (err, results) => {
+              if (err) {
+                console.log(err);
+                console.log(id);
+                return;
+              }
+              if (!results) {
+                return res.json({
+                  success: 0,
+                  message: "Record Not Found"
+                });
+              }
+              return res.json({
+                success: 1,
+                message: "product deleted successfully"
+              });
+            });
+          },
+
+
+
+          //delete one accessory
+          deleteOneAccessory: (req, res) => {
+            const id = req.params.accessoryId; 
+
+            deleteOneAccessory(id, (err, results) => {
               if (err) {
                 console.log(err);
                 console.log(id);
