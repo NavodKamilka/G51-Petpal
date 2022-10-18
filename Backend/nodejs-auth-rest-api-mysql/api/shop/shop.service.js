@@ -166,10 +166,24 @@ module.exports = {
       },
 
 
-      //delete one food item 
+      //delete one accessory item 
       deleteOneAccessory : (id, callBack) => {
         pool.query(
           'DELETE FROM accessories WHERE accessoryId = ?', [id],
+          (error, results,fields) => {
+          if (error) {
+            callBack(error) 
+          }
+          return callBack(null, results);  
+        }
+        );
+      },
+
+
+       //delete one skincare item 
+       deleteOneSkincare : (id, callBack) => {
+        pool.query(
+          'DELETE FROM skincare WHERE skincareId = ?', [id],
           (error, results,fields) => {
           if (error) {
             callBack(error) 
