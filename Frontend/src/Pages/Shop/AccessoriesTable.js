@@ -105,6 +105,15 @@ useEffect(() =>{
 }, []);
 
 
+//delete one accessory item
+const deleteOneAccessory=(accessoryId)=>{
+  //".then()" will refresh the page after one accessory item is deleted. 
+  Axios.delete(`http://localhost:3001/api/shop/deleteOneAccessory/${accessoryId}`).then((response) => {
+    setAccList(accList.filter((val)=>{
+      return val.accessoryId !== accessoryId
+    }))
+  })
+}
   return (
     <div>  
         <SearchBar/> 
@@ -155,7 +164,7 @@ useEffect(() =>{
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewAccessoryFinal"} state={{id:val.accessoryId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete" onClick={()=>deleteOneAccessory(val.accessoryId)}>Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
           )

@@ -164,4 +164,18 @@ module.exports = {
         }
         );
       },
+
+
+      //delete one food item 
+      deleteOneAccessory : (id, callBack) => {
+        pool.query(
+          'DELETE FROM accessories WHERE accessoryId = ?', [id],
+          (error, results,fields) => {
+          if (error) {
+            callBack(error) 
+          }
+          return callBack(null, results);  
+        }
+        );
+      },
 }

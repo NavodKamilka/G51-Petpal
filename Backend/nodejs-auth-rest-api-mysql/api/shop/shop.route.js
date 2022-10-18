@@ -9,7 +9,8 @@ const {getProduct,
      getOneAccessory,
      getAllSkincare,
      getOneSkincare,
-     deleteOneFood
+     deleteOneFood,
+     deleteOneAccessory
     }=require("./shop.controller");
 
 //view details of all food products
@@ -42,4 +43,6 @@ router.get(`/getOneSkincare/:skincareId`,getOneSkincare);
 //delete a food product
 router.delete("/deleteOneFood/:foodId", deleteOneFood);
 
+//delete one accessory 
+router.delete("/deleteOneAccessory/:accessoryId", deleteOneAccessory);
 module.exports = router;
