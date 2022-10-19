@@ -63,7 +63,7 @@ import PaymentFinal from './Pages/Shop/PaymentFinal'
 import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
 import ViewProductFinal from './Pages/Shop/ViewProductFinal'
-import UpdateProduct from './Pages/Shop/UpdateProduct'
+import UpdateProductFinal from './Pages/Shop/UpdateProductFinal'
 import ViewAccessoryFinal from './Pages/Shop/ViewAccessoryFinal'
 import ViewSkincareFinal from './Pages/Shop/ViewSkincareFinal'
 
@@ -183,7 +183,7 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
-          <Route path='/UpdateProduct' element={<UpdateProduct/>} />         
+          <Route path='/UpdateProductFinal' element={<UpdateProductFinal/>} />         
           <Route path='/ViewAccessoryFinal' element={<ViewAccessoryFinal/>} />
           <Route path='/ViewSkincareFinal' element={<ViewSkincareFinal/>} />
 
