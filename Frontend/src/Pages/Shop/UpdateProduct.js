@@ -54,17 +54,36 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
   
 function UpdateProduct() {
-//     const oneFood = useLocation();
-//     const foodId = oneFood.state.id;
+    const oneFood = useLocation();
+    const foodId = oneFood.state.id;
+    const[foodList, setFoodList]=useState([]);
 
-//     const[foodList, setFoodList]=useState([]);
+    //get new values to be updated in food table (only totalQty, availableQty and pricePerOne)
+    const[newPricePerOne, setNewPricePerOne]=useState(0);
+    const[newTotalQty, setNewTotalQty]=useState(0);
+    const[newAvailableQty, setNewAvailableQty]=useState(0);
+
+
+     // here we don't have to click any button to display data
+     useEffect(() =>{
+        Axios.get(`http://localhost:3001/api/shop/getOneFood/${foodId}`).then((response)=>{
+        setFoodList(response.data.data);   
+        });
+  }, [oneFood.state.id]);
  
-//     // here we don't have to click any button to display data
-//     useEffect(() =>{
-//         Axios.get(`http://localhost:3001/api/shop/updateFood/${foodId}`).then((response)=>{
-//         setFoodList(response.data.data);   
-//         });
-//   }, [oneFood.state.id]);
+
+  //update function to update one food item
+  const updateOneFood=(event)=>{
+    Axios.put("http://localhost:3001/api/shop/updateOneFood",{
+        pricePerOne: newPricePerOne, 
+        totalQty:newTotalQty,
+        availableQty:newAvailableQty,
+        foodId:foodId
+    }).then((response)=>{
+        alert('Updated successfully');
+    });
+  }
+
 
 
 
@@ -77,15 +96,15 @@ function UpdateProduct() {
             <h3>Product Details</h3>
             <Divider />
             <FormControl>
-            {/* {foodList.map((oneFood) => {
-            return( */}
+            {foodList.map((oneFood) => {
+            return(
 
-                <table>
+                <table key ={oneFood.id}>
                     <tr> 
                         <td><TextField 
                             id="outlined-helperText"
                             label="Brand"
-                            // defaultValue={oneFood.brand}
+                            value={oneFood.brand}
                             
                             style={style}
                             // change the lenght of the text field
@@ -100,7 +119,7 @@ function UpdateProduct() {
                             id="outlined-helperText"
                             label="Product Name"
                             style={style}
-
+                            value={oneFood.name}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -112,7 +131,7 @@ function UpdateProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Weight"
-                            defaultValue="400g"
+                            value={oneFood.weight}
                             style={style}
 
                             // sx={{ width: 500 }}
@@ -125,9 +144,11 @@ function UpdateProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Price per 1 (Rs)"
-                            defaultValue="1500.00"
+                            defaultValue={oneFood.pricePerOne}
                             style={style}
-
+                            onChange={(event)=>{
+                                setNewPricePerOne(event.target.value)
+                            }}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -139,16 +160,22 @@ function UpdateProduct() {
                             <TextField
                             id="outlined-helperText"
                             label="Total Quantity"
-                            defaultValue="5"
+                            defaultValue={oneFood.totalQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewTotalQty(event.target.value)
+                            }}
                             // helperText="Some important text"
                             />
 
                             <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
-                            defaultValue="5"
+                            defaultValue={oneFood.availableQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewAvailableQty(event.target.value)
+                            }}
                             //   helperText="Some important text"
                             />
                         </td>
@@ -160,7 +187,7 @@ function UpdateProduct() {
                                 label="Description"
                                 multiline
                                 rows={4}
-                                defaultValue="Description about the product"
+                                value={oneFood.description}
                                 style={style}
 
                                 // sx={{ width: 500 }}
@@ -184,14 +211,14 @@ function UpdateProduct() {
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Add</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={()=>(updateOneFood())}>Update</Button></ThemeProvider>
 
                     </Stack>
                     </tr>
                 </table>
 
-                {/* )
-                })} */}
+                 )
+                })} 
                 </FormControl>
                 </Item>
                 </Grid>

@@ -192,4 +192,28 @@ module.exports = {
         }
         );
       },
+
+
+
+      updateOneFood: (data, callBack) => {
+        pool.query(
+          `update food set pricePerOne=?, totalQty=?, availableQty=? where foodId = ?`,
+          [
+            // data.brand,
+            // data.name,
+            // data.weight,
+            data.pricePerOne,
+            data.totalQty,
+            data.availableQty,
+            // data.description,
+            data.foodId
+          ],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+      },
 }
