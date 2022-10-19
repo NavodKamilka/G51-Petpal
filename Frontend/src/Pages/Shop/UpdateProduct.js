@@ -60,8 +60,8 @@ function UpdateProduct() {
 
     //get new values to be updated in food table (only totalQty, availableQty and pricePerOne)
     const[newPricePerOne, setNewPricePerOne]=useState(0);
-    // const[newTotalQty, setNewTotalQty]=useState(0);
-    // const[newAvaiableQty, setNewAvailableQty]=useState(0);
+    const[newTotalQty, setNewTotalQty]=useState(0);
+    const[newAvailableQty, setNewAvailableQty]=useState(0);
 
 
      // here we don't have to click any button to display data
@@ -76,17 +76,14 @@ function UpdateProduct() {
   const updateOneFood=(event)=>{
     Axios.put("http://localhost:3001/api/shop/updateOneFood",{
         pricePerOne: newPricePerOne, 
+        totalQty:newTotalQty,
+        availableQty:newAvailableQty,
         foodId:foodId
     }).then((response)=>{
-        alert('updated');
+        alert('Updated successfully');
     });
   }
-//     // here we don't have to click any button to display data
-//     useEffect(() =>{
-//         Axios.get(`http://localhost:3001/api/shop/updateFood/${foodId}`).then((response)=>{
-//         setFoodList(response.data.data);   
-//         });
-//   }, [oneFood.state.id]);
+
 
 
 
@@ -165,6 +162,9 @@ function UpdateProduct() {
                             label="Total Quantity"
                             defaultValue={oneFood.totalQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewTotalQty(event.target.value)
+                            }}
                             // helperText="Some important text"
                             />
 
@@ -173,6 +173,9 @@ function UpdateProduct() {
                             label="Available Quantity"
                             defaultValue={oneFood.availableQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewAvailableQty(event.target.value)
+                            }}
                             //   helperText="Some important text"
                             />
                         </td>
@@ -184,7 +187,7 @@ function UpdateProduct() {
                                 label="Description"
                                 multiline
                                 rows={4}
-                                defaultValue={oneFood.description}
+                                value={oneFood.description}
                                 style={style}
 
                                 // sx={{ width: 500 }}
