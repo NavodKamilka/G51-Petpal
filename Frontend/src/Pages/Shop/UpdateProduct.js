@@ -107,7 +107,7 @@ function UpdateProduct() {
                         <td><TextField 
                             id="outlined-helperText"
                             label="Brand"
-                            defaultValue={oneFood.brand}
+                            value={oneFood.brand}
                             
                             style={style}
                             // change the lenght of the text field
@@ -122,7 +122,7 @@ function UpdateProduct() {
                             id="outlined-helperText"
                             label="Product Name"
                             style={style}
-                            defaultValue={oneFood.name}
+                            value={oneFood.name}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -134,7 +134,7 @@ function UpdateProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Weight"
-                            defaultValue={oneFood.weight}
+                            value={oneFood.weight}
                             style={style}
 
                             // sx={{ width: 500 }}
