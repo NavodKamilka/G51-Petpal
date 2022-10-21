@@ -101,10 +101,10 @@ export default function Doctors() {
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {val.doctorname}
+                {val.FirstName}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {val.regno}<br></br>
+                {val.LastName}<br></br>
               </Typography>
             </CardContent>
 

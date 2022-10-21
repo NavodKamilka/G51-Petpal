@@ -71,7 +71,7 @@ export default function ClinicAds() {
                       {val.ClinicName}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {val.ClinicAddress}
+                      {val.Address}
                     </Typography>
                   </CardContent>
 
