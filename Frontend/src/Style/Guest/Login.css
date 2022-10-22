@@ -2,50 +2,45 @@
 /*used for registrationPetOwner.js
             login.js*/
 
-.regbody{
-    background-color: #CEFFFC;  /* fallback for old browsers */
-   /* height:auto; */
-    /* without this the background will not be applied for the whole page */
-    overflow:auto;
-}
+
             
 .box{
-    background-color: #9BABCF;
-    border-radius: 5px;
+    background-color: #1BBCB6;
+    border-radius: 40px;
     width: 550px;
     margin: 20px auto;
     padding: 20px;
-    height: auto; 
+    /* height: auto;  */
     text-align: center;
 }
 
-.logo{
+/* .logo{
     /* float: left; */
     /* margin-top: 20px;
     margin-left: auto;
     margin-right: auto; */
     /* justify-content: center */
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-}
+} */ */
 
 .form-body{
     text-align: left;
-    padding: 20px 10px;
+    /* padding: 20px 10px; */
     text-align: center;
 }
 
 .form-body > *{
-    padding: 5px;
+    /* padding: 5px; */
 }
 
 .form__label{
-    width: 40%;
+    /* width: 40%; */
 }
 
 .form_input{
-    width: 60%;
+    /* width: 60%; */
 }
 
 .footer{

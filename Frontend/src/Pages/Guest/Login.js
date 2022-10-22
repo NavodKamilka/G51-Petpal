@@ -68,10 +68,10 @@ function Login() {
   return (
     // <div className="regbody">
     <div>
-      <img src={logo} alt="petpalLogo" width={200} className="logo" />
+      <img src={logo} alt="petpalLogo1" width={200} />
       <div className="box">
         <h1>Login</h1>
-
+      
         <div className="form-body">
           <Box
             component="form"
@@ -99,6 +99,7 @@ function Login() {
             <br></br>
             <input type="checkbox" />
             Remember me!
+            <br></br>
             <br></br>
             <div class="footer">
               <ThemeProvider theme={theme}>
