@@ -238,7 +238,7 @@ const Item = styled(Paper)(({ theme }) => ({
              
           </Stack>
           <br/><br/><br/>
-          <Button variant="contained">Add New Pet</Button>
+          <Button variant="contained" style={{backgroundColor:'#005A2B'}}>+ Add New Pet</Button>
           </Item>
         </Grid>
       </Grid>
