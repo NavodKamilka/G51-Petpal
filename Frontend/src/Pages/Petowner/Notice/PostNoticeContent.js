@@ -245,7 +245,7 @@ export default function PetSellContent() {
                     </form>
                 </Stack >
                 <Stack direction="row"  marginTop={8} marginLeft={'80%'} marginRight={'20%'}>
-                <Button variant="contained" sx={{fontSize: 14, height:40}} >Post </Button>
+                <Button variant="contained"  style={{backgroundColor:'#1D168F'}} sx={{fontSize: 14, height:40}} >Post </Button>
 
                 </Stack>
             </Item>
