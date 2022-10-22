@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState, useEffect} from 'react';
+import Axios from "axios";
 // import { styled, alpha } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -48,6 +49,16 @@ const theme = createTheme({
 
 
 export default function Doctors() {
+  const[doctorList, setDoctorList]=useState([]);
+
+  // here we don't have to click any button to display data
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/api/Doctor/getdoctor").then((response)=>{
+      setDoctorList(response.data.data);   
+    console.log(response);
+    });
+  }, []);
+
   return (
     <div>
       {/* <h1>Pet Stores</h1> */}
@@ -76,6 +87,9 @@ export default function Doctors() {
               <AdCardDoctor/>
 
             ))} */}
+          <Grid item style={{display: 'flex'}} padding={2}>
+            {doctorList.map((val) => {
+              return(
             <Card sx={{ maxWidth: 240, padding:1 }}>
             <CardMedia
               component="img"
@@ -87,10 +101,13 @@ export default function Doctors() {
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Dr. Dayani Siriwardane
+                {val.DoctorName}
+              </Typography>
+              <Typography variant="h6" color="text.secondary">
+                {val.RegNo}<br></br>
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                076-8945612<br></br>
+                {val.TelNum}<br></br>
               </Typography>
             </CardContent>
 
@@ -99,52 +116,10 @@ export default function Doctors() {
           </CardActions>
             
         </Card>
-        <Card sx={{ maxWidth: 240, padding:1 }}>
-            <CardMedia
-              component="img"
-              height="240"
-              image={DoctorImage2}
-              alt="Doctor Image"
-          
-             />
-
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Dr. Janaki Sri Collure
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                077-1865756<br></br>
-              </Typography>
-            </CardContent>
-
-          <CardActions>
-            <Button size="small" href='/ClinicDocProfile'>View Doctor</Button>
-          </CardActions>
+              )
+            })}
             
-        </Card>
-        <Card sx={{ maxWidth: 240, padding:1 }}>
-            <CardMedia
-              component="img"
-              height="240"
-              image={DoctorImage3}
-              alt="Doctor Image"
-          
-             />
-
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Dr. Prabath Wickrmasinghe
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                071-9854321<br></br>
-              </Typography>
-            </CardContent>
-
-          <CardActions>
-            <Button size="small" href='/ClinicDocProfile'>View Doctor</Button>
-          </CardActions>
-            
-        </Card>
+        </Grid>
           </Grid>
 
           <div>
