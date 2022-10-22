@@ -101,7 +101,7 @@ const Item = styled(Paper)(({ theme }) => ({
         
           <Item>
             <Stack spacing={80} direction="row" marginLeft={10} sx={{marginTop:4}}>
-                <Button variant="contained" href='/Discussion/Start' endIcon={<KeyboardDoubleArrowRightIcon />}>Start Discussion</Button>
+                <Button variant="contained" style={{backgroundColor:'#1D168F'}} href='/Discussion/Start' endIcon={<KeyboardDoubleArrowRightIcon />}>Start Discussion</Button>
                 <Search>
                   <SearchIconWrapper>
                     <SearchIcon />
