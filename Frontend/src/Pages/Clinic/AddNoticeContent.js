@@ -1,4 +1,4 @@
-import *as React from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import Typography from "@mui/material/Typography";
@@ -13,6 +13,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 import Stack from '@mui/material/Stack';
+import Axios from "axios";
 // import IconButton from '@mui/material/IconButton';
 // import PhotoCamera from '@mui/icons-material/PhotoCamera';
 // import { blueGrey } from '@mui/material/colors';
@@ -50,7 +51,7 @@ const theme = createTheme({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:850,
+    height:600,
     top:10,
   }));
 
@@ -99,7 +100,25 @@ export default function AddNoticeContent() {
   const onButtonClick = () => {
     inputRef.current.click();
   };
-    
+  
+    const [PublisherName, setPublisherName] = useState("");
+    const [RegNo, setRegNo] = useState("");
+    const [VaccineName, setVaccineName] = useState("");
+    const [Date, setDate] = useState("");
+    const [Venue, setVenue] = useState("");
+   
+    const addNotice = (event) =>{
+        event. preventDefault();
+        Axios.post("http://localhost:3001/api/Doctor/insertnotice", {
+            PublisherName: PublisherName, 
+            RegNo: RegNo, 
+            VaccineName: VaccineName, 
+            Date: Date, 
+            Venue: Venue
+        }).then(()=> {
+            alert("successful insert");
+        });
+    };
     return(
         <div>
             <Box sx={{ flexGrow: 1 }}>
@@ -114,28 +133,42 @@ export default function AddNoticeContent() {
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
-                            label="Notice Topic"
+                            label="Publisher Name"
                             style={style}
+                            value={PublisherName}
+                            onChange={(e)=>{
+                              setPublisherName(e.target.value)
+                }}  
                             />
                         </td>
                     </tr>
                     <br></br>
 
-                    <tr>
-                        <td><TextField
-                            id="outlined-helperText"
-                            label="Publisher Name"
-                            style={style}
-                            />
-                        </td>
-                    </tr>
-                    <br></br>
+                    
 
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
                             label="Clinic Register No"
                             style={style}
+                            value={RegNo}
+                            onChange={(e)=>{
+                              setRegNo(e.target.value)
+                            }}  
+                            />
+                        </td>
+                    </tr>
+                    <br></br>
+
+                    <tr>
+                        <td><TextField
+                            id="outlined-helperText"
+                            label="Vaccine Name"
+                            style={style}
+                            value={VaccineName}
+                            onChange={(e)=>{
+                              setVaccineName(e.target.value)
+                            }}  
                             />
                         </td>
                     </tr>
@@ -146,11 +179,29 @@ export default function AddNoticeContent() {
                         <td><TextField
                             id="outlined-helperText"
                             name="someDate"
-                            label="Requested Date"
+                            label="Date"
                             InputLabelProps={{ shrink: true, required: true }}
                             type="date"
                             defaultValue={values.someDate}
                             style={style}
+                            value={Date}
+                            onChange={(e)=>{
+                              setDate(e.target.value)
+                            }}  
+                            />
+                        </td>
+                    </tr>
+                    <br></br>
+
+                    <tr>
+                        <td><TextField
+                            id="outlined-helperText"
+                            label="Venue"
+                            style={style}
+                            value={Venue}
+                            onChange={(e)=>{
+                              setVenue(e.target.value)
+                            }}  
                             />
                         </td>
                     </tr>
@@ -184,7 +235,7 @@ export default function AddNoticeContent() {
                         <ThemeProvider theme={theme}><Button variant="contained" href='/ViewNoticeMain'color='blueButton'>Request</Button></ThemeProvider>
                     </Stack>
                     </tr> */}
-                    <Typography
+                    {/* <Typography
                 variant="h10"
                 sx={{
                   marginLeft: "-70%",
@@ -228,7 +279,7 @@ export default function AddNoticeContent() {
                         ></div>
                       )}
                     </form>
-                </Stack >
+                </Stack > */}
                 {/* <Stack direction="row"  marginTop={8} marginLeft={'80%'} marginRight={'20%'}>
                 <Button variant="contained" sx={{fontSize: 14, height:40}} >Post </Button>
 
@@ -237,7 +288,7 @@ export default function AddNoticeContent() {
                         marginLeft:'30%',
                         marginTop: 25
                     }}>
-              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton'>Post</Button></ThemeProvider>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton' onClick={addNotice}>Post</Button></ThemeProvider>
               <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain'color='blueButton'>Cancel</Button></ThemeProvider>
               
           </Stack>
