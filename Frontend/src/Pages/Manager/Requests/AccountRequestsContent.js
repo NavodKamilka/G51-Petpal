@@ -50,7 +50,8 @@ export default function MyProfileContent(){
             setRequestList(response.data);
 
         });
-    },[]);
+        // console.log(requestList);
+    },[], console.log(requestList));
 
     const handleDoctorFilterClick = () => {
         Axios.get('http://localhost:3001/api/AccountRequest/Doctor').then((response)=>{
@@ -78,6 +79,16 @@ export default function MyProfileContent(){
 
         });
     }
+
+    const handleRejectClick = (id) => {
+        Axios.delete(`http://localhost:3001/api/AccountRequest/RequestDelete/${id}`).then( (r) => {
+        });
+
+        const newRequestList =  requestList.filter((requests) => requests.Id !== id);
+        setRequestList(newRequestList);
+    }
+
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -149,7 +160,7 @@ export default function MyProfileContent(){
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
-                                                        textTransform:'capitalize',}}>Reject</Button>
+                                                        textTransform:'capitalize',}} onClick={()=>handleRejectClick(val.Id)}>Reject</Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#63B8BB',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',

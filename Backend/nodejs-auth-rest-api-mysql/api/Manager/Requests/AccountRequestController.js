@@ -110,4 +110,10 @@ router.get("/AccountRequest/Shop",  (req, res, next) => {
     );
 
 });
+router.delete("/AccountRequest/RequestDelete/:id",(req,res,next)=> {
+    const id =req.params.id;
+    db.query(
+        `DELETE FROM user_requests WHERE Id =?`,id
+    )
+});
 module.exports = router;
