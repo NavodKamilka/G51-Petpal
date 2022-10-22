@@ -57,11 +57,16 @@ function UpdateAccessory() {
     const oneAccessory = useLocation();
     const accessoryId = oneAccessory.state.id;
     const[accessoryList, setAccessoryList]=useState([]);
-
+    // newTotalQty = accessoryList.totalQty;
+    // newPricePerOne = accessoryList.pricePerOne;
+    // newAvailableQty = accessoryList.availableQty;
+    
     //get new values to be updated in food table (only totalQty, availableQty and pricePerOne)
-    const[newPricePerOne, setNewPricePerOne]=useState();
-    const[newTotalQty, setNewTotalQty]=useState();
-    const[newAvailableQty, setNewAvailableQty]=useState();
+    const[newPricePerOne, setNewPricePerOne]=useState("");
+    const[newTotalQty, setNewTotalQty]=useState("");
+    const[newAvailableQty, setNewAvailableQty]=useState("");
+    
+    
 
 
      // here we don't have to click any button to display data
@@ -69,6 +74,7 @@ function UpdateAccessory() {
         Axios.get(`http://localhost:3001/api/shop/getOneAccessory/${accessoryId}`).then((response)=>{
             setAccessoryList(response.data.data);   
         });
+       
     }, [oneAccessory.state.id]);
  
 
@@ -78,8 +84,13 @@ function UpdateAccessory() {
         pricePerOne: newPricePerOne, 
         totalQty:newTotalQty,
         availableQty:newAvailableQty,
-        accessoryId:accessoryId
+        accessoryId:accessoryId,
     }).then((response)=>{
+        // console.log(newPricePerOne);
+        // console.log(newTotalQty);
+        // console.log(newAvailableQty);
+        // console.log(accessoryList);
+        console.log(accessoryList.pricePerOne);
         alert('Updated successfully');
     });
   }
@@ -147,7 +158,8 @@ function UpdateAccessory() {
                             defaultValue={oneAccessory.pricePerOne}
                             style={style}
                             onChange={(event)=>{
-                                setNewPricePerOne(event.target.value)
+                                setNewPricePerOne(event.target.value);
+                                
                             }}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
