@@ -118,4 +118,14 @@ router.delete("/AccountRequest/RequestDelete/:id",(req,res,next)=> {
     )
 });
 
+router.post("/AccountRequest/AcceptRequest/:id",(req,res,next)=>{
+    const id =req.params.id;
+    db.query(
+        `INSERT INTO users (UserName, Email, Password, UserRole, Contact, Age, Address)`+
+        `SELECT UserName, Email, Password, UserType, Contact, Age, Address FROM user_requests WHERE Id = ?`,id,(err,rows)=>{
+                if(err) throw err;
+        }
+    )
+});
+
 module.exports = router;

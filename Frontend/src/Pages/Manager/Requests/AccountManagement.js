@@ -44,19 +44,15 @@ export default function MyProfile() {
         switch (desc) {
             case 'Account Requests' :
                 navigate("/AccountRequests", {replace: true})
-                console.log(desc);
                 break;
             case 'Dashboard' :
                 navigate("/AdminDashboard", {replace: true})
-                console.log(desc);
                 break;
             case 'Manage Accounts' :
                 navigate("/AccountManagement", {replace: true})
-                console.log(desc);
                 break;
             case 'Notice Requests' :
                 navigate("/NoticeRequests", {replace: true})
-                console.log(desc);
                 break;
         }
 
