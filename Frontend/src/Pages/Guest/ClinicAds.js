@@ -68,10 +68,13 @@ export default function ClinicAds() {
 
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      {val.ClinicName}
+                      {val.Name}
+                    </Typography>
+                    <Typography variant="h7" color="text.secondary">
+                      {val.Address}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {val.Address}
+                      {val.TelNum}
                     </Typography>
                   </CardContent>
 

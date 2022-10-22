@@ -53,7 +53,7 @@ export default function Doctors() {
 
   // here we don't have to click any button to display data
   useEffect(() =>{
-    Axios.get("http://localhost:3001/api/doctor/getdoctor").then((response)=>{
+    Axios.get("http://localhost:3001/api/Doctor/getdoctor").then((response)=>{
       setDoctorList(response.data.data);   
     console.log(response);
     });
@@ -101,10 +101,13 @@ export default function Doctors() {
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {val.FirstName}
+                {val.DoctorName}
+              </Typography>
+              <Typography variant="h6" color="text.secondary">
+                {val.RegNo}<br></br>
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {val.LastName}<br></br>
+                {val.TelNum}<br></br>
               </Typography>
             </CardContent>
 
