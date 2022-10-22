@@ -84,6 +84,7 @@ import PreviousAppoMain from "./Pages/Clinic/PreviousAppoMain"
 import UpAppoMain from "./Pages/Clinic/UpAppoMain"
 import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
+import AllPaymentMain from "./Pages/Clinic/AllPaymentMain"
 
 //test - keshani
 
@@ -228,6 +229,7 @@ function App() {
           <Route path='/UpAppoMain' element={<UpAppoMain/>}/>
           <Route path='/ViewAppo' element={<ViewAppo/>}/>
           <Route path='/PaymentMain' element={<PaymentMain/>}/>
+          <Route path='/AllPaymentMain' element={<AllPaymentMain/>}/>
 
          
           

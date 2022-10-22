@@ -29,6 +29,19 @@ module.exports = {
       );
     },
 
+    //view payments details
+    getPayments: (callBack) => {
+      pool.query(
+        "SELECT * FROM clinicpayments",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
       //insert doctor details
       create: (data,callBack) => {
         pool.query(
