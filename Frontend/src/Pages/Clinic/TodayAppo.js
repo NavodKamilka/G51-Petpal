@@ -53,8 +53,11 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.black,
+    // color: theme.palette.common.white,
+    color: theme.palette.common.black,
+    fontSize: 15,
+    fontWeight:'bold',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -81,8 +84,8 @@ function createData(PetOwnerName, PetOwnerNo, RequiredDate, RequiredTime, PetDes
 }
 
 const rows = [
-  createData('Nimal Perera','078-9654786', '2022-08-23', '11.00am', 'Dog'),
-  createData('Sunil Kure','077-5624786', '2022-08-23', '1.00pm', 'Cat'),
+  createData('Nimal Perera','078-9654786', '2022-08-23', '11.00am', 'Ear Infection of labrado dog'),
+  createData('Sunil Kure','077-5624786', '2022-08-23', '1.00pm', 'Itchy skin Infection of cat'),
   
 ];
 
@@ -92,9 +95,9 @@ export default function Products() {
         {/* <SearchBar/>  */}
       <br></br>
       <Stack spacing={10} direction="row" justifyContent="center" >
-      <ThemeProvider theme={theme}><Button variant="contained" href='/PreviousAppoMain' color='blueButton'>Previous</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blackButton'>Today</Button></ThemeProvider>
-      <ThemeProvider theme={theme}><Button variant="contained" href='/UpAppoMainMain' color='blueButton'>Upcomming</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" href='/PreviousAppoMain' color='blueButton'>Previous</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blueButton'>Today</Button></ThemeProvider>
+      <ThemeProvider theme={theme}><Button variant="outlined" href='/UpAppoMainMain' color='blueButton'>Upcomming</Button></ThemeProvider>
       </Stack>
 
       <br></br>

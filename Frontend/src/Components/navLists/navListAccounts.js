@@ -3,6 +3,7 @@ import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import Search from '@mui/icons-material/Search';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
 
 const navbarList = [
     {
@@ -28,11 +29,19 @@ const navbarList = [
     },
     {
         icon: GroupAddIcon,
-        desc: 'Requests',
+        desc: 'Account Requests',
         secondDesc: 'Message from andi',
         badge: 2,
         subList: [],
     // must add logics to update the badges
+    },
+    {
+        icon: AnnouncementIcon,
+        desc: 'Notice Requests',
+        secondDesc: 'Message from andi',
+        badge: 0,
+        subList: [],
+        // must add logics to update the badges
     },
 
 ];

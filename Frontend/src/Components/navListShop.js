@@ -11,8 +11,7 @@ const navListShop = [
     desc: 'Search',
     secondDesc: '',
     badge: 0,
-    subList: [],
-    
+    subList: [], 
   },
   // {
   //   icon: DashboardOutlined,

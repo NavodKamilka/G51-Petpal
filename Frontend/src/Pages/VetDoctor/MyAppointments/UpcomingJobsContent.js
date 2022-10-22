@@ -64,7 +64,7 @@ const Item = styled(Paper)(({ theme }) => ({
             transform: 'translate(-50%, -50%)',
             // top:'180px',left:'0%'
             }}>
-            {/* <h3 >Calendar</h3> */}
+            <h3 >Calendar</h3>
         </div>
         <div style={{width:window.width, textAlign:'center',
             position:"relative",top: '0%',

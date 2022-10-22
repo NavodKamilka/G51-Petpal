@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
+import {useNavigate} from "react-router-dom";
 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -21,7 +22,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-import navbarList from '../../../Components/navList';
+import navListPetOwner from '../../../Components/navListPetOwner';
 import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
@@ -38,6 +39,46 @@ const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
 export default function PetOwnerAppointment() {
+
+  const navigate = useNavigate();
+  const handleSideNavClick = (event,desc) =>{
+      event.preventDefault();
+
+      switch (desc) {
+          case 'My Profile' :
+              navigate("/MyProfile", {replace: true})
+              console.log(desc);
+              break;
+          case 'Discussion' :
+              navigate("/Discussion", {replace: true})
+              console.log(desc);
+              break;
+          case 'Pet Products' :
+              navigate("/PetProducts", {replace: true})
+              console.log(desc);
+              break;
+
+          case 'Pet Mart' :
+                navigate("/PetMart", {replace: true})
+                console.log(desc);
+                break;
+
+          case 'Notice' :
+                  navigate("/Notice", {replace: true})
+                  console.log(desc);
+                  break;
+
+          case 'Appointment' :
+                    navigate("/PetOwnerAppointment", {replace: true})
+                    console.log(desc);
+                    break;
+
+      }
+
+  }
+
+
+
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -114,7 +155,7 @@ export default function PetOwnerAppointment() {
       </Box>
 
       <List dense={true}>
-        {navbarList.map((key, index) => (
+        {navListPetOwner.map((key, index) => (
           <>
             {index === 0 ? (
               <>
@@ -193,7 +234,7 @@ export default function PetOwnerAppointment() {
                   },
                 }}
               >
-                <ListItemButton
+                <ListItemButton onClick={(event)=>handleSideNavClick(event,key.desc)}
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',

@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import SearchBar from '../../Components/SearchBar';
+import Stack from '@mui/material/Stack';
 
 
 // import {Grid} from "@material-ui/core";
@@ -48,7 +49,7 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    // backgroundColor: theme.palette.common.black,
+    backgroundColor: '#d0f0e9',
     color: theme.palette.common.black,
     fontSize: 20,
     fontWeight:'bold',
@@ -95,7 +96,11 @@ export default function Pets() {
     
    
       {/* align the 'add product' button to the right */}
-      <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton"  href='./AddPetFinal'>Add Pet</Button></ThemeProvider>  </Grid>  
+      <Stack  justifyContent="right" spacing={10} direction="row">    
+        <ThemeProvider theme={theme}>
+          <Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton" href='./AddPetFinal'>Add Pet</Button>
+        </ThemeProvider> 
+      </Stack>  
       <br></br>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 600 }} aria-label="customized table">

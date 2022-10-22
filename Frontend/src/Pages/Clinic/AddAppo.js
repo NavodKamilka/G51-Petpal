@@ -115,7 +115,8 @@ function AddAppo() {
                     <br></br>
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3}>    
-                        <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blackButton'>Add Appoitment</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blackButton'>Get Appoitment</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" href='/TodayAppoMain' color='blackButton'>Cancel</Button></ThemeProvider>
                     </Stack>
                     </tr>
                 </table>

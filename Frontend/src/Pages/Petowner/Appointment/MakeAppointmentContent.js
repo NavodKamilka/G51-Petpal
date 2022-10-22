@@ -7,11 +7,18 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 // import Link from '@mui/material/Link';
 
+import Axios from 'axios';
+
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+
+
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 
 // import '../../../Style/PetOwner/MyProfile/MyProfileContent.css'
@@ -50,18 +57,69 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:950,
+    height:1000,
     top:10
     
   }));
 
   export default function  MyProfileContent() {
 
-    const [age, setAge] = React.useState("");
+    const [petOwnerName, setPetOwnerName] = React.useState("");
+    const [petName, setPetName] = React.useState("");
+    const [petType, setPetType] = React.useState("");
+    const [clinic, setClinic] = React.useState("");
+    const [doctor, setDoctor] = React.useState("");
+    const [date, setDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [time, setTime] = React.useState("");
 
   const handleChange1 = (event) => {
-    setAge(event.target.value);
+    setPetOwnerName(event.target.value);
   };
+  const handleChange2 = (event) => {
+    setPetName(event.target.value);
+  };
+  const handleChange3 = (event) => {
+    setPetType(event.target.value);
+  };
+  const handleChange4 = (event) => {
+    setClinic(event.target.value);
+  };
+
+  const handleChange5 = (event) => {
+    setDoctor(event.target.value);
+  };
+
+  const handleChange6 = (event) => {
+    setDate(event.target.value);
+  };
+
+  const handleChange7 = (event) => {
+    setTime(event.target.value);
+  };
+
+
+  const addAppointment = () => {
+
+    // console.log(name);
+
+    Axios.post('http://localhost:3001/api/makeAppointment', {
+      OwnerName : petOwnerName,
+      PetName : petName,
+      PetType : petType,
+      ClinicName : clinic,
+      DoctorName : doctor,
+      Date : date,
+      Time : time 
+      
+    }).then(() => {
+        console.log("Success");
+    });
+};
+  
+
+  // const handleChange = (newValue) => {
+  //   setValue(newValue);
+  // };
 
   
    
@@ -93,6 +151,8 @@ const Item = styled(Paper)(({ theme }) => ({
                 id="outlined-basic"
                 label="Pet Owner Name"
                 variant="outlined"
+                value={petOwnerName}
+                onChange={handleChange1}
               />{" "}
               <br />
               <br />
@@ -102,6 +162,8 @@ const Item = styled(Paper)(({ theme }) => ({
                 id="outlined-basic"
                 label="Pet Name"
                 variant="outlined"
+                value={petName}
+                onChange={handleChange2}
               />{" "}
               <br />
               <br />
@@ -111,9 +173,9 @@ const Item = styled(Paper)(({ theme }) => ({
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={age}
+                  value={petType}
                   label="{Pet Type}"
-                  onChange={handleChange1}
+                  onChange={handleChange3}
                 >
                   <MenuItem value={10}>Dog</MenuItem>
                   <MenuItem value={20}>Cat</MenuItem>
@@ -130,9 +192,9 @@ const Item = styled(Paper)(({ theme }) => ({
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={age}
+                  value={clinic}
                   label="{Pet Type}"
-                  onChange={handleChange1}
+                  onChange={handleChange4}
                 >
                   <MenuItem value={10}>Pet We PhotoCamera</MenuItem>
                   <MenuItem value={20}>AWT Hospital</MenuItem>
@@ -149,9 +211,9 @@ const Item = styled(Paper)(({ theme }) => ({
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={age}
+                  value={doctor}
                   label="{Pet Type}"
-                  onChange={handleChange1}
+                  onChange={handleChange5}
                 >
                   <MenuItem value={10}>Dr. Wasantha</MenuItem>
                   <MenuItem value={20}>Dr. Perera</MenuItem>
@@ -161,16 +223,29 @@ const Item = styled(Paper)(({ theme }) => ({
                   <MenuItem value={30}>Adoption</MenuItem>
                   <MenuItem value={30}>Rescue Program(evevnts)</MenuItem> */}
                 </Select>
-              </FormControl><br/><br/><br/>
+              </FormControl><br/><br/><br/><br/><br/><br/>
 
-              <FormControl sx={{ m: 1, width: "70%",top:60 }}>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <Stack sx={{  width: "70%",top:60,marginLeft:'15%' }}>
+                  <DesktopDatePicker
+                    label="Pick Your Date"
+                    inputFormat="MM/dd/yyyy"
+                    value={date}
+                    onChange={handleChange6}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                  
+                </Stack>
+              </LocalizationProvider>
+
+              <FormControl sx={{ m: 1, width: "70%",top:50 }}>
                 <InputLabel id="demo-simple-select-label">Time Slot</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={age}
+                  value={time}
                   label="{Pet Type}"
-                  onChange={handleChange1}
+                  onChange={handleChange7}
                 >
                   <MenuItem value={10}>4-5 pm</MenuItem>
                   <MenuItem value={20}>5-6 pm</MenuItem>
@@ -182,8 +257,10 @@ const Item = styled(Paper)(({ theme }) => ({
                 </Select>
               </FormControl><br/><br/><br/>
 
+              
+
               <Stack direction="row"  marginTop={8} marginLeft={'80%'} marginRight={'20%'}>
-                <Button variant="contained" sx={{fontSize: 14, height:40}} >Submit</Button>
+                <Button variant="contained" onClick={addAppointment} sx={{fontSize: 14, height:40}} >Submit</Button>
 
                 </Stack>
               

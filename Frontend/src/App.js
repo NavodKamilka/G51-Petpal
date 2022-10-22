@@ -1,7 +1,5 @@
 import React from "react";
-
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-
 
 // Guest
 
@@ -48,20 +46,31 @@ import MakeAppointment from "./Pages/Petowner/Appointment/MakeAppointment"
 import ShopProfileFinal from './Pages/Shop/ShopProfileFinal.js'
 import FoodTableFinal from './Pages/Shop/FoodTableFinal.js'
 import PetsFinal from './Pages/Shop/PetsFinal'
+import ShopAds from './Pages/Shop/ShopAds'
 import ShopAdsFinal from './Pages/Shop/ShopAdsFinal'
+// import ProductsFinal from './Pages/Shop/ProductsFinal'
 import ProductAdsFinal from './Pages/Shop/ProductAdsFinal'
+import PetAds from './Pages/Shop/PetAds'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
 import AddPetFinal from './Pages/Shop/AddPetFinal'
 import AddProductFinal from './Pages/Shop/AddProductFinal'
+// import AddUpdatePet from './Pages/Shop/AddUpdatePet'
+// import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
+// import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
+// import ShopProfileGuestView from './Pages/Shop/ShopProfileGuestView'
+// import Payment from './Pages/Shop/Payment'
 import PaymentFinal from './Pages/Shop/PaymentFinal'
 import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
 import ViewProductFinal from './Pages/Shop/ViewProductFinal'
-
+import UpdateProductFinal from './Pages/Shop/UpdateProductFinal'
+import ViewAccessoryFinal from './Pages/Shop/ViewAccessoryFinal'
+import ViewSkincareFinal from './Pages/Shop/ViewSkincareFinal'
+import UpdateAccessoryFinal from './Pages/Shop/UpdateAccessoryFinal'
 
 //Clinic
-import ClinicAdsMain from "./Pages/Clinic/ClinicAdsMain"
-import ClinicViewMain from "./Pages/Clinic/ClinicViewMain"
+import ClinicAdsMain from "./Pages/Guest/ClinicAdsMain"
+import ClinicViewMain from "./Pages/Guest/ClinicViewMain"
 import ClinicDocProfile from "./Pages/Clinic/MyProfile"
 import ClinicProfile from "./Pages/Clinic/ClinicProfile"
 import DoctorMain from "./Pages/Clinic/DoctorMain"
@@ -76,7 +85,7 @@ import UpAppoMain from "./Pages/Clinic/UpAppoMain"
 import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
 
-
+//test - keshani
 
 // Veterinary Doctor
 
@@ -97,6 +106,7 @@ import ContactUsContent from "./Pages/Guest/ContactUsContent"
 //review
 import DocReview from './Pages/VetDoctor/Reviews/ReviewFinal'
 import DocDiscussion from './Pages/VetDoctor/Discussion/Discussion'
+import DocDiscussionContent from './/Pages/VetDoctor/Discussion/DiscussionContent';
 import DocPetMart from './Pages/VetDoctor/PetMart/PetMart'
 import DocProductMart from './Pages/VetDoctor/ProdcuctMart/PetProducts'
 import DocNotice from './Pages/VetDoctor/Notice/Notice'
@@ -109,6 +119,7 @@ import LostAndFound from './Pages/Manager/Annoucement/LostAndFound'
 import  NoticesRequests from './Pages/Manager/Requests/Notices';
 import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
 import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
+import  NoticeRequests from './Pages/Manager/Requests/NoticeRequests';
 
 // dashboard
 import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard';
@@ -122,10 +133,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Guest */}
+          <Route path="/" element={<Home />} />
           <Route path="/Contactus" element={<Contactus />} />
           <Route path="/Events" element={<Events />} />
           <Route path="/Healthcare" element={<Healthcare />} />
-          <Route path="/Home" element={<Home />} />
+          
           <Route path="/Ourservices" element={<Ourservices />} />
           {/* <Route path="/OurservicesBody" element={<OurservicesBody/>} /> */}
           <Route path="/Shops" element={<Shops />} />
@@ -144,7 +156,7 @@ function App() {
           <Route path="/PetProfile/Alex" element={<PetProfile />} />
           <Route path="/PetProfile/Alex/Vaccinations" element={<Vaccinations />} />
 
-          <Route path="/Discussion" element={<Discussion />} />
+              <Route path="/Discussion" element={<Discussion />} />
           <Route path="/Discussion/Start" element={<DiscussionStart />} />
 
           <Route path="/PetProducts" element={<PetProducts />} />
@@ -163,6 +175,7 @@ function App() {
           {/* shopkeeper */}
           <Route path='/ShopProfileFinal' element={<ShopProfileFinal/>} /> 
           <Route path='/FoodTableFinal' element={<FoodTableFinal/>} />
+          {/* <Route path='/ProductsFinal' element={<ProductsFinal/>} /> */}
           <Route path='/PetsFinal' element={<PetsFinal/>} />
           <Route path='/ShopAdsFinal' element={<ShopAdsFinal/>} />
           <Route path='/ProductAdsFinal' element={<ProductAdsFinal/>} />
@@ -171,7 +184,12 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
+          <Route path='/UpdateProductFinal' element={<UpdateProductFinal/>} />         
+          <Route path='/ViewAccessoryFinal' element={<ViewAccessoryFinal/>} />
+          <Route path='/ViewSkincareFinal' element={<ViewSkincareFinal/>} />
+          <Route path='/UpdateAccessoryFinal' element={<UpdateAccessoryFinal/>} />
 
+          
           {/*common*/}
           <Route path='/Articles' element={<Articles/>} />
           <Route path='/LostAndFound' element={<LostAndFound/>} />
@@ -180,6 +198,7 @@ function App() {
           <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
           <Route path='/AccountRequests' element={<AccountRequests/>}/>
           <Route path='/AccountManagement' element={<AccountManagement/>}/>
+            <Route path='/NoticeRequests' element={<NoticeRequests/>}/>
 
           {/*dashboard*/}
           <Route path='/AdminDashboard' element={<AdminDashboard/>}/>
@@ -227,6 +246,7 @@ function App() {
       <Route path="/ContactUsContent" element={<ContactUsContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
       <Route path="/DocDiscussion" element={<DocDiscussion/>} />
+            <Route path="/DocDiscussionContent" element={<DocDiscussionContent/>} />
       <Route path="/DocPetMart" element={<DocPetMart/>} />
       <Route path="/DocProductMart" element={<DocProductMart/>} />
       <Route path="/DocNotice" element={<DocNotice/>} />
