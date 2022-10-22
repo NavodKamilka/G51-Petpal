@@ -69,7 +69,10 @@ function Login() {
     // <div className="regbody">
     <div>
       <img src={logo} alt="petpalLogo1" width={200} />
-      <div className="box">
+      <div className="box" 
+      // add a shadow to the box
+          style={{
+          boxShadow: '1px 2px 29px #808080'}}>
         <h1>Login</h1>
       
         <div className="form-body">
