@@ -191,7 +191,7 @@ const Item = styled(Paper)(({ theme }) => ({
         <Grid item xs={12}>
         
           <Item>
-          <Button variant="contained" href="/MakeAppointment" sx={{top:30, left:'35%'}} endIcon={<KeyboardDoubleArrowRightIcon />}>Make Your Appointment</Button>
+          <Button variant="contained" style={{backgroundColor:'#005A2B'}} href="/MakeAppointment" sx={{top:30, left:'35%'}} endIcon={<KeyboardDoubleArrowRightIcon />}>Make Your Appointment</Button>
           <br/><br/><br/>
           <Typography variant='h4' sx={{marginLeft:'-70%' , marginTop:3}}>
               Appointments
