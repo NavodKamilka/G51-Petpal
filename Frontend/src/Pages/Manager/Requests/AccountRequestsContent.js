@@ -31,52 +31,35 @@ const Item = styled(Paper)(({theme}) => ({
 
 
 export default function MyProfileContent(){
-    // const [blogs, setBlogs] = useState([
-    //     { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 1 },
-    //     { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 2 },
-    //     { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 3 },
-    //     { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 4 },
-    //     { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 5 },
-    //     { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 6 },
-    //     { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 7 },
-    //     { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 8 }
-    // ]);
-
 
     const [requestList,setRequestList] = useState ([]);
 
     useEffect(()=>{
         Axios.get('http://localhost:3001/api/AccountRequest').then((response)=>{
-            setRequestList(response.data);
-
+            setRequestList(response.data)
         });
-        // console.log(requestList);
-    },[], console.log(requestList));
+    },[]);
 
     const handleDoctorFilterClick = () => {
         Axios.get('http://localhost:3001/api/AccountRequest/Doctor').then((response)=>{
             setRequestList(response.data);
-
         });
     }
 
     const handleClinicFilterClick = () => {
         Axios.get('http://localhost:3001/api/AccountRequest/Clinic').then((response)=>{
             setRequestList(response.data);
-
         });
     }
     const handleShopFilterClick = () => {
         Axios.get('http://localhost:3001/api/AccountRequest/Shop').then((response)=>{
             setRequestList(response.data);
-
         });
     }
 
     const handleAllFilterClick = () => {
         Axios.get('http://localhost:3001/api/AccountRequest').then((response)=>{
             setRequestList(response.data);
-
         });
     }
 
@@ -86,6 +69,11 @@ export default function MyProfileContent(){
 
         const newRequestList =  requestList.filter((requests) => requests.Id !== id);
         setRequestList(newRequestList);
+    }
+
+    const handleAcceptClick = (id) => {
+      Axios.post(`http://localhost:3001/api/AccountRequest/AcceptRequest/${id}`).then()
+        handleRejectClick(id);
     }
 
 
@@ -155,12 +143,15 @@ export default function MyProfileContent(){
                                                             style={{backgroundColor:'#1C884C',
                                                                 borderRadius:'15px',
                                                                 fontSize:'12px',
-                                                                textTransform:'capitalize',}}>Accept
+                                                                textTransform:'capitalize',}} onClick={ ()=>handleAcceptClick(val.Id)}>
+                                                        Accept
                                                     </Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
-                                                        textTransform:'capitalize',}} onClick={()=>handleRejectClick(val.Id)}>Reject</Button>
+                                                        textTransform:'capitalize',}} onClick={()=>handleRejectClick(val.Id)}>
+                                                        Reject
+                                                    </Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#63B8BB',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
