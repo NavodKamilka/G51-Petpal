@@ -100,6 +100,7 @@ export default function PetSellContent() {
               >
                 <Button
                   variant="contained"
+                  style={{backgroundColor:'#005A2B'}}
                   href="Notice/PostNotice"
                   endIcon={<AddCircleIcon />}
                 >

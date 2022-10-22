@@ -160,7 +160,7 @@ const Item = styled(Paper)(({ theme }) => ({
           <Item>
             {/* <Button variant="contained" sx={{marginLeft:'-55%' , marginTop:2}} endIcon={<AddCircleIcon />}>Post Your Pet Advertisement</Button> */}
             <Stack marginLeft={'18%'}  marginTop={4} direction="row" spacing={5}>
-            <Button variant="contained" href='/PetMart/PetSell' endIcon={<AddCircleIcon />}>Post Your Pet Advertisement</Button>
+            <Button variant="contained" style={{backgroundColor:'#005A2B'}} href='/PetMart/PetSell' endIcon={<AddCircleIcon />}>Post Your Pet Advertisement</Button>
               {/* <Button variant="contained" >Post Your Pet Advertisement</Button> */}
             {/* <Button variant="contained"  sx={{top:-480, left:'34%'}} endIcon={<KeyboardDoubleArrowRightIcon />}>Pet sell</Button> */}
               <Search >
@@ -172,7 +172,7 @@ const Item = styled(Paper)(({ theme }) => ({
                     inputProps={{ 'aria-label': 'search' }}
                   />
                 </Search>
-                <Button variant="contained" >Search Pet</Button>
+                <Button variant="contained" style={{backgroundColor:'#1D168F'}}>Search Pet</Button>
               </Stack>
               <Typography marginTop={6} variant='h4'>
                 Cat
