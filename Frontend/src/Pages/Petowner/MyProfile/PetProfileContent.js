@@ -120,7 +120,7 @@ const Item = styled(Paper)(({ theme }) => ({
                 >
                   
             <div>
-            <Button variant="contained" href="/PetProfile/Alex/Vaccinations" sx={{top:-480, left:'34%'}} endIcon={<KeyboardDoubleArrowRightIcon />}>Vaccinatons Deatails</Button>
+            <Button variant="contained" style={{backgroundColor:'#1D168F'}} href="/PetProfile/Alex/Vaccinations" sx={{top:-480, left:'34%'}} endIcon={<KeyboardDoubleArrowRightIcon />}>Vaccination Deatails</Button>
               <Stack 
                 spacing={2}
               >
