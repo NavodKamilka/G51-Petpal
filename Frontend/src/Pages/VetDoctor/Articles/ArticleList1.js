@@ -1,114 +1,90 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-
-import Button from "@mui/material/Button";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Axios from "axios";
+
+//colors for buttons
+const theme = createTheme({
+  palette: {
+    //name given as view, update and delete to declare buttons
+
+    blackButton: {
+      main: '#000000',
+    //   change the text color inside the button to another color
+      contrastText: "#fff" 
+    },
+    blueButton: {
+      main: '#1D168F',
+      contrastText: "#fff" 
+    },
+    
+  },
+});
 
 export default function ArticleList1() {
+  const[allArticleList, setAllArticleList]=useState([]);
+
+// here we don't have to click any button to display data
+useEffect(() =>{
+  Axios.get("http://localhost:3001/api/vetdoc/getAllArticles").then((response)=>{
+    setAllArticleList(response.data.data);   
+  console.log(response);
+  });
+}, []);
+
   return (
     <div>
-      {/* list of appointment box  */}
-      <div
-        style={{
-          flexDirection: "row",
-          display: "inline-flex",
-          height: 120,
-          margin: 10,
-          width: "60%",
-          verticalAlign: "center",
-          position: "relative",
-          top: "10%",
-          left: "0%",
-          flexWrap: "wrap",
-          padding: "10px 20px",
-          borderRadius: "27px",
-          boxShadow: "0 2px 7px rgb(0 0 0 / 40%)",
-          justifyContent: "center",
-          spacing: "4",
-        }}
-      >
-        {/* Box for time */}
-        <Box
-          style={{
-            height: 40,
-            "&:hover": {
-              backgroundColor: "primary.main",
-              opacity: [0.9, 0.8, 0.7],
-            },
-            fontSize: 15,
-            textAlign: "center",
-            margin: "10px 10px",
-            width: "840px",
-            flexDirection: "row",
-            display: "inline-flex",
-            position: "relative",
-            top: "0%",
-            left: "0%",
-          }}
-        >
-          <Stack spacing={1} direction='column'>
-            <h2
-              style={{
-                width: "100%",
-                display: "inline",
-                marginRight: "80px",
-                fontWeight: "bold",
-                color: "#193498",
-              }}
-            >
-              {" "}
-              How to take care of a dog correctly{" "}
-            </h2>{" "}
+      <Grid container alignItems="stretch"  justifyContent="center">
+        {/* show the cards in a row */}
+        <Grid item style={{display: 'flex'}} padding={10}>
 
-            <h3
-              style={{
-                width: "100%",
-                display: "inline",
-                marginRight: "10px",
-                fontWeight: "bold",
-                color: "#193498",
-              }}
-            >
-              {" "}
-              Dr. Kasun Perera
-            </h3>
-          </Stack>
-          {/* button view more */}
-          <Stack spacing={10} direction='column'>
-            <Button
-              variant="contained"
-              style={{
-                display: "inline-block",
-                width: "fit-content",
-                margin: 10,
-              
-                position: "relative",
-                top: "0%",
-                left: "50%",
-              }}
-            >
-              Read{" "}
-            </Button>
+          {allArticleList.map((val) => {
+            return(
+              <Card sx={{ maxWidth: 1000 , padding:2}}>
+                <CardContent>
+                  <CardContent style={{display: 'flex'}} padding={10}>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {val.Title}
+                    </Typography>
+                    <CardActions>
+                      <Button size="small">Read more</Button>
+                    </CardActions>
+                  </CardContent>
 
-            <Button
-            href="ArticlesFrom"
-              variant="contained"
-              style={{
-                display: "inline-block",
-                width: "fit-content",
-                margin: 10,
-                position: "relative",
-                top: "0%",
-                left: "0%",
-              }}
-            >
-              More from Author
-            </Button>
-          </Stack>
-              
-        </Box>
-      </div>
+                  <CardContent style={{display: 'flex'}} padding={10}>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {val.Title}
+                    </Typography>
+                    <CardActions>
+                      <Button size="small">More from author</Button>
+                    </CardActions>
+                  </CardContent>
+
+                  <CardContent style={{display: 'flex'}} padding={10}>
+                    <Typography variant="body2" color="text.secondary">
+                      {val.DatePublished} 
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {val.Likes}
+                    </Typography>
+                  </CardContent>
+
+                     
+                </CardContent>
+
+                  
+              </Card>
+            )
+          })}
+        </Grid>
+      </Grid>
     </div>
   );
 }

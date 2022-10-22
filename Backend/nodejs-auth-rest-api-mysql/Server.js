@@ -13,6 +13,12 @@ const AccountManagementRouterManager = require('./api/Manager/Requests/AccountMa
 const shopRouter = require("./api/shop/shop.route");
 const DashboardUsersRouterManager = require('./api/Manager/Dashboard/DashboardUsersRouter');
 
+//Vetdoctor
+const ViewTimeslot = require("./api/VetDoctor/Timeslots/ViewTimeslotsRouter");
+const AddDocTimeslot = require("./api/VetDoctor/Timeslots/AddTimeslotRouter");
+const vetDocRouter = require("./api/VetDoctor/vetdoctor.route");
+// const ViewAppointments = require("./api/VetDoctor/Appointments/ViewAppointmentsRouter");
+
 
 const app = express();
  
@@ -40,6 +46,13 @@ app.use('/api', DashboardUsersRouterManager);
 //shop
 //all routes related to shop will be stored here
 app.use("/api/shop",shopRouter);
+
+//vet doctor
+app.use("/api", ViewTimeslot);
+app.use("/api", AddDocTimeslot);
+app.use("/api/shop",shopRouter);
+app.use("/api/vetdoc",vetDocRouter);
+// app.use("/api", ViewAppointments);
 
 
 // Handling Errors

@@ -9,7 +9,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import { Button } from "@mui/material";
 import Axios from "axios";
-import Moment from 'react-moment';
 
 export default function Timeslots() {
   

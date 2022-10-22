@@ -246,7 +246,7 @@ function App() {
       <Route path="/ContactUsContent" element={<ContactUsContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
       <Route path="/DocDiscussion" element={<DocDiscussion/>} />
-            <Route path="/DocDiscussionContent" element={<DocDiscussionContent/>} />
+      <Route path="/DocDiscussionContent" element={<DocDiscussionContent/>} />
       <Route path="/DocPetMart" element={<DocPetMart/>} />
       <Route path="/DocProductMart" element={<DocProductMart/>} />
       <Route path="/DocNotice" element={<DocNotice/>} />

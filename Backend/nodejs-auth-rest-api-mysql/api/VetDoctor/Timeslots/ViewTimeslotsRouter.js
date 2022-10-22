@@ -5,6 +5,4 @@ const ViewTimeslot = require("./ViewTimeslotsController");
 
 app.use("/",ViewTimeslot);
 
-
-
 module.exports = app;

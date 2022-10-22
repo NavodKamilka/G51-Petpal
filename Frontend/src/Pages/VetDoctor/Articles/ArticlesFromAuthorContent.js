@@ -1,14 +1,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-// import Typography from '@mui/material/Typography';
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
 import SearchBar from "../../../Components/SearchBar";
 import ArticleListForAuthor from "./ArticleListForAuthor";
 
@@ -132,26 +128,7 @@ export default function ArticlesFromAuthorContent() {
                 }}
               >
                
-                {/* <Stack spacing={2} sx={{ width: 300, marginRight: "10px" }}>
-                  <Autocomplete
-                    id="free-solo-demo-author-date"
-                    freeSolo
-                    options={filterByDate.map((option) => option.title)}
-                    renderInput={(params) => (
-                      <TextField {...params} label="Sort By Date" />
-                    )}
-                  />
-                </Stack>
-                <Stack spacing={2} sx={{ width: 300 }}>
-                  <Autocomplete
-                    id="free-solo-demo-author-likes"
-                    freeSolo
-                    options={filterByLikes.map((option) => option.title)}
-                    renderInput={(params) => (
-                      <TextField {...params} label="Sort By Likes" />
-                    )}
-                  />
-                </Stack> */}
+               
               </div>
 
               {/* artcle list */}

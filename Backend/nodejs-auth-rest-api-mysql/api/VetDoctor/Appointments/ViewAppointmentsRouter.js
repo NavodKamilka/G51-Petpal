@@ -6,3 +6,6 @@ const ViewAppointments = require("./ViewAppointmentsController");
 app.use("/", ViewAppointments);
 
 module.exports = app;
+
+
+

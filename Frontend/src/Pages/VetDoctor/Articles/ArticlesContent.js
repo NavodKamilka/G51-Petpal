@@ -22,6 +22,7 @@ import { useFilePicker } from "use-file-picker";
 import Autocomplete from "@mui/material/Autocomplete";
 import SearchBar from "../../../Components/SearchBar";
 
+
 const filterByDate = [
   { title: "Latest published" },
   { title: "Latest published" },
@@ -264,7 +265,6 @@ export default function ArticlesContent() {
               {Array.from(Array(1)).map((index) => (
                 <div style={{ position: "relative", top: "5%", left: "0%" }}>
                   <ArticleList1 />
-                  <ArticleList2 />
                 </div>
               ))}
             </Item>
