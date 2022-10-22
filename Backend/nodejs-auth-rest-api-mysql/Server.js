@@ -13,6 +13,11 @@ const AccountManagementRouterManager = require('./api/Manager/Requests/AccountMa
 const shopRouter = require("./api/shop/shop.route");
 const DashboardUsersRouterManager = require('./api/Manager/Dashboard/DashboardUsersRouter');
 
+ //clinic-doctor
+ const DoctorRouter = require("./api/Clinic/Doctor/clinic.router.js");
+
+ //clinic
+ const ClinicRouter = require("./api/Guest/HealthCare/clinicMain.router.js");
 
 const app = express();
  
@@ -41,6 +46,12 @@ app.use('/api', DashboardUsersRouterManager);
 //all routes related to shop will be stored here
 app.use("/api/shop",shopRouter);
 
+
+//doctor
+app.use("/api/doctor",DoctorRouter);
+
+//guest
+app.use("/api/clinic",ClinicRouter);
 
 // Handling Errors
 app.use((err, req, res, next) => {
