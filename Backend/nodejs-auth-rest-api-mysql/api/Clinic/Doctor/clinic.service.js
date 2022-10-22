@@ -3,6 +3,7 @@
 const pool = require("../../../Connection/dbConnection");
 
 module.exports = {
+  //view doctors details
     getDoctors: (callBack) => {
         pool.query(
           "SELECT * FROM doctors_in_clinics",
@@ -14,6 +15,19 @@ module.exports = {
           }
         );
       },
+
+      //view notices details
+      getNotices: (callBack) => {
+      pool.query(
+        "SELECT * FROM notice_on_vaccination",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
 
       //insert doctor details
       create: (data,callBack) => {

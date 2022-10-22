@@ -1,6 +1,7 @@
     // functions in services - getAllDoctors
     const {getDoctors, 
-          create
+          create,
+          getNotices
           } = require("./clinic.service");
 
 
@@ -20,6 +21,20 @@ module.exports = {
           });
         });
       },
+
+      //Get notice details
+    getNotices: (req, res) => {
+      getNotices((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
 
       //insert a doctor to the database
       insertDoctors: (req, res) => {

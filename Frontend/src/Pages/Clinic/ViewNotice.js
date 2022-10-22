@@ -233,16 +233,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   
 // ];
 
-export default function FoodTable() {
+export default function Notices() {
 // backend
-const[foodList, setFoodList]=useState([]);
+const[noticeList, setNoticeList]=useState([]);
 
 // const ref = useRef(null);
 
 // here we don't have to click any button to display data
 useEffect(() =>{
-  Axios.get("http://localhost:3001/api/shop/getproduct").then((response)=>{
-  setFoodList(response.data.data);   
+  Axios.get("http://localhost:3001/api/Doctor/getnotice").then((response)=>{
+  setNoticeList(response.data.data);   
   console.log(response);
   });
 }, []);
@@ -294,30 +294,30 @@ useEffect(() =>{
       <Table sx={{ minWidth: 600 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="left">Product</StyledTableCell>
-            <StyledTableCell align="left">Brand</StyledTableCell>
-            <StyledTableCell align="left">Product Name</StyledTableCell>
-            <StyledTableCell align="left">Weight</StyledTableCell>
-            <StyledTableCell align="left">Price per 1 (Rs)</StyledTableCell>
-            <StyledTableCell align="left">Available quantity</StyledTableCell>
-            <StyledTableCell align="left">Last update</StyledTableCell>
+    
+            <StyledTableCell align="left">Publisher Name</StyledTableCell>
+            <StyledTableCell align="left">Registor Number</StyledTableCell>
+            <StyledTableCell align="left">Vaccine Name</StyledTableCell>
+            <StyledTableCell align="left">Vaccination Date</StyledTableCell>
+            <StyledTableCell align="left">Venue</StyledTableCell>
+            <StyledTableCell align="left">Status</StyledTableCell>
+            {/* <StyledTableCell align="left"></StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
-            <StyledTableCell align="left"></StyledTableCell>
-            <StyledTableCell align="left"></StyledTableCell>
+            <StyledTableCell align="left"></StyledTableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
-        {foodList.map((val) => {
+        {noticeList.map((val) => {
             return(
               console.log(val),
             <StyledTableRow> 
-              <StyledTableCell align="left"><img src={val.foodImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell>
-              <StyledTableCell align="left">{val.brand}</StyledTableCell>
-              <StyledTableCell align="left">{val.name}</StyledTableCell>
-              <StyledTableCell align="left">{val.weight}</StyledTableCell>
-              <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
-              <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
-              <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
+              {/* <StyledTableCell align="left"><img src={val.foodImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell> */}
+              <StyledTableCell align="left">{val.PublisherName}</StyledTableCell>
+              <StyledTableCell align="left">{val.RegNo}</StyledTableCell>
+              <StyledTableCell align="left">{val.VaccineName}</StyledTableCell>
+              <StyledTableCell align="left">{val.Date}</StyledTableCell>
+              <StyledTableCell align="left">{val.Venue}</StyledTableCell>
+              <StyledTableCell align="left">{val.Status}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewProductFinal"} state={{id:val.foodId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  component={Link} to={"/UpdateProductFinal"} state={{id:val.foodId}}>Update</Button></ThemeProvider></StyledTableCell>
