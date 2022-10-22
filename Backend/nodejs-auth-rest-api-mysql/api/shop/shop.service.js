@@ -216,4 +216,24 @@ module.exports = {
           }
         );
       },
+
+
+
+      updateOneAccessory: (data, callBack) => {
+        pool.query(
+          `update accessories set pricePerOne=?, totalQty=?, availableQty=? where accessoryId = ?`,
+          [
+            data.pricePerOne,
+            data.totalQty,
+            data.availableQty,
+            data.accessoryId
+          ],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+      },
 }

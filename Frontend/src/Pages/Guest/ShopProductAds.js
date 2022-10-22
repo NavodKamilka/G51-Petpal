@@ -53,10 +53,16 @@ export default function ProductAds() {
         <br></br>
         <br></br>
 
-        <Grid container spacing={{ xs: 2, md:3}} columns={{ xs: 2, md: 5}} alignItems="center" justifyContent="center">
+        {/* <Grid container spacing={{ xs: 2, md:3}} columns={{ xs: 2, md: 5}} alignItems="center" justifyContent="center"> */}
+        <Grid container alignItems="stretch"  justifyContent="center">
+  
             {Array.from(Array(10)).map((index) => (
-              <AdCardProduct/>
+              <Grid item style={{display: 'flex'}} padding={5}>
+               <AdCardProduct/>
+              </Grid>
             ))}
+
+
         </Grid>
  {/* show the cards in a row */}
  {/* <Stack spacing={10} direction="row" justifyContent="center" >

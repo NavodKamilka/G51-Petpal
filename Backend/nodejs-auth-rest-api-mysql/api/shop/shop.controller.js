@@ -11,7 +11,8 @@
           deleteOneFood, 
           deleteOneAccessory,
           deleteOneSkincare,
-          updateOneFood} = require("./shop.service");
+          updateOneFood,
+          updateOneAccessory} = require("./shop.service");
 
 
 
@@ -280,11 +281,25 @@
 
           //update one food item
           updateOneFood: (req, res) => {
-            // const body = req.body;
             const body=req.body;
-            // const salt = genSaltSync(10);
-            // body.password = hashSync(body.password, salt);
             updateOneFood(body, (err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                message: "updated successfully"
+              });
+            });
+          },
+
+
+
+           //update one accessory
+           updateOneAccessory: (req, res) => {
+            const body=req.body;
+            updateOneAccessory(body, (err, results) => {
               if (err) {
                 console.log(err);
                 return;
