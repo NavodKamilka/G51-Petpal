@@ -171,7 +171,7 @@ const Item = styled(Paper)(({ theme }) => ({
             marginTop: -280
           }}>
               {/* <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton'>Save Changes</Button></ThemeProvider> */}
-              <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={addDoctor}>Add</Button></ThemeProvider>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton' onClick={addDoctor}>Add Doctor</Button></ThemeProvider>
               <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain'color='blueButton'>Cancel</Button></ThemeProvider>
               
           </Stack>

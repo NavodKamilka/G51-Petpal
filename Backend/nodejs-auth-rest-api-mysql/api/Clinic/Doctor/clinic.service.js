@@ -34,6 +34,27 @@ module.exports = {
             return callBack(null, results);
           }
          );
+    },
+
+    //insert notices details
+    create: (data,callBack) => {
+      pool.query(
+          `insert into notice_on_vaccination(PublisherName, RegNo, VaccineName, Date, Venue) 
+          values(?,?,?,?,?)`,
+        [
+          data.PublisherName,
+          data.RegNo,
+          data.VaccineName,
+          data.Date,
+          data.Venue
+        ],
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+       );
   },
 
 }
