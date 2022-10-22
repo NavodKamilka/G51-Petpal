@@ -211,8 +211,8 @@ const Item = styled(Paper)(({ theme }) => ({
             marginLeft:'34%',
             marginTop: -310
           }}>
-              <Button variant="contained">Edit</Button>
-              <Button variant="contained">Save Changes</Button>
+              <Button variant="contained" style={{backgroundColor:'#1D168F'}}>Edit</Button>
+              <Button variant="contained" style={{backgroundColor:'#1D168F'}}>Save Changes</Button>
           </Stack>
           <Stack spacing={20} direction="row" style={{
             // left:'-45%',
