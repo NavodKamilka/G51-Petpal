@@ -66,9 +66,12 @@ export default function Doctors() {
      
       {/* align the 'add doctor' button to the right */}
        {/* <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Doctor</Button></ThemeProvider>  </Grid>  */}
+       <Stack  justifyContent="right" spacing={10} direction="row">    
+
        <ThemeProvider theme={theme}><Button variant="contained" href='/AddProfile'color='addButton' startIcon={<AddCircleRoundedIcon />}>
         Add Doctors
       </Button></ThemeProvider>
+      </Stack>
       <Stack spacing={10} direction="row" justifyContent="center" >
       <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='productButton'>Doctor List</Button></ThemeProvider>
       <ThemeProvider theme={theme}><Button variant="outlined" href='/AppointmentMain'color='productButton'>Appointments</Button></ThemeProvider>
@@ -82,12 +85,15 @@ export default function Doctors() {
  {/* <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Doctor</Button></ThemeProvider>  </Grid> 
       <br></br> */}
 
-<Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center">
+{/* <Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center"> */}
             {/* {Array.from(Array(3)).map((index) => (
               <AdCardDoctor/>
 
             ))} */}
-          <Grid item style={{display: 'flex'}} padding={2}>
+
+            
+      <Grid container alignItems="stretch"  justifyContent="center">
+          <Grid item style={{display: 'flex'}} padding={5}>
             {doctorList.map((val) => {
               return(
             <Card sx={{ maxWidth: 240, padding:1 }}>
@@ -120,7 +126,9 @@ export default function Doctors() {
             })}
             
         </Grid>
-          </Grid>
+      </Grid>
+
+  
 
           <div>
           <br></br>
