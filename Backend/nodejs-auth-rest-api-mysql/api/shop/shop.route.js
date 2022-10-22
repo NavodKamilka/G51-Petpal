@@ -12,7 +12,8 @@ const {getProduct,
      deleteOneFood,
      deleteOneAccessory,
      deleteOneSkincare,
-     updateOneFood
+     updateOneFood,
+     updateOneAccessory
     }=require("./shop.controller");
 
 //view details of all food products
@@ -53,5 +54,8 @@ router.delete("/deleteOneSkincare/:skincareId", deleteOneSkincare);
 
 //update one food item 
 router.put("/updateOneFood", updateOneFood);
+
+//update one accessory item 
+router.put("/updateOneAccessory", updateOneAccessory);
 
 module.exports = router;

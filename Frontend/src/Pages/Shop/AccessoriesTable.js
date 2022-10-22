@@ -163,7 +163,7 @@ const deleteOneAccessory=(accessoryId)=>{
               <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewAccessoryFinal"} state={{id:val.accessoryId}}>View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update" component={Link} to={"/UpdateAccessoryFinal"} state={{id:val.accessoryId}}>Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete" onClick={()=>deleteOneAccessory(val.accessoryId)}>Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
