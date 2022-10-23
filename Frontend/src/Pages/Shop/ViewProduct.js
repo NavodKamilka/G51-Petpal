@@ -1,4 +1,4 @@
-import *as React from 'react';
+import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
@@ -15,6 +15,10 @@ import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
+
+import { useLocation } from 'react-router-dom';
+import Axios from "axios";
+
 
 
 //change the length of the textfield
@@ -49,7 +53,20 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10,
   }));
   
-function AddUpdateProduct() {
+function ViewProduct() {
+    const oneFood = useLocation();
+    const foodId = oneFood.state.id;
+
+    const[foodList, setFoodList]=useState([]);
+ 
+    // here we don't have to click any button to display data
+    useEffect(() =>{
+        Axios.get(`http://localhost:3001/api/shop/getOneFood/${foodId}`).then((response)=>{
+        setFoodList(response.data.data);   
+        });
+  }, [oneFood.state.id]);
+
+
     return(
         <div>
             <br></br>
@@ -59,12 +76,16 @@ function AddUpdateProduct() {
             <h3>Product Details</h3>
             <Divider />
             <FormControl>
-                <table>
+            {foodList.map((oneFood) => {
+            return(
+
+                <table key={oneFood.id}>
                     <tr> 
-                        <td><TextField 
+                        <td ><TextField 
                             id="outlined-helperText"
                             label="Brand"
-                            defaultValue="Pedegree"
+                            value={oneFood.brand}
+                            
                             style={style}
                             // change the lenght of the text field
                             // sx={{ width: 500 }}
@@ -77,9 +98,8 @@ function AddUpdateProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Product Name"
-                            defaultValue="Vegeable and chicken"
                             style={style}
-
+                            value={oneFood.name}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -91,9 +111,8 @@ function AddUpdateProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Weight"
-                            defaultValue="400g"
                             style={style}
-
+                            value={oneFood.weight}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -104,9 +123,9 @@ function AddUpdateProduct() {
                         <td><TextField
                             id="outlined-helperText"
                             label="Price per 1 (Rs)"
-                            defaultValue="1500.00"
+                            value={oneFood.pricePerOne}
                             style={style}
-
+                           
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -118,7 +137,7 @@ function AddUpdateProduct() {
                             <TextField
                             id="outlined-helperText"
                             label="Total Quantity"
-                            defaultValue="5"
+                            value={oneFood.totalQty}
                             sx={{ width: 250 }}
                             // helperText="Some important text"
                             />
@@ -126,7 +145,7 @@ function AddUpdateProduct() {
                             <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
-                            defaultValue="5"
+                            value={oneFood.availableQty}
                             sx={{ width: 250 }}
                             //   helperText="Some important text"
                             />
@@ -139,9 +158,8 @@ function AddUpdateProduct() {
                                 label="Description"
                                 multiline
                                 rows={4}
-                                defaultValue="Description about the product"
+                                value={oneFood.description}
                                 style={style}
-
                                 // sx={{ width: 500 }}
                             />
                         </td>
@@ -160,14 +178,17 @@ function AddUpdateProduct() {
 
                     </tr>
                     <br></br>
-                    <tr>
+                    {/* <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
                         <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Add</Button></ThemeProvider>
 
                     </Stack>
-                    </tr>
+                    </tr> */}
                 </table>
+
+                )
+                })}
                 </FormControl>
                 </Item>
                 </Grid>
@@ -177,4 +198,4 @@ function AddUpdateProduct() {
         
     )       
 }
-export default AddUpdateProduct;
+export default ViewProduct;

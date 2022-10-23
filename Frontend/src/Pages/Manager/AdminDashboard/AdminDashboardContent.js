@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import '../../../Style/Manager/AccountRequests.css';
 
 import Dashboard from "./Dashboard";
+import Axios from "axios";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -24,16 +25,7 @@ const Item = styled(Paper)(({theme}) => ({
 
 
 export default function MyProfileContent(){
-    const [blogs, setBlogs] = useState([
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 1 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 2 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 3 },
-        { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 4 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 5 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 6 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 7 },
-        { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 8 }
-    ]);
+
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);

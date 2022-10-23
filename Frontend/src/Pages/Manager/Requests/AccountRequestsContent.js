@@ -14,6 +14,7 @@ import puppy from '../../../Images/puppy.jpg';
 import Avatar from '@mui/material/Avatar';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from "@mui/material/IconButton";
+import Axios from "axios";
 
 const Item = styled(Paper)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -30,16 +31,51 @@ const Item = styled(Paper)(({theme}) => ({
 
 
 export default function MyProfileContent(){
-    const [blogs, setBlogs] = useState([
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 1 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 2 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 3 },
-        { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 4 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake', imagepath:'../../../Images/alex.png',id: 5 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/Profile.png', id: 6 },
-        { date: '2019.05.30', usertype: 'Pet Owner', fullname: 'R.A.P.D Wickramathilake',imagepath:'../../../Images/tom.png', id: 7 },
-        { date: '2014.04.20', usertype: 'Doctor', fullname: 'Prasadi Menike',imagepath:'../../../Images/wicky.png', id: 8 }
-    ]);
+
+    const [requestList,setRequestList] = useState ([]);
+
+    useEffect(()=>{
+        Axios.get('http://localhost:3001/api/AccountRequest').then((response)=>{
+            setRequestList(response.data)
+        });
+    },[]);
+
+    const handleDoctorFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest/Doctor').then((response)=>{
+            setRequestList(response.data);
+        });
+    }
+
+    const handleClinicFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest/Clinic').then((response)=>{
+            setRequestList(response.data);
+        });
+    }
+    const handleShopFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest/Shop').then((response)=>{
+            setRequestList(response.data);
+        });
+    }
+
+    const handleAllFilterClick = () => {
+        Axios.get('http://localhost:3001/api/AccountRequest').then((response)=>{
+            setRequestList(response.data);
+        });
+    }
+
+    const handleRejectClick = (id) => {
+        Axios.delete(`http://localhost:3001/api/AccountRequest/RequestDelete/${id}`).then( (r) => {
+        });
+
+        const newRequestList =  requestList.filter((requests) => requests.Id !== id);
+        setRequestList(newRequestList);
+    }
+
+    const handleAcceptClick = (id) => {
+      Axios.post(`http://localhost:3001/api/AccountRequest/AcceptRequest/${id}`).then()
+        handleRejectClick(id);
+    }
+
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -71,10 +107,10 @@ export default function MyProfileContent(){
                         <Stack direction="column" spacing={2} padding={3} className="notice-requests-outerbox">
                             <Stack direction="row"mb={2} spacing={2} justifyContent="right" alignItems="center">
                                 <FilterSearchBar />
-                                <Button variant="contained">All</Button>
-                                <Button variant="contained">Doctor</Button>
-                                <Button variant="contained">Clinics</Button>
-                                <Button variant="contained">Shops</Button>
+                                <Button variant="contained" onClick={handleAllFilterClick}>All</Button>
+                                <Button variant="contained" onClick={handleDoctorFilterClick}>Doctor</Button>
+                                <Button variant="contained"onClick={handleClinicFilterClick}>Clinics</Button>
+                                <Button variant="contained"onClick={handleShopFilterClick}>Shops</Button>
                             </Stack>
                             <Stack direction='column' >
                                 <Stack direction="row" justifyContent="flex-start" spacing={25} p={1} sx={{
@@ -89,17 +125,17 @@ export default function MyProfileContent(){
                                 </Stack>
                                 {/*request list rows*/}
                                 <Stack sx={{overflowY:'scroll'}} mt={2} height='440px'>
-                                    {blogs.map( (blog)=> (
-                                        <Stack className='request-row-container' mb={2} pt={0} key={blog.id} >
+                                    {requestList.map( (val)=> (
+                                        <Stack className='request-row-container' mb={2} pt={0} key={val.Id} >
                                             <Stack direction="row" justifyContent="flex-start" alignItems='flex-start' p={1}>
                                                 <div className='row-detail-box' >
-                                                    {blog.date}
+                                                    {val.Date}
                                                 </div>
                                                 <div className='row-detail-box ' >
-                                                    {blog.usertype}
+                                                    {val.UserType}
                                                 </div>
                                                 <div className='row-detail-box user-name-box'>
-                                                    {blog.fullname}
+                                                    {val.UserName}
                                                 </div>
                                                 <Stack className="row-detail-buttons" direction='row' ml={20} mt={-1} p={1}
                                                        justifyContent='space-around'>
@@ -107,12 +143,15 @@ export default function MyProfileContent(){
                                                             style={{backgroundColor:'#1C884C',
                                                                 borderRadius:'15px',
                                                                 fontSize:'12px',
-                                                                textTransform:'capitalize',}}>Accept
+                                                                textTransform:'capitalize',}} onClick={ ()=>handleAcceptClick(val.Id)}>
+                                                        Accept
                                                     </Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
-                                                        textTransform:'capitalize',}}>Reject</Button>
+                                                        textTransform:'capitalize',}} onClick={()=>handleRejectClick(val.Id)}>
+                                                        Reject
+                                                    </Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#63B8BB',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
@@ -144,35 +183,18 @@ export default function MyProfileContent(){
                                                                                     width:'150px',
                                                                                     height:'150px',marginBottom:'10px',marginLeft:'75px'
                                                                                 }}/>
-                                                                        <Typography mt={2} fontSize={12}>Type:</Typography>
-                                                                        <Typography fontSize={12}>FullName:</Typography>
-                                                                        <Typography fontSize={12}>Email:</Typography>
+                                                                        <Typography mt={2} fontSize={12}>Type:  {val.UserType}</Typography>
+                                                                        <Typography fontSize={12}>FullName:  {val.UserName}</Typography>
+                                                                        <Typography fontSize={12}>Email: {val.Email}</Typography>
                                                                         <Typography fontSize={12}>Contact:</Typography>
-                                                                        <Typography fontSize={12}>Age:</Typography>
-                                                                        <Typography fontSize={12}>Registration Number:</Typography>
+                                                                        <Typography fontSize={12}>Age: {val.Age}</Typography>
+                                                                        <Typography fontSize={12}>Registration Number: {val.Registration}</Typography>
                                                                     </Stack>
                                                                     <Typography width={200} fontSize={12} pl={2}>
-                                                                        Details : Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                                        sed do eiusmod tempor incididunt ut labore et dolore
-                                                                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                                                        exercitation ullamco laboris nisi ut aliquip ex ea
-                                                                        commodo consequat.
+                                                                        {val.Details}
                                                                     </Typography>
                                                                 </Stack>
-                                                                <Stack direction='row' justifyContent='flex-end' gap={2} mt={2} mr={1.5}>
-                                                                    <Button variant="contained" size='small'
-                                                                            style={{backgroundColor:'#1C884C',
-                                                                                borderRadius:'15px',
-                                                                                fontSize:'12px',
-                                                                                textTransform:'capitalize',}}>Accept
-                                                                    </Button>
-                                                                    <Button variant="contained" size='small'
-                                                                            style={{backgroundColor:'#F5222D',
-                                                                                borderRadius:'15px',
-                                                                                fontSize:'12px',
-                                                                                textTransform:'capitalize',}}>Reject
-                                                                    </Button>
-                                                                </Stack>
+
                                                             </Stack>
                                                         </Box>
                                                     </Modal>

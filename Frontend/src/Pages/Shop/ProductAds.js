@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Stack from '@mui/material/Stack'; 
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -8,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+import Axios from "axios";
 
 
 import SearchBar from '../../Components/SearchBar';
@@ -37,6 +38,19 @@ const theme = createTheme({
 
 
 export default function ProductAds() {
+// backend
+const[foodList, setFoodList]=useState([]);
+
+
+// here we don't have to click any button to display data
+useEffect(() =>{
+  Axios.get("http://localhost:3001/api/shop/getproduct").then((response)=>{
+  setFoodList(response.data.data);   
+  console.log(response);
+  });
+}, []);
+
+
   return (
     <div>
       <h1>Products</h1>
@@ -51,25 +65,30 @@ export default function ProductAds() {
         <br></br>
         <br></br>
 
-        <Grid container alignItems="stretch" spacing={{ xs: 2, md:3}} columns={{ xs: 2, md: 5}} justifyContent="center">
-        <Card sx={{ maxWidth: 240, minWidth:240, padding:1 }}>
+        <Grid container alignItems="stretch"  justifyContent="center">
+            {/* show the cards in a row */}
+            <Grid item style={{display: 'flex'}} padding={5}>
+
+            {foodList.map((val) => {
+                return(
+                          <Card sx={{ maxWidth: 240, minWidth:240, padding:1 }}>
             <CardMedia
               component="img"
               height="240"
-              image={petFoodImage}
+              image= {val.Picture}
               alt="Product image"
           
              />
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Pedegree
+                {val.brand}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Chicken and vegetables 400g<br></br>
-                Rs 375.00<br></br>
-              No10, Yatinuwara street,Kandy <br></br>
-              081-2233445
+              Product name:{val.name}<br></br>
+              Price per one (Rs.): {val.pricePerOne}<br></br>
+              Available quantity:{val.availableQty}<br></br>
+             
               </Typography>
             </CardContent>
 
@@ -77,64 +96,10 @@ export default function ProductAds() {
             <Button size="small">View shop</Button>
           </CardActions>
           </Card>  
-
-
-
-
-           <Card sx={{ maxWidth: 240, minWidth:240, padding:1 }}>
-            <CardMedia
-              component="img"
-              height="240"
-              image={wiskasCatFood}
-              alt="Product image"
-          
-             />
-
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-              Whiskas
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-              Adult wet food (Mackaral flavour)<br></br>
-                Rs 500.00<br></br>
-              No10, Yatinuwara street,Kandy <br></br>
-              081-2233445
-              </Typography>
-            </CardContent>
-
-          <CardActions>
-            <Button size="small">View shop</Button>
-          </CardActions>
-          </Card> 
-
-
-
-          <Card sx={{ maxWidth: 240, minWidth:240, padding:1 }}>
-            <CardMedia
-              component="img"
-              height="240"
-              image={food2}
-              alt="Product image"
-          
-             />
-
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-              Pedegree
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-              Chicken and Milk<br></br>
-                Rs 1500.00<br></br>
-              No10, Kotte <br></br>
-              011-2233445
-              </Typography>
-            </CardContent>
-
-          <CardActions>
-            <Button size="small">View shop</Button>
-          </CardActions>
-          </Card> 
-        </Grid>
+          )
+        })}
+</Grid>
+  </Grid>
         
      
     </div>

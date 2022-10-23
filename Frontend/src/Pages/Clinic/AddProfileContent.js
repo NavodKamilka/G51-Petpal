@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 // import Typography from '@mui/material/Typography';
@@ -17,6 +17,9 @@ import Stack from '@mui/material/Stack';
 import Profile from '../../Images/upload.png'
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+
+import Axios from "axios";
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -42,7 +45,26 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
   export default function  MyProfileContent() {
+  
+    
+    const [DoctorName, setDoctorName] = useState("");
+    const [RegNo, setRegNo] = useState("");
+    const [Qualification, setQualification] = useState("");
+    const [Email, setEmail] = useState("");
+    const [TelNum, setTelNum] = useState("");
    
+    const addDoctor = (event) =>{
+        event. preventDefault();
+        Axios.post("http://localhost:3001/api/Doctor/insertdoctor", {
+            DoctorName: DoctorName, 
+            RegNo: RegNo, 
+            Qualification: Qualification, 
+            Email: Email, 
+            TelNum: TelNum 
+        }).then(()=> {
+            alert("successful insert");
+        });
+    };
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -85,37 +107,60 @@ const Item = styled(Paper)(({ theme }) => ({
               >
               <TextField
                 id="outlined-multiline-flexible"
-                label="Name"
-                multiline
-                maxRows={4}
-                // value={value1}
-                // onChange={handleChange1}
+                label="Doctor Name"
+                // multiline
+                // maxRows={4}
+                value={DoctorName}
+                onChange={(e)=>{
+                  setDoctorName(e.target.value)
+                }}  
               /><br/>
               <TextField
                 id="outlined-multiline-flexible"
-                label="Email Addreess"
-                multiline
-                maxRows={4}
-                // value={value2}
-                // onChange={handleChange2}
+                label="Register Number"
+                // multiline
+                // maxRows={4}
+                //style={style}
+                value={RegNo}
+                onChange={(e)=>{
+                  setRegNo(e.target.value)    
+              }} 
               />
                <br/>
               
               <TextField
                 id="outlined-multiline-flexible"
-                label="Mobile No"
-                multiline
-                maxRows={4}
-                // value={value4}
-                // onChange={handleChange4}
+                label="Qualification"
+                // multiline
+                // maxRows={4}
+                //style={style}
+                value={Qualification}
+                onChange={(e)=>{
+                  setQualification(e.target.value)    
+              }} 
+              /><br/>
+
+              <TextField
+                id="outlined-multiline-flexible"
+                label="Email Address"
+                // multiline
+                // maxRows={4}
+                //style={style}
+                value={Email}
+                onChange={(e)=>{
+                  setEmail(e.target.value)    
+              }} 
               /><br/>
               <TextField
                 id="outlined-multiline-flexible"
-                label="Register No"
-                multiline
-                maxRows={4}
-                // value={value5}
-                // onChange={handleChange5}
+                label="Mobile Number"
+                // multiline
+                // maxRows={4}
+                value={TelNum}
+                onChange={(e)=>{
+                  setTelNum(e.target.value)    
+              }} 
+               
               /> 
               </Stack>
             </div>
@@ -125,7 +170,8 @@ const Item = styled(Paper)(({ theme }) => ({
             marginLeft:'34%',
             marginTop: -280
           }}>
-              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton'>Save Changes</Button></ThemeProvider>
+              {/* <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton'>Save Changes</Button></ThemeProvider> */}
+              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton' onClick={addDoctor}>Add Doctor</Button></ThemeProvider>
               <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain'color='blueButton'>Cancel</Button></ThemeProvider>
               
           </Stack>

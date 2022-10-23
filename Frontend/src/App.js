@@ -54,7 +54,6 @@ import PetAds from './Pages/Shop/PetAds'
 import PetAdsFinal from './Pages/Shop/PetAdsFinal'
 import AddPetFinal from './Pages/Shop/AddPetFinal'
 import AddProductFinal from './Pages/Shop/AddProductFinal'
-// import AddUpdateProduct from './Pages/Shop/AddUpdateProduct'
 // import AddUpdatePet from './Pages/Shop/AddUpdatePet'
 // import AddUpdatePetFinal from './Pages/Shop/AddUpdatePetFinal'
 // import AddUpdateProductFinal from './Pages/Shop/AddUpdateProductFinal'
@@ -64,12 +63,15 @@ import PaymentFinal from './Pages/Shop/PaymentFinal'
 import AccessoriesTableFinal from './Pages/Shop/AccessoriesTableFinal'
 import SkinCareTableFinal from './Pages/Shop/SkinCareTableFinal'
 import ViewProductFinal from './Pages/Shop/ViewProductFinal'
-
+import UpdateProductFinal from './Pages/Shop/UpdateProductFinal'
+import ViewAccessoryFinal from './Pages/Shop/ViewAccessoryFinal'
+import ViewSkincareFinal from './Pages/Shop/ViewSkincareFinal'
+import UpdateAccessoryFinal from './Pages/Shop/UpdateAccessoryFinal'
 
 //Clinic
 import ClinicAdsMain from "./Pages/Guest/ClinicAdsMain"
 import ClinicViewMain from "./Pages/Guest/ClinicViewMain"
-import ClinicDocProfile from "./Pages/Clinic/MyProfile"
+import ClinicDocProfile from "./Pages/Clinic/ClinicDocProfile"
 import ClinicProfile from "./Pages/Clinic/ClinicProfile"
 import DoctorMain from "./Pages/Clinic/DoctorMain"
 import AppointmentMain from "./Pages/Clinic/AppointmentMain"
@@ -82,6 +84,7 @@ import PreviousAppoMain from "./Pages/Clinic/PreviousAppoMain"
 import UpAppoMain from "./Pages/Clinic/UpAppoMain"
 import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
+import AllPaymentMain from "./Pages/Clinic/AllPaymentMain"
 
 //test - keshani
 
@@ -117,6 +120,7 @@ import LostAndFound from './Pages/Manager/Annoucement/LostAndFound'
 import  NoticesRequests from './Pages/Manager/Requests/Notices';
 import  AccountRequests from './Pages/Manager/Requests/AccountRequests';
 import  AccountManagement from './Pages/Manager/Requests/AccountManagement';
+import  NoticeRequests from './Pages/Manager/Requests/NoticeRequests';
 
 // dashboard
 import AdminDashboard from './Pages/Manager/AdminDashboard/AdminDashboard';
@@ -181,7 +185,12 @@ function App() {
           <Route path='/AddProductFinal' element={<AddProductFinal/>} />
           <Route path='/ShopProfileGuestViewFinal' element={<ShopProfileGuestViewFinal/>} />
           <Route path='/PaymentFinal' element={<PaymentFinal/>} />
+          <Route path='/UpdateProductFinal' element={<UpdateProductFinal/>} />         
+          <Route path='/ViewAccessoryFinal' element={<ViewAccessoryFinal/>} />
+          <Route path='/ViewSkincareFinal' element={<ViewSkincareFinal/>} />
+          <Route path='/UpdateAccessoryFinal' element={<UpdateAccessoryFinal/>} />
 
+          
           {/*common*/}
           <Route path='/Articles' element={<Articles/>} />
           <Route path='/LostAndFound' element={<LostAndFound/>} />
@@ -190,6 +199,7 @@ function App() {
           <Route path='/NoticesRequests' element={<NoticesRequests/>}/>
           <Route path='/AccountRequests' element={<AccountRequests/>}/>
           <Route path='/AccountManagement' element={<AccountManagement/>}/>
+            <Route path='/NoticeRequests' element={<NoticeRequests/>}/>
 
           {/*dashboard*/}
           <Route path='/AdminDashboard' element={<AdminDashboard/>}/>
@@ -219,6 +229,7 @@ function App() {
           <Route path='/UpAppoMain' element={<UpAppoMain/>}/>
           <Route path='/ViewAppo' element={<ViewAppo/>}/>
           <Route path='/PaymentMain' element={<PaymentMain/>}/>
+          <Route path='/AllPaymentMain' element={<AllPaymentMain/>}/>
 
          
           

@@ -1,0 +1,232 @@
+import React, {useEffect, useState} from 'react';
+import ReactDOM from "react-dom";
+import Box from '@mui/material/Box';
+import {styled} from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import '../../../Style/Manager/AccountRequests.css';
+import Stack from "@mui/material/Stack";
+import {Button} from '@mui/material';
+import FilterSearchBar from "../../../Components/FilterSearchBar";
+import Modal from '@mui/material/Modal';
+import puppy from '../../../Images/puppy.jpg';
+import Avatar from '@mui/material/Avatar';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from "@mui/material/IconButton";
+import Axios from "axios";
+
+const Item = styled(Paper)(({theme}) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
+    ...theme.typography.username2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    height: 1230,
+    top: 10
+
+}));
+
+
+
+
+export default function MyProfileContent(){
+
+    const [requestList,setRequestList] = useState ([]);
+
+    useEffect(()=>{
+        Axios.get('http://localhost:3001/api/NoticeRequest').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    },[]);
+
+    const handleLostFoundFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/LostFound').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+
+    const handleAdoptionFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/Adoption').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+    const handleVaccinationFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/Vaccination').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+    const handleBreedingFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/Breeding').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+    const handleShopAdsFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest/ShopAds').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+
+    const handleAllFilterClick = () => {
+        Axios.get('http://localhost:3001/api/NoticeRequest').then((response)=>{
+            setRequestList(response.data);
+
+        });
+    }
+
+    const handleNoticeRejectClick = (id) =>{
+        Axios.delete(`http://localhost:3001/api/NoticeRequest/RequestDelete/${id}`).then( (r) => {
+        });
+
+        const newRequestList =  requestList.filter((requests) => requests.NoticeID !== id);
+        setRequestList(newRequestList);
+    }
+
+    const handleAcceptClick = (id) => {
+        console.log(id);
+        Axios.put(`http://localhost:3001/api/NoticeRequest/AcceptRequest/${id}`).then()
+        const newRequestList =  requestList.filter((requests) => requests.NoticeID !== id);
+        setRequestList(newRequestList);
+    }
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 600,
+        height: 420,
+        bgcolor: 'background.paper',
+        boxShadow: 24,
+        p: 3,
+    };
+
+    const style2 ={
+        borderRadius:100
+    };
+
+    return (
+        <div>
+            <Box sx={{flexGrow: 1}}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        {/*<Item>*/}
+                        {/*Do the coding part in the item tag*/}
+                        <Stack direction="column" spacing={2} padding={3} className="notice-requests-outerbox">
+                            <Stack direction="row"mb={2} spacing={2} justifyContent="right" alignItems="center">
+                                <FilterSearchBar />
+                                <Button variant="contained" onClick={handleAllFilterClick}>All</Button>
+                                <Button variant="contained" onClick={handleLostFoundFilterClick}>Lost & Found</Button>
+                                <Button variant="contained"onClick={handleAdoptionFilterClick}>Adoption</Button>
+                                <Button variant="contained"onClick={handleVaccinationFilterClick}>Vaccination</Button>
+                                <Button variant="contained"onClick={handleBreedingFilterClick}>Breeding</Button>
+                                <Button variant="contained"onClick={handleShopAdsFilterClick}>Shop Ads</Button>
+                            </Stack>
+                            <Stack direction='column' >
+                                <Stack direction="row" justifyContent="flex-start" spacing={25} p={1} sx={{
+                                    borderTop: 1,
+                                    borderBottom: 1,
+                                    borderColor: 'primary.main',
+                                    borderWidth: '2px'
+                                }}>
+                                    <div className='table-header-date'>Date</div>
+                                    <div>Notice Type</div>
+                                    <div>Requested By</div>
+                                </Stack>
+                                {/*request list rows*/}
+                                <Stack sx={{overflowY:'scroll'}} mt={2} height='440px'>
+                                    {requestList.map( (val)=> (
+                                        <Stack className='request-row-container' mb={2} pt={0} key={val.Id} >
+                                            <Stack direction="row" justifyContent="flex-start" alignItems='flex-start' p={1}>
+                                                <div className='row-detail-box' >
+                                                    {val.RequestedDate}
+                                                </div>
+                                                <div className='row-detail-box ' >
+                                                    {val.NoticeType}
+                                                </div>
+                                                <div className='row-detail-box user-name-box'>
+                                                    {val.PublisherName}
+                                                </div>
+                                                <Stack className="row-detail-buttons" direction='row' ml={20} mt={-1} p={1}
+                                                       justifyContent='space-around'>
+                                                    <Button variant="contained" size='small'
+                                                            style={{backgroundColor:'#1C884C',
+                                                                borderRadius:'15px',
+                                                                fontSize:'12px',
+                                                                textTransform:'capitalize',}} onClick={()=>{handleAcceptClick(val.NoticeID)}}>Accept
+                                                    </Button>
+                                                    <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
+                                                        borderRadius:'15px',
+                                                        fontSize:'12px',
+                                                        textTransform:'capitalize',}} onClick={()=>handleNoticeRejectClick(val.NoticeID)}>Reject</Button>
+                                                    <Button variant="contained" size='small' style={{backgroundColor:'#63B8BB',
+                                                        borderRadius:'15px',
+                                                        fontSize:'12px',
+                                                        textTransform:'capitalize',}} onClick={handleOpen}>View
+                                                    </Button>
+                                                    <Modal
+                                                        open={open}
+                                                        onClose={handleClose}
+                                                        aria-labelledby="modal-modal-title"
+                                                        aria-describedby="modal-modal-description"
+
+                                                    >
+                                                        <Box sx={style} p={0}>
+                                                            <Stack direction='column'>
+                                                                <CloseIcon sx={{color:'gray', marginTop:'-20px',
+                                                                    marginLeft:'542px',marginBottom:'8px',cursor:'pointer'}}
+                                                                           onClick={handleClose}/>
+                                                                <Stack direction='row' mt={0} p={2}  sx={{
+                                                                    boxShadow:'0 0 10px lightgray', alignSelf:'center',
+                                                                    justifySelf:'center'
+                                                                }}>
+                                                                    <Stack direction='column' sx={{
+                                                                        borderRight: 1,
+                                                                        borderColor: 'lightgray',
+                                                                        borderWidth: '2px'
+                                                                    }} width={300} >
+                                                                        <Avatar ml={3} mb={2} src={puppy}
+                                                                                sx={{
+                                                                                    width:'150px',
+                                                                                    height:'150px',marginBottom:'10px',marginLeft:'75px'
+                                                                                }}/>
+                                                                        <Typography mt={2} fontSize={12}>Type:  {val.UserType}</Typography>
+                                                                        <Typography fontSize={12}>Type:  {val.NoticeType}</Typography>
+                                                                        <Typography fontSize={12}>FullName:  {val.PublisherName}</Typography>
+                                                                        <Typography fontSize={12}>Email: {val.Email}</Typography>
+                                                                        <Typography fontSize={12}>Contact: {val.TelNum}</Typography>
+                                                                    </Stack>
+                                                                    <Typography width={200} fontSize={12} pl={2}>
+                                                                        {val.NoticeDetails}
+                                                                    </Typography>
+                                                                </Stack>
+
+                                                            </Stack>
+                                                        </Box>
+                                                    </Modal>
+                                                </Stack>
+                                            </Stack>
+                                        </Stack>
+                                    ))}
+                                </Stack>
+
+                            </Stack>
+
+
+                        </Stack>
+                        {/*</Item>*/}
+                    </Grid>
+                </Grid>
+            </Box>
+        </div>
+    )
+}

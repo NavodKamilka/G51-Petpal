@@ -267,7 +267,7 @@ const Item = styled(Paper)(({ theme }) => ({
               
 
               <Stack direction="row"  marginTop={8} marginLeft={'80%'} marginRight={'20%'}>
-                <Button variant="contained" onClick={addAppointment} sx={{fontSize: 14, height:40}} >Submit</Button>
+                <Button variant="contained" style={{backgroundColor:'#1D168F'}} onClick={addAppointment} sx={{fontSize: 14, height:40}} >Submit</Button>
 
                 </Stack>
               

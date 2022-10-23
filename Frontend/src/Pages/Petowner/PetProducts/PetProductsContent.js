@@ -164,7 +164,7 @@ const Item = styled(Paper)(({ theme }) => ({
                     inputProps={{ 'aria-label': 'search' }}
                   />
                 </Search>
-                <Button variant="contained" >Search Product</Button>
+                <Button variant="contained" style={{backgroundColor:'#1D168F'}}>Search Product</Button>
               </Stack>
               <Typography marginTop={6} variant='h4'>
                 Food

@@ -16,21 +16,23 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
+import {useNavigate} from "react-router-dom";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 // import Logo from '../../../Components/Logo';
-import navbarList from '../../Components/navListClinic';
-import StyledAvatar from '../../Components/StyledAvatar';
+// import navbarList from '../../Components/navList'; changed
+import navListShop from '../../Components/navListShop';
 
+import StyledAvatar from '../../Components/StyledAvatar';
 import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
-import {useNavigate} from "react-router-dom";
-import MyProfileContent from './MyProfileContent';
 
+//main page content
+import UpdateProduct from './UpdateProduct'
 
-
+// navListPetOwner
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
 const marginIconButton = 14;
@@ -38,36 +40,43 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function MyProfile() {
+
+
+
+
+
+
+export default function Test() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
 
+
+  //navigation new method
   const navigate = useNavigate();
   const handleSideNavClick = (event,desc) =>{
       event.preventDefault();
-
+  
       switch (desc) {
-          case 'Clinic Profile' :
-              navigate("/ClinicProfile", {replace: true})
+          case 'My Profile' :
+              navigate("/ShopProfileFinal", {replace: true})
               console.log(desc);
               break;
-          case 'Appointments' :
-              navigate("/DoctorMain", {replace: true})
+          case 'Products' :
+              navigate("/FoodTableFinal", {replace: true})
               console.log(desc);
               break;
-          case 'Notices' :
-              navigate("/ViewNoticeMain", {replace: true})
+          case 'Pets' :
+              navigate("/PetsFinal", {replace: true})
               console.log(desc);
               break;
           case 'Payment' :
-              navigate("/PaymentMain", {replace: true})
+              navigate("/PaymentFinal", {replace: true})
               console.log(desc);
               break;
-
       }
-
   }
+  
 
   function toogleOpen() {
     setOpen(!open);
@@ -141,7 +150,8 @@ export default function MyProfile() {
       </Box>
 
       <List dense={true}>
-        {navbarList.map((key, index) => (
+        {/* changed - put the name of the corresponding side nav acc to user*/}
+        {navListShop.map((key, index) => (
           <>
             {index === 0 ? (
               <>
@@ -221,8 +231,10 @@ export default function MyProfile() {
                 }}
               >
                 <ListItemButton
-                //href={key.href}
-                onClick={(event)=>handleSideNavClick(event,key.desc)} 
+                // TRY TO ADD A LINK TO A BUTTON
+                // component={Link} to='./PetAds'
+                onClick={(event)=>handleSideNavClick(event,key.desc)}
+                
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
@@ -309,7 +321,7 @@ export default function MyProfile() {
               color: 'lightgray',
             }}
           >
-            Pet Love 
+            Pet store name
           </Typography>
           <Typography
             component="span"
@@ -321,7 +333,7 @@ export default function MyProfile() {
               color: 'lightgray',
             }}
           >
-            Pet Clinic
+            Pet Store
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
@@ -331,6 +343,18 @@ export default function MyProfile() {
     </>
   );
 
+
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer
@@ -378,17 +402,14 @@ export default function MyProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <MyProfileContent />
-        {/* <h1>Hello</h1> */}
-        {/* <Typography>Hello Bro</Typography> */}
-        
-        <Footer />
-       
-        
-        
-      </Box>
-      
-      
+
+
+        {/* put page content here */}
+
+      <UpdateProduct/>
+
+        <Footer />  
+      </Box>      
     </Box>
   );
 }

@@ -1,49 +1,61 @@
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useTheme } from '@mui/material/styles';
 import { LineChart, BarChart , CartesianGrid,LabelList , Bar , Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import Title from './Title';
 
+import Axios from "axios";
+
 
 // Generate user Data
-function createData(month, amount) {
-    return { month,amount };
+
+
+
+function createData(userType, count) {
+    return { userType,count };
 }
 
-const data = [
-    createData('January', 0),
-    createData('February', 300),
-    createData('March', 600),
-    createData('April', 800),
-    createData('May', 1500),
-    createData('June', 2000),
-    createData('July', 2400),
-    createData('August', 2400),
-    createData('September', 2500),
-    createData('October', 2600),
-    createData('November', 2700),
-    createData('December', 2900),
-];
+
 
 export default function Chart() {
+    const [dashDetail,setDashDetail] = useState([]);
+    const shopCount =dashDetail.Shop_Count;
+    const doctorCount =dashDetail.Doctor_Count;
+    const petOwnerCount =dashDetail.PetOwner_Count;
+    const clinicCount =dashDetail.Clinic_Count;
+
+    useEffect(()=>{
+        Axios.get("http://localhost:3001/api/DashboardUsers").then((response) => {
+            setDashDetail(response.data);
+        });
+    },[]);
+
+    const data = [
+        createData('PetOwner', petOwnerCount),
+        createData('Clinic', clinicCount),
+        createData('Shop', shopCount),
+        createData('Doctor', doctorCount),
+
+    ];
+
     const theme = useTheme();
 
     return (
-        <React.Fragment >
+        <React.Fragment style={{border: '1px solid green'}}>
             <Title>Today</Title>
             <ResponsiveContainer>
                 <BarChart
                     width={830}
                     height={400}
                     data={data}
-                    margin={{ top: 30, right: 70, left: 20, bottom: 10 }} border='1px solid green'
+                    margin={{ top: 30, right: 70, left: 20, bottom: 10 }}
                     barGap={10}
 
                 >
                     <CartesianGrid strokeDasharray="4 4" />
-                    <XAxis dataKey="month" tick={false}  angle={90} label={{value:'Month',position: 'right'}} >
+                    <XAxis dataKey="userType" tick={true}  angle={0} label={{value:'Type',position: 'right'}} >
                     </XAxis>
                     <YAxis label={{ value: 'No of Users', angle: -90, position: 'insideLeft', textAnchor: 'middle' }} />
-                    <Bar dataKey="amount" fill="#4695e3">
+                    <Bar dataKey="count" fill="#4695e3">
                         <LabelList dataKey="month" position="insideTop" angle="90"  />
                     </Bar>
                 </BarChart>
