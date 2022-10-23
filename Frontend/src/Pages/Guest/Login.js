@@ -1,6 +1,6 @@
 import React from "react";
 import "../../Style/Guest/Login.css";
-import logo from "../../Images/Logo.png";
+import logo from "../../Images/loginLogo.jpeg";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
