@@ -69,7 +69,7 @@ function RegistrationVetDoc() {
                         <tr>
                             <td>
                             <div className="firstname">
-                             <TextField id="outlined-basic" label="First Name" variant="outlined" size="small"
+                             <TextField id="outlined-basic" label="First Name" variant="outlined" size="small" required
                              style={{background: "rgb(255, 255, 255)"}}/>  
                            </div>
                             </td>
@@ -79,7 +79,7 @@ function RegistrationVetDoc() {
                             
                             <td>
                             <div className="lastname">                 
-                                <TextField id="outlined-basic" label="Last Name" variant="outlined" size="small"
+                                <TextField id="outlined-basic" label="Last Name" variant="outlined" size="small" required
                                 style={{background: "rgb(255, 255, 255)"}}/>  
                             </div>
                             </td>
@@ -89,7 +89,7 @@ function RegistrationVetDoc() {
                             
                             <td>
                                 <div className="RegNumber">                 
-                                    <TextField id="outlined-basic" label="Registration Number" variant="outlined" size="small"
+                                    <TextField id="outlined-basic" label="Registration Number" variant="outlined" size="small" required
                                     style={{background: "rgb(255, 255, 255)"}}/>                  
                                 </div> 
                             </td>
@@ -98,7 +98,7 @@ function RegistrationVetDoc() {
                             
                             <td>
                             <div className="email">
-                                <TextField id="outlined-basic" label="Email" variant="outlined" size="small"
+                                <TextField id="outlined-basic" label="Email" variant="outlined" size="small" required
                                 style={{background: "rgb(255, 255, 255)"}}/>    
                             </div>
                             </td>
@@ -114,6 +114,7 @@ function RegistrationVetDoc() {
                                             autoComplete="current-password"
                                             style={{background: "rgb(255, 255, 255)"}}
                                             size="small"
+                                            required
                                         />  
                             </div>  
                             </td>
@@ -129,6 +130,7 @@ function RegistrationVetDoc() {
                                     autoComplete="current-password"
                                     style={{background: "rgb(255, 255, 255)"}}
                                     size="small"
+                                    required
                                     />                        
                             </div>
                             </td>
