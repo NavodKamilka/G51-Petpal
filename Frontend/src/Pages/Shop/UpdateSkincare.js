@@ -221,7 +221,7 @@ function UpdateSkincare() {
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={()=>(updateOneAccessory())}>Update</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={()=>(updateOneSkincare())}>Update</Button></ThemeProvider>
 
                     </Stack>
                     </tr>
