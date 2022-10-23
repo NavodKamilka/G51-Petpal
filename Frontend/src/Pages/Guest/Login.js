@@ -68,11 +68,12 @@ function Login() {
   return (
     // <div className="regbody">
     <div>
-      <img src={logo} alt="petpalLogo1" width={200} />
+      
       <div className="box" 
       // add a shadow to the box
           style={{
           boxShadow: '1px 2px 29px #808080'}}>
+            <img src={logo} alt="petpalLogo1" width={200} />
         <h1>Login</h1>
       
         <div className="form-body">
@@ -100,8 +101,8 @@ function Login() {
             />
             <br></br>
             <br></br>
-            {/* <input type="checkbox" />
-            Remember me! */}
+            {/* <input type="checkbox" /> */}
+            <a href="#forgotPassword.js">Forgot password?</a>
             <br></br>
             <br></br>
             <div class="footer">

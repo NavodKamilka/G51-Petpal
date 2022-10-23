@@ -5,14 +5,14 @@
 
             
 .box{
-    background-color: #1BBCB6;
+    background-color: #F3F3F3;
     border-radius: 40px;
     width: 550px;
-    margin: 20px auto;
+    margin: 5% auto;
     padding: 20px;
     height: auto; 
     text-align: center;
-    opacity: .8
+    /* opacity: 1; */
 }
 
 /* .logo{
@@ -32,9 +32,7 @@
     text-align: center;
 }
 
-.Button{
-    border-radius: 500px;  
-}
+
 .form-body > *{
     /* padding: 5px; */
 }
