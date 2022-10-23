@@ -74,8 +74,8 @@ module.exports = {
 
       //get details of one doctor
       getOneDoctor: (req, res) => {
-        const id = req.params.DocID;
         
+        const id = req.params.DocID;
         getOneDoctor(id, (err, results) => {
           if (err) {
             console.log(err);

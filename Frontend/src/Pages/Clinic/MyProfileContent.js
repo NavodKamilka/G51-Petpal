@@ -305,23 +305,24 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:800,
+    height:700,
     top:10,
   }));
   
-function ViewDoctor() {
+function ViewDoctor({DocID}) {
     const oneDoctor = useLocation();
-    const DocID = oneDoctor.state.id;
+    // const oneDoctor ="";
+    // const DocID = oneDoctor.state.id;
 
     const[doctorList, setDoctorList]=useState([]);
- console.log(DocID);
+//  console.log(DocID);
     // here we don't have to click any button to display data
     useEffect(() =>{
-        Axios.get(`http://localhost:3001/api/Doctor/getOneDoctor/${DocID}`).then((response)=>{
-          //Axios.get(`http://localhost:3001/api/Doctor/getOneDoctor/1`).then((response)=>{
-        setDoctorList(response.data.data);   
-        });
-  }, [oneDoctor.state.id]);
+        
+        Axios.get(`http://localhost:3001/api/Doctor/getOneDoctor/${DocID}`).then((response)=>{setDoctorList(response.data.data)})
+        console.log(doctorList)
+  }, [DocID]);
+ 
 
 
     return(
@@ -429,7 +430,7 @@ function ViewDoctor() {
                         {/* upload pet image */}
                         <p>upload product image</p>
                     <Stack spacing={10} direction="row" justifyContent="center" >
-                        <IconButton  sx={{ color: blueGrey[900] }} aria-label="upload picture" component="label">
+                        <IconButton  sx={{ color: blueGrey[600] }} aria-label="upload picture" component="label">
                             <input hidden accept="image/*" type="file" />
                             <PhotoCamera />
                         </IconButton>
