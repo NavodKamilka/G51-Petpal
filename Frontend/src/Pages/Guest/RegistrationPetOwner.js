@@ -90,11 +90,16 @@ function RegistrationPetOwner() {
   };
 
   return (
-    <div style={{ backgroundColor: "#CEFFFC" }}>
-      <img src={logo} alt="petpalLogo" width={200} />
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} justifyContent="center">
-          <Item style={{ backgroundColor: "#1bbcb6" }}>
+    <div>
+      {/* <img src={logo} alt="petpalLogo" width={200} /> */}
+      {/* <Box sx={{ flexGrow: 1 }}> */}
+        {/* <Grid container spacing={2} justifyContent="center">
+          <Item style={{ backgroundColor: "#1bbcb6" }}> */}
+           <div className="box" 
+      // add a shadow to the box
+          style={{
+          boxShadow: '1px 2px 29px #808080'}}>
+            <img src={logo} alt="petpalLogo1" width={200} />
             <h1>Sign up</h1>
             <div>
               <p>
@@ -232,9 +237,10 @@ function RegistrationPetOwner() {
                 </tr>
               </table>
             </FormControl>
-          </Item>
-        </Grid>
-      </Box>
+            </div>
+          {/* </Item>
+        </Grid> */}
+      {/* </Box> */}
     </div>
   );
 }
