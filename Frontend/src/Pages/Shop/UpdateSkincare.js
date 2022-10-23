@@ -109,11 +109,11 @@ function UpdateSkincare() {
             return(
 
                 <table key ={oneSkincare.id}>
-                    {/* <tr> 
+                    <tr> 
                         <td><TextField 
                             id="outlined-helperText"
                             label="Brand"
-                            value={oneFood.brand}
+                            value={oneSkincare.brand}
                             
                             style={style}
                             // change the lenght of the text field
@@ -122,7 +122,7 @@ function UpdateSkincare() {
                             />
                         </td>
                     </tr>
-                    <br></br> */}
+                    <br></br>
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
