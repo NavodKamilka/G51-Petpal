@@ -71,7 +71,7 @@ import UpdateAccessoryFinal from './Pages/Shop/UpdateAccessoryFinal'
 //Clinic
 import ClinicAdsMain from "./Pages/Guest/ClinicAdsMain"
 import ClinicViewMain from "./Pages/Guest/ClinicViewMain"
-import ClinicDocProfile from "./Pages/Clinic/MyProfile"
+import ClinicDocProfile from "./Pages/Clinic/ClinicDocProfile"
 import ClinicProfile from "./Pages/Clinic/ClinicProfile"
 import DoctorMain from "./Pages/Clinic/DoctorMain"
 import AppointmentMain from "./Pages/Clinic/AppointmentMain"

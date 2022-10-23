@@ -57,7 +57,8 @@ export default function ClinicAds() {
             <Grid item style={{display: 'flex'}} padding={2}>
               {clinicList.map((val) => {
                 return(
-              <Card sx={{ maxWidth: 240, padding:1 }}>
+                  <Grid item style={{ display: "flex" }} padding={5}>
+                  <Card sx={{ maxWidth: 240, padding:1 }}>
                   <CardMedia
                     component="img"
                     height="240"
@@ -83,6 +84,7 @@ export default function ClinicAds() {
                 </CardActions>
                   
               </Card>
+              </Grid>
                 )
               })}
 
