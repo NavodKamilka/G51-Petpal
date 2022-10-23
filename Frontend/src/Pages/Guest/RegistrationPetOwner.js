@@ -13,7 +13,7 @@ import Paper from "@mui/material/Paper";
 import logo from "../../Images/loginLogo1.jpeg";
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
-import '../../Style/Guest/Login.css'
+import '../../Style/Guest/registrationStyle.css'
 
 //change the length of the textfield
 // const style={
@@ -90,17 +90,14 @@ function RegistrationPetOwner() {
   };
 
   return (
-    <div>
+    <div className="background-container">
       {/* <img src={logo} alt="petpalLogo" width={200} /> */}
       {/* <Box sx={{ flexGrow: 1 }}> */}
         {/* <Grid container spacing={2} justifyContent="center">
           <Item style={{ backgroundColor: "#1bbcb6" }}> */}
-           <div className="box" 
-          // add a shadow to the box
-          style={{
-          boxShadow: '1px 2px 29px #808080'}}>
-            <img src={logo} alt="petpalLogo1" width={200} />
-            <h1>Sign up</h1>
+           <div className="box">
+            <img class='login-logo' src={logo} alt="petpalLogo1" width={200} />
+            <h1 class='h1'style={{ marginTop:'-25px'}}>Sign up</h1>
             <div>
               <p>
                 Already have an account? <a href={"/"}>Login</a>{" "}
