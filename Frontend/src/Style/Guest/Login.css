@@ -9,7 +9,7 @@
     border-radius: 40px;
     width: 550px;
     margin: 5% auto;
-    padding: 20px;
+    padding: 40px;
     height: auto; 
     text-align: center;
     /* opacity: 1; */
@@ -32,6 +32,9 @@
     text-align: center;
 }
 
+.loginButton{
+    margin-bottom:50px ;
+}
 
 .form-body > *{
     /* padding: 5px; */
