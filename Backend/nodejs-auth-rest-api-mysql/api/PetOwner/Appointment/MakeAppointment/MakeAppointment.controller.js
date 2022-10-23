@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
-router.post("/makeAppointment", signupValidation, (req, res, next) => {
+router.post("/makeAppointment",  (req, res, next) => {
     if (
       !req.headers.authorization ||
       !req.headers.authorization.startsWith("Bearer") ||
@@ -17,8 +17,8 @@ router.post("/makeAppointment", signupValidation, (req, res, next) => {
         message: "Please provide the token",
       });
     }
-    const theToken = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+    // const theToken = req.headers.authorization.split(" ")[1];
+    // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
     
 
     if(!(req.body.ClinicName)){
@@ -36,9 +36,13 @@ router.post("/makeAppointment", signupValidation, (req, res, next) => {
             ],
             (error, results, fields) => {
               if (error) {
-                callBack(error);
+                // callBack(error);
+                return res.status(400).send({
+                  msg: "data is not saved!",
+                });
               }
-              return callBack(null, results);
+              // return callBack(null, results);
+              return res.status(200).send(results);
             }
           );
     }else{
@@ -57,9 +61,13 @@ router.post("/makeAppointment", signupValidation, (req, res, next) => {
             ],
             (error, results, fields) => {
               if (error) {
-                callBack(error);
+                // callBack(error);
+                return res.status(400).send({
+                  msg: "data is not saved!",
+                });
               }
-              return callBack(null, results);
+              // return callBack(null, results);
+              return res.status(200).send(results);
             }
           );
     }
