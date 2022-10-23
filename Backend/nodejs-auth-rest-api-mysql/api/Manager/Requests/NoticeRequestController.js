@@ -21,7 +21,7 @@ router.get("/NoticeRequest",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM notices_example`,
+        `SELECT * FROM notices WHERE flag ='0'`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -47,7 +47,7 @@ router.get("/NoticeRequest/LostFound",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM notices_example WHERE NoticeCategory= "LostFound"`,
+        `SELECT * FROM notices WHERE NoticeType= "LostFound" AND Flag="0"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -73,7 +73,7 @@ router.get("/NoticeRequest/Adoption",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM notices_example WHERE NoticeCategory= "Adoption"`,
+        `SELECT * FROM notices WHERE NoticeType= "Adoption" AND Flag="0"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -99,7 +99,7 @@ router.get("/NoticeRequest/Vaccination",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM notices_example WHERE NoticeCategory= "Vaccination"`,
+        `SELECT * FROM notices WHERE NoticeType= "Vaccination" AND Flag="0"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -125,7 +125,7 @@ router.get("/NoticeRequest/Breeding",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM notices_example WHERE NoticeCategory= "Breeding"`,
+        `SELECT * FROM notices WHERE NoticeType= "Breeding" AND Flag="0"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -151,7 +151,7 @@ router.get("/NoticeRequest/ShopAds",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM notices_example WHERE NoticeCategory= "ShopAd"`,
+        `SELECT * FROM notices WHERE NoticeType= "ShopAds" AND Flag="0"`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -166,7 +166,16 @@ router.get("/NoticeRequest/ShopAds",  (req, res, next) => {
 router.delete("/NoticeRequest/RequestDelete/:id",(req,res,next)=> {
     const id =req.params.id;
     db.query(
-        `DELETE FROM notices_example WHERE NoticeID =?`,id
+        `DELETE FROM notices WHERE NoticeID =? AND Flag="0"`,id
+    )
+});
+
+router.put("/NoticeRequest/AcceptRequest/:id",(req,res,next)=>{
+    const id =req.params.id;
+    db.query(
+        `UPDATE notices SET flag ='1' WHERE NoticeId = ?`,id,(err,rows)=>{
+            if(err) throw err;
+        }
     )
 });
 
