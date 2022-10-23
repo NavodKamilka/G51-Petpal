@@ -56,10 +56,11 @@ function RegistrationClinic() {
 
     return(
         <div>
-          <img src ={logo} alt="petpalLogo" width={200}/>  
-            <Box sx={{ flexGrow: 1 }} >
-            <Grid container spacing={2} justifyContent="center">
-                <Item style={{backgroundColor: '#1bbcb6'}}>
+          <div className="box" 
+             // add a shadow to the box
+            style={{
+            boxShadow: '1px 2px 29px #808080'}}>
+            <img src={logo} alt="petpalLogo1" width={200} />
                 <h1>Sign up</h1>
                 <div><p>Already have an account?  <a href={'./Login'}>Login</a> </p> 
                 </div>
@@ -68,7 +69,7 @@ function RegistrationClinic() {
                             <tr>
                                 <td>
                                     <div className="clinicname">
-                                    <TextField id="outlined-basic" label="Clinic Name" variant="outlined" size="small"
+                                    <TextField id="outlined-basic" label="Clinic Name" variant="outlined" size="small" 
                                         style={{background: "rgb(255, 255, 255)"}}/>                        
                                     </div>
                                 </td>
@@ -137,9 +138,7 @@ function RegistrationClinic() {
                             </tr>
                         </table>
                         </FormControl>
-                    </Item>
-                </Grid>
-                </Box>
+                 </div>   
             </div>
         
     )       
