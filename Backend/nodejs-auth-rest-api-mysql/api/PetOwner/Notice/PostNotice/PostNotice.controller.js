@@ -20,10 +20,13 @@ router.post("/postNotice", signupValidation, (req, res, next) => {
     // const theToken = req.headers.authorization.split(" ")[1];
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
     
-    
+    // console.log("NNNN->"+req.file.fileName)
     db.query(
         `insert into notices(NoticeTopic, PublisherName, NIC, PublisherAddress, TelNum, Email, RequestedDate, District, NoticeType, Image) 
                   values(?,?,?,?,?,?,?,?,?,?)`,
+        // `insert into notices(Image) 
+        //           values(?)`,
+
         [
           req.body.NoticeTopic,
           req.body.PublisherName,
@@ -34,9 +37,8 @@ router.post("/postNotice", signupValidation, (req, res, next) => {
           req.body.RequestedDate,
           req.body.District,
           req.body.NoticeType,
-          req.body.Image
-          
-          
+          req.body.Url
+           
         ],
         // (error, results, fields) => {
         //   if (error) {
@@ -48,6 +50,7 @@ router.post("/postNotice", signupValidation, (req, res, next) => {
         (error, results, fields) => {
           if (error) {
             // callBack(error);
+            //console.log(error);
             return res.status(400).send({
               msg: "data is not saved!",
             });
