@@ -12,6 +12,12 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import TextField from "@mui/material/TextField";
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
+import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
+// @ts-ignore
+import {v4 as uuidv4} from "uuid";
+import {storage} from "../../../Components/firebase/firebase";
+
+
 
 // import Visibility from '@mui/icons-material/Visibility';
 // import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -38,6 +44,46 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function PetSellContent() {
 
+  const uploadFile = (event) => {
+    //setProfileImage(URL.createObjectURL(event));
+    console.log(event.name)
+    console.log("Hi")
+    const fileRef = ref(storage, `/Qualification/${event.name + uuidv4()}`);
+    const uploadTask = uploadBytesResumable(fileRef, event);
+    uploadTask.on("state_changed", (snapshot) => {
+            const prog = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+                },
+        (err) => console.log(err),
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                setUrl(url)
+                console.log(url)
+                // const data = JSON.stringify({
+                //     "user_id": `${user_id}`,
+                //     "image_url": `${url}`
+                // })
+
+                // axios({
+                //     method: "POST",
+                //     url: "https://learnxy.azurewebsites.net/user/changeImage",
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                //     data: data
+                // }).then((apiRes) => {
+                //     console.log(apiRes)
+                // }).catch((error) => {
+                //     console.log(error.message)
+                // })
+
+            })
+        }
+    )
+}
+  
+
   const token = useSelector((state) => state.user.token);
 
   const [NoticeType, setNoticeType] = React.useState("");
@@ -49,7 +95,7 @@ export default function PetSellContent() {
   // const [values.someDate, setTelephoneNumber] = React.useState("");
   const [Email, setEmail] = React.useState("");
   const [District, setDistrict] = React.useState("");
-  const [file, handleFiles] = React.useState(null);
+  //const [file, handleFiles] = React.useState(null);
   //const [date, setDate] = React.useState(new Date('2014-08-18T21:11:54'));
   const [date, setDate] = React.useState("");
 
@@ -109,14 +155,31 @@ export default function PetSellContent() {
     }
   };
 
+  ////////////////////////////////////////
+  const [url, setUrl] = React.useState("");
+  const [file, setFile] = React.useState({});
+  const [fileName, setFileName] = React.useState("");
+ 
+      const saveFile = (e) => {
+        // console.log(e.target.files[0].name)
+        setFile(e.target.files[0]);
+        setFileName(e.target.files[0].name);
+      };
+
+      // const handleChange = function (e) {
+      //   e.preventDefault();
+      //   if (e.target.files && e.target.files[0]) {
+      //     console.log(e.target.files);
+      //     handleFiles(e.target.files);
+      //   }
+      // };
+
+
+  ////////////////////////////////////////
+
+
   // triggers when file is selected with click
-  const handleChange = function (e) {
-    e.preventDefault();
-    if (e.target.files && e.target.files[0]) {
-      console.log(e.target.files);
-      handleFiles(e.target.files);
-    }
-  };
+  
 
   // triggers the input when the button is clicked
   const onButtonClick = () => {
@@ -124,12 +187,11 @@ export default function PetSellContent() {
   };
 
   const Post = () => {
-
-    // console.log(name);
     const data = new FormData();
-    data.append('file', file)
-
-    Axios.post('http://localhost:3001/api/postNotice', {  
+    data.append('file', file);
+    data.append("fileName", fileName);
+    
+    Axios.post('http://localhost:3001/api/postNotice',{
       NoticeType : NoticeType,
       NoticeTopic : NoticeTopic,
       PublisherName : PublisherName,
@@ -138,14 +200,15 @@ export default function PetSellContent() {
       TelNum : TelephoneNumber,
       Email : Email, 
       District : District,
-      Image : file,
+      Url : url,
       RequestedDate : date
-
       
-    },{
+    }
+    ,{
       //headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYzMDUwNDk4LCJleHAiOjE2NjMwNjEyOTh9.v8aNDlQi8qKPI_urGeq1NQugXtdfMpZEqOxKB76Gvco` }
       // headers: { authorization : `Bearer ${this.Token}` }
-      headers: { authorization : `Bearer ${token}` }
+      headers: { authorization : `Bearer ${token}`,
+      'content-type': 'multipart/form-data' }
     }).then(() => {
         console.log("Success");
     });
@@ -305,8 +368,8 @@ export default function PetSellContent() {
                         ref={inputRef}
                         type="file"
                         id="input-file-upload"
-                        multiple={true}
-                        onChange={handleChange}
+                        //multiple={true}
+                        onChange={(event) => uploadFile(event.target.files[0])}
                       />
                       <label
                         id="label-file-upload"
@@ -332,7 +395,7 @@ export default function PetSellContent() {
                     </form>
                 </Stack >
                 <Stack direction="row"  marginTop={8} marginLeft={'80%'} marginRight={'20%'}>
-                <Button variant="contained" onSubmit={Post} sx={{fontSize: 14, height:40}} >Post </Button>
+                <Button variant="contained" onClick={Post} sx={{fontSize: 14, height:40}} >Post </Button>
 
                 </Stack>
             </Item>
