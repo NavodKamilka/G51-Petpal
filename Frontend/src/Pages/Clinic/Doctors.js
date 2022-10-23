@@ -120,7 +120,7 @@ export default function Doctors() {
                   href="/ClinicDocProfile"
                   state={{id:val.DocID}}
                   // endIcon={<AddCircleIcon />}
-                > dsbdvs</Button>
+                > View Doctor</Button>
           </CardActions>
             
         </Card>
