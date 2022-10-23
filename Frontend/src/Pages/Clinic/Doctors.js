@@ -66,9 +66,10 @@ export default function Doctors() {
      
       {/* align the 'add doctor' button to the right */}
        {/* <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Doctor</Button></ThemeProvider>  </Grid>  */}
+       <Stack  justifyContent="right" spacing={10} direction="row">   
        <ThemeProvider theme={theme}><Button variant="contained" href='/AddProfile'color='addButton' startIcon={<AddCircleRoundedIcon />}>
         Add Doctors
-      </Button></ThemeProvider>
+      </Button></ThemeProvider></Stack>
       <Stack spacing={10} direction="row" justifyContent="center" >
       <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='productButton'>Doctor List</Button></ThemeProvider>
       <ThemeProvider theme={theme}><Button variant="outlined" href='/AppointmentMain'color='productButton'>Appointments</Button></ThemeProvider>
@@ -111,7 +112,14 @@ export default function Doctors() {
             </CardContent>
 
           <CardActions>
-            <Button size="small" href='/ClinicDocProfile'>View Doctor</Button>
+            {/* <Button size="small" component={Link} to={"/ClinicDocProfile"} state={{id:val.DocID}}>View Doctor</Button> */}
+            <Button
+                  size="small"
+                  // variant="contained"
+                  href="/ClinicDocProfile"
+                  state={{id:val.DocID}}
+                  // endIcon={<AddCircleIcon />}
+                > dsbdvs</Button>
           </CardActions>
             
         </Card>
