@@ -87,6 +87,13 @@ export default function MyProfileContent(){
         const newRequestList =  requestList.filter((requests) => requests.NoticeID !== id);
         setRequestList(newRequestList);
     }
+
+    const handleAcceptClick = (id) => {
+        console.log(id);
+        Axios.put(`http://localhost:3001/api/NoticeRequest/AcceptRequest/${id}`).then()
+        const newRequestList =  requestList.filter((requests) => requests.NoticeID !== id);
+        setRequestList(newRequestList);
+    }
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -144,7 +151,7 @@ export default function MyProfileContent(){
                                                     {val.RequestedDate}
                                                 </div>
                                                 <div className='row-detail-box ' >
-                                                    {val.NoticeCategory}
+                                                    {val.NoticeType}
                                                 </div>
                                                 <div className='row-detail-box user-name-box'>
                                                     {val.PublisherName}
@@ -155,7 +162,7 @@ export default function MyProfileContent(){
                                                             style={{backgroundColor:'#1C884C',
                                                                 borderRadius:'15px',
                                                                 fontSize:'12px',
-                                                                textTransform:'capitalize',}}>Accept
+                                                                textTransform:'capitalize',}} onClick={()=>{handleAcceptClick(val.NoticeID)}}>Accept
                                                     </Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
                                                         borderRadius:'15px',
@@ -193,14 +200,13 @@ export default function MyProfileContent(){
                                                                                     height:'150px',marginBottom:'10px',marginLeft:'75px'
                                                                                 }}/>
                                                                         <Typography mt={2} fontSize={12}>Type:  {val.UserType}</Typography>
-                                                                        <Typography fontSize={12}>FullName:  {val.UserName}</Typography>
+                                                                        <Typography fontSize={12}>Type:  {val.NoticeType}</Typography>
+                                                                        <Typography fontSize={12}>FullName:  {val.PublisherName}</Typography>
                                                                         <Typography fontSize={12}>Email: {val.Email}</Typography>
-                                                                        <Typography fontSize={12}>Contact:</Typography>
-                                                                        <Typography fontSize={12}>Age: {val.Age}</Typography>
-                                                                        <Typography fontSize={12}>Registration Number: {val.Registration}</Typography>
+                                                                        <Typography fontSize={12}>Contact: {val.TelNum}</Typography>
                                                                     </Stack>
                                                                     <Typography width={200} fontSize={12} pl={2}>
-                                                                        {val.Details}
+                                                                        {val.NoticeDetails}
                                                                     </Typography>
                                                                 </Stack>
 
