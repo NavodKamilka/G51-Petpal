@@ -1,7 +1,8 @@
 // functions in services - getAllProducts
 
 const {getAllArticles,
-    getArticlesForAuthor
+    getArticlesForAuthor,
+    getVetReviews
     } = require("./vetdoctor.service");
 
 module.exports = {
@@ -32,6 +33,21 @@ module.exports = {
               });
             });
           },
+
+           //get all the reviews about doctor
+        getVetReviews: (req, res) => {
+          getVetReviews((err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            return res.json({
+              success: 1,
+              data: results
+            });
+          });
+        },
+
 
              //insert a product to the database
             //  insertPet: (req, res) => {

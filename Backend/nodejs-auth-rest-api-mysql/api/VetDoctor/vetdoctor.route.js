@@ -1,7 +1,8 @@
 const router = require("express").Router();
 
 const {getAllArticles,
-    getArticlesForAuthor
+    getArticlesForAuthor,
+    getVetReviews
     // insertProducts,
     // getOneFood, 
     
@@ -12,8 +13,7 @@ router.get("/getAllArticles",getAllArticles);
 
 //view all article list from author
 router.get("/getArticlesForAuthor",getArticlesForAuthor);
-
-//update one accessory item 
-// router.put("/updateOneAccessory", updateOneAccessory);
+//view all article list from author
+router.get("/getVetReviews",getVetReviews);
 
 module.exports = router;

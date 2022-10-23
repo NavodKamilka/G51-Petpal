@@ -1,12 +1,9 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-// import Typography from '@mui/material/Typography';
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
 import ArticleList1 from "./ArticleList1";
-import ArticleList2 from "./ArticleList1 copy";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
@@ -17,7 +14,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useFilePicker } from "use-file-picker";
 import Autocomplete from "@mui/material/Autocomplete";
 import SearchBar from "../../../Components/SearchBar";
@@ -39,6 +36,24 @@ const Item = styled(Paper)(({ theme }) => ({
   height: 1230,
   top: 10,
 }));
+
+//colors for buttons
+const theme = createTheme({
+  palette: {
+    //name given as view, update and delete to declare buttons
+
+    blackButton: {
+      main: '#000000',
+    //   change the text color inside the button to another color
+      contrastText: "#fff" 
+    },
+    blueButton: {
+      main: '#1D168F',
+      contrastText: "#fff" 
+    },
+    
+  },
+});
 
 export default function ArticlesContent() {
   //-------Dialog box ---------------
@@ -120,18 +135,15 @@ export default function ArticlesContent() {
                     {plainFiles.map((file) => (
                       <p key={file.name}>
                         {file.name}
-
-                        <Button
-                          variant="contained"
-                          style={{ borderRadius: "10px", left: "40px" }}
-                        >
-                          Upload!
-                        </Button>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Upload</Button></ThemeProvider>
+                        
                       </p>
                     ))}
                   </DialogContent>
 
                   <DialogActions>
+                  <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Cancel</Button></ThemeProvider>
+                  
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button
                       onClick={handleClose}

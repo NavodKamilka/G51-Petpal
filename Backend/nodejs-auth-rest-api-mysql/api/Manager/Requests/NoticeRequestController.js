@@ -163,4 +163,11 @@ router.get("/NoticeRequest/ShopAds",  (req, res, next) => {
 
 });
 
+router.delete("/NoticeRequest/RequestDelete/:id",(req,res,next)=> {
+    const id =req.params.id;
+    db.query(
+        `DELETE FROM notices_example WHERE NoticeID =?`,id
+    )
+});
+
 module.exports = router;

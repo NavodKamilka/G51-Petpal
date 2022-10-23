@@ -62,7 +62,7 @@ justifyContent: 'center',spacing:'4' }}>
 }}>View More </Button></Stack>
 {/* button cancel appoitnments */}
 <Stack><Button variant="outlined" style={{margin:10}} startIcon={<DeleteIcon />}>
-                 Delete </Button></Stack>
+                 Cancel </Button></Stack>
 
 </div>
 
