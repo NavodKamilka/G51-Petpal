@@ -219,6 +219,7 @@ function RegistrationPetOwner() {
                     Agree to all <a href={"/"}>Terms and conditions</a>
                   </td>
                 </tr>
+                <br></br>
                 <tr>
                   <td>
                     <div class="footer">
