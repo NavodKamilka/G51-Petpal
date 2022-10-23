@@ -5,15 +5,15 @@ import Button from "@mui/material/Button";
 // import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+// import Box from "@mui/material/Box";
+// import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import axios from "axios";
-import logo from "../../Images/Logo.png";
+// import axios from "axios";
+import logo from "../../Images/loginLogo1.jpeg";
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
-import '../../Style/Guest/Login.css'
+import '../../Style/Guest/registrationStyle.css'
 
 //change the length of the textfield
 // const style={
@@ -32,29 +32,26 @@ const theme = createTheme({
 });
 
 // the grey box
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
-  ...theme.typography.body2,
-  padding: theme.spacing(0.2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  height: 650,
-  top: 10,
-  width: "40%",
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
+//   ...theme.typography.body2,
+//   padding: theme.spacing(0.2),
+//   textAlign: "center",
+//   color: theme.palette.text.secondary,
+//   height: 650,
+//   top: 10,
+//   width: "40%",
+// }));
 
 function RegistrationPetOwner() {
-  // // used for input may be for password
-  // const [values, setValues] = React.useState({
-  //     // amount: '',
-  //     password: '',
-  //     // weight: '',
-  //     // weightRange: '',
-  //     showPassword: false,
-  //   });
-  const [nameReg, setNameReg] = React.useState("");
-  const [emailReg, setEmailReg] = React.useState("");
-  const [passwordReg, setpasswordReg] = React.useState("");
+    // // used for input may be for password 
+    // const [values, setValues] = React.useState({
+    //     // amount: '',
+    //     password: '',
+    //     // weight: '',
+    //     // weightRange: '',
+    //     showPassword: false,
+    //   });
 
   const disptach = useDispatch();
 
@@ -90,12 +87,14 @@ function RegistrationPetOwner() {
   };
 
   return (
-    <div style={{ backgroundColor: "#CEFFFC" }}>
-      <img src={logo} alt="petpalLogo" width={200} />
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} justifyContent="center">
-          <Item style={{ backgroundColor: "#1bbcb6" }}>
-            <h1>Sign up</h1>
+    <div className="background-container">
+      {/* <img src={logo} alt="petpalLogo" width={200} /> */}
+      {/* <Box sx={{ flexGrow: 1 }}> */}
+        {/* <Grid container spacing={2} justifyContent="center">
+          <Item style={{ backgroundColor: "#1bbcb6" }}> */}
+           <div className="box">
+            <img class='login-logo' src={logo} alt="petpalLogo1" width={200} />
+            <h1 class='h1'style={{ marginTop:'-25px'}}>Sign up</h1>
             <div>
               <p>
                 Already have an account? <a href={"/"}>Login</a>{" "}
@@ -127,26 +126,16 @@ function RegistrationPetOwner() {
                             </td>
                         </tr> */}
 
-                <tr>
-                  <td>
-                    <div className="firstname">
-                      <TextField
-                        id="outlined-basic"
-                        label="Name"
-                        variant="outlined"
-                        size="small"
-                        style={{ background: "rgb(255, 255, 255)" }}
-                        required
-                        onChange={(e) => {
-                          setNameReg(e.target.value);
-                        }}
-                      />
-                    </div>
-                  </td>
-                </tr>
-                <br/>
+                        <tr>
+                            <td>
+                            <div className="firstname">
+                             <TextField id="outlined-basic" label="First Name" variant="outlined" size="small"
+                             style={{background: "rgb(255, 255, 255)"}}/>  
+                           </div>
+                            </td>
+                        </tr>
 
-                {/* <tr>
+                        <tr>
                             
                             <td>
                             <div className="lastname">                 
@@ -193,7 +182,7 @@ function RegistrationPetOwner() {
                   </td>
                 </tr>
 
-                {/* <tr>
+                        <tr>
                             <td>
                                 <div className="confirm-password">
                                 <TextField
@@ -206,36 +195,26 @@ function RegistrationPetOwner() {
                                     />                        
                             </div>
                             </td>
-                        </tr> */}
-                        <br/>
-                <tr>
-                  <td>
-                    <input type="checkbox" />
-                    Agree to all <a href={"/"}>Terms and conditions</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="footer">
-                      <ThemeProvider theme={theme}>
-                        {" "}
-                        <Button
-                          variant="contained"
-                          color="blueButton"
-                          onClick={register}
-                        >
-                          Sign up
-                        </Button>
-                      </ThemeProvider>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </FormControl>
-          </Item>
-        </Grid>
-      </Box>
-    </div>
-  );
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />Agree to all <a href={'/'}>Terms and conditions</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <div class="footer">
+                            <ThemeProvider theme={theme}> <Button variant="contained" color='blueButton'>Sign up</Button> </ThemeProvider>                         
+                            </div>
+                            </td>
+                        </tr>
+                    </table>
+                    </FormControl>
+                </Item>
+                </Grid>
+                </Box>
+            </div>
+        
+    )       
 }
 export default RegistrationPetOwner;

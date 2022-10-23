@@ -52,7 +52,7 @@ const theme = createTheme({
     textAlign: 'center',
     color: theme.palette.text.secondary,
     height:600,
-    top:10,
+    top:50,
   }));
 
 export default function AddNoticeContent() {

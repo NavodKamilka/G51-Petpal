@@ -16,10 +16,39 @@ module.exports = {
         );
       },
 
+      //get details of one doctor
+      getOneDoctor: (id, callBack) => {
+        pool.query(
+          `select DocID, DoctorName, RegNo, Qualification, Email, TelNum from doctors_in_clinics where DocID = ?;`,
+          [id],
+          // 1,
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+            
+          }
+        );
+      },
+
       //view notices details
       getNotices: (callBack) => {
       pool.query(
         "SELECT * FROM notice_on_vaccination",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
+    //view payments details
+    getPayments: (callBack) => {
+      pool.query(
+        "SELECT * FROM clinicpayments",
         (error, results, fields) => {
           if (error) {
             callBack(error);

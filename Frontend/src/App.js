@@ -71,7 +71,7 @@ import UpdateAccessoryFinal from './Pages/Shop/UpdateAccessoryFinal'
 //Clinic
 import ClinicAdsMain from "./Pages/Guest/ClinicAdsMain"
 import ClinicViewMain from "./Pages/Guest/ClinicViewMain"
-import ClinicDocProfile from "./Pages/Clinic/MyProfile"
+import ClinicDocProfile from "./Pages/Clinic/ClinicDocProfile"
 import ClinicProfile from "./Pages/Clinic/ClinicProfile"
 import DoctorMain from "./Pages/Clinic/DoctorMain"
 import AppointmentMain from "./Pages/Clinic/AppointmentMain"
@@ -84,6 +84,7 @@ import PreviousAppoMain from "./Pages/Clinic/PreviousAppoMain"
 import UpAppoMain from "./Pages/Clinic/UpAppoMain"
 import ViewAppo from "./Pages/Clinic/ViewAppo"
 import PaymentMain from "./Pages/Clinic/PaymentMain"
+import AllPaymentMain from "./Pages/Clinic/AllPaymentMain"
 
 //test - keshani
 
@@ -228,6 +229,7 @@ function App() {
           <Route path='/UpAppoMain' element={<UpAppoMain/>}/>
           <Route path='/ViewAppo' element={<ViewAppo/>}/>
           <Route path='/PaymentMain' element={<PaymentMain/>}/>
+          <Route path='/AllPaymentMain' element={<AllPaymentMain/>}/>
 
          
           
@@ -246,7 +248,7 @@ function App() {
       <Route path="/ContactUsContent" element={<ContactUsContent/>} />
       <Route path="/DocReviews" element={<DocReview/>} />
       <Route path="/DocDiscussion" element={<DocDiscussion/>} />
-      <Route path="/DocDiscussionContent" element={<DocDiscussionContent/>} />
+            <Route path="/DocDiscussionContent" element={<DocDiscussionContent/>} />
       <Route path="/DocPetMart" element={<DocPetMart/>} />
       <Route path="/DocProductMart" element={<DocProductMart/>} />
       <Route path="/DocNotice" element={<DocNotice/>} />

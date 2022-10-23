@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 //import MenuItem from '@mui/material/MenuItem';
@@ -52,6 +52,18 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
   export default function  ClinicProfileContent() {
+
+//     const oneDoctor = useLocation();
+//     const DocID = oneDoctor.state.id;
+
+//     const[doctorList, setDoctorList]=useState([]);
+ 
+//     // here we don't have to click any button to display data
+//     useEffect(() =>{
+//         Axios.get(`http://localhost:3001/api/Doctor/getOneDoctor/${DocID}`).then((response)=>{
+//         setDoctorList(response.data.data);   
+//         });
+//   }, [oneDoctor.state.id]);
 
   return (
     

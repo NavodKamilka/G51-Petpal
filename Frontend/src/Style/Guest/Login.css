@@ -2,57 +2,48 @@
 /*used for registrationPetOwner.js
             login.js*/
 
-.regbody{
-    background-color: #CEFFFC;  /* fallback for old browsers */
-   /* height:auto; */
-    /* without this the background will not be applied for the whole page */
-    overflow:auto;
-}
+            body{
+                font-family: "nunito";
+            }
+            .background-container{
+                background-color: #fafafa;
+                border: 1px solid #F7F7F7;
+                height:690px;
+            }
+                       
+            .box{
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 1px 2px 4px lightgray;
+                width: 400px;
+                margin: 5% auto;
+                padding: 40px;
+                height: auto; 
+                text-align: center;
+                /* opacity: 1; */
+            }
+            .login-logo{
+                position: relative;
+            }
+            .h1{
+                position: relative;
+                z-index: +1;
+            }
+            .form-body{
+                text-align: left;
+                /* padding: 20px 10px; */
+                text-align: center;
+            }
             
-.box{
-    background-color: #9BABCF;
-    border-radius: 5px;
-    width: 550px;
-    margin: 20px auto;
-    padding: 20px;
-    height: auto; 
-    text-align: center;
-}
-
-.logo{
-    /* float: left; */
-    /* margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto; */
-    /* justify-content: center */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-body{
-    text-align: left;
-    padding: 20px 10px;
-    text-align: center;
-}
-
-.form-body > *{
-    padding: 5px;
-}
-
-.form__label{
-    width: 40%;
-}
-
-.form_input{
-    width: 60%;
-}
-
-.footer{
-    text-align: center;
-}
-
-.login{
-    color:blue;
-};
+            .loginButton{
+                margin-bottom:50px ;
+            }
             
+            .footer{
+                text-align: center;
+            }
+            
+            .login{
+                color:blue;
+            };
+                        

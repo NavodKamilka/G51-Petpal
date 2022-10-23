@@ -122,7 +122,7 @@ export default function Appointments() {
               <StyledTableCell align="left">{row.NoOfAppointments}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/TodayAppoMain' color="view">View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/AddAppoMain' color="update">Add</Button></ThemeProvider></StyledTableCell>
+              {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/AddAppoMain' color="update">Add</Button></ThemeProvider></StyledTableCell> */}
               {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Blocked</Button></ThemeProvider></StyledTableCell> */}
 
             </StyledTableRow>
