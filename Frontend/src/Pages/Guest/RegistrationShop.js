@@ -69,7 +69,7 @@ function RegistrationShop() {
                         <tr>
                             <td>
                                 <div className="shopname">
-                                <TextField id="outlined-basic" label="Shop Name" variant="outlined" size="small"
+                                <TextField id="outlined-basic" label="Shop Name" variant="outlined" size="small" required
                                     style={{background: "rgb(255, 255, 255)"}}/>                        
                                 </div>
                             </td>
@@ -89,7 +89,7 @@ function RegistrationShop() {
                             
                             <td>
                             <div className="email">
-                                <TextField id="outlined-basic" label="Email" variant="outlined" size="small"
+                                <TextField id="outlined-basic" label="Email" variant="outlined" size="small" required
                                 style={{background: "rgb(255, 255, 255)"}}/>    
                             </div>
                             </td>
@@ -105,6 +105,7 @@ function RegistrationShop() {
                                             autoComplete="current-password"
                                             style={{background: "rgb(255, 255, 255)"}}
                                             size="small"
+                                            required
                                         />  
                             </div>  
                             </td>
@@ -120,6 +121,7 @@ function RegistrationShop() {
                                     autoComplete="current-password"
                                     style={{background: "rgb(255, 255, 255)"}}
                                     size="small"
+                                    required
                                     />                        
                             </div>
                             </td>
