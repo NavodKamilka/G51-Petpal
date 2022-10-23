@@ -100,8 +100,8 @@ function Login() {
             />
             <br></br>
             <br></br>
-            <input type="checkbox" />
-            Remember me!
+            {/* <input type="checkbox" />
+            Remember me! */}
             <br></br>
             <br></br>
             <div class="footer">

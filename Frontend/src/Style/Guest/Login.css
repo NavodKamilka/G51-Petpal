@@ -32,6 +32,9 @@
     text-align: center;
 }
 
+.Button{
+    border-radius: 500px;  
+}
 .form-body > *{
     /* padding: 5px; */
 }
