@@ -83,13 +83,14 @@ export default function Doctors() {
  {/* <Grid container justify="flex-end"><ThemeProvider theme={theme}><Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="update">Add Doctor</Button></ThemeProvider>  </Grid> 
       <br></br> */}
 
-<Grid container spacing={{ xs: 2}} columns={{ xs: 2}} alignItems="center" justifyContent="center">
+  <Grid container alignItems="stretch"  justifyContent="center">
             {/* {Array.from(Array(3)).map((index) => (
               <AdCardDoctor/>
             ))} */}
-          <Grid item style={{display: 'flex'}} padding={2}>
             {doctorList.map((val) => {
               return(
+                <Grid item style={{display: 'flex'}} padding={5}>
+  
             <Card sx={{ maxWidth: 240, padding:1 }}>
             <CardMedia
               component="img"
@@ -123,11 +124,12 @@ export default function Doctors() {
           </CardActions>
             
         </Card>
+        </Grid>
               )
             })}
             
         </Grid>
-          </Grid>
+         
 
           <div>
           <br></br>

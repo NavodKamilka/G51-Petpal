@@ -10,8 +10,8 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-import logo from "../../Images/Logo.png";
-import '../../Style/Guest/Login.css'
+import logo from "../../Images/loginLogo1.jpeg";
+import '../../Style/Guest/registrationStyle.css'
 
 //change the length of the textfield
 // const style={
@@ -55,12 +55,10 @@ function RegistrationShop() {
     
 
     return(
-        <div>
-          <img src ={logo} alt="petpalLogo" width={200}/>  
-            <Box sx={{ flexGrow: 1 }} >
-            <Grid container spacing={2} justifyContent="center">
-            <Item style={{backgroundColor: '#1bbcb6'}}>
-            <h1>Sign up</h1>
+        <div className="background-container">
+           <div className="box">
+            <img  class='login-logo' src={logo} alt="petpalLogo1" width={200} height={190}/> 
+            <h1 class='h1'style={{ marginTop:'-25px'}}>Sign up</h1>
             <div><p>Already have an account?  <a href={'./Login'}>Login</a> </p> 
             </div>
                 <FormControl>
@@ -68,27 +66,34 @@ function RegistrationShop() {
                         <tr>
                             <td>
                                 <div className="shopname">
-                                <TextField id="outlined-basic" label="Shop Name" variant="outlined" size="small"
+                                <TextField id="outlined-basic" label="Shop Name" variant="outlined" size="small" required
                                     style={{background: "rgb(255, 255, 255)"}}/>                        
                                 </div>
                             </td>
                         </tr>
 
                         <tr>
-                            
                             <td>
                                 <div className="RegNumber">                 
-                                    <TextField id="outlined-basic" label="Registration Number" variant="outlined" size="small"
+                                    <TextField id="outlined-basic" label="Registration Number" variant="outlined" size="small" required
                                     style={{background: "rgb(255, 255, 255)"}}/>                  
                                 </div> 
                             </td>
                         </tr>
 
                         <tr>
+                            <td>
+                                <div className="telNumer">                 
+                                    <TextField id="outlined-basic" label="Telephone Number" variant="outlined" size="small" required
+                                    style={{background: "rgb(255, 255, 255)"}}/>                  
+                                </div> 
+                            </td>
+                        </tr>
+                        <tr>
                             
                             <td>
                             <div className="email">
-                                <TextField id="outlined-basic" label="Email" variant="outlined" size="small"
+                                <TextField id="outlined-basic" label="Email" variant="outlined" size="small" required
                                 style={{background: "rgb(255, 255, 255)"}}/>    
                             </div>
                             </td>
@@ -104,6 +109,7 @@ function RegistrationShop() {
                                             autoComplete="current-password"
                                             style={{background: "rgb(255, 255, 255)"}}
                                             size="small"
+                                            required
                                         />  
                             </div>  
                             </td>
@@ -119,6 +125,7 @@ function RegistrationShop() {
                                     autoComplete="current-password"
                                     style={{background: "rgb(255, 255, 255)"}}
                                     size="small"
+                                    required
                                     />                        
                             </div>
                             </td>
@@ -137,9 +144,7 @@ function RegistrationShop() {
                         </tr>
                     </table>
                     </FormControl>
-                </Item>
-                </Grid>
-                </Box>
+              </div> 
             </div>
         
     )       
