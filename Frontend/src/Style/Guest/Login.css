@@ -2,30 +2,33 @@
 /*used for registrationPetOwner.js
             login.js*/
 
-
-            
+body{
+    font-family: "nunito";
+}
+.background-container{
+    background-color: #fafafa;
+    border: 1px solid #F7F7F7;
+    height:690px;
+}
+           
 .box{
-    background-color: #F7F7F7;
-    border-radius: 40px;
-    width: 550px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px lightgray;
+    width: 400px;
     margin: 5% auto;
     padding: 40px;
     height: auto; 
     text-align: center;
     /* opacity: 1; */
 }
-
-/* .logo{
-    /* float: left; */
-    /* margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto; */
-    /* justify-content: center */
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-} */ */
-
+.login-logo{
+    position: relative;
+}
+.h1{
+    position: relative;
+    z-index: +1;
+}
 .form-body{
     text-align: left;
     /* padding: 20px 10px; */
@@ -34,18 +37,6 @@
 
 .loginButton{
     margin-bottom:50px ;
-}
-
-.form-body > *{
-    /* padding: 5px; */
-}
-
-.form__label{
-    /* width: 40%; */
-}
-
-.form_input{
-    /* width: 60%; */
 }
 
 .footer{

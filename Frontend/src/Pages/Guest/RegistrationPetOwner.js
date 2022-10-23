@@ -10,7 +10,7 @@ import FormControl from "@mui/material/FormControl";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 // import axios from "axios";
-import logo from "../../Images/loginLogo.jpeg";
+import logo from "../../Images/loginLogo1.jpeg";
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import '../../Style/Guest/Login.css'

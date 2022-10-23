@@ -1,6 +1,6 @@
 import React from "react";
 import "../../Style/Guest/Login.css";
-import logo from "../../Images/loginLogo.jpeg";
+import logo from "../../Images/loginLogo1.jpeg";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -66,25 +66,27 @@ function Login() {
   };
 
   return (
-    // <div className="regbody">
-    <div>
+    
+    <div className="background-container">
       <div className="box" 
         // add a shadow to the box
-          style={{
-          boxShadow: '1px 2px 29px #808080'}}>
-            <img src={logo} alt="petpalLogo1" width={200} />
-        <h1>Login</h1>
+          // style={{
+          // boxShadow: '1px 2px 29px #808080' }}
+          >
+        <img class='login-logo' src={logo} alt="petpalLogo1" width={200} height={190} />
+        <h1 class='h1'style={{ marginTop:'-25px'}}>Login</h1>
       
         <div className="form-body">
           <Box
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 1 }}
+            sx={{ mt: 1  }}
           >
             <TextField
               label="User Name or Email"
               variant="outlined"
+              size="small"
               style={{ background: "rgb(255, 255, 255)" }}
               name="username"
               id="username"
@@ -94,6 +96,7 @@ function Login() {
             <TextField
               label="Password"
               variant="outlined"
+              size="small"
               style={{ background: "rgb(255, 255, 255)" }}
               name="password"
               id="password"
@@ -115,6 +118,7 @@ function Login() {
         </div>
       </div>
     </div>
+    
   );
 }
 export default Login;
