@@ -96,7 +96,7 @@ function RegistrationPetOwner() {
         {/* <Grid container spacing={2} justifyContent="center">
           <Item style={{ backgroundColor: "#1bbcb6" }}> */}
            <div className="box" 
-      // add a shadow to the box
+          // add a shadow to the box
           style={{
           boxShadow: '1px 2px 29px #808080'}}>
             <img src={logo} alt="petpalLogo1" width={200} />
