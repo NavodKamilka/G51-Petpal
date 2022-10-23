@@ -39,6 +39,12 @@ const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
 export default function MyProfile() {
+  // reads values from the url
+  const queryParams = new URLSearchParams(window.location.search)
+  const docID = queryParams.get("id")
+  // console.log(docID)
+
+
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
@@ -378,7 +384,7 @@ export default function MyProfile() {
         }}
       >
         <TopNavbar  /> <br/>
-        <MyProfileContent />
+        <MyProfileContent DocID={docID} />
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}
         
