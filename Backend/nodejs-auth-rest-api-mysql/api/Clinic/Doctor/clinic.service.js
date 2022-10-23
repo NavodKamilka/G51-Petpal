@@ -16,6 +16,22 @@ module.exports = {
         );
       },
 
+      //get details of one doctor
+      getOneDoctor: (id, callBack) => {
+        pool.query(
+          `select DocID, DoctorName, RegNo, Qualification, Email, TelNum from doctors_in_clinics where DocID = ?;`,
+          [id],
+          // 1,
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+            
+          }
+        );
+      },
+
       //view notices details
       getNotices: (callBack) => {
       pool.query(

@@ -5,11 +5,15 @@ const {getDoctors,
      insertDoctors,
      insertNotices,
      getNotices,
-     getPayments
+     getPayments,
+     getOneDoctor
     }=require("./clinic.controller");
 
 //view details of all doctors
 router.get("/getdoctor",getDoctors);
+
+//view details of one doctor
+router.get(`/getOneDoctor/:DocID`,getOneDoctor);
 
 //view details of all notices
 router.get("/getnotice",getNotices);

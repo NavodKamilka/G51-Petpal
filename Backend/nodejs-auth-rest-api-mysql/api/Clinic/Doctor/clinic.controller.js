@@ -2,7 +2,8 @@
     const {getDoctors, 
           create,
           getNotices,
-          getPayments
+          getPayments,
+          getOneDoctor
           } = require("./clinic.service");
 
 
@@ -70,6 +71,33 @@ module.exports = {
           });
         });
       },
+
+      //get details of one doctor
+      getOneDoctor: (req, res) => {
+        
+        const id = req.params.DocID;
+        getOneDoctor(id, (err, results) => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+          if (!results) {
+            
+            return res.json({
+              success: 0,
+              message: "Record not Found",
+            });
+          }
+          // results.password = undefined;
+
+          return res.json({
+            success: 1,
+            data: results,
+          });
+          
+        });
+      },
+
 
       //insert a doctor to the database
       insertNotices: (req, res) => {
