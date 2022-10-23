@@ -5,15 +5,15 @@ import Button from "@mui/material/Button";
 // import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+// import Box from "@mui/material/Box";
+// import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import axios from "axios";
-import logo from "../../Images/Logo.png";
+// import axios from "axios";
+import logo from "../../Images/loginLogo1.jpeg";
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
-import '../../Style/Guest/Login.css'
+import '../../Style/Guest/registrationStyle.css'
 
 //change the length of the textfield
 // const style={
@@ -32,16 +32,16 @@ const theme = createTheme({
 });
 
 // the grey box
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
-  ...theme.typography.body2,
-  padding: theme.spacing(0.2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  height: 650,
-  top: 10,
-  width: "40%",
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
+//   ...theme.typography.body2,
+//   padding: theme.spacing(0.2),
+//   textAlign: "center",
+//   color: theme.palette.text.secondary,
+//   height: 650,
+//   top: 10,
+//   width: "40%",
+// }));
 
 function RegistrationPetOwner() {
   // // used for input may be for password
@@ -90,12 +90,14 @@ function RegistrationPetOwner() {
   };
 
   return (
-    <div style={{ backgroundColor: "#CEFFFC" }}>
-      <img src={logo} alt="petpalLogo" width={200} />
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} justifyContent="center">
-          <Item style={{ backgroundColor: "#1bbcb6" }}>
-            <h1>Sign up</h1>
+    <div className="background-container">
+      {/* <img src={logo} alt="petpalLogo" width={200} /> */}
+      {/* <Box sx={{ flexGrow: 1 }}> */}
+        {/* <Grid container spacing={2} justifyContent="center">
+          <Item style={{ backgroundColor: "#1bbcb6" }}> */}
+           <div className="box">
+            <img class='login-logo' src={logo} alt="petpalLogo1" width={200} />
+            <h1 class='h1'style={{ marginTop:'-25px'}}>Sign up</h1>
             <div>
               <p>
                 Already have an account? <a href={"/"}>Login</a>{" "}
@@ -214,6 +216,7 @@ function RegistrationPetOwner() {
                     Agree to all <a href={"/"}>Terms and conditions</a>
                   </td>
                 </tr>
+                <br></br>
                 <tr>
                   <td>
                     <div class="footer">
@@ -232,9 +235,10 @@ function RegistrationPetOwner() {
                 </tr>
               </table>
             </FormControl>
-          </Item>
-        </Grid>
-      </Box>
+            </div>
+          {/* </Item>
+        </Grid> */}
+      {/* </Box> */}
     </div>
   );
 }
