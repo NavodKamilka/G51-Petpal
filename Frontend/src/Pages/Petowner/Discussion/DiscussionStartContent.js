@@ -10,6 +10,8 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 // import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 // import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 // import QuickreplyIcon from '@mui/icons-material/Quickreply';
+import Axios from 'axios';
+import {useState} from 'react';
 
 
 import TextField from "@mui/material/TextField";
@@ -42,7 +44,43 @@ const Item = styled(Paper)(({ theme }) => ({
 
   export default function  DiscussionStartContent() {
 
-   
+    const [topic , setTopic] = useState();
+    const [details , setDetails] = useState();
+
+    const handleChange1 = (event) => {
+      setTopic(event.target.value);
+    };
+    const handleChange2 = (event) => {
+      setDetails(event.target.value);
+    };
+
+    const startDiscussion = () => {
+
+      
+  
+      Axios.post('http://localhost:3001/api/startDiscussion', {
+          Title : topic,
+          Content : details
+        },{
+          headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyNjM1Nzk4LCJleHAiOjE2NjI2NDY1OTh9.duI8_LU5euykMI8GqnJKzju3aOphic4ic_4L0i-9E94` }
+          // headers: { authorization : `Bearer ${this.Token}` }
+        }).then(() => {
+          console.log("Success");
+      });
+      // const auth = await Axios.post(`/api/get-user`,{
+      //     Title : topic,
+      //     Content : details
+      // }, {
+      //   headers: {
+      //   Authorization: `Bearer ${this.Token}` 
+      //   }
+    // })
+
+
+
+  };
+
+  
 
   return (
     <div>
@@ -64,6 +102,7 @@ const Item = styled(Paper)(({ theme }) => ({
                     id="outlined-basic" 
                     label="Topic" 
                     variant="outlined" 
+                    onChange={handleChange1}
                     // fullWidth
                 /> <br/><br/> 
             <Typography variant='h5' sx={{
@@ -77,11 +116,12 @@ const Item = styled(Paper)(({ theme }) => ({
                     id="outlined-basic" 
                     label="Topic" 
                     variant="outlined" 
+                    onChange={handleChange2}
                     // fullWidth
                 /><br/><br/><br/><br/>
             <Stack spacing={40} direction="row" marginLeft={'22.5%'}>
                 <Button variant="contained" sx={{width:180}} >Cancel</Button>
-                <Button variant="contained"  sx={{width:180}}>Submit</Button>
+                <Button variant="contained" onClick={startDiscussion}  sx={{width:180}}>Submit</Button>
             </Stack>
           
           </Item>

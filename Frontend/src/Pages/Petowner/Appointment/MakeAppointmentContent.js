@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 // import Link from '@mui/material/Link';
 
+
 import Axios from 'axios';
 
 import InputLabel from "@mui/material/InputLabel";
@@ -25,6 +26,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
+import { useSelector } from 'react-redux';
 
 // import Profile from '../../../Images/Profile.png'
 // import alex from '../../../Images/alex.png'
@@ -63,6 +65,8 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
   export default function  MyProfileContent() {
+
+    const token = useSelector((state) => state.user.token);
 
     const [petOwnerName, setPetOwnerName] = React.useState("");
     const [petName, setPetName] = React.useState("");
@@ -111,6 +115,9 @@ const Item = styled(Paper)(({ theme }) => ({
       Date : date,
       Time : time 
       
+    },{
+      // headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyNjM1Nzk4LCJleHAiOjE2NjI2NDY1OTh9.duI8_LU5euykMI8GqnJKzju3aOphic4ic_4L0i-9E94` }
+      headers: { authorization : `Bearer ${token}` }
     }).then(() => {
         console.log("Success");
     });
@@ -177,10 +184,10 @@ const Item = styled(Paper)(({ theme }) => ({
                   label="{Pet Type}"
                   onChange={handleChange3}
                 >
-                  <MenuItem value={10}>Dog</MenuItem>
-                  <MenuItem value={20}>Cat</MenuItem>
-                  <MenuItem value={30}>Parrot</MenuItem>
-                  <MenuItem value={30}>Guine Pig</MenuItem>
+                  <MenuItem value={'Dog'}>Dog</MenuItem>
+                  <MenuItem value={'Cat'}>Cat</MenuItem>
+                  <MenuItem value={'Parrot'}>Parrot</MenuItem>
+                  <MenuItem value={'Guine Pig'}>Guine Pig</MenuItem>
                   {/* <MenuItem value={30}>Donation/Volunteering</MenuItem>
                   <MenuItem value={30}>Adoption</MenuItem>
                   <MenuItem value={30}>Rescue Program(evevnts)</MenuItem> */}
@@ -196,8 +203,8 @@ const Item = styled(Paper)(({ theme }) => ({
                   label="{Pet Type}"
                   onChange={handleChange4}
                 >
-                  <MenuItem value={10}>Pet We PhotoCamera</MenuItem>
-                  <MenuItem value={20}>AWT Hospital</MenuItem>
+                  <MenuItem value={'Pet We PhotoCamera'}>Pet We PhotoCamera</MenuItem>
+                  <MenuItem value={'AWT Hospital'}>AWT Hospital</MenuItem>
                   {/* <MenuItem value={30}>Parrot</MenuItem>
                   <MenuItem value={30}>Guine Pig</MenuItem> */}
                   {/* <MenuItem value={30}>Donation/Volunteering</MenuItem>
@@ -215,10 +222,10 @@ const Item = styled(Paper)(({ theme }) => ({
                   label="{Pet Type}"
                   onChange={handleChange5}
                 >
-                  <MenuItem value={10}>Dr. Wasantha</MenuItem>
-                  <MenuItem value={20}>Dr. Perera</MenuItem>
-                  <MenuItem value={30}>Dr. Wasana</MenuItem>
-                  <MenuItem value={30}>Dr. Dr. Kamal</MenuItem>
+                  <MenuItem value={'Dr. Wasantha'}>Dr. Wasantha</MenuItem>
+                  <MenuItem value={'Dr. Perer'}>Dr. Perera</MenuItem>
+                  <MenuItem value={'Dr. Wasana'}>Dr. Wasana</MenuItem>
+                  <MenuItem value={'Dr. Kamal'}>Dr. Kamal</MenuItem>
                   {/* <MenuItem value={30}>Donation/Volunteering</MenuItem>
                   <MenuItem value={30}>Adoption</MenuItem>
                   <MenuItem value={30}>Rescue Program(evevnts)</MenuItem> */}
@@ -247,10 +254,10 @@ const Item = styled(Paper)(({ theme }) => ({
                   label="{Pet Type}"
                   onChange={handleChange7}
                 >
-                  <MenuItem value={10}>4-5 pm</MenuItem>
-                  <MenuItem value={20}>5-6 pm</MenuItem>
-                  <MenuItem value={30}>6-7 pm</MenuItem>
-                  <MenuItem value={30}>7-8 pm</MenuItem>
+                  <MenuItem value={'4-5 pm'}>4-5 pm</MenuItem>
+                  <MenuItem value={'5-6 pm'}>5-6 pm</MenuItem>
+                  <MenuItem value={'6-7 pm'}>6-7 pm</MenuItem>
+                  <MenuItem value={'7-8 pm'}>7-8 pm</MenuItem>
                   {/* <MenuItem value={30}>Donation/Volunteering</MenuItem>
                   <MenuItem value={30}>Adoption</MenuItem>
                   <MenuItem value={30}>Rescue Program(evevnts)</MenuItem> */}

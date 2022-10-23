@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
-router.post("/postNotice", signupValidation, (req, res, next) => {
+router.get("/viewAppointment", signupValidation, (req, res, next) => {
     if (
       !req.headers.authorization ||
       !req.headers.authorization.startsWith("Bearer") ||
@@ -20,37 +20,27 @@ router.post("/postNotice", signupValidation, (req, res, next) => {
     // const theToken = req.headers.authorization.split(" ")[1];
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
     
-    // console.log("NNNN->"+req.file.fileName)
-    db.query(
-        `insert into notices(NoticeTopic, PublisherName, NIC, PublisherAddress, TelNum, Email, RequestedDate, District, NoticeType, Image) 
-                  values(?,?,?,?,?,?,?,?,?,?)`,
-        // `insert into notices(Image) 
-        //           values(?)`,
 
-        [
-          req.body.NoticeTopic,
-          req.body.PublisherName,
-          req.body.NIC,
-          req.body.PublisherAddress,
-          req.body.TelNum,
-          req.body.Email,
-          req.body.RequestedDate,
-          req.body.District,
-          req.body.NoticeType,
-          req.body.Url
-           
-        ],
-        // (error, results, fields) => {
-        //   if (error) {
-        //     callBack(error);
-        //   }
-        //   return callBack(null, results);
-        // return console.log("Success");
+    db.query(
+        // watch the Query
+        // `SELECT ad.*,ac.* FROM appointments_on_doctors ad,appointments_on_clinics ac WHERE t.TeamID=tm.TeamID && t.TeamID=('$tId')`,
+        // `"SELECT * FROM users where id=?`,
+        //`SELECT Date, PetName, AppointmentStatus, ClinicName, DoctorName FROM appointments_on_clinics`,
+        `SELECT * FROM appointments_on_clinics`,
+        // get details from the  appointments_on_clinics and appointments_on_doctors tables
+        // decoded.id,
+  
+
+        // (err,result) => {
+        //     if(err){
+        //         console.log(err)
+        //     }else{
+        //         res.send(result)
+        //     }
         // }
         (error, results, fields) => {
           if (error) {
             // callBack(error);
-            //console.log(error);
             return res.status(400).send({
               msg: "data is not saved!",
             });
@@ -58,8 +48,15 @@ router.post("/postNotice", signupValidation, (req, res, next) => {
           // return callBack(null, results);
           return res.status(200).send(results);
         }
+        
+        // (error, results, fields) => {
+        //   if (error) {
+        //     console.log("Has an error")
+        //     callBack(error);
+        //   }
+        //   return callBack(null, results);
+        // }
       );
-
 });
 
 module.exports = router;
