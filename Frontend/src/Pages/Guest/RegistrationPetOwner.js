@@ -5,11 +5,11 @@ import Button from "@mui/material/Button";
 // import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+// import Box from "@mui/material/Box";
+// import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import axios from "axios";
+// import axios from "axios";
 import logo from "../../Images/loginLogo.jpeg";
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,16 +32,16 @@ const theme = createTheme({
 });
 
 // the grey box
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
-  ...theme.typography.body2,
-  padding: theme.spacing(0.2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  height: 650,
-  top: 10,
-  width: "40%",
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
+//   ...theme.typography.body2,
+//   padding: theme.spacing(0.2),
+//   textAlign: "center",
+//   color: theme.palette.text.secondary,
+//   height: 650,
+//   top: 10,
+//   width: "40%",
+// }));
 
 function RegistrationPetOwner() {
   // // used for input may be for password
