@@ -120,6 +120,7 @@ function Home() {
       }}
     >
         <HomeNavbar />
+        <Button variant="contained" href='/Login' style={{backgroundColor: '#FB5C39'}} sx={{top:-500, left:1350}}>Login</Button>
         
 
     <div className='welcome'>
@@ -149,7 +150,7 @@ function Home() {
 
 
         <React.Fragment >     
-          <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button"  sx={{marginTop:45, marginLeft:44}} >
+          <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button"  sx={{marginTop:45, marginLeft:35}} >
             <Button href='/RegistrationPetOwner' style={{backgroundColor: '#31ba32', height:45}} onClick={handleClick}>{options[selectedIndex]} Register</Button>
             <Button
 
@@ -210,8 +211,8 @@ function Home() {
 
         <div className='Group'><img src={group}   alt="Logo" style={{
             // marginLeft: '1700px',
-            marginLeft:-265,
-            marginTop:-420,
+            marginLeft:-263,
+            marginTop:-460,
             width: 900,
             height:630,
 
@@ -223,7 +224,7 @@ function Home() {
       </div>
            {/* <div className='actorpng'><img src={image}  alt="Logo"/></div>
            <div className='events'>Donations and volunteering</div>  */}
-           <Stack direction="row" spacing={15} sx={{marginLeft:15, marginTop:10}}>
+           <Stack direction="row" spacing={15} sx={{marginLeft:15, marginTop:24}}>
             <img src={circle7}   alt="Logo"/>
             <img src={circle8}   alt="Logo" style={{
               // marginLeft: '1700px',
