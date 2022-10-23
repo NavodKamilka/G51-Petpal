@@ -88,7 +88,7 @@ export default function Doctors() {
             ))} */}
             {doctorList.map((val) => {
               return(
-                <Grid item style={{display: 'flex'}} padding={5}>
+              <Grid item style={{display: 'flex'}} padding={5}>
   
             <Card sx={{ maxWidth: 240, padding:1 }}>
             <CardMedia
