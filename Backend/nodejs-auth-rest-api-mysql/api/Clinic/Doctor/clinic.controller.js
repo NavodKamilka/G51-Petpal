@@ -5,7 +5,8 @@
           getPayments,
           getOneDoctor,
           getAppointments,
-          getTodayappos
+          getTodayappos,
+          getPreviousappos
           } = require("./clinic.service");
 
 
@@ -43,6 +44,20 @@ module.exports = {
     //Get today appoitment details
     getTodayappos: (req, res) => {
       getTodayappos((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
+
+    //Get previous appoitment details
+    getPreviousappos: (req, res) => {
+      getPreviousappos((err, results) => {
         if (err) {
           console.log(err);
           return;

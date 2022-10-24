@@ -42,6 +42,19 @@ module.exports = {
       );
     },
 
+    //view previous appointments details
+    getPreviousappos: (callBack) => {
+      pool.query(
+        "SELECT * FROM appointments_on_clinics where Date < curdate();",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
       //get details of one doctor
       getOneDoctor: (id, callBack) => {
         pool.query(

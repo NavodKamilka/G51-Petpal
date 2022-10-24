@@ -8,7 +8,8 @@ const {getDoctors,
      getPayments,
      getOneDoctor,
      getAppointments,
-     getTodayappos
+     getTodayappos,
+     getPreviousappos
     }=require("./clinic.controller");
 
 //view details of all doctors
@@ -19,6 +20,9 @@ router.get("/getappointment",getAppointments);
 
 //view details of today appointments
 router.get("/gettodayappo",getTodayappos);
+
+//view details of previous appointments
+router.get("/getpreviousappo",getPreviousappos);
 
 //view details of one doctor
 router.get(`/getOneDoctor/:DocID`,getOneDoctor);
