@@ -13,7 +13,9 @@
           deleteOneSkincare,
           updateOneFood,
           updateOneAccessory,
-          updateOneSkincare
+          updateOneSkincare,
+          getAllPets,
+          insertPet
         } = require("./shop.service");
 
 
@@ -104,7 +106,7 @@
           insertPet: (req, res) => {
             console.log("hello");
             const body = req.body;
-            create(body, (err, results) => {
+            insertPet(body, (err, results) => {
               if (err) {
                 console.log(err);
                 return res.status(500).json({
@@ -328,4 +330,20 @@
               });
             });
           },
+
+
+          //get all the food product details stored in the database
+          getAllPets: (req, res) => {
+            getAllPets((err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            return res.json({
+              success: 1,
+              data: results
+            });
+          });
+        },
+
  }
