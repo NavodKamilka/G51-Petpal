@@ -18,6 +18,7 @@ import '../../Style/Shop/ShopProfile.css'
 
 import { useLocation } from 'react-router-dom';
 import Axios from "axios";
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
 
 
@@ -182,7 +183,7 @@ function ViewProduct() {
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/FoodTableFinal'>Back</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/FoodTableFinal' startIcon={<KeyboardDoubleArrowLeftIcon />}>Back</Button></ThemeProvider>
 
                     </Stack>
                     </tr>
