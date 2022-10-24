@@ -103,7 +103,7 @@ function AddPet() {
                 <table>
                     <tr> 
                         <td>
-                            {/* <TextField
+                            <TextField
                                 label="Pet Type"
                                 value={petType}
                                 // onChange={(e) => setValue(e.target.value)}
@@ -116,10 +116,10 @@ function AddPet() {
                                 <MenuItem value={'dog'}>Dog</MenuItem>
                                 <MenuItem value={'cat'}>Cat</MenuItem> 
                                 <MenuItem value={'rabbit'}>Rabbit</MenuItem>
-                                <MenuItem value={'bird'}>Parrot</MenuItem>
+                                <MenuItem value={'bird'}>Bird</MenuItem>
                                 <MenuItem value={'guenia pig'}>Guenia pig</MenuItem>
                                 <MenuItem value={'fish'}>Fish</MenuItem>
-                            </TextField> */}
+                            </TextField>
                        
                         </td>
                     </tr>
