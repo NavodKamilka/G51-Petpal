@@ -16,10 +16,23 @@ module.exports = {
         );
       },
 
-      //view appointments details
+    //view appointments details
     getAppointments: (callBack) => {
       pool.query(
         "SELECT * FROM doctors_in_clinics",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
+    //view today appointments details
+    getTodayappos: (callBack) => {
+      pool.query(
+        "SELECT * FROM appointments_on_clinics where Date=curdate();",
         (error, results, fields) => {
           if (error) {
             callBack(error);
