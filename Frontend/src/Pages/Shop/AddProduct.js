@@ -15,6 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 //related to backend
@@ -64,6 +65,8 @@ function AddProduct() {
     const [availableQty, setAvailableQty] = useState("");
     const [desc, setDesc] = useState("");
 
+    const navigate = useNavigate();
+
     const addProduct = (event) =>{
         event. preventDefault();
         Axios.post("http://localhost:3001/api/shop/insertproduct", {
@@ -76,6 +79,7 @@ function AddProduct() {
             desc: desc
         }).then(()=> {
             alert("successful insert");
+            navigate('/FoodTableFinal');
         });
     };
 
@@ -156,6 +160,7 @@ function AddProduct() {
                         </td>
                     </tr>
                     <br></br>
+
                     <tr>
                         <td>
                             <TextField
@@ -163,6 +168,7 @@ function AddProduct() {
                             label="Total Quantity"
                             // defaultValue="10"
                             sx={{ width: 250 }}
+                           
                             value={totalQty}
                             onChange={(e)=>{
                                 setTotalQty(e.target.value)    

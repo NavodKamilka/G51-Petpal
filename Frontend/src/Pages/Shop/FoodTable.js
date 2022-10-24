@@ -117,9 +117,10 @@ useEffect(() =>{
 const deleteOneFood=(foodId)=>{
   //".then" part will refresh the page after one food item is deleted. 
   Axios.delete(`http://localhost:3001/api/shop/deleteOneFood/${foodId}`).then((response) => {
-    alert('Detele the product?');
+    alert('Delete the product?');
     setFoodList(foodList.filter((val)=>{
       return val.foodId !== foodId
+      
     }))
   })
 }
