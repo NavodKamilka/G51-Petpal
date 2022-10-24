@@ -3,7 +3,12 @@
           create,
           getNotices,
           getPayments,
-          getOneDoctor
+          getOneDoctor,
+          getAppointments,
+          getTodayappos,
+          getPreviousappos,
+          getUpappos,
+          deleteAppo
           } = require("./clinic.service");
 
 
@@ -23,6 +28,85 @@ module.exports = {
           });
         });
       },
+
+       //Get appoitment details
+      getAppointments: (req, res) => {
+      getAppointments((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
+
+    //Get today appoitment details
+    getTodayappos: (req, res) => {
+      getTodayappos((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
+
+    //Get previous appoitment details
+    getPreviousappos: (req, res) => {
+      getPreviousappos((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
+
+    //Get upcomming appoitment details
+    getUpappos: (req, res) => {
+      getUpappos((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
+
+    //delete appointment
+    deleteAppo: (req, res) => {
+      const id = req.params.AppointmentID; 
+
+      deleteAppo(id, (err, results) => {
+        if (err) {
+          console.log(err);
+          console.log(id);
+          return;
+        }
+        if (!results) {
+          return res.json({
+            success: 0,
+            message: "Record Not Found"
+          });
+        }
+        return res.json({
+          success: 1,
+          message: "Appointment deleted successfully"
+        });
+      });
+    },
 
       //Get notice details
       getNotices: (req, res) => {
