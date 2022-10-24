@@ -3,17 +3,17 @@ import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
+// import Button from '@mui/material/Button';
+import { createTheme } from '@mui/material/styles';
+// import Stack from '@mui/material/Stack';
 import FormControl from '@mui/material/FormControl';
 
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import { blueGrey } from '@mui/material/colors';
+// import IconButton from '@mui/material/IconButton';
+// import PhotoCamera from '@mui/icons-material/PhotoCamera';
+// import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
 
 import { useLocation } from 'react-router-dom';
