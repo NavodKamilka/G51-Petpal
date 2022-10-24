@@ -22,7 +22,7 @@ router.post("/AddDocTimeslot",  (req, res, next) => {
     // console.log("jgjjgjgj",req.headers.day,"hghgjhg")
 
     db.query(
-        `INSERT INTO time_slot_doctors(DocID, Day,StartTime,EndTime,MaxSlots) VALUES (?,?,?,?,?)`,
+        `INSERT INTO time_slot_doctors(DocID, Day,StartTime,EndTime,MaxTokens) VALUES (?,?,?,?,?)`,
         [
             1,
             req.body.day,

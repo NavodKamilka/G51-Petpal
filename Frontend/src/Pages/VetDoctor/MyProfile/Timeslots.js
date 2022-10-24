@@ -50,7 +50,7 @@ export default function Timeslots() {
                     {data.StartTime} to {data.EndTime}
                   </TableCell>
                   <TableCell align="left">
-                    {data.MaxSlots} 
+                    {data.MaxTokens} 
                   </TableCell>
                   <TableCell align="left">
                     <Button>Edit</Button>
