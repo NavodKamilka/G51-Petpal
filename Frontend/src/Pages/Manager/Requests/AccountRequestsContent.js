@@ -67,13 +67,14 @@ export default function MyProfileContent(){
         Axios.delete(`http://localhost:3001/api/AccountRequest/RequestDelete/${id}`).then( (r) => {
         });
 
-        const newRequestList =  requestList.filter((requests) => requests.Id !== id);
+        const newRequestList =  requestList.filter((requests) => requests.UserID !== id);
         setRequestList(newRequestList);
     }
 
     const handleAcceptClick = (id) => {
-      Axios.post(`http://localhost:3001/api/AccountRequest/AcceptRequest/${id}`).then()
-        handleRejectClick(id);
+      Axios.put(`http://localhost:3001/api/AccountRequest/AcceptRequest/${id}`).then()
+        const newRequestList =  requestList.filter((requests) => requests.UserID !== id);
+        setRequestList(newRequestList);
     }
 
 
@@ -126,13 +127,14 @@ export default function MyProfileContent(){
                                 {/*request list rows*/}
                                 <Stack sx={{overflowY:'scroll'}} mt={2} height='440px'>
                                     {requestList.map( (val)=> (
-                                        <Stack className='request-row-container' mb={2} pt={0} key={val.Id} >
+                                        <Stack className='request-row-container' mb={2} pt={0} key={val.UserID} >
                                             <Stack direction="row" justifyContent="flex-start" alignItems='flex-start' p={1}>
                                                 <div className='row-detail-box' >
                                                     {val.Date}
                                                 </div>
                                                 <div className='row-detail-box ' >
-                                                    {val.UserType}
+                                                    {val.UserRole}
+
                                                 </div>
                                                 <div className='row-detail-box user-name-box'>
                                                     {val.UserName}
@@ -143,13 +145,13 @@ export default function MyProfileContent(){
                                                             style={{backgroundColor:'#1C884C',
                                                                 borderRadius:'15px',
                                                                 fontSize:'12px',
-                                                                textTransform:'capitalize',}} onClick={ ()=>handleAcceptClick(val.Id)}>
+                                                                textTransform:'capitalize',}} onClick={ ()=>handleAcceptClick(val.UserID)}>
                                                         Accept
                                                     </Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#F5222D',
                                                         borderRadius:'15px',
                                                         fontSize:'12px',
-                                                        textTransform:'capitalize',}} onClick={()=>handleRejectClick(val.Id)}>
+                                                        textTransform:'capitalize',}} onClick={()=>handleRejectClick(val.UserID)}>
                                                         Reject
                                                     </Button>
                                                     <Button variant="contained" size='small' style={{backgroundColor:'#63B8BB',
