@@ -10,7 +10,8 @@ const {getDoctors,
      getAppointments,
      getTodayappos,
      getPreviousappos,
-     getUpappos
+     getUpappos,
+     deleteAppo
     }=require("./clinic.controller");
 
 //view details of all doctors
@@ -27,6 +28,9 @@ router.get("/getpreviousappo",getPreviousappos);
 
 //view details of upcomming appointments
 router.get("/getupappo",getUpappos);
+
+//delete a food product
+router.delete("/deleteAppo/:AppointmentID", deleteAppo);
 
 //view details of one doctor
 router.get(`/getOneDoctor/:DocID`,getOneDoctor);

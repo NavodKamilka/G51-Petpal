@@ -68,6 +68,19 @@ module.exports = {
       );
     },
 
+    //delete appointment
+    deleteAppo : (id, callBack) => {
+      pool.query(
+        'DELETE FROM appointments_on_clinics WHERE AppointmentID = ?', [id],
+        (error, results,fields) => {
+        if (error) {
+          callBack(error) 
+        }
+        return callBack(null, results);  
+      }
+      );
+    },
+
       //get details of one doctor
       getOneDoctor: (id, callBack) => {
         pool.query(

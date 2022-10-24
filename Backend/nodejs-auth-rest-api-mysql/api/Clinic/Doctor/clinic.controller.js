@@ -7,7 +7,8 @@
           getAppointments,
           getTodayappos,
           getPreviousappos,
-          getUpappos
+          getUpappos,
+          deleteAppo
           } = require("./clinic.service");
 
 
@@ -80,6 +81,29 @@ module.exports = {
         return res.json({
           success: 1,
           data: results
+        });
+      });
+    },
+
+    //delete appointment
+    deleteAppo: (req, res) => {
+      const id = req.params.AppointmentID; 
+
+      deleteAppo(id, (err, results) => {
+        if (err) {
+          console.log(err);
+          console.log(id);
+          return;
+        }
+        if (!results) {
+          return res.json({
+            success: 0,
+            message: "Record Not Found"
+          });
+        }
+        return res.json({
+          success: 1,
+          message: "Appointment deleted successfully"
         });
       });
     },

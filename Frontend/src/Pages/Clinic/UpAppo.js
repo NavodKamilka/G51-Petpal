@@ -124,6 +124,15 @@ export default function Upappo() {
     console.log(response);
     });
   }, []);
+
+  const deleteAppo=(AppointmentID)=>{
+    //".then" part will refresh the page after one food item is deleted. 
+    Axios.delete(`http://localhost:3001/api/Doctor/deleteAppo/${AppointmentID}`).then((response) => {
+      setUpappoList(upappoList.filter((val)=>{
+        return val.AppointmentID !== AppointmentID
+      }))
+    })
+  }
   
   return (
     <div>  
@@ -176,7 +185,7 @@ export default function Upappo() {
               {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewProductFinal"} state={{id:val.foodId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  component={Link} to={"/UpdateProductFinal"} state={{id:val.foodId}}>Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete" onClick={()=>deleteOneFood(val.foodId)}>Delete</Button></ThemeProvider></StyledTableCell> */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" href='/UpAppoMain'color="delete">Cancel</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete" onClick={()=>deleteAppo(val.AppointmentID)}>Cancel</Button></ThemeProvider></StyledTableCell>
             </StyledTableRow>
           )
             })}
