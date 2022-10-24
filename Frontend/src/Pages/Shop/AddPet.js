@@ -1,4 +1,4 @@
-import *as React from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
@@ -15,9 +15,11 @@ import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { blueGrey } from '@mui/material/colors';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 import '../../Style/Shop/ShopProfile.css'
+import Axios from "axios";
 
 // import { color } from '@mui/system';
 
@@ -54,12 +56,38 @@ const theme = createTheme({
     top:10,
   }));
 
-function AddUpdatePet() {
+function AddPet() {
     // used for drop down list 
     const [value, setValue] = React.useState('');
 
     const handleChange = (event) => {
       setValue(event.target.value);
+    };
+
+
+
+    const [petType, setPetType] = useState("");
+    const [breed, setBreed] = useState("");
+    const [pricePerOne, setPricePerOne] = useState("");
+    const [totalQty, setTotalQty] = useState("");
+    const [availableQty, setAvailableQty] = useState("");
+    const [desc, setDesc] = useState("");
+
+    const navigate = useNavigate();
+
+    const addPet = (event) =>{
+        event. preventDefault();
+        Axios.post("http://localhost:3001/api/shop/insertPet", {
+            petType: petType, 
+            breed: breed, 
+            pricePerOne: pricePerOne, 
+            totalQty: totalQty, 
+            availableQty: availableQty,             
+            desc: desc
+        }).then(()=> {
+            alert("successful insert");
+            navigate('/PetsFinal');
+        });
     };
 
     return(
@@ -71,28 +99,27 @@ function AddUpdatePet() {
             <h3>Pet Details</h3>
             <Divider /> <br></br>
             
-            <FormControl>
+            <FormControl onSubmit={addPet}>
                 <table>
                     <tr> 
                         <td>
-                            <TextField
-                                value={value}
+                            {/* <TextField
+                                label="Pet Type"
+                                value={petType}
                                 // onChange={(e) => setValue(e.target.value)}
                                 select // tell TextField to render select
-                                label="Pet Type"
                                 style={style}
-                                onChange={handleChange}
-                                >  
+                                onChange={(e)=>{
+                                    setPetType(e.target.value)    
+                                }}                                >  
                                  
-                                <MenuItem value={'Dog'}>Dog</MenuItem>
-                                <MenuItem value={'Puppy'}>Puppy</MenuItem>
-                                <MenuItem value={'Cat'}>Cat</MenuItem> 
-                                <MenuItem value={'Kitten'}>Kitten</MenuItem>
-                                <MenuItem value={'Rabbit'}>Rabbit</MenuItem>
-                                <MenuItem value={'Parrot'}>Parrot</MenuItem>
-                                <MenuItem value={'Guenia pig'}>Guenia pig</MenuItem>
-                                <MenuItem value={'Fish'}>Fish</MenuItem>
-                            </TextField>
+                                <MenuItem value={'dog'}>Dog</MenuItem>
+                                <MenuItem value={'cat'}>Cat</MenuItem> 
+                                <MenuItem value={'rabbit'}>Rabbit</MenuItem>
+                                <MenuItem value={'bird'}>Parrot</MenuItem>
+                                <MenuItem value={'guenia pig'}>Guenia pig</MenuItem>
+                                <MenuItem value={'fish'}>Fish</MenuItem>
+                            </TextField> */}
                        
                         </td>
                     </tr>
@@ -103,6 +130,10 @@ function AddUpdatePet() {
                             label="Breed"
                             // defaultValue="Labrador"
                             style={style}
+                            value={breed}
+                            onChange={(e)=>{
+                                setBreed(e.target.value)    
+                            }} 
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -116,9 +147,12 @@ function AddUpdatePet() {
                             label="Price per 1 (Rs)"
                             // defaultValue="45000.00"
                             style={style}
-
+                            value={pricePerOne}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
+                            onChange={(e)=>{
+                                setPricePerOne(e.target.value)    
+                            }} 
                             />
                         </td>
                     </tr>
@@ -130,6 +164,10 @@ function AddUpdatePet() {
                             label="Total Quantity"
                             // defaultValue="2"
                             sx={{ width: 250 }}
+                            value={totalQty}
+                            onChange={(e)=>{
+                                setTotalQty(e.target.value)    
+                            }}
                             // helperText="Some important text"
                             />
                        <TextField
@@ -138,6 +176,10 @@ function AddUpdatePet() {
                             // defaultValue="2"
                             sx={{ width: 250 }}
                             //   helperText="Some important text"
+                            value={availableQty}
+                            onChange={(e)=>{
+                                setAvailableQty(e.target.value)    
+                            }}
                             />
                         </td>
                     </tr>
@@ -150,7 +192,10 @@ function AddUpdatePet() {
                                 rows={4}
                                 // defaultValue="Description about the pet"
                                 style={style}
-
+                                value={desc}
+                                onChange={(e)=>{
+                                    setDesc(e.target.value)    
+                                }}
                                 // sx={{ width: 500 }}
                             />
                         </td>
@@ -170,7 +215,7 @@ function AddUpdatePet() {
                     </tr>
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3}>    
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Add</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={addPet}>Add</Button></ThemeProvider>
                     </Stack>
                     </tr>
                 </table>
@@ -182,4 +227,4 @@ function AddUpdatePet() {
         
     )       
 }
-export default AddUpdatePet;
+export default AddPet;
