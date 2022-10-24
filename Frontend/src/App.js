@@ -67,7 +67,7 @@ import UpdateProductFinal from './Pages/Shop/UpdateProductFinal'
 import ViewAccessoryFinal from './Pages/Shop/ViewAccessoryFinal'
 import ViewSkincareFinal from './Pages/Shop/ViewSkincareFinal'
 import UpdateAccessoryFinal from './Pages/Shop/UpdateAccessoryFinal'
-import UpdateSkincareFinal from './Pages/Shop/UpdateAccessoryFinal'
+import UpdateSkincareFinal from './Pages/Shop/UpdateSkincareFinal'
 
 
 //Clinic
