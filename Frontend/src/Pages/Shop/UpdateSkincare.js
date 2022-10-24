@@ -78,7 +78,7 @@ function UpdateSkincare() {
                 newAvailableQty.push(val.availableQty)
             });
         });
-    }, [oneSkincareId.state.id]);
+    }, [oneSkincare.state.id]);
  
 
   //update function to update one food item
@@ -238,4 +238,4 @@ function UpdateSkincare() {
         
     )       
 }
-export default UpdateSkincare;
+export default UpdateSkincare; 

@@ -1,6 +1,7 @@
 
 
 const pool = require("../../Connection/dbConnection");
+// const { insertPet } = require("./shop.controller");
 
 module.exports = {
   //get details of all food products
@@ -255,4 +256,44 @@ module.exports = {
           }
         );
       },
+
+
+      //get details of all food products
+      getAllPets: (callBack) => {
+      pool.query(
+        "SELECT * FROM pets",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+      },
+
+        //insert one pet details
+        insertPet: (data,callBack) => {
+          pool.query(
+              `insert into pets(petType, breed, pricePerOne, totalQty, availableQty, description) 
+              values(?,?,?,?,?,?)`,
+            [
+              data.petType,
+              data.breed,
+              data.pricePerOne,
+              data.totalQty,
+              data.availableQty,
+              data.desc,
+            ],
+            (error, results, fields) => {
+              if (error) {
+                callBack(error);
+              }
+              return callBack(null, results);
+            }
+           );
+      }
+    
+
+
+    
 }
