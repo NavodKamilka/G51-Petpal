@@ -4,13 +4,13 @@ import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea } from "@mui/material";
-import Image1 from "../../Images/Profile.png";
-import Image2 from '../../Images/vet1.png'
+// import Stack from "@mui/material/Stack";
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent";
+// import CardMedia from "@mui/material/CardMedia";
+// import { CardActionArea } from "@mui/material";
+// import Image1 from "../../Images/Profile.png";
+// import Image2 from '../../Images/vet1.png'
 // import Image3 from '../../Images/contactus.jpg'
 
 const Item = styled(Paper)(({ theme }) => ({

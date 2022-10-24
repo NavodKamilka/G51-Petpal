@@ -7,7 +7,8 @@ import Button from '@mui/material/Button';
 // import Link from '@mui/material/Link';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { Typography } from '@mui/material';
-
+import Axios from 'axios';
+import {useState} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -62,32 +63,33 @@ const Item = styled(Paper)(({ theme }) => ({
     
   }));
 
-  function createData(name, calories, fat, carbs, protein, price) {
-    return {
-      name,
-      calories,
-      fat,
-      carbs,
-      protein,
-      price,
-      history: [
-        {
-          date: '2020-01-05',
-          customerId: '11091700',
-          amount: 3,
-        },
-        {
-          date: '2020-01-02',
-          customerId: 'Anonymous',
-          amount: 1,
-        },
-      ],
-    };
-  }
+  // function createData(name, calories, fat, carbs, protein, price) {
+  //   return {
+  //     name,
+  //     calories,
+  //     fat,
+  //     carbs,
+  //     protein,
+  //     price,
+  //     history: [
+  //       {
+  //         date: '2020-01-05',
+  //         customerId: '11091700',
+  //         amount: 3,
+  //       },
+  //       {
+  //         date: '2020-01-02',
+  //         customerId: 'Anonymous',
+  //         amount: 1,
+  //       },
+  //     ],
+  //   };
+  // }
   
   function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
+    
   
     return (
       <React.Fragment>
@@ -166,13 +168,13 @@ const Item = styled(Paper)(({ theme }) => ({
     }).isRequired,
   };
   
-  const rows = [
-    createData('2022-08-24', 'Alex(Dog)', 'Pending','AWT Hospital', 'Dr. Wasantha'),
-    createData('2021-04-21', 'Teddy(Cat)', 'Previous', 'Pet We Care', 'Dr. Thalatha'),
-    createData('2022-05-13', 'Alex(Dog)', 'Previous','AWT Hospital', 'Dr. Wasantha'),
-    createData('2020-05-10',' Alex(Dog)', 'Previous','AWT Hospital', 'Dr. Wasantha'),
-    createData('2022-01-11', 'Kuku(Parrot)', 'Previous','Pet We Care', 'Dr. Vimshi de Silva'),
-  ];
+  // const rows = [
+  //   createData('2022-08-24', 'Alex(Dog)', 'Pending','AWT Hospital', 'Dr. Wasantha'),
+  //   createData('2021-04-21', 'Teddy(Cat)', 'Previous', 'Pet We Care', 'Dr. Thalatha'),
+  //   createData('2022-05-13', 'Alex(Dog)', 'Previous','AWT Hospital', 'Dr. Wasantha'),
+  //   createData('2020-05-10',' Alex(Dog)', 'Previous','AWT Hospital', 'Dr. Wasantha'),
+  //   createData('2022-01-11', 'Kuku(Parrot)', 'Previous','Pet We Care', 'Dr. Vimshi de Silva'),
+  // ];
 
 
 
@@ -182,6 +184,18 @@ const Item = styled(Paper)(({ theme }) => ({
 
   export default function  MyProfileContent() {
 
+    //    const [appointment , setAppointment] = useState([]);
+    const [appointment , setAppointment] = useState([]);
+
+    Axios.get('http://localhost:3001/api/viewAppointment',
+    {
+      headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyODc4OTk1LCJleHAiOjE2NjI4ODk3OTV9.L4KGBllNUiuEAqr9RClP5NBv4JNQB5J6ojHUEx0f-wM` }
+      // headers: { authorization : `Bearer ${this.Token}` }
+    }).then ((res) => {
+      // console.log(response.data);
+        setAppointment(res.data);
+        // console.log(res);
+    });
     
 
   return (
@@ -199,7 +213,7 @@ const Item = styled(Paper)(({ theme }) => ({
           <br/><br/>
                     <TableContainer component={Paper}>
                         <Table aria-label="collapsible table">
-                          <TableHead>
+                          <TableHead sx={{backgroundColor: 'orange'}}>
                             <TableRow>
                               <TableCell />
                               <TableCell>Appointment Date</TableCell>
@@ -209,11 +223,34 @@ const Item = styled(Paper)(({ theme }) => ({
                               <TableCell align="right">Checked Doctor</TableCell>
                             </TableRow>
                           </TableHead>
-                          <TableBody>
-                            {rows.map((row) => (
-                              <Row key={row.name} row={row} />
-                            ))}
-                          </TableBody>
+                          {/* {n1.map((item, index) => (  */}
+                          
+                            {/* <TableBody >{
+                              {appointment.map((row) => (
+                                <TableRow key={row.AppointmentCID}>
+                                  <TableCell>{row.Date}</TableCell>    
+                                  <TableCell>{row.PetName}</TableCell>    
+                                  <TableCell>{row.AppointmentStatus}</TableCell>    
+                                  <TableCell>{row.ClinicName}</TableCell>    
+                                  <TableCell>{row.DoctorName}</TableCell>
+                                </TableRow>
+                              ))}
+                            }    
+                            </TableBody> */}
+                            <TableBody>
+                              {/* {employeeList.map((val , key) => { */}
+                              {appointment.map((row ) => (
+                                // <TableRow key ={row.AppointmentCID}>
+                                <TableRow>
+                                  <TableCell align="right">{row.Date}</TableCell>
+                                  <TableCell align="right">{row.PetName}</TableCell>
+                                  <TableCell align="right">{row.AppointmentStatus}</TableCell>
+                                  <TableCell align="right">{row.ClinicName}</TableCell>
+                                  <TableCell align="right">{row.DoctorName}</TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          
                         </Table>
               </TableContainer>
 
