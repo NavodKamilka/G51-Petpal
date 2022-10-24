@@ -25,23 +25,46 @@ router.post("/register", signupValidation, (req, res, next) => {
               msg: err,
             });
           } else {
-            // has hashed pw => add to database
-            db.query(
-              `INSERT INTO users (name, email, password) VALUES ('${
-                req.body.name
-              }', ${db.escape(req.body.email)}, ${db.escape(hash)})`,
-              (err, result) => {
-                if (err) {
-                  throw err;
-                  return res.status(400).send({
-                    msg: err,
-                  });
-                }
-                return res.status(201).send({
-                  msg: "The user has been registerd with us!",
-                });
+              if(req.body.userRole == 'petowner'){
+                  db.query(
+                      `INSERT INTO users (UserName, Email, Password, UserRole,Verified) VALUES ('${
+                          req.body.name
+                      }', ${db.escape(req.body.email)}, ${db.escape(hash)},'${
+                          req.body.userRole}','1')`,
+                      (err, result) => {
+                          if (err) {
+                              throw err;
+                              return res.status(400).send({
+                                  msg: err,
+                              });
+                          }
+                          return res.status(201).send({
+                              msg: "The user has been registerd with us!",
+                          });
+                      }
+                  );
               }
-            );
+              else{
+                  db.query(
+                      `INSERT INTO users (UserName, Email, Password, UserRole,Verified) VALUES ('${
+                          req.body.name
+                      }', ${db.escape(req.body.email)}, ${db.escape(hash)},'${
+                          req.body.userRole}','0')`,
+                      (err, result) => {
+                          if (err) {
+                              throw err;
+                              return res.status(400).send({
+                                  msg: err,
+                              });
+                          }
+                          return res.status(201).send({
+                              msg: "The user has been registerd with us!",
+                          });
+                      }
+                  );
+              }
+            // has hashed pw => add to database
+
            
           }
         });
