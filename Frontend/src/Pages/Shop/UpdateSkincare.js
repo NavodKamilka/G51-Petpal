@@ -3,17 +3,17 @@ import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-// import Button from '@mui/material/Button';
-import { createTheme } from '@mui/material/styles';
-// import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
 import FormControl from '@mui/material/FormControl';
 
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-// import IconButton from '@mui/material/IconButton';
-// import PhotoCamera from '@mui/icons-material/PhotoCamera';
-// import { blueGrey } from '@mui/material/colors';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
 
 import { useLocation } from 'react-router-dom';
@@ -53,19 +53,48 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10,
   }));
   
-function ViewSkincare() {
-    const oneSkincare= useLocation();
+function UpdateSkincare() {
+    const oneSkincare = useLocation();
     const skincareId = oneSkincare.state.id;
-    console.log(skincareId)
-
     const[skincareList, setSkincareList]=useState([]);
- 
-    // here we don't have to click any button to display data
+    
+    //get new values to be updated in food table (only totalQty, availableQty and pricePerOne)
+  
+    const[newPricePerOne, setNewPricePerOne]=useState([]);
+    const[newTotalQty, setNewTotalQty]=useState([]);
+    const[newAvailableQty, setNewAvailableQty]=useState([]);
+    
+    
+
+
+     // here we don't have to click any button to display data
     useEffect(() =>{
         Axios.get(`http://localhost:3001/api/shop/getOneSkincare/${skincareId}`).then((response)=>{
             setSkincareList(response.data.data);   
+            const x = response.data.data;
+            x.map((val)=>{
+                newPricePerOne.push(val.pricePerOne);
+                newTotalQty.push(val.totalQty)
+                newAvailableQty.push(val.availableQty)
+            });
         });
-  }, [oneSkincare.state.id]);
+    }, [oneSkincareId.state.id]);
+ 
+
+  //update function to update one food item
+  const updateOneSkincare=(event)=>{
+    Axios.put("http://localhost:3001/api/shop/updateOneSkincare",{
+        pricePerOne: newPricePerOne, 
+        totalQty:newTotalQty,
+        availableQty:newAvailableQty,
+        skincareId:skincareId,
+    }).then((response)=>{
+        alert('Updated successfully');
+    });
+  }
+
+
+
 
     return(
         <div>
@@ -79,12 +108,13 @@ function ViewSkincare() {
             {skincareList.map((oneSkincare) => {
             return(
 
-                <table key={oneSkincare.id}>
+                <table key ={oneSkincare.id}>
                     <tr> 
-                        <td ><TextField 
+                        <td><TextField 
                             id="outlined-helperText"
                             label="Brand"
                             value={oneSkincare.brand}
+                            
                             style={style}
                             // change the lenght of the text field
                             // sx={{ width: 500 }}
@@ -106,25 +136,29 @@ function ViewSkincare() {
                     </tr>
                     <br></br>
 
-                    <tr>
+                    {/* <tr>
                         <td><TextField
                             id="outlined-helperText"
                             label="Weight"
+                            value={oneFood.weight}
                             style={style}
-                            value={oneSkincare.weight}
+
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
                         </td>
-                    </tr>
+                    </tr> */}
                     <br></br>
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
                             label="Price per 1 (Rs)"
-                            value={oneSkincare.pricePerOne}
+                            defaultValue={oneSkincare.pricePerOne}
                             style={style}
-                           
+                            onChange={(event)=>{
+                                setNewPricePerOne(event.target.value);
+                                
+                            }}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -136,16 +170,22 @@ function ViewSkincare() {
                             <TextField
                             id="outlined-helperText"
                             label="Total Quantity"
-                            value={oneSkincare.totalQty}
+                            defaultValue={oneSkincare.totalQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewTotalQty(event.target.value)
+                            }}
                             // helperText="Some important text"
-                            />
+                             />
 
                             <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
-                            value={oneSkincare.availableQty}
+                            defaultValue={oneSkincare.availableQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewAvailableQty(event.target.value)
+                            }}
                             //   helperText="Some important text"
                             />
                         </td>
@@ -159,6 +199,7 @@ function ViewSkincare() {
                                 rows={4}
                                 value={oneSkincare.description}
                                 style={style}
+
                                 // sx={{ width: 500 }}
                             />
                         </td>
@@ -166,28 +207,28 @@ function ViewSkincare() {
                     <br></br>
                     <tr>
                         {/* upload pet image */}
-                        <p>product image</p>
-                    {/* <Stack spacing={10} direction="row" justifyContent="center" >
+                        <p>upload product image</p>
+                    <Stack spacing={10} direction="row" justifyContent="center" >
                         <IconButton  sx={{ color: blueGrey[900] }} aria-label="upload picture" component="label">
                             <input hidden accept="image/*" type="file" />
                             <PhotoCamera />
                         </IconButton>
-                    </Stack> */}
+                    </Stack>
 
 
                     </tr>
                     <br></br>
-                    {/* <tr>
+                    <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Add</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={()=>(updateOneSkincare())}>Update</Button></ThemeProvider>
 
                     </Stack>
-                    </tr> */}
+                    </tr>
                 </table>
 
                  )
-                })}
+                })} 
                 </FormControl>
                 </Item>
                 </Grid>
@@ -197,4 +238,4 @@ function ViewSkincare() {
         
     )       
 }
-export default ViewSkincare;
+export default UpdateSkincare;
