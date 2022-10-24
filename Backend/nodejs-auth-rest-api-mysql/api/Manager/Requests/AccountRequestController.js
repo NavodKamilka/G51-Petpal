@@ -5,6 +5,7 @@ const { signupValidation, loginValidation } = require("../../../validation");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const nodemailer = require('nodemailer');
 
 
 router.get("/AccountRequest",  (req, res, next) => {
@@ -21,7 +22,7 @@ router.get("/AccountRequest",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM user_requests`,
+        `SELECT * FROM users WHERE Verified ='0'`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -47,7 +48,7 @@ router.get("/AccountRequest/Doctor",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM user_requests WHERE UserType= "Doctor"`,
+        `SELECT * FROM users WHERE UserRole= "Doctor" AND Verified ='0'`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -73,7 +74,7 @@ router.get("/AccountRequest/Clinic",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM user_requests WHERE UserType= "Clinic"`,
+        `SELECT * FROM users WHERE UserRole= "Clinic" AND Verified ='0'`,
         (error, results) => {
             if (error) {
                 res.send(error);
@@ -99,13 +100,12 @@ router.get("/AccountRequest/Shop",  (req, res, next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM user_requests WHERE UserType= "Shop"`,
+        `SELECT * FROM users WHERE UserRole= "Shop" AND Verified ='0'`,
         (error, results) => {
             if (error) {
                 res.send(error);
             }
             res.send(results)
-
         }
     );
 
@@ -114,18 +114,59 @@ router.get("/AccountRequest/Shop",  (req, res, next) => {
 router.delete("/AccountRequest/RequestDelete/:id",(req,res,next)=> {
     const id =req.params.id;
     db.query(
-        `DELETE FROM user_requests WHERE Id =?`,id
+        `DELETE FROM users WHERE UserID =?`,id
     )
 });
 
-router.post("/AccountRequest/AcceptRequest/:id",(req,res,next)=>{
+router.put("/AccountRequest/AcceptRequest/:id",(req,res,next)=>{
     const id =req.params.id;
+    let toEmail=[];
+
     db.query(
-        `INSERT INTO users (UserName, Email, Password, UserRole, Contact, Age, Address)`+
-        `SELECT UserName, Email, Password, UserType, Contact, Age, Address FROM user_requests WHERE Id = ?`,id,(err,rows)=>{
-                if(err) throw err;
+        `UPDATE users SET verified ='1' WHERE UserID = ?`,id,(err,rows)=>{
+            if(err) {
+                throw err;
+            }
+            else {
+                db.query(`SELECT Email FROM users WHERE UserID = ?`,id,(error, results) => {
+                    if (error) {
+                        res.send(error);
+                    }
+                    toEmail=results[0].Email;
+
+                    let mailTransporter =nodemailer.createTransport({
+                        service:'gmail',
+                        auth:{
+                            user:'pinsaradhanika@gmail.com',
+                            pass:'tczpdoygciszqqux'
+                        }
+                    })//responsible for sending our mail
+
+                    let details ={
+                        from:'pinsaradhanika@gmail.com',
+                        to:toEmail,
+                        subject:'Welcome To The PetPal Community',
+                        text:'Your account has been verified and you are an officially part of our system'
+                    }
+
+                    mailTransporter.sendMail(details,(err)=>{
+                        if (err){
+                            console.log(err);
+                        }
+                        else{
+                            console.log('email sent to user');
+                        }
+                    })//actually sends the mail
+                })
+            }
         }
     )
+
+
+
+
+
+
 });
 
 module.exports = router;
