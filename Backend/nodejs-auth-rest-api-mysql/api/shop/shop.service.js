@@ -255,4 +255,18 @@ module.exports = {
           }
         );
       },
+
+
+      //get details of all food products
+      getAllPets: (callBack) => {
+      pool.query(
+        "SELECT * FROM pets",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
 }

@@ -13,7 +13,8 @@
           deleteOneSkincare,
           updateOneFood,
           updateOneAccessory,
-          updateOneSkincare
+          updateOneSkincare,
+          getAllPets
         } = require("./shop.service");
 
 
@@ -328,4 +329,20 @@
               });
             });
           },
+
+
+          //get all the food product details stored in the database
+          getAllPets: (req, res) => {
+            getAllPets((err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            return res.json({
+              success: 1,
+              data: results
+            });
+          });
+        },
+
  }
