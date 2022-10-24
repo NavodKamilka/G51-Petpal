@@ -12,7 +12,9 @@
           deleteOneAccessory,
           deleteOneSkincare,
           updateOneFood,
-          updateOneAccessory} = require("./shop.service");
+          updateOneAccessory,
+          updateOneSkincare
+        } = require("./shop.service");
 
 
 
@@ -300,6 +302,22 @@
            updateOneAccessory: (req, res) => {
             const body=req.body;
             updateOneAccessory(body, (err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                message: "updated successfully"
+              });
+            });
+          },
+
+
+           //update one accessory
+           updateOneSkincare: (req, res) => {
+            const body=req.body;
+            updateOneSkincare(body, (err, results) => {
               if (err) {
                 console.log(err);
                 return;

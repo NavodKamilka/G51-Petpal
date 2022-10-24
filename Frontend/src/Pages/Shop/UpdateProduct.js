@@ -59,15 +59,21 @@ function UpdateProduct() {
     const[foodList, setFoodList]=useState([]);
 
     //get new values to be updated in food table (only totalQty, availableQty and pricePerOne)
-    const[newPricePerOne, setNewPricePerOne]=useState(0);
-    const[newTotalQty, setNewTotalQty]=useState(0);
-    const[newAvailableQty, setNewAvailableQty]=useState(0);
+    const[newPricePerOne, setNewPricePerOne]=useState([]);
+    const[newTotalQty, setNewTotalQty]=useState([]);
+    const[newAvailableQty, setNewAvailableQty]=useState([]);
 
 
      // here we don't have to click any button to display data
      useEffect(() =>{
         Axios.get(`http://localhost:3001/api/shop/getOneFood/${foodId}`).then((response)=>{
-        setFoodList(response.data.data);   
+        setFoodList(response.data.data); 
+        const x = response.data.data;
+        x.map((val)=>{
+            newPricePerOne.push(val.pricePerOne);
+            newTotalQty.push(val.totalQty)
+            newAvailableQty.push(val.availableQty)
+        });
         });
   }, [oneFood.state.id]);
  
