@@ -34,27 +34,9 @@ const theme = createTheme({
   },
 });
 
-// the grey box
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
-//   ...theme.typography.body2,
-//   padding: theme.spacing(0.2),
-//   textAlign: "center",
-//   color: theme.palette.text.secondary,
-//   height: 650,
-//   top: 10,
-//   width: "40%",
-// }));
 
 function RegistrationPetOwner() {
-  // // used for input may be for password
-  // const [values, setValues] = React.useState({
-  //     // amount: '',
-  //     password: '',
-  //     // weight: '',
-  //     // weightRange: '',
-  //     showPassword: false,
-  //   });
+
   const [nameReg, setNameReg] = React.useState("");
   const [emailReg, setEmailReg] = React.useState("");
   const [userTypeReg, setUserTypeReg] = React.useState("");
@@ -68,20 +50,10 @@ function RegistrationPetOwner() {
 
   const disptach = useDispatch();
 
-  // const [name, setName] = React.useState("");
-  // const [email, setEmail] = React.useState("");
-  // const [password, setpassword] = React.useState("");
+
 
   const register = async () => {
-    // axios
-    //   .post("http://localhost:3001/api/register", {
-    //     name: nameReg,
-    //     email: emailReg,
-    //     password: passwordReg,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
+
     if(!nameReg){
         alert("Username is empty!!");
     }else if(!emailReg){
@@ -102,10 +74,6 @@ function RegistrationPetOwner() {
 
   return (
     <div className="background-container">
-      {/* <img src={logo} alt="petpalLogo" width={200} /> */}
-      {/* <Box sx={{ flexGrow: 1 }}> */}
-        {/* <Grid container spacing={2} justifyContent="center">
-          <Item style={{ backgroundColor: "#1bbcb6" }}> */}
            <div className="box">
             <img class='login-logo' src={logo} alt="petpalLogo1" width={200} />
             <h1 class='h1'style={{ marginTop:'-25px'}}>Sign up</h1>
@@ -154,17 +122,6 @@ function RegistrationPetOwner() {
                   </td>
                 </tr>
                 <br/>
-
-                {/* <tr>
-                            
-                            <td>
-                            <div className="lastname">                 
-                                <TextField id="outlined-basic" label="Last Name" variant="outlined" size="small"
-                                style={{background: "rgb(255, 255, 255)"}}/>  
-                            </div>
-                            </td>
-                        </tr> */}
-
                 <tr>
                   <td>
                     <div className="email">
@@ -202,24 +159,7 @@ function RegistrationPetOwner() {
                     </div>
                   </td>
                 </tr>
-
-                {/* <tr>
-                            <td>
-                                <div className="confirm-password">
-                                <TextField
-                                    id="outlined-password-input"
-                                    label="Confirm Password"
-                                    type="password"
-                                    autoComplete="current-password"
-                                    style={{background: "rgb(255, 255, 255)"}}
-                                    size="small"
-                                    />                        
-                            </div>
-                            </td>
-                        </tr> */}
                         <br/>
-
-
                 <tr>
                   <td>
                     <input type="checkbox" />
