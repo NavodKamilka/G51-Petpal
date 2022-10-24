@@ -3,7 +3,8 @@
           create,
           getNotices,
           getPayments,
-          getOneDoctor
+          getOneDoctor,
+          getAppointments,
           } = require("./clinic.service");
 
 
@@ -23,6 +24,20 @@ module.exports = {
           });
         });
       },
+
+       //Get appoitment details
+    getAppointments: (req, res) => {
+      getAppointments((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
 
       //Get notice details
       getNotices: (req, res) => {
