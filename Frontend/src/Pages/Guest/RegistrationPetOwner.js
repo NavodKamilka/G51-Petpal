@@ -14,6 +14,9 @@ import logo from "../../Images/loginLogo1.jpeg";
 import { addUser } from "../../redux/userApiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import '../../Style/Guest/registrationStyle.css'
+import {InputLabel, Select} from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import {SelectChangeEvent} from "@mui/material/Select";
 
 //change the length of the textfield
 // const style={
@@ -54,7 +57,14 @@ function RegistrationPetOwner() {
   //   });
   const [nameReg, setNameReg] = React.useState("");
   const [emailReg, setEmailReg] = React.useState("");
+  const [userTypeReg, setUserTypeReg] = React.useState("");
   const [passwordReg, setpasswordReg] = React.useState("");
+
+
+    const handleUserTypeChange = (e: SelectChangeEvent) => {
+        setUserTypeReg(e.target.value);
+    };
+
 
   const disptach = useDispatch();
 
@@ -83,6 +93,7 @@ function RegistrationPetOwner() {
             name: nameReg,
             email: emailReg,
             password: passwordReg,
+            userRole:userTypeReg,
         }
         console.log(userData);
         await addUser(userData,disptach);
@@ -105,31 +116,27 @@ function RegistrationPetOwner() {
             </div>
             <FormControl>
               <table>
-                {/* <tr> 
-                            <td>
-                                <TextField
-                                    value={value}
-                                    // onChange={(e) => setValue(e.target.value)}
-                                    select // tell TextField to render select
-                                    label="Pet Type"
-                                    style={style}
-                                    onChange={handleChange}
-                                    >  
-                                    
-                                    <MenuItem value={'Dog'}>Dog</MenuItem>
-                                    <MenuItem value={'Puppy'}>Puppy</MenuItem>
-                                    <MenuItem value={'Cat'}>Cat</MenuItem> 
-                                    <MenuItem value={'Kitten'}>Kitten</MenuItem>
-                                    <MenuItem value={'Rabbit'}>Rabbit</MenuItem>
-                                    <MenuItem value={'Parrot'}>Parrot</MenuItem>
-                                    <MenuItem value={'Guenia pig'}>Guenia pig</MenuItem>
-                                    <MenuItem value={'Fish'}>Fish</MenuItem>
-                                </TextField>
-                        
-                            </td>
-                        </tr> */}
-
-                <tr>
+                  <tr>
+                      <td>
+                              <InputLabel id="demo-simple-select-label" style={{marginLeft:'20px',marginBottom:'10px'}}>User Type</InputLabel>
+                                  <Select
+                                      labelId="demo-simple-select-label"
+                                      id="demo-simple-select"
+                                      value={userTypeReg}
+                                      label="User Type"
+                                      style={{width:'219px',height:'45px'}}
+                                      variant='outlined'
+                                      onChange={(e)=>handleUserTypeChange(e)}
+                                  >
+                                      <MenuItem value={'petowner'}>Pet Owner</MenuItem>
+                                      <MenuItem value={'clinic'}>Clinic</MenuItem>
+                                      <MenuItem value={'shop'}>Shop</MenuItem>
+                                      <MenuItem value={'doctor'}>Doctor</MenuItem>
+                                  </Select>
+                      </td>
+                  </tr>
+                  <br/>
+                <tr style={{marginTop:'100px'}}>
                   <td>
                     <div className="firstname">
                       <TextField
@@ -176,6 +183,7 @@ function RegistrationPetOwner() {
                   </td>
                 </tr>
                 <br/>
+
                 <tr>
                   <td>
                     <div className="password">
@@ -210,6 +218,8 @@ function RegistrationPetOwner() {
                             </td>
                         </tr> */}
                         <br/>
+
+
                 <tr>
                   <td>
                     <input type="checkbox" />
