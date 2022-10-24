@@ -13,7 +13,7 @@
     /* height: 900px; */
     /* margin-top: -250px;
     margin-left: 610px; */
-    top: 10px;
+    top: 15px;
     margin-left: 880px;
 }
 
@@ -57,7 +57,7 @@
     position: absolute;
     width: 325px;
     height: 52px;
-    left: 286px;
+    left: 600px;
     top: 800px;
 
     font-family: 'Nunito';
@@ -91,7 +91,7 @@
     width: 397px;
     height: 49px;
     left: 600px;
-    top: 1250px;
+    top: 1270px;
 
     font-family: 'Nunito';
     font-style: normal;
