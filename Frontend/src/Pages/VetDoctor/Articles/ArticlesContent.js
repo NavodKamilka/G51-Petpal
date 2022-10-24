@@ -142,7 +142,6 @@ export default function ArticlesContent() {
                   </DialogContent>
 
                   <DialogActions>
-                  <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Cancel</Button></ThemeProvider>
                   
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button
@@ -183,56 +182,28 @@ export default function ArticlesContent() {
                 }}
               >
                 <Stack>
-                  <Button
-                    variant="outlined"
-                    href="/ArticlesFrom"
-                    style={{
-                      display: "inline-block",
-                      width: "250px",
-                      margin: 10,
-                      marginLeft: 90,
-                      fontSize: "15px",
-                    }}
-                  >
-                    My Articles
-                  </Button>
+                <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}
+                href="/ArticlesFrom">
+                  My articles</Button></ThemeProvider>
                 </Stack>
 
                 <Stack>
-                  <Button
-                  href="PendingArticles"
-                    variant="outlined"
-                    style={{
-                      display: "inline-block",
-                      width: "250px",
-                      margin: 10,
-                      fontSize: "15px",
-                    }}
-                  >
-                    Pending{" "}
-                  </Button>
+                <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="PendingArticles"
+                style={{display:'inline-block',width: '250px',margin:10,fontSize:'15px'}}>Pending</Button></ThemeProvider>
                 </Stack>
 
                 <Stack>
-                <Button
-                  variant="contained"
-                  onClick={handleClickOpen}
-                  style={{
-                    display: "inline-block",
-                    width: "250px",
-                    margin: 10,
-                    fontSize: "15px",
-                    backgroundColor: "#005A2B",
-                  }}
-                  >
-                    Add{" "}
-                  </Button>
+                <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'
+                onClick={handleClickOpen}
+                style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}
+                >Add</Button></ThemeProvider>
+                
                 </Stack>
               </div>
               <Stack style={{ position: "relative", top: "2%" }}>
                 <SearchBar style={{ width: "20px" }}> </SearchBar>
               </Stack>
-
+{/* 
               <div
                 style={{
                   flexDirection: "row",
@@ -272,12 +243,11 @@ export default function ArticlesContent() {
                     )}
                   />
                 </Stack>
-              </div>
+              </div> */}
 
               {Array.from(Array(1)).map((index) => (
                 <div style={{ position: "relative", top: "5%", left: "0%" }}>
                   <ArticleList1 />
-                  <ArticleList2 />
                 </div>
               ))}
             </Item>

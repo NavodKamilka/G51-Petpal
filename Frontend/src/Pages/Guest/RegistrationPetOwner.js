@@ -44,14 +44,17 @@ const theme = createTheme({
 // }));
 
 function RegistrationPetOwner() {
-    // // used for input may be for password 
-    // const [values, setValues] = React.useState({
-    //     // amount: '',
-    //     password: '',
-    //     // weight: '',
-    //     // weightRange: '',
-    //     showPassword: false,
-    //   });
+  // // used for input may be for password
+  // const [values, setValues] = React.useState({
+  //     // amount: '',
+  //     password: '',
+  //     // weight: '',
+  //     // weightRange: '',
+  //     showPassword: false,
+  //   });
+  const [nameReg, setNameReg] = React.useState("");
+  const [emailReg, setEmailReg] = React.useState("");
+  const [passwordReg, setpasswordReg] = React.useState("");
 
   const disptach = useDispatch();
 
@@ -126,16 +129,26 @@ function RegistrationPetOwner() {
                             </td>
                         </tr> */}
 
-                        <tr>
-                            <td>
-                            <div className="firstname">
-                             <TextField id="outlined-basic" label="First Name" variant="outlined" size="small"
-                             style={{background: "rgb(255, 255, 255)"}}/>  
-                           </div>
-                            </td>
-                        </tr>
+                <tr>
+                  <td>
+                    <div className="firstname">
+                      <TextField
+                        id="outlined-basic"
+                        label="Name"
+                        variant="outlined"
+                        size="small"
+                        style={{ background: "rgb(255, 255, 255)" }}
+                        required
+                        onChange={(e) => {
+                          setNameReg(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </td>
+                </tr>
+                <br/>
 
-                        <tr>
+                {/* <tr>
                             
                             <td>
                             <div className="lastname">                 
@@ -182,7 +195,7 @@ function RegistrationPetOwner() {
                   </td>
                 </tr>
 
-                        <tr>
+                {/* <tr>
                             <td>
                                 <div className="confirm-password">
                                 <TextField
@@ -195,26 +208,38 @@ function RegistrationPetOwner() {
                                     />                        
                             </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" />Agree to all <a href={'/'}>Terms and conditions</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <div class="footer">
-                            <ThemeProvider theme={theme}> <Button variant="contained" color='blueButton'>Sign up</Button> </ThemeProvider>                         
-                            </div>
-                            </td>
-                        </tr>
-                    </table>
-                    </FormControl>
-                </Item>
-                </Grid>
-                </Box>
+                        </tr> */}
+                        <br/>
+                <tr>
+                  <td>
+                    <input type="checkbox" />
+                    Agree to all <a href={"/"}>Terms and conditions</a>
+                  </td>
+                </tr>
+                <br></br>
+                <tr>
+                  <td>
+                    <div class="footer">
+                      <ThemeProvider theme={theme}>
+                        {" "}
+                        <Button
+                          variant="contained"
+                          color="blueButton"
+                          onClick={register}
+                        >
+                          Sign up
+                        </Button>
+                      </ThemeProvider>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </FormControl>
             </div>
-        
-    )       
+          {/* </Item>
+        </Grid> */}
+      {/* </Box> */}
+    </div>
+  );
 }
 export default RegistrationPetOwner;

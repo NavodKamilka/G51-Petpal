@@ -42,7 +42,51 @@ module.exports = {
         const day = today.getDate()  ;
         console.log(day);
         pool.query(
-          "SELECT * FROM article WHERE Flag = 1",
+          // "SELECT * FROM doctor_appointments WHERE DoctorID=1 AND Status=0 AND Date=?;",[day],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+      },
+
+      getAppointmentDetails:(callBack) => {
+       const id =3;
+        pool.query(
+          // "SELECT * FROM doctor_appointments WHERE DoctorID=1 AND Status=0 AND Date=?;",[day],
+          "SELECT * FROM appointments WHERE AppointmentID = ?;",[id],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+      },
+      getHealthRecord:(callBack) => {
+        const id =3;
+         pool.query(
+           // "SELECT * FROM doctor_appointments WHERE DoctorID=1 AND Status=0 AND Date=?;",[day],
+           "SELECT * FROM appointments WHERE PetID = ?;",[id],
+           (error, results, fields) => {
+             if (error) {
+               callBack(error);
+             }
+             return callBack(null, results);
+           }
+         );
+       },
+       //--------------------------------------------------------------------------
+       insertHealthRecord: (data, callBack) => {
+        pool.query(
+          `update appointments set Description=?, Prescription=? where AppointmentID = ?`,
+          [
+            data.description,
+            data.prescription,
+            3
+          ],
           (error, results, fields) => {
             if (error) {
               callBack(error);

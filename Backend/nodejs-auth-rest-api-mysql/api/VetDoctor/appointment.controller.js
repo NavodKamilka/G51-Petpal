@@ -1,6 +1,9 @@
 
 const {getTodayAppointmentList,
-    getTimeslots
+    getTimeslots,
+    getAppointmentDetails,
+    getHealthRecord,
+    insertHealthRecord
     } = require("./appointment.service");
 
 module.exports = {
@@ -30,8 +33,50 @@ module.exports = {
               });
             });
           },
-
+          getAppointmentDetails: (req, res) => {
+            getAppointmentDetails((err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                data: results
+              });
+            });
+          },
+          getHealthRecord: (req, res) => {
+            getHealthRecord((err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                data: results
+              });
+            });
+          },
+//insert a doctor to the database
+insertHealthRecord: (req, res) => {
+            
+  const body = req.body;
+  create(body, (err, results) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({
+        success: 0,
+        message: "Database connection error"
+      });
+    }
+    return res.status(200).json({
+      success: 1,
+      data: results
+    });
+  });
+},
 
 
 
 }
+

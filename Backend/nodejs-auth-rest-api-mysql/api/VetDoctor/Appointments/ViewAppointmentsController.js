@@ -35,6 +35,7 @@ router.get("/ViewAppointments", async (req, res) => {
   }
 });
 
+
 router.get("/ViewAppointments/Today", async (req, res) => {
   console.log();
   try {

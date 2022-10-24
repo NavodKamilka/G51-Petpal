@@ -43,7 +43,7 @@ useEffect(() =>{
     <div>
       <Grid container alignItems="stretch"  justifyContent="center">
         {/* show the cards in a row */}
-        <Grid item style={{display: 'flex'}} padding={10}>
+        <Grid item style={{display: 'inline-block'}} padding={10}>
 
           {allArticleList.map((val) => {
             return(
@@ -54,7 +54,7 @@ useEffect(() =>{
                       {val.Title}
                     </Typography>
                     <CardActions>
-                      <Button size="small">Read more</Button>
+                      <Button variant="contained">Read more</Button>
                     </CardActions>
                   </CardContent>
 

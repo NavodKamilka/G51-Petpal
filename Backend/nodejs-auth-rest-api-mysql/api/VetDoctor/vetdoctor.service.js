@@ -4,7 +4,7 @@ module.exports = {
   //get all articles as a list
     getAllArticles: (callBack) => {
         pool.query(
-          "SELECT * FROM article WHERE Flag = 1",
+          "SELECT article.Title,article.DatePublished,article.Likes,article.Link,veterinary_doctor.FirstName,veterinary_doctor.LastName FROM article INNER JOIN veterinary_doctor ON article.AuthorID=veterinary_doctor.DocID WHERE Flag = 1",
           (error, results, fields) => {
             if (error) {
               callBack(error);
