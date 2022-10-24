@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -6,21 +6,20 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Axios from "axios";
 
-function createData(
-    date: string,
-    description: string,
-    prescription: string
-  ) {
-    return { date, description, prescription };
-  }
-  
-  const rows = [
-    createData("2022-01-10", "Ear Infections", "amoxicillin-clavulanate anti-fungal."),
-    createData("2022-01-25", "Itchy skin/Skin Infections", "cephalexin, erythromycin"),
-  ];
 
 export default function HealthRecord() {
+  
+  const[List, setList]=useState([]);
+
+    // here we don't have to click any button to display data
+    useEffect(() =>{
+      Axios.get("http://localhost:3001/api/vetappointments/getHealthRecord").then((response)=>{
+        setList(response.data.data);   
+      console.log(response);
+      });
+    }, []);
   return (
     <div>
       <TableContainer component={Paper}>
@@ -33,17 +32,17 @@ export default function HealthRecord() {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {rows.map((row) => (
+                        {List.map((row) => (
                           <TableRow
                             key={row.date}
                             sx={{
                               "&:last-child td, &:last-child th": { border: 0 },
                             }}
                           >
-                            <TableCell component="th" scope="row">{row.date}
+                            <TableCell component="th" scope="row">{row.Date}
                             </TableCell>
-                            <TableCell align="left" >{row.description}</TableCell>
-                            <TableCell align="left">{row.prescription}</TableCell>
+                            <TableCell align="left" >{row.Description}</TableCell>
+                            <TableCell align="left">{row.Prescription}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>

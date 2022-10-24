@@ -18,6 +18,7 @@ import {useState} from 'react';
 import InputLabel from '@mui/material/InputLabel';
 // import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import TimeTable from './Timeslots';
 const Item = styled(Paper)(({ theme }) => ({
@@ -30,6 +31,25 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10
     
   }));
+
+  //colors for buttons
+
+const theme = createTheme({
+  palette: {
+    //name given as view, update and delete to declare buttons
+
+    blackButton: {
+      main: '#000000',
+    //   change the text color inside the button to another color
+      contrastText: "#fff" 
+    },
+    blueButton: {
+      main: '#1D168F',
+      contrastText: "#fff" 
+    },
+    
+  },
+});
 
   export default function  DocProfileContent() {
 
@@ -202,8 +222,13 @@ const Item = styled(Paper)(({ theme }) => ({
           }}>
             
             <Rating name="read-only" value={2} readOnly />
-            <Button href='/DocReviews' >Reviews</Button>
-              <Button variant="contained" style={{backgroundColor:'#005A2B '}}>Save Change</Button>
+
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/DocReviews'
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Reviews</Button></ThemeProvider>
+
+            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Save changes</Button></ThemeProvider>
+        
           </Stack>
           <Stack spacing={20} direction="row" style={{
             marginLeft:'20%',

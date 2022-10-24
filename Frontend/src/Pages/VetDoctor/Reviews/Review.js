@@ -1,14 +1,18 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
+import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Axios from "axios";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
@@ -21,14 +25,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Review() {
+  const[list, setList]=useState([]);
+
+  // here we don't have to click any button to display data
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/api/vetdoc/getVetReviews").then((response)=>{
+      setList(response.data.data);   
+    console.log(response);
+    });
+  }, []);
+  
  
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Item>
-              <Box>
+
+      <Grid container alignItems="stretch"  justifyContent="center">
+
+      <Box>
                 <Typography sx={{ fontSize: "20px" }}>
                   <h1
                     style={{
@@ -45,84 +58,34 @@ export default function Review() {
                 </Typography>
               </Box>
               <br />
-              <div direction='column' spacing={5}>
-              
-                 <Stack spacing={2} direction="column">
-                   <Card sx={{ maxWidth: "800px" }}>
-                     <CardActionArea>
-                       <CardMedia height="140px" direction="row">
-                         <Typography>Damith Wickramsinghe</Typography>
-                       </CardMedia>
+        {/* show the cards in a row */}
+        <Grid item style={{display: 'inline-block'}} padding={10}>
 
-                       <CardContent>
-                         <Typography variant="body2" color="text.secondary">
-                           good                         </Typography>
-                       </CardContent>
-                     </CardActionArea>
-                   </Card>
-               </Stack>
-             
-                <Stack spacing={2} direction="column">
-                  {Array.from(Array(1)).map((index) => (
-                    <Card sx={{ maxWidth: "800px" }}>
-                      <CardActionArea>
-                        <CardMedia height="140px" direction="row">
-                          <Typography>Kasun Perera</Typography>
-                          
-                        </CardMedia>
+          {list.map((val) => {
+            return(
+              <Card sx={{ maxWidth: 1000 , padding:2}}>
+                <CardContent>
+                  <CardContent style={{width:1500,height:10}} padding={1}>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {val.Content}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {val.FirstName}
+                      {val.LastName}
+                      {val.Date} 
+                    </Typography>
+                    </CardContent>
+                </CardContent>                
+              </Card>
 
-                        <CardContent>
-                          <Typography variant="body2" color="text.secondary">
-                            Great service!!
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
-                  ))}
-                </Stack>
-
-                <Stack spacing={2} direction="column">
-                  {Array.from(Array(1)).map((index) => (
-                    <Card sx={{ maxWidth: "800px" }}>
-                      <CardActionArea>
-                        <CardMedia height="140px" direction="row">
-                          <Typography>Dasuni Ratghnayake</Typography>
-                        </CardMedia>
-
-                        <CardContent>
-                          <Typography variant="body2" color="text.secondary">
-                            Friendly service
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
-                  ))}
-                </Stack>
-
-                <Stack spacing={2} direction="column">
-                  {Array.from(Array(1)).map((index) => (
-                    <Card sx={{ maxWidth: "800px" }}>
-                      <CardActionArea>
-                        <CardMedia height="140px" direction="row">
-                          <Typography>Nimal Arachchi</Typography>
-                          
-                        </CardMedia>
-
-                        <CardContent>
-                          <Typography variant="body2" color="text.secondary">
-                            Friendly service
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
-                  ))}
-                </Stack>
-                
-              </div>
-            </Item>
-          </Grid>
+            )
+          })}
         </Grid>
-      </Box>
+      </Grid>
+      
+             
+            
+       
     </div>
   );
 }

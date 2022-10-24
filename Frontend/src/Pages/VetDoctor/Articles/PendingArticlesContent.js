@@ -9,6 +9,7 @@ import ArticleList3 from "./ArticleList3";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 //popup
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -37,6 +38,23 @@ const Item = styled(Paper)(({ theme }) => ({
   height: 1230,
   top: 10,
 }));
+//colors for buttons
+const theme = createTheme({
+  palette: {
+    //name given as view, update and delete to declare buttons
+
+    blackButton: {
+      main: '#000000',
+    //   change the text color inside the button to another color
+      contrastText: "#fff" 
+    },
+    blueButton: {
+      main: '#1D168F',
+      contrastText: "#fff" 
+    },
+    
+  },
+});
 
 export default function ArticlesContent() {
   //-------Dialog box ---------------
@@ -169,50 +187,22 @@ export default function ArticlesContent() {
                 }}
               >
                 <Stack>
-                  <Button
-                    variant="outlined"
-                    href="/ArticlesFrom"
-                    style={{
-                      display: "inline-block",
-                      width: "250px",
-                      margin: 10,
-                      marginLeft: 90,
-                      fontSize: "15px",
-                    }}
-                  >
-                    My Articles
-                  </Button>
+                <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}
+                href="/ArticlesFrom">
+                  My articles</Button></ThemeProvider>
                 </Stack>
 
                 <Stack>
-                  <Button
-                  
-                    variant="contained"
-                    style={{
-                      display: "inline-block",
-                      width: "250px",
-                      margin: 10,
-                      fontSize: "15px",
-                    }}
-                  >
-                    Pending{" "}
-                  </Button>
+                <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'
+                style={{display:'inline-block',width: '250px',margin:10,fontSize:'15px'}}>Pending</Button></ThemeProvider>
                 </Stack>
 
                 <Stack>
-                  <Button
-                  variant="contained"
-                  onClick={handleClickOpen}
-                  style={{
-                    display: "inline-block",
-                    width: "250px",
-                    margin: 10,
-                    fontSize: "15px",
-                    backgroundColor: "#005A2B",
-                  }}
-                  >
-                    Add{" "}
-                  </Button>
+                <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'
+                onClick={handleClickOpen}
+                style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}
+                >Add</Button></ThemeProvider>
+                
                 </Stack>
               </div>
               <Stack style={{ position: "relative", top: "2%" }}>
