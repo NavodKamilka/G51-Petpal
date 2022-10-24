@@ -172,7 +172,7 @@ export default function SkinCareTable() {
               <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewSkincareFinal"} state={{id:val.skincareId}}>View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update" component={Link} to={"/UpdateSkincareFinal"} state={{id:val.skincareId}}>Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete" onClick={()=>deleteOneSkincare(val.skincareId)}>Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>

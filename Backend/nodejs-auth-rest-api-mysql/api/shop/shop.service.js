@@ -236,4 +236,23 @@ module.exports = {
           }
         );
       },
+
+
+      updateOneSkincare: (data, callBack) => {
+        pool.query(
+          `update skincare set pricePerOne=?, totalQty=?, availableQty=? where skincareId = ?`,
+          [
+            data.pricePerOne,
+            data.totalQty,
+            data.availableQty,
+            data.skincareId
+          ],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+      },
 }

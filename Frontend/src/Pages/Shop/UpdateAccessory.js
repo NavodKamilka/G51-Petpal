@@ -62,9 +62,10 @@ function UpdateAccessory() {
     // newAvailableQty = accessoryList.availableQty;
     
     //get new values to be updated in food table (only totalQty, availableQty and pricePerOne)
-    const[newPricePerOne, setNewPricePerOne]=useState("");
-    const[newTotalQty, setNewTotalQty]=useState("");
-    const[newAvailableQty, setNewAvailableQty]=useState("");
+  
+    const[newPricePerOne, setNewPricePerOne]=useState([]);
+    const[newTotalQty, setNewTotalQty]=useState([]);
+    const[newAvailableQty, setNewAvailableQty]=useState([]);
     
     
 
@@ -73,8 +74,13 @@ function UpdateAccessory() {
     useEffect(() =>{
         Axios.get(`http://localhost:3001/api/shop/getOneAccessory/${accessoryId}`).then((response)=>{
             setAccessoryList(response.data.data);   
+            const x = response.data.data;
+            x.map((val)=>{
+                newPricePerOne.push(val.pricePerOne);
+                newTotalQty.push(val.totalQty)
+                newAvailableQty.push(val.availableQty)
+            });
         });
-       
     }, [oneAccessory.state.id]);
  
 
@@ -86,11 +92,6 @@ function UpdateAccessory() {
         availableQty:newAvailableQty,
         accessoryId:accessoryId,
     }).then((response)=>{
-        // console.log(newPricePerOne);
-        // console.log(newTotalQty);
-        // console.log(newAvailableQty);
-        // console.log(accessoryList);
-        console.log(accessoryList.pricePerOne);
         alert('Updated successfully');
     });
   }
@@ -178,7 +179,7 @@ function UpdateAccessory() {
                                 setNewTotalQty(event.target.value)
                             }}
                             // helperText="Some important text"
-                            />
+                             />
 
                             <TextField
                             id="outlined-helperText"
