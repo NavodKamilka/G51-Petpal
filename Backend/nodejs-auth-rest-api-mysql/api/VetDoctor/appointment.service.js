@@ -79,7 +79,7 @@ module.exports = {
          );
        },
        //--------------------------------------------------------------------------
-       insertHealthRecord: (data, callBack) => {
+       updateRecord: (data, callBack) => {
         pool.query(
           `update appointments set Description=?, Prescription=? where AppointmentID = ?`,
           [

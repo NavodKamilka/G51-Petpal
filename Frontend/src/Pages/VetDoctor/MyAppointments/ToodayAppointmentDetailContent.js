@@ -17,7 +17,6 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import {Link} from 'react-router-dom'
 //colors for buttons
 const theme = createTheme({
   palette: {

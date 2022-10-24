@@ -3,7 +3,8 @@ const {getTodayAppointmentList,
     getTimeslots,
     getAppointmentDetails,
     getHealthRecord,
-    insertHealthRecord
+    insertHealthRecord,
+    updateRecord
     } = require("./appointment.service");
 
 module.exports = {
@@ -61,7 +62,8 @@ module.exports = {
 insertHealthRecord: (req, res) => {
             
   const body = req.body;
-  create(body, (err, results) => {
+  console.log(body)
+  updateRecord(body, (err, results) => {
     if (err) {
       console.log(err);
       return res.status(500).json({
