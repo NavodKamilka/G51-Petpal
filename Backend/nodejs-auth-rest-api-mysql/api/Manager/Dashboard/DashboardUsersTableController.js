@@ -21,7 +21,7 @@ router.get("/DashboardUsers/Table",(req,res,next) => {
     // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
 
     db.query(
-        `SELECT * FROM users ORDER BY UserID DESC`,
+        `SELECT * FROM users ORDER BY UserID DESC LIMIT 10`,
         (error, results) => {
             if (error) {
                 res.send(error);

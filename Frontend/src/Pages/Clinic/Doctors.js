@@ -108,7 +108,7 @@ export default function Doctors() {
                 <CardMedia
                   component="img"
                   height="240"
-                  image={DoctorImage}
+                  image={val.DoctorPic}
                   alt="Doctor Image"
                 />
 

@@ -16,7 +16,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Axios from "axios";
 
 
@@ -63,6 +63,8 @@ function UpdateProduct() {
     const[newTotalQty, setNewTotalQty]=useState([]);
     const[newAvailableQty, setNewAvailableQty]=useState([]);
 
+    //to redirect to foodTableFinal.js page
+    const navigate = useNavigate();
 
      // here we don't have to click any button to display data
      useEffect(() =>{
@@ -87,6 +89,8 @@ function UpdateProduct() {
         foodId:foodId
     }).then((response)=>{
         alert('Updated successfully');
+        navigate('/FoodTableFinal');
+        
     });
   }
 

@@ -1,5 +1,5 @@
 // pet details table
-import * as React from 'react';
+import React, { useState, useEffect }  from 'react';
 import { styled} from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -16,7 +16,8 @@ import Stack from '@mui/material/Stack';
 
 // import {Grid} from "@material-ui/core";
 import Grid from '@mui/material/Grid';
-
+import Axios from "axios";
+import {Link} from 'react-router-dom'
 
 
 //related to changing colors in  (view, update, delete) buttons
@@ -75,16 +76,27 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-function createData(PetImage, PetType, Breed, PricePerOne, AvailableQty, LastUpdate) {
-  return { PetImage, PetType, Breed, PricePerOne, AvailableQty, LastUpdate};
-}
+// function createData(PetImage, PetType, Breed, PricePerOne, AvailableQty, LastUpdate) {
+//   return { PetImage, PetType, Breed, PricePerOne, AvailableQty, LastUpdate};
+// }
 
-const rows = [
-  createData('pet image','Puppy', 'Labrador', 45000, 5, '24-07-2022'),
-  createData('pet image','Puppy', 'German Shepherd', 25000, 1,'25-07-2022'),
-];
+// const rows = [
+//   createData('pet image','Puppy', 'Labrador', 45000, 5, '24-07-2022'),
+//   createData('pet image','Puppy', 'German Shepherd', 25000, 1,'25-07-2022'),
+// ];
 
 export default function Pets() {
+
+  const[petList, setPetList]=useState([]);
+
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/api/shop/getAllPets").then((response)=>{
+      setPetList(response.data.data);   
+    console.log(response);
+    });
+  }, []);
+  
+
   return (
     <Box>
       <SearchBar/>
@@ -112,27 +124,33 @@ export default function Pets() {
             <StyledTableCell align="left">Price per 1 (Rs)</StyledTableCell>
             <StyledTableCell align="left">Available quantity</StyledTableCell>
             <StyledTableCell align="left">Last update</StyledTableCell>
+            <StyledTableCell align="left">Description</StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}> 
-              <StyledTableCell align="left">{row.PetImage}</StyledTableCell>
-              <StyledTableCell align="left">{row.PetType}</StyledTableCell>
-              <StyledTableCell align="left">{row.Breed}</StyledTableCell>
-              <StyledTableCell align="left">{row.PricePerOne}</StyledTableCell>
-              <StyledTableCell align="left">{row.AvailableQty}</StyledTableCell>
-              <StyledTableCell align="left">{row.LastUpdate}</StyledTableCell>
+          {petList.map((val) => {
+            return(
+              console.log(val),
+            <StyledTableRow> 
+              <StyledTableCell align="left"><img src={val.petImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell>
+              <StyledTableCell align="left">{val.petType}</StyledTableCell>
+              <StyledTableCell align="left">{val.breed}</StyledTableCell>
+              <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
+              <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
+              <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
+              <StyledTableCell align="left">{val.description}</StyledTableCell>
+
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
-          ))}
+            )
+          })}
         </TableBody>
       </Table>
     </TableContainer>

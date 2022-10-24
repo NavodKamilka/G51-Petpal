@@ -16,6 +16,71 @@ module.exports = {
         );
       },
 
+    //view appointments details
+    getAppointments: (callBack) => {
+      pool.query(
+        "SELECT * FROM doctors_in_clinics",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
+    //view today appointments details
+    getTodayappos: (callBack) => {
+      pool.query(
+        "SELECT * FROM appointments_on_clinics where Date=curdate();",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
+    //view previous appointments details
+    getPreviousappos: (callBack) => {
+      pool.query(
+        "SELECT * FROM appointments_on_clinics where Date < curdate();",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
+    //view upcomming appointments details
+    getUpappos: (callBack) => {
+      pool.query(
+        "SELECT * FROM appointments_on_clinics where Date > curdate();",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
+    //delete appointment
+    deleteAppo : (id, callBack) => {
+      pool.query(
+        'DELETE FROM appointments_on_clinics WHERE AppointmentID = ?', [id],
+        (error, results,fields) => {
+        if (error) {
+          callBack(error) 
+        }
+        return callBack(null, results);  
+      }
+      );
+    },
+
       //get details of one doctor
       getOneDoctor: (id, callBack) => {
         pool.query(

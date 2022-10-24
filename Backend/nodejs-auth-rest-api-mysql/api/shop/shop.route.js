@@ -14,7 +14,8 @@ const {getProduct,
      deleteOneSkincare,
      updateOneFood,
      updateOneAccessory,
-     updateOneSkincare
+     updateOneSkincare,
+     getAllPets  
     }=require("./shop.controller");
 
 //view details of all food products
@@ -30,7 +31,7 @@ router.post("/insertproduct",insertProducts);
 router.get("/getShopList",getShopList);
 
 //insert pet details
-router.post("/insertpet",insertPet);
+router.post("/insertPet",insertPet);
 
 //view all accessories 
 router.get("/getAllAccessories",getAllAccessories);
@@ -61,5 +62,10 @@ router.put("/updateOneAccessory", updateOneAccessory);
 
 //update one skincare item 
 router.put("/updateOneSkincare", updateOneSkincare);
+
+//view all pets 
+router.get("/getAllPets",getAllPets);
+
+
 
 module.exports = router;
