@@ -35,6 +35,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Timeslots from './Timeslots';
 import NewTimeslot from './NewTimeslot';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -47,6 +48,23 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10
     
   }));
+
+  const theme = createTheme({
+    palette: {
+      //name given as view, update and delete to declare buttons
+  
+      blackButton: {
+        main: '#000000',
+      //   change the text color inside the button to another color
+        contrastText: "#fff" 
+      },
+      blueButton: {
+        main: '#1D168F',
+        contrastText: "#fff" 
+      },
+      
+    },
+  });
 
   export default function  DocProfileContent() {
 
@@ -224,8 +242,11 @@ const Item = styled(Paper)(({ theme }) => ({
           }}>
             
             <Rating name="read-only" value={2} readOnly />
-            <Button href='/DocReviews'>Reviews</Button>
-              <Button variant="contained">Save Changes</Button>
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/DocReviews'
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Reviews</Button></ThemeProvider>
+
+            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Save changes</Button></ThemeProvider>
           </Stack>
           <Stack spacing={15} direction="row" sx={{position:'relative',top:'5%',left:'15%'}}>
             <NewTimeslot/>

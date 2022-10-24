@@ -55,6 +55,11 @@ export default function MyProfile() {
             case 'Notice Requests' :
                 navigate("/NoticeRequests", {replace: true})
                 break;
+
+            case 'Notice Requests' :
+                navigate("/NoticeRequests", {replace: true})
+                console.log(desc);
+                break;
         }
 
     }

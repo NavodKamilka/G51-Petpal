@@ -1,13 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
+import Axios from "axios";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import "../../../Style/VetDoctor/CompletedAppointment.css";
 import HealthRecord from "./HealthRecord";
+//popup
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+//colors for buttons
+const theme = createTheme({
+  palette: {
+    //name given as view, update and delete to declare buttons
+
+    blackButton: {
+      main: '#000000',
+    //   change the text color inside the button to another color
+      contrastText: "#fff" 
+    },
+    blueButton: {
+      main: '#1D168F',
+      contrastText: "#fff" 
+    },
+    
+  },
+});
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#F3F3F3",
@@ -20,13 +47,36 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function UpcomingAppointmentDetailContent() {
+  //-------Dialog box ---------------
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const[List, setList]=useState([]);
+
+    // here we don't have to click any button to display data
+    useEffect(() =>{
+      Axios.get("http://localhost:3001/api/vetappointments/getAppointmentDetails").then((response)=>{
+        setList(response.data.data);   
+      console.log(response);
+      });
+    }, []);
   
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
+          
             <Item>
+            
               <div
                 style={{
                   width: window.width,
@@ -38,7 +88,7 @@ export default function UpcomingAppointmentDetailContent() {
                   // top:'180px',left:'0%'
                 }}
               >
-                <h1
+                {List.map((vall)=>{ return( <h1
                   style={{
                     width: "50%",
                     display: "inline",
@@ -48,13 +98,16 @@ export default function UpcomingAppointmentDetailContent() {
                   }}
                 >
                   {" "}
-                  Appointment - 0001
-                </h1>
+                  Appointment - {vall.AppointmentID}
+                </h1>)})}
               </div>
               <div
                 className="box4"
                 style={{ position: "relative", top: "5%", left: "30%" }}
               >
+              {List.map((val)=>{
+              return(
+              
                 <table className="">
                   <tbody>
                     <tr>
@@ -73,17 +126,17 @@ export default function UpcomingAppointmentDetailContent() {
                     <tr>
                       <td className="orderitem">Date</td>
                       <td className="orderitemx" id="date">
-                        2022-02-02
+                        {val.Date}
                       </td>
                       <td className="orderitem">Name</td>
                       <td className="orderitemx" id="date">
-                        Kasun Perera
+                        {val.OwnerID}
                       </td>
                     </tr>
                     <tr>
-                      <td className="orderitem">Time</td>
+                      <td className="orderitem">Token</td>
                       <td className="orderitemx" id="timeslot">
-                        6 pm - 6 30 pm
+                        {val.Timeslot}
                       </td>
                       <td className="orderitem">Mobile no</td>
                       <td className="orderitemx" id="mobile">
@@ -157,29 +210,67 @@ export default function UpcomingAppointmentDetailContent() {
                         </h3>
                       </td>
                       <td colspan="2">
-                      <Stack>
-                <Button
-                  variant="contained"
-                  // onClick={handleClickOpen}
-                  style={{
-                    display: "inline-block",
-                    width: "250px",
-                    margin: 10,
-                    fontSize: "15px",
-                    backgroundColor: "#005A2B",
-                  }}
-                  >
-                    Add{" "}
-                  </Button>
+                       <Stack>
+                       <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={handleClickOpen}>Add new record</Button></ThemeProvider>
+      
                         </Stack>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+                )})}
               </div>
 
               <div style={{ position: "relative", top: "5%", left: "-0%" }}>
                 <HealthRecord />
+              </div>
+              <div>
+                <Dialog open={open} onClose={handleClose}>
+                  <DialogTitle>Today record</DialogTitle>
+
+                  <DialogContent>
+                    <DialogContentText>
+                      Please fill this data carefully.Once you confirmed then the database will be updated and you cannot retrieve it for any reason.
+                    </DialogContentText>
+
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="description"
+                      label="Description"
+                      type="text"
+                      fullWidth
+                      variant="standard"
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="prescription"
+                      label="Prescription"
+                      type="text"
+                      fullWidth
+                      variant="standard"
+                    />
+                        
+                    
+                  </DialogContent>
+
+                  <DialogActions>
+                  
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button
+                      onClick={handleClose}
+                      // component={Link} state={{id:val.AppointmentID}}
+                      style={{
+                        "&:hover": { backgroundColor: "#1BDD3A" },
+                        transitionDuration: "0.4s",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Confirm
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </div>
               
             </Item>

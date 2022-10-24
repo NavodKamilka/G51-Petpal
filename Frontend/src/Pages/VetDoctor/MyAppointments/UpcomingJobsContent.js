@@ -7,9 +7,8 @@ import Grid from '@mui/material/Grid';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import List1 from './List2';
-
-import List2 from './List2 copy'
+import List1 from './ListUpcoming';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
@@ -23,6 +22,23 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10
     
   }));
+  
+const theme = createTheme({
+  palette: {
+    //name given as view, update and delete to declare buttons
+
+    blackButton: {
+      main: '#000000',
+    //   change the text color inside the button to another color
+      contrastText: "#fff" 
+    },
+    blueButton: {
+      main: '#1D168F',
+      contrastText: "#fff" 
+    },
+    
+  },
+});
 
   export default function  TodayAppointmentsContent() {
     const current = new Date();
@@ -40,22 +56,21 @@ const Item = styled(Paper)(({ theme }) => ({
         <div style={{ flexDirection:'row',display:'inline-flex',height:55,margin:10,width:window.width,
         verticalAlign:'center',position:"relative",top:'0%',left:'0%'}}>
 
-            <Stack><Button variant="outlined" href="/PrevJobs"
-            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px',
-           
-            }}>Previous jobs </Button></Stack> 
+            <Stack>
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'  href="/PrevJobs"
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Previous jobs</Button></ThemeProvider>
+            </Stack> 
 
-            <Stack><Button variant="outlined" href="/TodayAppointments"
-            style={{display:'inline-block',width: '250px',margin:10, 
-            fontSize:'15px'
-           
-            }}>Today Appointments </Button></Stack> 
 
-            <Stack><Button variant="contained" 
-            style={{display:'inline-block',width: '250px',fontSize:'15px',backgroundColor:'#68FD22',
-            margin:10,marginRight:90,
-           
-            }}>Upcoming Jobs </Button></Stack> 
+            <Stack>
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/TodayAppointments"
+            style={{display:'inline-block',width: '250px',margin:10,fontSize:'15px'}}>Today appointments</Button></ThemeProvider>
+            </Stack> 
+
+            <Stack>
+            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'  
+            style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming jobs</Button></ThemeProvider>
+            </Stack> 
 
         </div>
         <div style={{width:window.width, textAlign:'center',
@@ -82,7 +97,6 @@ const Item = styled(Paper)(({ theme }) => ({
         </div>
 
 <List1/>
-<List2/>
 
 
        
