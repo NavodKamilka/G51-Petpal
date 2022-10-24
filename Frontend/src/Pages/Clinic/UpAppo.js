@@ -128,6 +128,7 @@ export default function Upappo() {
   const deleteAppo=(AppointmentID)=>{
     //".then" part will refresh the page after one food item is deleted. 
     Axios.delete(`http://localhost:3001/api/Doctor/deleteAppo/${AppointmentID}`).then((response) => {
+      alert('Appoinment Deleted Successfully')
       setUpappoList(upappoList.filter((val)=>{
         return val.AppointmentID !== AppointmentID
       }))

@@ -16,6 +16,19 @@ module.exports = {
         );
       },
 
+      //view clinic details
+     getClinics: (callBack) => {
+      pool.query(
+        "SELECT * FROM clinic",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);
+        }
+      );
+    },
+
     //view appointments details
     getAppointments: (callBack) => {
       pool.query(
