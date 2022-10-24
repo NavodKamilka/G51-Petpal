@@ -135,6 +135,9 @@ export default function PreviousAppo() {
       </Stack>
 
       <br></br>
+
+      <h1>Previous Appointment Details</h1>
+      <br></br>
     
    
       {/* align the 'add product' button to the right
@@ -147,6 +150,7 @@ export default function PreviousAppo() {
             <StyledTableCell align="left">Pet Owner Name</StyledTableCell>
             <StyledTableCell align="left">Pet Owner Contact No</StyledTableCell>
             <StyledTableCell align="left">Pet Type</StyledTableCell>
+            <StyledTableCell align="left">Required Date</StyledTableCell>
             <StyledTableCell align="left">Required Time</StyledTableCell>
             <StyledTableCell align="left">Pet Description</StyledTableCell>
           </TableRow>
@@ -161,6 +165,7 @@ export default function PreviousAppo() {
               <StyledTableCell align="left">{val.OwnerTel}</StyledTableCell>
               {/* <StyledTableCell align="left">{val.VaccineName}</StyledTableCell> */}
               <StyledTableCell align="left">{val.PetType}</StyledTableCell>
+              <StyledTableCell align="left">{val.Date}</StyledTableCell>
               <StyledTableCell align="left">{val.Time}</StyledTableCell>
               <StyledTableCell align="left">{val.Description}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}

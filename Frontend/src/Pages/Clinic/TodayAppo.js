@@ -139,6 +139,9 @@ useEffect(() =>{
       </Stack>
 
       <br></br>
+
+      <h1>Today Appointment Details</h1>
+      <br></br>
     
    
       {/* align the 'add product' button to the right
