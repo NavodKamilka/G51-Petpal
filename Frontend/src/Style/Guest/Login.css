@@ -7,6 +7,7 @@ body{
 }
 .background-container{
     background-color: #fafafa;
+    /*background: linear-gradient(180deg, #CEFFFC 15.52%, rgba(211, 209, 202, 0) 100%);*/
     border: 1px solid #F7F7F7;
     height:690px;
 }
@@ -45,5 +46,5 @@ body{
 
 .login{
     color:blue;
-};
+}
             
