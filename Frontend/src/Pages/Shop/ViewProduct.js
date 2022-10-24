@@ -165,26 +165,27 @@ function ViewProduct() {
                         </td>
                     </tr>
                     <br></br>
-                    <tr>
+
+                    {/* <tr> */}
                         {/* upload pet image */}
-                        <p>upload product image</p>
+                        {/* <p>upload product image</p>
                     <Stack spacing={10} direction="row" justifyContent="center" >
                         <IconButton  sx={{ color: blueGrey[900] }} aria-label="upload picture" component="label">
                             <input hidden accept="image/*" type="file" />
                             <PhotoCamera />
                         </IconButton>
                     </Stack>
+                    </tr> */}
 
-
-                    </tr>
+                    
                     <br></br>
-                    {/* <tr>
+                    <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Add</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/FoodTableFinal'>Back</Button></ThemeProvider>
 
                     </Stack>
-                    </tr> */}
+                    </tr>
                 </table>
 
                 )
