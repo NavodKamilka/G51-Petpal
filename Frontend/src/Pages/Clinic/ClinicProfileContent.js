@@ -101,7 +101,7 @@ const Item = styled(Paper)(({ theme }) => ({
                         <td><TextField
                             id="outlined-helperText"
                             label="Clinic Name"
-                            defaultValue="Pet Love"
+                            defaultValue="Pet Vet"
                             style={style}
                             /></td>
                         <td><TextField

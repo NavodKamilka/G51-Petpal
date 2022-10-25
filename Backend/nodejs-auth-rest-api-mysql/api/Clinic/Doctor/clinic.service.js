@@ -137,7 +137,7 @@ module.exports = {
     },
 
       //insert doctor details
-      create: (data,callBack) => {
+      createdoc: (data,callBack) => {
         pool.query(
             `insert into doctors_in_clinics(DoctorName, RegNo, Qualification, Email, TelNum) 
             values(?,?,?,?,?)`,

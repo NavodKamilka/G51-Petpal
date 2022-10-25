@@ -62,7 +62,7 @@ export default function ClinicAds() {
                   <CardMedia
                     component="img"
                     height="240"
-                    image={ClinicImage}
+                    image={val.ClinicImg}
                     alt="Clinic Image"
                 
                   />
