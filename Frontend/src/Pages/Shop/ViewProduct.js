@@ -83,7 +83,8 @@ function ViewProduct() {
                 <table key={oneFood.id}>
                     <tr> 
                         <td ><TextField 
-                            id="outlined-helperText"
+                        disabled
+                            id="outlined-disabled"
                             label="Brand"
                             value={oneFood.brand}
                             
@@ -97,6 +98,7 @@ function ViewProduct() {
                     <br></br>
                     <tr>
                         <td><TextField
+                        disabled
                             id="outlined-helperText"
                             label="Product Name"
                             style={style}
@@ -110,6 +112,7 @@ function ViewProduct() {
 
                     <tr>
                         <td><TextField
+                            disabled
                             id="outlined-helperText"
                             label="Weight"
                             style={style}
@@ -122,6 +125,7 @@ function ViewProduct() {
                     <br></br>
                     <tr>
                         <td><TextField
+                            disabled
                             id="outlined-helperText"
                             label="Price per 1 (Rs)"
                             value={oneFood.pricePerOne}
@@ -136,6 +140,7 @@ function ViewProduct() {
                     <tr>
                         <td>
                             <TextField
+                            disabled
                             id="outlined-helperText"
                             label="Total Quantity"
                             value={oneFood.totalQty}
@@ -157,6 +162,7 @@ function ViewProduct() {
                     <br></br>
                     <tr>
                         <td><TextField
+                                disabled
                                 id="outlined-multiline-static"
                                 label="Description"
                                 multiline
