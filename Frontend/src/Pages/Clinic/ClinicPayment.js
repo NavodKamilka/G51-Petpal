@@ -7,6 +7,9 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
+//import Button from '@mui/material/Button';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
 
 
@@ -42,7 +45,8 @@ const style={
 function Payment() {
     return(
         <div>
-             <Box sx={{ flexGrow: 1 }}>
+         
+            <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
             <Item>
                 <h1>Bill summary</h1>
@@ -116,7 +120,7 @@ function Payment() {
 
                     <tr>
                         <td>
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'>Pay Now</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' >Pay Now</Button></ThemeProvider>
 
                         </td>
                     </tr>
