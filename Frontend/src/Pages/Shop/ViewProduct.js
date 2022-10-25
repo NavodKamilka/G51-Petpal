@@ -139,17 +139,19 @@ function ViewProduct() {
                             id="outlined-helperText"
                             label="Total Quantity"
                             value={oneFood.totalQty}
-                            sx={{ width: 250 }}
+                            style={style}
+
+                            // sx={{ width: 250 }}
                             // helperText="Some important text"
                             />
 
-                            <TextField
+                            {/* <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
                             value={oneFood.availableQty}
                             sx={{ width: 250 }}
                             //   helperText="Some important text"
-                            />
+                            /> */}
                         </td>
                     </tr>
                     <br></br>
