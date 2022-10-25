@@ -1,5 +1,6 @@
     // functions in services - getAllDoctors
-    const {getDoctors, 
+    const {getDoctors,
+          getClinics, 
           create,
           getNotices,
           getPayments,
@@ -28,6 +29,20 @@ module.exports = {
           });
         });
       },
+
+      //Get clinic details
+     getClinics: (req, res) => {
+      getClinics((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
 
        //Get appoitment details
       getAppointments: (req, res) => {
