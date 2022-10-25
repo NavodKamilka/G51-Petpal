@@ -61,7 +61,7 @@ export default function ClinicProfile() {
               console.log(desc);
               break;
           case 'Payment' :
-              navigate("/PaymentMain", {replace: true})
+              navigate("/AllPaymentMain", {replace: true})
               console.log(desc);
               break;
 

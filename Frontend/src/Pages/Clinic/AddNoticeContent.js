@@ -288,8 +288,8 @@ export default function AddNoticeContent() {
                         marginLeft:'30%',
                         marginTop: 25
                     }}>
-              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton' onClick={addNotice}>Post</Button></ThemeProvider>
-              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain'color='blueButton'>Cancel</Button></ThemeProvider>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/ViewNoticeMain' color='blueButton' onClick={addNotice}>Post</Button></ThemeProvider>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/ViewNoticeMain'color='blueButton'>Cancel</Button></ThemeProvider>
               
           </Stack>
                 </table>

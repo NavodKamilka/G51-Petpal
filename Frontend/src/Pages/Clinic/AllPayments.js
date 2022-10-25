@@ -150,7 +150,7 @@ useEffect(() =>{
       <Stack  justifyContent="right" spacing={10} direction="row">    
 
         <ThemeProvider theme={theme}>
-          <Button variant="contained" startIcon={<AddCircleRoundedIcon/>} color="addButton" href='./PaymentMain'>ViewBill</Button>
+          <Button variant="contained" color="view" href='./PaymentMain'>View Current Bill</Button>
         </ThemeProvider> 
 
        
@@ -161,12 +161,12 @@ useEffect(() =>{
         <TableHead>
           <TableRow>
     
-            <StyledTableCell align="left">Publisher Name</StyledTableCell>
-            <StyledTableCell align="left">Registor Number</StyledTableCell>
-            <StyledTableCell align="left">Vaccine Name</StyledTableCell>
-            <StyledTableCell align="left">Vaccination Date</StyledTableCell>
+            <StyledTableCell align="left">Payment Month</StyledTableCell>
+            <StyledTableCell align="left">Total Amount</StyledTableCell>
+            <StyledTableCell align="left">Remarks for payments</StyledTableCell>
+            {/* <StyledTableCell align="left">Vaccination Date</StyledTableCell>
             <StyledTableCell align="left">Venue</StyledTableCell>
-            <StyledTableCell align="left">Status</StyledTableCell>
+            <StyledTableCell align="left">Status</StyledTableCell> */}
             {/* <StyledTableCell align="left"></StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell> */}
@@ -178,12 +178,12 @@ useEffect(() =>{
               console.log(val),
             <StyledTableRow> 
               {/* <StyledTableCell align="left"><img src={val.foodImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell> */}
-              <StyledTableCell align="left">{val.PublisherName}</StyledTableCell>
-              <StyledTableCell align="left">{val.RegNo}</StyledTableCell>
-              <StyledTableCell align="left">{val.VaccineName}</StyledTableCell>
-              <StyledTableCell align="left">{val.Date}</StyledTableCell>
+              <StyledTableCell align="left">{val.Duration}</StyledTableCell>
+              <StyledTableCell align="left">{val.TotalAmount}</StyledTableCell>
+              <StyledTableCell align="left">{val.Remarks}</StyledTableCell>
+              {/* <StyledTableCell align="left">{val.Date}</StyledTableCell>
               <StyledTableCell align="left">{val.Venue}</StyledTableCell>
-              <StyledTableCell align="left">{val.Status}</StyledTableCell>
+              <StyledTableCell align="left">{val.Status}</StyledTableCell> */}
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               {/* <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewProductFinal"} state={{id:val.foodId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update"  component={Link} to={"/UpdateProductFinal"} state={{id:val.foodId}}>Update</Button></ThemeProvider></StyledTableCell>

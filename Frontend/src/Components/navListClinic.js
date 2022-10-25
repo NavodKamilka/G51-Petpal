@@ -75,7 +75,7 @@ const navbarListClinic = [
     secondDesc: '',
     badge: 0,
     subList: [],
-    href :'PaymentMain'
+    href :'AllPaymentMain'
   },
 
   

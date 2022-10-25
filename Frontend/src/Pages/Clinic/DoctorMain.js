@@ -61,7 +61,7 @@ export default function DoctorMain() {
               console.log(desc);
               break;
           case 'Payment' :
-              navigate("/PaymentMain", {replace: true})
+              navigate("/AllPaymentMain", {replace: true})
               console.log(desc);
               break;
 
