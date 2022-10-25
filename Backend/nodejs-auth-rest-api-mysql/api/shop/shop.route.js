@@ -71,6 +71,6 @@ router.get("/getAllPets",getAllPets);
 //view details of one pet 
 router.get(`/getOnePet/:petId`,getOnePet);
 
-//update one pet item 
+//update one pet  
 router.put("/updateOnePet", updateOnePet);
 module.exports = router;

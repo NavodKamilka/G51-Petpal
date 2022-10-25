@@ -316,7 +316,7 @@ module.exports = {
             data.pricePerOne,
             data.totalQty,
             data.availableQty,
-            data.PetId
+            data.petId
           ],
           (error, results, fields) => {
             if (error) {

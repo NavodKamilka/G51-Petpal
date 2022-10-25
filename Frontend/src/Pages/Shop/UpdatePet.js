@@ -16,7 +16,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { blueGrey } from '@mui/material/colors';
 import '../../Style/Shop/ShopProfile.css'
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Axios from "axios";
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
@@ -63,10 +63,15 @@ function UpdatePet() {
     const[newTotalQty, setNewTotalQty]=useState([]);
     const[newAvailableQty, setNewAvailableQty]=useState([]);
 
+    //to redirect to foodTableFinal.js page
+    const navigate = useNavigate();
+
     // here we don't have to click any button to display data
     useEffect(() =>{
         Axios.get(`http://localhost:3001/api/shop/getOnePet/${petId}`).then((response)=>{
-            setPetList(response.data.data);   
+            setPetList(response.data.data);  
+            const x = response.data.data;
+ 
             x.map((val)=>{
                 newPricePerOne.push(val.pricePerOne);
                 newTotalQty.push(val.totalQty)
@@ -81,9 +86,10 @@ function UpdatePet() {
         pricePerOne: newPricePerOne, 
         totalQty:newTotalQty,
         availableQty:newAvailableQty,
-        skincareId:skincareId,
+        petId:petId,
     }).then((response)=>{
         alert('Updated successfully');
+        navigate('/PetsFinal');
     });
   }
     return(
@@ -132,7 +138,10 @@ function UpdatePet() {
                             label="Price per 1 (Rs)"
                             defaultValue={onePet.pricePerOne}
                             style={style}
-                           
+                            onChange={(event)=>{
+                                setNewPricePerOne(event.target.value);
+                                
+                            }}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -146,6 +155,9 @@ function UpdatePet() {
                             label="Total Quantity"
                             defaultValue={onePet.totalQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewTotalQty(event.target.value)
+                            }}
                             // helperText="Some important text"
                             />
 
@@ -154,6 +166,9 @@ function UpdatePet() {
                             label="Available Quantity"
                             defaultValue={onePet.availableQty}
                             sx={{ width: 250 }}
+                            onChange={(event)=>{
+                                setNewAvailableQty(event.target.value)
+                            }}
                             //   helperText="Some important text"
                             />
                         </td>
@@ -189,7 +204,7 @@ function UpdatePet() {
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/PetsFinal' startIcon={<KeyboardDoubleArrowLeftIcon />} onClick={()=>(updateOnePet())}>Update</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/PetsFinal'  onClick={()=>(updateOnePet())}>Update</Button></ThemeProvider>
 
                     </Stack>
                     </tr>
