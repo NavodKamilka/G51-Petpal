@@ -135,7 +135,7 @@ export default function Pets() {
             return(
               console.log(val),
             <StyledTableRow> 
-              <StyledTableCell align="left"><img src={val.petImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell>
+              <StyledTableCell align="left"><img src={val.petImage} alt="pet" style={{width:'25%', height:'25%'}}/></StyledTableCell>
               <StyledTableCell align="left">{val.petType}</StyledTableCell>
               <StyledTableCell align="left">{val.breed}</StyledTableCell>
               <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
