@@ -172,13 +172,14 @@ function UpdateProduct() {
                             label="Total Quantity"
                             defaultValue={oneFood.totalQty}
                             sx={{ width: 250 }}
+                            style={style}
                             onChange={(event)=>{
                                 setNewTotalQty(event.target.value)
                             }}
                             // helperText="Some important text"
                             />
 
-                            <TextField
+                            {/* <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
                             defaultValue={oneFood.availableQty}
@@ -187,7 +188,7 @@ function UpdateProduct() {
                                 setNewAvailableQty(event.target.value)
                             }}
                             //   helperText="Some important text"
-                            />
+                            /> */}
                         </td>
                     </tr>
                     <br></br>
