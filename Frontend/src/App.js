@@ -68,6 +68,7 @@ import ViewAccessoryFinal from './Pages/Shop/ViewAccessoryFinal'
 import ViewSkincareFinal from './Pages/Shop/ViewSkincareFinal'
 import UpdateAccessoryFinal from './Pages/Shop/UpdateAccessoryFinal'
 import UpdateSkincareFinal from './Pages/Shop/UpdateSkincareFinal'
+import ViewPetFinal from './Pages/Shop/ViewPetFinal'
 
 
 //Clinic
@@ -192,6 +193,7 @@ function App() {
           <Route path='/ViewSkincareFinal' element={<ViewSkincareFinal/>} />
           <Route path='/UpdateAccessoryFinal' element={<UpdateAccessoryFinal/>} />
           <Route path='/UpdateSkincareFinal' element={<UpdateSkincareFinal/>} />
+          <Route path='/ViewPetFinal' element={<ViewPetFinal/>} />
 
           
           {/*common*/}

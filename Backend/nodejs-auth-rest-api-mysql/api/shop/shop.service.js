@@ -129,7 +129,7 @@ module.exports = {
          //get details of all  skincare
       getAllSkincare: (callBack) => {
         pool.query(
-          "SELECT skincareId, brand, name, weight, pricePerOne, availableQty, lastUpdate FROM skincare",
+          "SELECT skincareId, brand, name, weight, pricePerOne, availableQty, lastUpdate, skincareImage FROM skincare",
           (error, results, fields) => {
             if (error) {
               callBack(error);
@@ -291,9 +291,23 @@ module.exports = {
               return callBack(null, results);
             }
            );
-      }
+      },
     
 
+       //get details of one food product
+       getOnePet: (id, callBack) => {
+        pool.query(
+          `select * from pets where petId = ?;`,
+          [id],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+            
+          }
+        );
+      },
 
     
 }

@@ -24,7 +24,7 @@ import Box from '@mui/material/Box';
 // import navbarList from '../../Components/navListClinic';
 // import StyledAvatar from '../../Components/StyledAvatar';
 
-import HomeNavbar from '../../Components/HomeNavbar';
+import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 import OurServicesBody from './OurServicesBody'
 
@@ -348,7 +348,7 @@ export default function Ourservices() {
           
         }}
       >
-        {/* <HomeNavbar  /> */}
+        <TopNavbar  />
          <br/>
         <OurServicesBody/>
         {/* <h1>Hello</h1> */}

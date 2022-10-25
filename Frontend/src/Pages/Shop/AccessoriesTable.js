@@ -156,7 +156,7 @@ const deleteOneAccessory=(accessoryId)=>{
           {accList.map((val) => {
           return(
             <StyledTableRow key={val.name}> 
-              <StyledTableCell align="left"><img src={val.AccessoryImage} alt="accessory" style={{width:'25%', height:'25%'}}/></StyledTableCell>
+              <StyledTableCell align="left"><img src={val.accessoryImage} alt="accessory" style={{width:'25%', height:'25%'}}/></StyledTableCell>
               <StyledTableCell align="left">{val.name}</StyledTableCell>
               <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
               <StyledTableCell align="left">{val.availableQty}</StyledTableCell>

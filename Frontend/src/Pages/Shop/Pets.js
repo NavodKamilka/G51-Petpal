@@ -135,7 +135,7 @@ export default function Pets() {
             return(
               console.log(val),
             <StyledTableRow> 
-              <StyledTableCell align="left"><img src={val.petImage} alt="food" style={{width:'25%', height:'25%'}}/></StyledTableCell>
+              <StyledTableCell align="left"><img src={val.petImage} alt="pet" style={{width:'25%', height:'25%'}}/></StyledTableCell>
               <StyledTableCell align="left">{val.petType}</StyledTableCell>
               <StyledTableCell align="left">{val.breed}</StyledTableCell>
               <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
@@ -144,7 +144,7 @@ export default function Pets() {
               <StyledTableCell align="left">{val.description}</StyledTableCell>
 
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view">View</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewPetFinal"} state={{id:val.petId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
