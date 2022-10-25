@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:800,
+    height:600,
     top:10,
   }));
 
@@ -52,35 +52,35 @@ function Payment() {
                 <h1>Bill summary</h1>
             <table>
                 <br></br>
-                <tr>
+                {/* <tr>
                     <td>Monthly charge</td>
                     <td>100</td>
                 </tr>
-                <br></br>
+                <br></br> */}
 
                 <tr>
                     <td>Number of Appointments</td>
-                    <td>150</td>
+                    <td>350</td>
 
                 </tr>
                 <br></br>
 
                 <tr>
                     <td>Price per 1 Appointment</td>
-                    <td>10</td>
+                    <td>5</td>
                     
                 </tr>
-                <br></br>
+                {/* <br></br> */}
 
-                <tr>
+                {/* <tr>
                     <td>Arrears amount</td>
                     <td>0</td>
                     
-                </tr>
+                </tr> */}
                 <br></br>
                 <tr>
                     <td><b>Total Amount</b></td>
-                    <td><b>1600</b></td>  
+                    <td><b>1500</b></td>  
                 </tr>
             </table>
 

@@ -2,6 +2,7 @@
     const {getDoctors,
           getClinics, 
           create,
+          createdoc,
           getNotices,
           getPayments,
           getOneDoctor,
@@ -156,7 +157,7 @@ module.exports = {
       insertDoctors: (req, res) => {
             
         const body = req.body;
-        create(body, (err, results) => {
+        createdoc(body, (err, results) => {
           if (err) {
             console.log(err);
             return res.status(500).json({
