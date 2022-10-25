@@ -2,9 +2,10 @@ const router = require("express").Router();
 
 const {getAllArticles,
     getArticlesForAuthor,
-    getVetReviews
-    // insertProducts,
-    // getOneFood, 
+    getArticlesForAuthorTwo,
+    getVetReviews,
+    getPendingArticles,
+    getDoctorList
     
    }=require("./vetdoctor.controller");
 
@@ -13,7 +14,11 @@ router.get("/getAllArticles",getAllArticles);
 
 //view all article list from author
 router.get("/getArticlesForAuthor",getArticlesForAuthor);
+
+router.get("/getArticlesForAuthorTwo",getArticlesForAuthorTwo);
 //view all article list from author
 router.get("/getVetReviews",getVetReviews);
 
+router.get("/getPendingArticles",getPendingArticles);
+router.get("/getDoctorList",getDoctorList);
 module.exports = router;

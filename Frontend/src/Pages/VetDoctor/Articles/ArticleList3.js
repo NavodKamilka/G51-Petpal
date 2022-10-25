@@ -1,41 +1,78 @@
-import React from 'react'
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Axios from "axios";
+
+//colors for buttons
+const theme = createTheme({
+  palette: {
+    //name given as view, update and delete to declare buttons
+
+    blackButton: {
+      main: '#000000',
+    //   change the text color inside the button to another color
+      contrastText: "#fff" 
+    },
+    blueButton: {
+      main: '#1D168F',
+      contrastText: "#fff" 
+    },
+    
+  },
+});
 
 export default function ArticleListForAuthor() {
+  const[allArticleList, setAllArticleList]=useState([]);
+
+  // here we don't have to click any button to display data
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/api/vetdoc/getPendingArticles").then((response)=>{
+      setAllArticleList(response.data.data);   
+    console.log(response);
+    });
+  }, []);
     
   return (
     <div>
-    
+      <Grid container alignItems="stretch"  justifyContent="center">
+        {/* show the cards in a row */}
+        <Grid item style={{display: 'inline-block'}} padding={10}>
 
-<div style={{ flexDirection:'row',display:'inline-flex',height:80,margin:10,width:'980px',
-                        verticalAlign:'center',flexWrap: 'wrap',
-                        padding: '10px 20px',borderRadius: '27px',
-                        boxShadow: '0 2px 7px rgb(0 0 0 / 40%)',
-                        justifyContent: 'center',spacing:'4' }}>
-                {/* Box for time */}
-                    <Box style={{ height: 40,  
-                        '&:hover': {  backgroundColor: 'primary.main', opacity: [0.9, 0.8, 0.7],},        
-                        fontSize:15,textAlign:'center',
-                        margin: '5px 10px',  width:'840px',
+          {allArticleList.map((val) => {
+            return(
+              <Card sx={{ maxWidth: 1000 , height:150,padding:2}}>
+                <CardContent>
+                  <CardContent style={{display: 'flex',height:15}} padding={10}>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {val.Title}
+                    </Typography>
+                    <CardActions>
+                      <Button>Read more</Button>
+                    </CardActions>
+                  </CardContent>
 
-                        }}><h2 style={{width: '50%', display: 'inline', marginRight: '80px',
-                            fontWeight: 'bold',color: '#193498'
-                            }}> How to take care of a dog</h2> 
-                    </Box>
+                  <CardContent style={{display: 'flex',height:15}} padding={10}>
+                    <Typography variant="body2" color="text.secondary">
+                      Date requested : {val.DateRequested} 
+                    </Typography>
+                  </CardContent>
 
-                 {/* button view more */}
-                    <Stack><Button variant="contained" style={{display:'inline-block',width: 'fit-content',margin:10,
-                        }}>Read </Button>
-                    </Stack>
+                     
+                </CardContent>
 
-                    <div style={{width: '50%', display: 'inline', marginRight: '80px',
-                            color: '#193498',position:'relative',top:'0%',left:'0%'
-                            }}><p> Date requested : 2022 / 02 / 271</p>
-                    </div>
-                    </div>
+                  
+              </Card>
+            )
+          })}
+        </Grid>
+      </Grid>
 </div>
   )
 }

@@ -55,6 +55,9 @@ export default function Timeslots() {
                   <TableCell align="left">
                     <Button>Edit</Button>
                   </TableCell>
+                  <TableCell align="left">
+                    <Button>Delete</Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

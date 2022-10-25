@@ -8,37 +8,21 @@ const jwt = require("jsonwebtoken");
 
 
 router.post("/AddDocTimeslot",  (req, res, next) => {
-    // if (
-    //     !req.headers.authorization ||
-    //     !req.headers.authorization.startsWith("Bearer") ||
-    //     !req.headers.authorization.split(" ")[1]
-    // ) {
-    //     return res.status(422).json({
-    //         message: "Please provide the token",
-    //     });
-    // }
-    // const theToken = req.headers.authorization.split(" ")[1];
-    // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
-    // console.log("jgjjgjgj",req.headers.day,"hghgjhg")
-
+  console.log("called controller");
+  if("SELECT COUNT FROM time_slots_doctors WHERE DocID=1 AND Day=?;",[req.headers.day] ==0){
+    console.log("zero");
     db.query(
+      
         `INSERT INTO time_slot_doctors(DocID, Day,StartTime,EndTime,MaxTokens) VALUES (?,?,?,?,?)`,
         [
             1,
-            req.body.day,
-            req.body.starttime,
-            req.body.endtime,
-            req.body.slots
+            req.headers.day,
+            req.headers.starttime,
+            req.headers.endtime,
+            req.headers.slots
             
           ],
-          // (error, results, fields) => {
-          //   if (error) {
-          //     callBack(error);
-          //   }
-          //   return callBack(null, results);
-          // }
-
-          (error, results, fields) => {
+            (error, results, fields) => {
             if (error) {
               // callBack(error);
               return res.status(400).send({
@@ -49,6 +33,11 @@ router.post("/AddDocTimeslot",  (req, res, next) => {
             return res.status(200).send(results);
           }
         );
+
+        }
+  else{
+console.log("can add");
+  }
 
 });
 

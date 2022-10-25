@@ -5,12 +5,12 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom'
 
 import Contactus from './Pages/Guest/Contactus'
 import Events from './Pages/Guest/Events'
-import Healthcare from './Pages/Guest/Healthcare'
+import Healthcare from './Pages/Guest/DoctorsMain'
 import Home from './Pages/Guest/Home'
 import Ourservices from './Pages/Guest/Ourservices'
 import Shops from './Pages/Guest/Shops'
 import Whoweare from './Pages/Guest/Whoweare'
-
+import ClinicAds from "./Pages/Guest/ClinicAdsMain";
 import RegistrationPetOwner from './Pages/Guest/RegistrationPetOwner.js'
 import RegistrationVetDoc from './Pages/Guest/RegistrationVetDoc.js'
 import RegistrationClinic from './Pages/Guest/RegistrationClinic.js'
@@ -103,6 +103,7 @@ import TodayAppointmentDetails from "./Pages/VetDoctor/MyAppointments/TodayAppoi
 import DocArticles from "./Pages/VetDoctor/Articles/Articles";
 import ArticlesFromAuthor from "./Pages/VetDoctor/Articles/ArticlesFromAuthor";
 import PendingArticles from "./Pages/VetDoctor/Articles/PendingArticles";
+import MoreFrom from "./Pages/VetDoctor/Articles/ArticlesFromAuthor copy"
 //Doc profile
 import DocProfile from "./Pages/VetDoctor/MyProfile/DocProfile";
 import ContactUsContent from "./Pages/Guest/ContactUsContent"
@@ -139,7 +140,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Contactus" element={<Contactus />} />
           <Route path="/Events" element={<Events />} />
-          <Route path="/Healthcare" element={<Healthcare />} />
+          <Route path="/VeterinaryDoctors" element={<Healthcare />} />
           
           <Route path="/Ourservices" element={<Ourservices />} />
           {/* <Route path="/OurservicesBody" element={<OurservicesBody/>} /> */}
@@ -152,6 +153,7 @@ function App() {
           <Route path='/Login' element={<Login/>} />
           <Route path='/ShopProductAdsFinal' element={<ShopProductAdsFinal/>} />
           <Route path='/ShopPetAdsFinal' element={<ShopPetAdsFinal/>} />
+          <Route path='/Healthcare' element={<ClinicAds/>}/>
 
 
           {/* PetOwner */}
@@ -255,6 +257,7 @@ function App() {
       <Route path="/DocPetMart" element={<DocPetMart/>} />
       <Route path="/DocProductMart" element={<DocProductMart/>} />
       <Route path="/DocNotice" element={<DocNotice/>} />
+      <Route path="/MoreFrom" element={<MoreFrom/>} />
 
 
    </Routes>

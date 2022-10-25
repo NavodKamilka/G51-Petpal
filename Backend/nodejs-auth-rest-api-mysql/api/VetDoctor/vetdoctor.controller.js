@@ -2,7 +2,10 @@
 
 const {getAllArticles,
     getArticlesForAuthor,
-    getVetReviews
+    getArticlesForAuthorTwo,
+    getVetReviews,
+    getPendingArticles,
+    getDoctorList
     } = require("./vetdoctor.service");
 
 module.exports = {
@@ -33,10 +36,46 @@ module.exports = {
               });
             });
           },
+          getArticlesForAuthorTwo: (req, res) => {
+            getArticlesForAuthorTwo((err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                data: results
+              });
+            });
+          },
 
            //get all the reviews about doctor
         getVetReviews: (req, res) => {
           getVetReviews((err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            return res.json({
+              success: 1,
+              data: results
+            });
+          });
+        },
+        getPendingArticles: (req, res) => {
+          getPendingArticles((err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            return res.json({
+              success: 1,
+              data: results
+            });
+          });
+        },
+        getDoctorList: (req, res) => {
+          getDoctorList((err, results) => {
             if (err) {
               console.log(err);
               return;

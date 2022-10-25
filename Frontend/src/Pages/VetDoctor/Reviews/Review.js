@@ -66,12 +66,10 @@ export default function Review() {
               <Card sx={{ maxWidth: 1000 , padding:2}}>
                 <CardContent>
                   <CardContent style={{width:1500,height:10}} padding={1}>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {val.Content}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {val.FirstName}
-                      {val.LastName}
+                    <Typography gutterBottom variant="h6" component="div">
+                      {val.Content} {"  "}
+                      {val.FirstName}{"  "}
+                      {val.LastName}{"  "}
                       {val.Date} 
                     </Typography>
                     </CardContent>
