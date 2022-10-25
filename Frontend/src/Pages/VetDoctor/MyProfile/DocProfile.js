@@ -295,7 +295,7 @@ export default function DocProfile() {
             alignContent: 'center',
           }}
         >
-          <StyledAvatar />
+          {/* <StyledAvatar /> */}
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
           <Typography
@@ -310,7 +310,7 @@ export default function DocProfile() {
               color: 'lightgray',
             }}
           >
-            Navod Kamilka
+            Vet Doctor
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>

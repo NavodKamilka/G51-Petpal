@@ -3,7 +3,6 @@ const {getTodayAppointmentList,
     getTimeslots,
     getAppointmentDetails,
     getHealthRecord,
-    insertHealthRecord,
     updateRecord
     } = require("./appointment.service");
 
@@ -81,4 +80,7 @@ insertHealthRecord: (req, res) => {
 
 
 }
+
+
+
 

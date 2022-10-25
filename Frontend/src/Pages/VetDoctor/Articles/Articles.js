@@ -319,7 +319,7 @@ export default function Articles() {
               color: 'lightgray',
             }}
           >
-            Navod Kamilka
+            Vet Doctor
           </Typography>
           <Typography
             component="span"
@@ -331,7 +331,7 @@ export default function Articles() {
               color: 'lightgray',
             }}
           >
-            Pet Owner
+            Vet Doctor
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>

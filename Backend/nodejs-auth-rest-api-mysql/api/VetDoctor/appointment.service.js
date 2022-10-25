@@ -56,7 +56,7 @@ module.exports = {
        const id =3;
         pool.query(
           // "SELECT * FROM doctor_appointments WHERE DoctorID=1 AND Status=0 AND Date=?;",[day],
-          "SELECT * FROM appointments WHERE AppointmentID = ?;",[id],
+          "SELECT appointments.AppointmentID, appointments.Date,appointments.TokenNo, appointments.HomeVisit,pet_owner.FirstName,pet_owner.LastName,pet_owner.Address,pet_owner.TelNum,pet_profile.Name,pet_profile.PetBreed,pet_profile.DOB FROM appointments INNER JOIN pet_owner,pet_profile ON appointments.OwnerID=pet_owner.OwnerID, appointments.PetID=pet_profile.PetID WHERE AppointmentID = ?;",[id],
           (error, results, fields) => {
             if (error) {
               callBack(error);
@@ -99,3 +99,4 @@ module.exports = {
 
 
 }
+

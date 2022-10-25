@@ -26,7 +26,7 @@ export default function Timeslots() {
   return (
     <div>
       <Stack>
-        <TableContainer component={Paper} sx={{width:400,position:"relative",left:"30%",top:'40%'}}>
+        <TableContainer component={Paper} sx={{width:480,position:"relative",left:"30%",top:'40%'}}>
           <Table sx={{ width: 400 }} aria-label="simple table">
             <TableHead>
               <TableRow>

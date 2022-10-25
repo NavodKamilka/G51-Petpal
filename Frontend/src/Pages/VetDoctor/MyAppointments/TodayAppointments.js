@@ -318,7 +318,7 @@ export default function MyProfile() {
               color: 'lightgray',
             }}
           >
-            Navod Kamilka
+            Vet Doctor
           </Typography>
           <Typography
             component="span"
@@ -330,6 +330,7 @@ export default function MyProfile() {
               color: 'lightgray',
             }}
           >
+            Vet Doctor
             
           </Typography>
         </Box>

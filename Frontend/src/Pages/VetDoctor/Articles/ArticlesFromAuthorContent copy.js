@@ -107,7 +107,7 @@ export default function ArticlesFromAuthorContent() {
                     }}
                   >
                     {" "}
-                    Articles | 3{" "}
+                    Articles | 2{" "}
                   </p>
                 </div>
               </div>

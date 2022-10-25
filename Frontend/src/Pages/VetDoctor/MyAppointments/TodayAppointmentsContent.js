@@ -42,6 +42,8 @@ const theme = createTheme({
   export default function  TodayAppointmentsContent() {
     const current = new Date();
     const date = `${current.getDay()}`;
+    const datee = `${current.getYear()}`+"-"+`${current.getMonth()}`+"-"+`${current.getDate()}`;
+
     if(date==0){
       var day = "Sunday";
     }
@@ -114,7 +116,7 @@ const theme = createTheme({
             display: 'inline',
             marginRight: '100px',
             fontWeight: 'bold',
-            color: '#193498'}}> {day} </h1>  
+            color: '#193498'}}> {datee}{" "}{day} </h1>  
         
           {List.map((val) => {
 

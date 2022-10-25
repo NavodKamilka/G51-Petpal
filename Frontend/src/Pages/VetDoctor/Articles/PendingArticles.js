@@ -318,7 +318,7 @@ export default function PendingArticles() {
               color: 'lightgray',
             }}
           >
-            Navod Kamilka
+            Vet Doctor
           </Typography>
           <Typography
             component="span"
@@ -330,7 +330,7 @@ export default function PendingArticles() {
               color: 'lightgray',
             }}
           >
-           
+           Vet Doctor
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>

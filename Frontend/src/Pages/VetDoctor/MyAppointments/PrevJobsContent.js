@@ -39,8 +39,7 @@ const Item = styled(Paper)(({ theme }) => ({
   });
 
   export default function  TodayAppointmentsContent() {
-    const current = new Date();
-    const date = `${current.getFullYear()} - ${current.getMonth()+1} - ${current.getDate()}`;
+    
 
   return (
     <div>
@@ -89,7 +88,7 @@ const Item = styled(Paper)(({ theme }) => ({
             display: 'inline',
             marginRight: '100px',
             fontWeight: 'bold',
-            color: '#193498'}}> {date} </h1>
+            color: '#193498'}}> 2022-09-11 </h1>
         
 
         </div>

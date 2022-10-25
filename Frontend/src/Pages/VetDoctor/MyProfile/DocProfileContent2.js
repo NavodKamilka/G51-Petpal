@@ -44,7 +44,7 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:1230,
+    height:1300,
     top:10
     
   }));
@@ -94,7 +94,7 @@ const Item = styled(Paper)(({ theme }) => ({
     const [value1, setValue1] = React.useState('Kasun Perera');
     const [value2, setValue2] = React.useState('kasun.perera@gmail.com');
     const [value3] = React.useState('HelloNavod');
-    const [value4, setValue4] = React.useState('07783938600752107452');
+    const [value4, setValue4] = React.useState('0752107452');
     const [value5, setValue5] = React.useState('Kandy');
     const [value6] = React.useState('567');
 
@@ -241,9 +241,9 @@ const Item = styled(Paper)(({ theme }) => ({
             marginTop: -280
           }}>
             
-            <Rating name="read-only" value={2} readOnly />
-            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/DocReviews'
-            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Reviews</Button></ThemeProvider>
+            {/* <Rating name="read-only" value={2} readOnly /> */}
+            {/* <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/DocReviews'
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Reviews</Button></ThemeProvider> */}
 
             <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'
             style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Save changes</Button></ThemeProvider>

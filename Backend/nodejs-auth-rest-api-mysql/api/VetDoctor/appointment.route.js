@@ -17,5 +17,7 @@ router.get("/getHealthRecord",getHealthRecord);
 //insert doctor details
 router.put("/insertHealthRecord",insertHealthRecord);
 
+
+
 module.exports = router;
 
