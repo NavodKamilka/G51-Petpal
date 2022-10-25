@@ -48,7 +48,7 @@ useEffect(() =>{
         {/* show the cards in a row */}
         <Grid item style={{display: 'inline-block'}} padding={10}>
 
-          {allArticleList.map((val) => {
+          {allArticleList.reverse().map((val) => {
             return(
               <Card sx={{ maxWidth: 1000 , height:150,padding:2}}>
                 <CardContent>
@@ -71,8 +71,8 @@ useEffect(() =>{
                       color:'#11B94A'
                       // top:40
                 }}>
-                     <ThumbUpIcon />
-                     {val.Likes}
+                     {/* <ThumbUpIcon /> */}
+                     {/* {val.Likes} */}
                 </IconButton>
                 </Stack>
                   </CardContent>

@@ -43,7 +43,7 @@ const navbarList = [
   },
   {
     icon: Article,
-    desc: 'My Articles',
+    desc: 'Articles',
     secondDesc: '',
     badge: 0,
     subList: [],
@@ -64,34 +64,34 @@ const navbarList = [
       },
     ],
   },
-  {
-    icon: PetsIcon,
-    desc: 'Pet Mart',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
-  {
-    icon: CartIcon,
-    desc: 'Product Mart',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
-  {
-    icon: NoticeIcon,
-    desc: 'Notices',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
-  {
-    icon: PaidIcon,
-    desc: 'Payment',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-  },
+  // {
+  //   icon: PetsIcon,
+  //   desc: 'Pet Mart',
+  //   secondDesc: '',
+  //   badge: 0,
+  //   subList: [],
+  // },
+  // {
+  //   icon: CartIcon,
+  //   desc: 'Product Mart',
+  //   secondDesc: '',
+  //   badge: 0,
+  //   subList: [],
+  // },
+  // {
+  //   icon: NoticeIcon,
+  //   desc: 'Notices',
+  //   secondDesc: '',
+  //   badge: 0,
+  //   subList: [],
+  // },
+  // {
+  //   icon: PaidIcon,
+  //   desc: 'Payment',
+  //   secondDesc: '',
+  //   badge: 0,
+  //   subList: [],
+  // },
   
 ];
 

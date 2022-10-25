@@ -30,6 +30,17 @@ justifyContent: 'center',spacing:'4' }}>
     marginRight: '80px',
     fontWeight: 'bold',
     color: '#193498'}}> 1</h2> </Box>
+    <Box style={{ 
+    width: window.width, height: 40,  
+    '&:hover': {  backgroundColor: 'primary.main', opacity: [0.9, 0.8, 0.7],},        
+    fontSize:15, textAlign:'center',
+    margin: '10px 10px',
+    
+}}> <h2 style={{width: '50%',
+    display: 'inline',
+    marginRight: '80px',
+    fontWeight: 'bold',
+    color: '#193498'}}> 2022-10-29</h2></Box>
 {/* box for pet owner name */}
 <Box style={{ 
     width: window.width, height: 40,  

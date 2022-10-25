@@ -55,7 +55,7 @@ export default function DocProfile() {
               navigate("/TodayAppointments", {replace: true})
               console.log(desc);
               break;
-          case 'My Articles' :
+          case 'Articles' :
               navigate("/DocArticles", {replace: true})
               console.log(desc);
               break;
@@ -298,6 +298,20 @@ export default function DocProfile() {
           {/* <StyledAvatar /> */}
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <Typography
+            component="span"
+            variant="body2"
+            sx={{
+              fontFamily: 'inherit',
+              display: 'block',
+              whiteSpace: 'nowrap',
+              lineHeight: 'inherit',
+              fontWeight: 500,
+              color: 'lightgray',
+            }}
+          >
+            Kasun Perera
+          </Typography>
           <Typography
             component="span"
             variant="body2"

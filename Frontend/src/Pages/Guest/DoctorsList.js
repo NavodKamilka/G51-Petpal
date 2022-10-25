@@ -83,7 +83,7 @@ export default function ClinicAds() {
                     <Typography variant="body2" color="text.secondary">
                       {val.TelNum}
                     </Typography>
-                    <Button onClick={handleClickOpen}>Reviews</Button>
+                    {/* <Button onClick={handleClickOpen}>Reviews</Button> */}
                   </CardContent>
 
                   

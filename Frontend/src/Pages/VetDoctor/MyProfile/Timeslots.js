@@ -32,7 +32,7 @@ export default function Timeslots() {
               <TableRow>
                 <TableCell align="center">Day</TableCell>
                 <TableCell align="center">Time Duration</TableCell>
-                <TableCell align="center">Maximum no of slots</TableCell>
+                <TableCell align="center">Maximum no of tokens</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

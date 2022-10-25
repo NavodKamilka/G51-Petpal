@@ -78,8 +78,7 @@ boxShadow: '0 3px 10px rgb(0 0 0 / 40%)',
 justifyContent: 'center',spacing:'4' }}>
 {/* Box for time */}
 
-{List.map((val)=>{
-    return(
+
 <Box style={{ 
     width: window.width, height: 40,  
     '&:hover': {  backgroundColor: 'primary.main', opacity: [0.9, 0.8, 0.7],},        
@@ -93,8 +92,7 @@ justifyContent: 'center',spacing:'4' }}>
     marginRight: '80px',
     fontWeight: 'bold',
     color: '#193498'}}> 1 </h2> </Box>
-    )
-})}
+    
 
         
 {/* box for pet owner name */}

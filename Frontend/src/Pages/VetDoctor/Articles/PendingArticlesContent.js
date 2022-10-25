@@ -206,7 +206,7 @@ export default function ArticlesContent() {
                 </Stack>
               </div>
               <Stack style={{ position: "relative", top: "2%" }}>
-                <SearchBar style={{ width: "20px" }}> </SearchBar>
+                {/* <SearchBar style={{ width: "20px" }}> </SearchBar> */}
               </Stack>
 
               

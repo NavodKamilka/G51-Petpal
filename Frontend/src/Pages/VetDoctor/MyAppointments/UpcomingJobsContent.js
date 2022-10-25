@@ -1,16 +1,21 @@
-import React from 'react'
+import React , { useState, useEffect }from 'react'
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 // import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-
+import Axios from "axios";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import List1 from './ListUpcoming';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -41,8 +46,17 @@ const theme = createTheme({
 });
 
   export default function  TodayAppointmentsContent() {
-    const current = new Date();
-    const date = `${current.getFullYear()} - ${current.getMonth()+1} - ${current.getDate()}`;
+    const [appointment , setAppointment] = useState([]);
+
+    Axios.get('http://localhost:3001/api/vetappointments/getAllTodayAppointments',
+    {
+      headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyODc4OTk1LCJleHAiOjE2NjI4ODk3OTV9.L4KGBllNUiuEAqr9RClP5NBv4JNQB5J6ojHUEx0f-wM` }
+      // headers: { authorization : `Bearer ${this.Token}` }
+    }).then ((res) => {
+      // console.log(response.data);
+        setAppointment(res.data);
+        // console.log(res);
+    });
 
   return (
     <div>
@@ -69,34 +83,62 @@ const theme = createTheme({
 
             <Stack>
             <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'  
-            style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming jobs</Button></ThemeProvider>
+            style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming appointments</Button></ThemeProvider>
             </Stack> 
 
         </div>
-        <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            // top:'180px',left:'0%'
-            }}>
-            <h3 >Calendar</h3>
-        </div>
-        <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            // top:'180px',left:'0%'
-            }}>
-            <h1 style={{width: '50%',
-            display: 'inline',
-            marginRight: '100px',
-            fontWeight: 'bold',
-            color: '#193498'}}> 2022 - 11 - 03 </h1>
-        
+    <div>
+    <TableContainer component={Paper}>
+                        <Table aria-label="collapsible table">
+                          <TableHead sx={{backgroundColor: 'orange'}}>
+                            <TableRow>
+                              <TableCell />
+                              <TableCell>Appointment Date</TableCell>
+                              <TableCell>Token no</TableCell>
+                              <TableCell align="right">Owner</TableCell>
+                              <TableCell align="right">Owner address</TableCell>
+                              <TableCell align="right">Telephone number</TableCell>
+                              <TableCell align="right">Pet type</TableCell>
+                              <TableCell align="right">Pet breed</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          {/* {n1.map((item, index) => (  */}
+                          
+                            {/* <TableBody >{
+                              {appointment.map((row) => (
+                                <TableRow key={row.AppointmentCID}>
+                                  <TableCell>{row.Date}</TableCell>    
+                                  <TableCell>{row.PetName}</TableCell>    
+                                  <TableCell>{row.AppointmentStatus}</TableCell>    
+                                  <TableCell>{row.ClinicName}</TableCell>    
+                                  <TableCell>{row.DoctorName}</TableCell>
+                                </TableRow>
+                              ))}
+                            }    
+                            </TableBody> */}
+                            <TableBody>
+                              {/* {employeeList.map((val , key) => { */}
+                              {appointment.map((row ) => (
+                                // <TableRow key ={row.AppointmentCID}>
+                                <TableRow>
+                                  <TableCell align="right">{row.Date}</TableCell>
+                                  <TableCell align="right">{row.PetName}</TableCell>
+                                  <TableCell align="right">{row.AppointmentStatus}</TableCell>
+                                  <TableCell align="right">{row.ClinicName}</TableCell>
+                                  <TableCell align="right">{row.DoctorName}</TableCell>
+                                  <TableCell align="right"><Button>View</Button></TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          
+                        </Table>
+              </TableContainer>
 
-        </div>
 
-<List1/>
+
+</div>
+
+{/* <List1/> */}
 
 
        

@@ -55,7 +55,7 @@ export default function PrevJobs() {
           navigate("/TodayAppointments", {replace: true})
           console.log(desc);
           break;
-      case 'My Articles' :
+      case 'Articles' :
           navigate("/DocArticles", {replace: true})
           console.log(desc);
           break;
@@ -303,7 +303,7 @@ export default function PrevJobs() {
             alignContent: 'center',
           }}
         >
-          <StyledAvatar />
+          {/* <StyledAvatar /> */}
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
           <Typography
@@ -318,7 +318,7 @@ export default function PrevJobs() {
               color: 'lightgray',
             }}
           >
-            Vet Doctor
+            Kasun Perera
           </Typography>
           <Typography
             component="span"

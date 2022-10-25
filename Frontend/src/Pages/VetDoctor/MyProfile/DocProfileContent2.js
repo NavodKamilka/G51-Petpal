@@ -95,7 +95,7 @@ const Item = styled(Paper)(({ theme }) => ({
     const [value2, setValue2] = React.useState('kasun.perera@gmail.com');
     const [value3] = React.useState('HelloNavod');
     const [value4, setValue4] = React.useState('0752107452');
-    const [value5, setValue5] = React.useState('Kandy');
+    const [value5, setValue5] = React.useState('Katugasthota,Kandy');
     const [value6] = React.useState('567');
 
     const handleChange1 = (event) => {
