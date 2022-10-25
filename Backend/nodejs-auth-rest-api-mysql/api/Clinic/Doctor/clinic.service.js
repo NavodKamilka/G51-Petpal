@@ -160,13 +160,14 @@ module.exports = {
     //insert notices details
     create: (data,callBack) => {
       pool.query(
-          `insert into notice_on_vaccination(PublisherName, RegNo, VaccineName, Date, Venue) 
-          values(?,?,?,?,?)`,
+          `insert into notice_on_vaccination(PublisherName, RegNo, VaccineName, Date, Time, Venue) 
+          values(?,?,?,?,?,?)`,
         [
           data.PublisherName,
           data.RegNo,
           data.VaccineName,
           data.Date,
+          data.Time,
           data.Venue
         ],
         (error, results, fields) => {
