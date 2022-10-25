@@ -51,7 +51,7 @@ const theme = createTheme({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:600,
+    height:650,
     top:50,
   }));
 

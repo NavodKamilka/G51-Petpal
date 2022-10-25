@@ -271,7 +271,7 @@ useEffect(() =>{
     <div>  
         <SearchBar/> 
         
-      <h1>Notices Details</h1>
+      <h1>Vaccination Notices Details</h1>
       {/* <br></br> */}
       {/* <Stack spacing={10} direction="row" justifyContent="center" >
       <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/FoodTableFinal'>Food</Button></ThemeProvider>
