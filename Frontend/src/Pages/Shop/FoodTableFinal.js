@@ -319,7 +319,7 @@ const handleSideNavClick = (event,desc) =>{
               color: 'lightgray',
             }}
           >
-            Pet store name
+            Pet store 
           </Typography>
           <Typography
             component="span"

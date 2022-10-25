@@ -309,5 +309,36 @@ module.exports = {
         );
       },
 
-    
+      updateOnePet: (data, callBack) => {
+        pool.query(
+          `update pets set pricePerOne=?, totalQty=?, availableQty=? where petId = ?`,
+          [
+            data.pricePerOne,
+            data.totalQty,
+            data.availableQty,
+            data.petId
+          ],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+          }
+        );
+      },
+
+
+
+       //delete one food item 
+       deleteOnePet : (id, callBack) => {
+        pool.query(
+          'DELETE FROM pets WHERE petId = ?', [id],
+          (error, results,fields) => {
+          if (error) {
+            callBack(error) 
+          }
+          return callBack(null, results);  
+        }
+        );
+      },
 }

@@ -18,6 +18,7 @@ import '../../Style/Shop/ShopProfile.css'
 
 import { useLocation, useNavigate } from 'react-router-dom';
 import Axios from "axios";
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
 
 
@@ -53,12 +54,11 @@ const Item = styled(Paper)(({ theme }) => ({
     top:10,
   }));
   
-function UpdateProduct() {
-    const oneFood = useLocation();
-    const foodId = oneFood.state.id;
-    const[foodList, setFoodList]=useState([]);
-
-    //get new values to be updated in food table (only totalQty, availableQty and pricePerOne)
+function UpdatePet() {
+    const onePet = useLocation();
+    const petId = onePet.state.id;
+    const[petList, setPetList]=useState([]);
+ 
     const[newPricePerOne, setNewPricePerOne]=useState([]);
     const[newTotalQty, setNewTotalQty]=useState([]);
     const[newAvailableQty, setNewAvailableQty]=useState([]);
@@ -66,37 +66,32 @@ function UpdateProduct() {
     //to redirect to foodTableFinal.js page
     const navigate = useNavigate();
 
-     // here we don't have to click any button to display data
-     useEffect(() =>{
-        Axios.get(`http://localhost:3001/api/shop/getOneFood/${foodId}`).then((response)=>{
-        setFoodList(response.data.data); 
-        const x = response.data.data;
-        x.map((val)=>{
-            newPricePerOne.push(val.pricePerOne);
-            newTotalQty.push(val.totalQty)
-            newAvailableQty.push(val.availableQty)
-        });
-        });
-  }, [oneFood.state.id]);
+    // here we don't have to click any button to display data
+    useEffect(() =>{
+        Axios.get(`http://localhost:3001/api/shop/getOnePet/${petId}`).then((response)=>{
+            setPetList(response.data.data);  
+            const x = response.data.data;
  
+            x.map((val)=>{
+                newPricePerOne.push(val.pricePerOne);
+                newTotalQty.push(val.totalQty)
+                newAvailableQty.push(val.availableQty)
+            });
+        });
+  }, [onePet.state.id]);
 
-  //update function to update one food item
-  const updateOneFood=(event)=>{
-    Axios.put("http://localhost:3001/api/shop/updateOneFood",{
+ //update function to update one food item
+ const updateOnePet=(event)=>{
+    Axios.put("http://localhost:3001/api/shop/updateOnePet",{
         pricePerOne: newPricePerOne, 
         totalQty:newTotalQty,
         availableQty:newAvailableQty,
-        foodId:foodId
+        petId:petId,
     }).then((response)=>{
         alert('Updated successfully');
-        navigate('/FoodTableFinal');
-        
+        navigate('/PetsFinal');
     });
   }
-
-
-
-
     return(
         <div>
             <br></br>
@@ -106,16 +101,14 @@ function UpdateProduct() {
             <h3>Product Details</h3>
             <Divider />
             <FormControl>
-            {foodList.map((oneFood) => {
+            {petList.map((onePet) => {
             return(
-
-                <table key ={oneFood.id}>
+                <table key={onePet.id}>
                     <tr> 
-                        <td><TextField 
+                        <td ><TextField 
                             id="outlined-helperText"
-                            label="Brand"
-                            value={oneFood.brand}
-                            
+                            label="Pet Type"
+                            value={onePet.petType}
                             style={style}
                             // change the lenght of the text field
                             // sx={{ width: 500 }}
@@ -127,9 +120,9 @@ function UpdateProduct() {
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
-                            label="Product Name"
+                            label=" Breed"
                             style={style}
-                            value={oneFood.name}
+                            value={onePet.breed}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
                             />
@@ -137,27 +130,17 @@ function UpdateProduct() {
                     </tr>
                     <br></br>
 
-                    <tr>
-                        <td><TextField
-                            id="outlined-helperText"
-                            label="Weight"
-                            value={oneFood.weight}
-                            style={style}
-
-                            // sx={{ width: 500 }}
-                            //   helperText="Some important text"
-                            />
-                        </td>
-                    </tr>
+                   
                     <br></br>
                     <tr>
                         <td><TextField
                             id="outlined-helperText"
                             label="Price per 1 (Rs)"
-                            defaultValue={oneFood.pricePerOne}
+                            defaultValue={onePet.pricePerOne}
                             style={style}
                             onChange={(event)=>{
-                                setNewPricePerOne(event.target.value)
+                                setNewPricePerOne(event.target.value);
+                                
                             }}
                             // sx={{ width: 500 }}
                             //   helperText="Some important text"
@@ -170,25 +153,24 @@ function UpdateProduct() {
                             <TextField
                             id="outlined-helperText"
                             label="Total Quantity"
-                            defaultValue={oneFood.totalQty}
+                            defaultValue={onePet.totalQty}
                             sx={{ width: 250 }}
-                            style={style}
                             onChange={(event)=>{
                                 setNewTotalQty(event.target.value)
                             }}
                             // helperText="Some important text"
                             />
 
-                            {/* <TextField
+                            <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
-                            defaultValue={oneFood.availableQty}
+                            defaultValue={onePet.availableQty}
                             sx={{ width: 250 }}
                             onChange={(event)=>{
                                 setNewAvailableQty(event.target.value)
                             }}
                             //   helperText="Some important text"
-                            /> */}
+                            />
                         </td>
                     </tr>
                     <br></br>
@@ -198,38 +180,38 @@ function UpdateProduct() {
                                 label="Description"
                                 multiline
                                 rows={4}
-                                value={oneFood.description}
+                                value={onePet.description}
                                 style={style}
-
                                 // sx={{ width: 500 }}
                             />
                         </td>
                     </tr>
                     <br></br>
-                    <tr>
+
+                    {/* <tr> */}
                         {/* upload pet image */}
-                        <p>upload product image</p>
+                        {/* <p>upload product image</p>
                     <Stack spacing={10} direction="row" justifyContent="center" >
                         <IconButton  sx={{ color: blueGrey[900] }} aria-label="upload picture" component="label">
                             <input hidden accept="image/*" type="file" />
                             <PhotoCamera />
                         </IconButton>
                     </Stack>
+                    </tr> */}
 
-
-                    </tr>
+                    
                     <br></br>
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={()=>(updateOneFood())}>Update</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/PetsFinal'  onClick={()=>(updateOnePet())}>Update</Button></ThemeProvider>
 
                     </Stack>
                     </tr>
                 </table>
 
-                 )
-                })} 
+                )
+                })}
                 </FormControl>
                 </Item>
                 </Grid>
@@ -239,4 +221,4 @@ function UpdateProduct() {
         
     )       
 }
-export default UpdateProduct;
+export default UpdatePet;

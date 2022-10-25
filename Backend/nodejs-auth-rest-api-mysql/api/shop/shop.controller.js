@@ -16,7 +16,9 @@
           updateOneSkincare,
           getAllPets,
           insertPet,
-          getOnePet
+          getOnePet,
+          updateOnePet,
+          deleteOnePet
         } = require("./shop.service");
 
 
@@ -373,4 +375,43 @@
             
           });
         },
+
+         //update one accessory
+         updateOnePet: (req, res) => {
+          const body=req.body;
+          updateOnePet(body, (err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            return res.json({
+              success: 1,
+              message: "updated successfully"
+            });
+          });
+        },
+
+
+          //delete product
+          deleteOnePet: (req, res) => {
+            const id = req.params.petId; 
+
+            deleteOnePet(id, (err, results) => {
+              if (err) {
+                console.log(err);
+                console.log(id);
+                return;
+              }
+              if (!results) {
+                return res.json({
+                  success: 0,
+                  message: "Record Not Found"
+                });
+              }
+              return res.json({
+                success: 1,
+                message: "product deleted successfully"
+              });
+            });
+          },
  }

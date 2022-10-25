@@ -76,10 +76,10 @@ function ShopProfile() {
                                     <td><TextField id="outlined-basic" label="Contact number" variant="outlined" defaultValue="070-780 0 800 "/></td>
                                 </tr>
                                 <br></br>
-                                <tr>
+                                {/* <tr>
                                     <td colSpan={2}> <img src ={ShopImage} alt="sampleimage" className='Image'/></td>
                                     {/* <td><img src ={MapImage} alt="sampleimage"  className='Image'/></td> */}
-                                </tr>
+                                {/* </tr>  */}
                                 <br></br>
                                 <tr>
                                     <td></td>

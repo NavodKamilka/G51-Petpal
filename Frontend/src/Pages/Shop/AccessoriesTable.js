@@ -58,7 +58,7 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    // backgroundColor: '#A689FC',
+    backgroundColor: '#d0f0e9',
     color: theme.palette.common.black,
     fontSize: 15,
     fontWeight:'bold',
@@ -147,9 +147,9 @@ const deleteOneAccessory=(accessoryId)=>{
             <StyledTableCell align="left">Price per 1 (Rs)</StyledTableCell>
             <StyledTableCell align="left">Available quantity</StyledTableCell>
             <StyledTableCell align="left">Last update</StyledTableCell>
-            {/* <StyledTableCell align="left"></StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
-            <StyledTableCell align="left"></StyledTableCell> */}
+            <StyledTableCell align="left"></StyledTableCell>
+            <StyledTableCell align="left"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -167,8 +167,8 @@ function AddProduct() {
                             id="outlined-helperText"
                             label="Total Quantity"
                             // defaultValue="10"
-                            sx={{ width: 250 }}
-                           
+                            // sx={{ width: 250 }}
+                           style={style}
                             value={totalQty}
                             onChange={(e)=>{
                                 setTotalQty(e.target.value)    
@@ -176,7 +176,7 @@ function AddProduct() {
                             // helperText="Some important text"
                             />
 
-                            <TextField
+                            {/* <TextField
                             id="outlined-helperText"
                             label="Available Quantity"
                             // defaultValue="10"
@@ -186,7 +186,7 @@ function AddProduct() {
                                 onChange={(e)=>{
                                     setAvailableQty(e.target.value)    
                                 }}
-                            />
+                            /> */}
                         </td>
                     </tr>
                     <br></br>

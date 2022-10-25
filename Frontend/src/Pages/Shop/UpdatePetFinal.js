@@ -30,7 +30,7 @@ import TopNavbar from '../../Components/TopNavbar';
 import Footer from '../../Components/Footer'
 
 //main page content
-import ViewProduct from './ViewProduct'
+import UpdatePet from './UpdatePet'
 
 // navListPetOwner
 const drawerWidthOpen = 240;
@@ -321,7 +321,7 @@ export default function Test() {
               color: 'lightgray',
             }}
           >
-            Pet store
+            Pet store name
           </Typography>
           <Typography
             component="span"
@@ -406,7 +406,7 @@ export default function Test() {
 
         {/* put page content here */}
 
-      <ViewProduct/>
+      <UpdatePet/>
 
         <Footer />  
       </Box>      

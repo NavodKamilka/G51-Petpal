@@ -180,8 +180,8 @@ export default function FoodTable() {
               <StyledTableCell align="left">Product Name</StyledTableCell>
               <StyledTableCell align="left">Weight</StyledTableCell>
               <StyledTableCell align="left">Price per 1 (Rs)</StyledTableCell>
-              <StyledTableCell align="left">Available quantity</StyledTableCell>
-              <StyledTableCell align="left">Last update</StyledTableCell>
+              <StyledTableCell align="left">Total quantity</StyledTableCell>
+              {/* <StyledTableCell align="left">Last update</StyledTableCell> */}
               <StyledTableCell align="left"></StyledTableCell>
               <StyledTableCell align="left"></StyledTableCell>
               <StyledTableCell align="left"></StyledTableCell>
@@ -196,7 +196,7 @@ export default function FoodTable() {
                     <StyledTableCell align="left">
                       <img
                         src={val.foodImage}
-                        alt="food"
+                        alt="Food"
                         style={{ width: "25%", height: "25%" }}
                       />
                     </StyledTableCell>
@@ -207,11 +207,11 @@ export default function FoodTable() {
                       {val.pricePerOne}
                     </StyledTableCell>
                     <StyledTableCell align="left">
-                      {val.availableQty}
+                      {val.totalQty}
                     </StyledTableCell>
-                    <StyledTableCell align="left">
+                    {/* <StyledTableCell align="left">
                       {val.lastUpdate}
-                    </StyledTableCell>
+                    </StyledTableCell> */}
                     {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
                     <StyledTableCell align="left">
                       {" "}
