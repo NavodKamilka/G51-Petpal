@@ -53,14 +53,14 @@ const navListShop = [
     href:'PetsFinal',
     subList: [],
   },
-  {
-    icon: Payment,
-    desc: 'Payment',
-    secondDesc: '',
-    badge: 0,
-    href:'PaymentFinal',
-    subList: [],
-  },
+  // {
+  //   icon: Payment,
+  //   desc: 'Payment',
+  //   secondDesc: '',
+  //   badge: 0,
+  //   href:'PaymentFinal',
+  //   subList: [],
+  // },
   // {
   //   icon: BorderColor,
   //   desc: 'Edit',
