@@ -136,8 +136,8 @@ export default function Pets() {
             <StyledTableCell align="left">Pet Type</StyledTableCell>
             <StyledTableCell align="left">Breed </StyledTableCell>
             <StyledTableCell align="left">Price per 1 (Rs)</StyledTableCell>
-            <StyledTableCell align="left">Available quantity</StyledTableCell>
-            <StyledTableCell align="left">Last update</StyledTableCell>
+            <StyledTableCell align="left">Total quantity</StyledTableCell>
+            {/* <StyledTableCell align="left">Last update</StyledTableCell> */}
             <StyledTableCell align="left">Description</StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
             <StyledTableCell align="left"></StyledTableCell>
@@ -153,8 +153,8 @@ export default function Pets() {
               <StyledTableCell align="left">{val.petType}</StyledTableCell>
               <StyledTableCell align="left">{val.breed}</StyledTableCell>
               <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
-              <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
-              <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
+              <StyledTableCell align="left">{val.totalQty}</StyledTableCell>
+              {/* <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell> */}
               <StyledTableCell align="left">{val.description}</StyledTableCell>
 
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
