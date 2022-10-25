@@ -129,7 +129,7 @@ module.exports = {
          //get details of all  skincare
       getAllSkincare: (callBack) => {
         pool.query(
-          "SELECT skincareId, brand, name, weight, pricePerOne, availableQty, lastUpdate FROM skincare",
+          "SELECT skincareId, brand, name, weight, pricePerOne, availableQty, lastUpdate, skincareImage FROM skincare",
           (error, results, fields) => {
             if (error) {
               callBack(error);

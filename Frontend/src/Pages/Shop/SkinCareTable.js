@@ -163,7 +163,7 @@ export default function SkinCareTable() {
             return(
 
             <StyledTableRow key={val.name}> 
-              <StyledTableCell align="left">{val.ProductImage}</StyledTableCell>
+              <StyledTableCell align="left"><img src={val.skincareImage} alt="skincare" style={{width:'25%', height:'25%'}}/></StyledTableCell>
               <StyledTableCell align="left">{val.brand}</StyledTableCell>
               <StyledTableCell align="left">{val.name}</StyledTableCell>
               <StyledTableCell align="left">{val.weight}</StyledTableCell>
