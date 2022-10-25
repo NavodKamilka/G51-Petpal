@@ -145,7 +145,7 @@ export default function Pets() {
 
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewPetFinal"} state={{id:val.petId}}>View</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update">Update</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update" component={Link} to={"/UpdatePetFinal"} state={{id:val.petId}}>Update</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>

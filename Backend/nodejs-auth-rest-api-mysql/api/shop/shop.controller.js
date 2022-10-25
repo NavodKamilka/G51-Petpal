@@ -16,7 +16,8 @@
           updateOneSkincare,
           getAllPets,
           insertPet,
-          getOnePet
+          getOnePet,
+          updateOnePet
         } = require("./shop.service");
 
 
@@ -371,6 +372,21 @@
               data: results,
             });
             
+          });
+        },
+
+         //update one accessory
+         updateOnePet: (req, res) => {
+          const body=req.body;
+          updateOnePet(body, (err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            return res.json({
+              success: 1,
+              message: "updated successfully"
+            });
           });
         },
  }
