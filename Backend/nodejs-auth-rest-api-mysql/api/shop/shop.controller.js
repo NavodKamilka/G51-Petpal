@@ -15,7 +15,8 @@
           updateOneAccessory,
           updateOneSkincare,
           getAllPets,
-          insertPet
+          insertPet,
+          getOnePet
         } = require("./shop.service");
 
 
@@ -346,4 +347,30 @@
           });
         },
 
+
+         //get details of one pet
+         getOnePet: (req, res) => {
+          const id = req.params.petId;
+          
+          getOnePet(id, (err, results) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+            if (!results) {
+              
+              return res.json({
+                success: 0,
+                message: "Record not Found",
+              });
+            }
+            // results.password = undefined;
+
+            return res.json({
+              success: 1,
+              data: results,
+            });
+            
+          });
+        },
  }

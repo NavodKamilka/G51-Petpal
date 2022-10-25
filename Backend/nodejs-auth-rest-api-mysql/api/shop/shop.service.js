@@ -291,9 +291,23 @@ module.exports = {
               return callBack(null, results);
             }
            );
-      }
+      },
     
 
+       //get details of one food product
+       getOnePet: (id, callBack) => {
+        pool.query(
+          `select * from pets where petId = ?;`,
+          [id],
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            return callBack(null, results);
+            
+          }
+        );
+      },
 
     
 }
