@@ -86,7 +86,7 @@ const Item = styled(Paper)(({ theme }) => ({
                             defaultValue="PetLove@gmail.com"
                             style={style}
                             /></td>
-                            <td><ThemeProvider theme={theme}><Button variant="contained" href='/ClinicProfile' color='blueButton'>Save Changes</Button></ThemeProvider></td>
+                            
               
                         
                         <br></br>
@@ -127,10 +127,10 @@ const Item = styled(Paper)(({ theme }) => ({
                             /></td>
                     </tr>
                     <br></br>
-                    <tr>
+                    {/* <tr>
                         <td> <img src ={ClinicImage} alt="sampleimage" className='Image'/></td>
                         <td><img src ={ClinicMapImage} alt="sampleimage"  className='Image'/></td>
-                    </tr>
+                    </tr> */}
 
                 </table> 
                 <h3>Clinic Main Doctor Details</h3>
@@ -213,8 +213,18 @@ const Item = styled(Paper)(({ theme }) => ({
                             style={style}
                             /></td>
                     </tr>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    <tr>
+                                        <td></td>
+                                        <td style={{float:"center"}}>
+                                        <ThemeProvider theme={theme}><Button variant="contained" className='Button' href='/ClinicProfile' color='blueButton'>Save Changes</Button></ThemeProvider>
+                                        </td>
+                                    </tr>
                 </table>
-                 
+                
                 </FormControl>
                 </Item>
        </Grid>

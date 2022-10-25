@@ -69,14 +69,14 @@ const navbarListClinic = [
     href :'ViewNoticeMain'
   },
 
-  {
-    icon: Payment,
-    desc: 'Payment',
-    secondDesc: '',
-    badge: 0,
-    subList: [],
-    href :'AllPaymentMain'
-  },
+  // {
+  //   icon: Payment,
+  //   desc: 'Payment',
+  //   secondDesc: '',
+  //   badge: 0,
+  //   subList: [],
+  //   href :'AllPaymentMain'
+  // },
 
   
 ];

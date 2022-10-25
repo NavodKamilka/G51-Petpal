@@ -51,7 +51,7 @@ const theme = createTheme({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height:600,
+    height:650,
     top:50,
   }));
 
@@ -105,6 +105,7 @@ export default function AddNoticeContent() {
     const [RegNo, setRegNo] = useState("");
     const [VaccineName, setVaccineName] = useState("");
     const [Date, setDate] = useState("");
+    const [Time, setTime] = useState("");
     const [Venue, setVenue] = useState("");
    
     const addNotice = (event) =>{
@@ -113,7 +114,8 @@ export default function AddNoticeContent() {
             PublisherName: PublisherName, 
             RegNo: RegNo, 
             VaccineName: VaccineName, 
-            Date: Date, 
+            Date: Date,
+            Time: Time, 
             Venue: Venue
         }).then(()=> {
             alert("successful insert");
@@ -187,6 +189,20 @@ export default function AddNoticeContent() {
                             value={Date}
                             onChange={(e)=>{
                               setDate(e.target.value)
+                            }}  
+                            />
+                        </td>
+                    </tr>
+                    <br></br>
+
+                    <tr>
+                        <td><TextField
+                            id="outlined-helperText"
+                            label="Start Time"
+                            style={style}
+                            value={Time}
+                            onChange={(e)=>{
+                              setTime(e.target.value)
                             }}  
                             />
                         </td>

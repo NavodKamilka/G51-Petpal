@@ -446,6 +446,14 @@ function ViewDoctor({DocID}) {
 
                     </Stack>
                     </tr> */}
+                     <Stack spacing={8} direction="row" style={{
+                        marginLeft:'30%',
+                        marginTop: 25
+                    }}>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain' color='blueButton' >Update</Button></ThemeProvider>
+              <ThemeProvider theme={theme}><Button variant="contained" href='/DoctorMain'color='blueButton'>Cancel</Button></ThemeProvider>
+              
+          </Stack>
                 </table>
 
                 )
