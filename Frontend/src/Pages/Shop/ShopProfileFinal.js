@@ -320,7 +320,7 @@ export default function Test() {
               color: 'lightgray',
             }}
           >
-            Pet store name
+            Pet store 
           </Typography>
           <Typography
             component="span"
