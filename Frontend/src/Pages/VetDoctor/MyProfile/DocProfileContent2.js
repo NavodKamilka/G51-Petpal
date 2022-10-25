@@ -91,11 +91,11 @@ const Item = styled(Paper)(({ theme }) => ({
       event.preventDefault();
     };
   
-    const [value1, setValue1] = React.useState('Navod Kamilka');
-    const [value2, setValue2] = React.useState('navodkamilka98@gmail.com');
+    const [value1, setValue1] = React.useState('Kasun Perera');
+    const [value2, setValue2] = React.useState('kasun.perera@gmail.com');
     const [value3] = React.useState('HelloNavod');
-    const [value4, setValue4] = React.useState('0778393860');
-    const [value5, setValue5] = React.useState('Ambalangoda');
+    const [value4, setValue4] = React.useState('07783938600752107452');
+    const [value5, setValue5] = React.useState('Kandy');
     const [value6] = React.useState('567');
 
     const handleChange1 = (event) => {

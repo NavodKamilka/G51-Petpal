@@ -114,6 +114,7 @@ import DocDiscussionContent from './/Pages/VetDoctor/Discussion/DiscussionConten
 import DocPetMart from './Pages/VetDoctor/PetMart/PetMart'
 import DocProductMart from './Pages/VetDoctor/ProdcuctMart/PetProducts'
 import DocNotice from './Pages/VetDoctor/Notice/Notice'
+import PDF from './Pages/VetDoctor/Articles/PDFviewer'
 
 
 import Articles from "./Pages/Manager/Annoucement/Articles";
@@ -258,6 +259,7 @@ function App() {
       <Route path="/DocProductMart" element={<DocProductMart/>} />
       <Route path="/DocNotice" element={<DocNotice/>} />
       <Route path="/MoreFrom" element={<MoreFrom/>} />
+      <Route path="/PDF" element={<PDF/>} />
 
 
    </Routes>

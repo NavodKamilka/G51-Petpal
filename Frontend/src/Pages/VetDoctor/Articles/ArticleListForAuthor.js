@@ -62,7 +62,7 @@ useEffect(() =>{
                   </CardContent>
 
                   <CardContent style={{display: 'flex',height:15}} padding={10}>
-                  <Stack direction="row" spacing={1} marginLeft={'50%'} >
+                  <Stack direction="row" spacing={1} marginLeft={'70%'} >
                     <Typography variant="body2" color="text.secondary">
                      Date published : {val.DatePublished} 
                     </Typography>
