@@ -326,4 +326,19 @@ module.exports = {
           }
         );
       },
+
+
+
+       //delete one food item 
+       deleteOnePet : (id, callBack) => {
+        pool.query(
+          'DELETE FROM pets WHERE petId = ?', [id],
+          (error, results,fields) => {
+          if (error) {
+            callBack(error) 
+          }
+          return callBack(null, results);  
+        }
+        );
+      },
 }

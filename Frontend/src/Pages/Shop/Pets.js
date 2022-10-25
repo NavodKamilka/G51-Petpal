@@ -97,6 +97,20 @@ export default function Pets() {
   }, []);
   
 
+    //delete one food item
+    const deleteOnePet = (petId) => {
+      //".then" part will refresh the page after one food item is deleted.
+      Axios.delete(`http://localhost:3001/api/shop/deleteOnePet/${petId}`).then(
+        (response) => {
+          alert("Delete the product?");
+          setPetList(
+            petList.filter((val) => {
+              return val.petId !== petId;
+            })
+          );
+        }
+      );
+    };
   return (
     <Box>
       <SearchBar/>
@@ -146,7 +160,7 @@ export default function Pets() {
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewPetFinal"} state={{id:val.petId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update" component={Link} to={"/UpdatePetFinal"} state={{id:val.petId}}>Update</Button></ThemeProvider></StyledTableCell>
-              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete">Delete</Button></ThemeProvider></StyledTableCell>
+              <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="delete"  onClick={() => deleteOnePet(val.petId)}>Delete</Button></ThemeProvider></StyledTableCell>
 
             </StyledTableRow>
             )
