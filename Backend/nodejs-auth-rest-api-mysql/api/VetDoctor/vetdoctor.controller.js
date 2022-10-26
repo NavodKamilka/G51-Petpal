@@ -5,7 +5,8 @@ const {getAllArticles,
     getArticlesForAuthorTwo,
     getVetReviews,
     getPendingArticles,
-    getDoctorList
+    getDoctorList,
+    deleteTime
     } = require("./vetdoctor.service");
 
 module.exports = {
@@ -86,7 +87,28 @@ module.exports = {
             });
           });
         },
-
+//delete product
+deleteTime: (req, res) => {
+  const id = req.params.id; 
+console.log("controller awa");
+  deleteTime(id, (err, results) => {
+    if (err) {
+      console.log(err);
+      console.log(id);
+      return;
+    }
+    if (!results) {
+      return res.json({
+        success: 0,
+        message: "Record Not Found"
+      });
+    }
+    return res.json({
+      success: 1,
+      message: "product deleted successfully"
+    });
+  });
+},
 
              //insert a product to the database
             //  insertPet: (req, res) => {

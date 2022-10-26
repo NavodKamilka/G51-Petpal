@@ -68,7 +68,18 @@ module.exports = {
             return callBack(null, results);
           }
         );
-      },
+      }, //delete one food item 
+      deleteTime : (id, callBack) => {
+       pool.query(
+         'DELETE FROM time_slot_doctors WHERE ID = ?', [id],
+         (error, results,fields) => {
+         if (error) {
+           callBack(error) 
+         }
+         return callBack(null, results);  
+       }
+       );
+     },
 
       //insert food product details
 //       create: (data,callBack) => {

@@ -9,6 +9,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import SearchBar from "../../../Components/SearchBar";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -89,6 +90,9 @@ const Item = styled(Paper)(({ theme }) => ({
             style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming appointments</Button></ThemeProvider>
             </Stack> 
         </div>
+        {/* <Stack style={{ position: "relative", top: "2%" }}>
+                <SearchBar style={{ width: "20px" }}> </SearchBar>
+              </Stack> */}
 
         <div style={{width:window.width, textAlign:'center',
             position:"relative",top: '0%',
@@ -111,7 +115,7 @@ const Item = styled(Paper)(({ theme }) => ({
             color: '#193498'}}> 2022-09-11 </h1> */}
         
 
-        <div>
+        <div style={{position: "relative", top: "6%"}}>
     <TableContainer component={Paper}>
                         <Table aria-label="collapsible table">
                           <TableHead sx={{backgroundColor: 'orange'}}>

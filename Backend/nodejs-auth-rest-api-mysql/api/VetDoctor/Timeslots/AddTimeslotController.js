@@ -9,7 +9,8 @@ const jwt = require("jsonwebtoken");
 
 router.post("/AddDocTimeslot",  (req, res, next) => {
   console.log("called controller");
-  if("SELECT COUNT FROM time_slots_doctors WHERE DocID=1 AND Day=?;",[req.headers.day] ==0){
+
+  // if(("SELECT COUNT FROM time_slot_doctors WHERE DocID=1 AND Day=?;",[req.headers.day]) == 0){
     console.log("zero");
     db.query(
       
@@ -34,10 +35,7 @@ router.post("/AddDocTimeslot",  (req, res, next) => {
           }
         );
 
-        }
-  else{
-console.log("can add");
-  }
+        // }
 
 });
 

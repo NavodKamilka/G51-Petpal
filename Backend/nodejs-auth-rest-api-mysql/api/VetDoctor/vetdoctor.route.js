@@ -5,7 +5,8 @@ const {getAllArticles,
     getArticlesForAuthorTwo,
     getVetReviews,
     getPendingArticles,
-    getDoctorList
+    getDoctorList,
+    deleteTime
     
    }=require("./vetdoctor.controller");
 
@@ -21,4 +22,5 @@ router.get("/getVetReviews",getVetReviews);
 
 router.get("/getPendingArticles",getPendingArticles);
 router.get("/getDoctorList",getDoctorList);
+router.delete("/deleteTime/:ID",deleteTime);
 module.exports = router;

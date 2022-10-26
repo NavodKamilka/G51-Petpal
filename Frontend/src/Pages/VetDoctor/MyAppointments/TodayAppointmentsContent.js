@@ -10,13 +10,15 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import List1 from './ListUpcoming';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import {Link} from 'react-router-dom'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+
+import SearchBar from "../../../Components/SearchBar";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -127,12 +129,16 @@ const theme = createTheme({
 
         </div>
         
+        
         <div style={{width:window.width, textAlign:'center',
             position:"relative",top: '2%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             // top:'180px',left:'0%'
             }}>
+              {/* <Stack style={{ position: "relative", top: "6%" }}>
+                <SearchBar style={{ width: "20px" }}> </SearchBar>
+              </Stack> */}
             <h1 style={{width: '50%',
             display: 'inline',
             marginRight: '100px',
@@ -155,7 +161,7 @@ const theme = createTheme({
         
 
         {/* <Listtoday/> */}
-        <div>
+        <div style={{position: "relative", top: "6%"}}>
     <TableContainer component={Paper}>
                         <Table aria-label="collapsible table">
                           <TableHead sx={{backgroundColor: 'orange'}}>
@@ -196,7 +202,7 @@ const theme = createTheme({
                                   <TableCell align="right">{row.AppointmentStatus}</TableCell>
                                   <TableCell align="right">{row.ClinicName}</TableCell>
                                   <TableCell align="right">{row.DoctorName}</TableCell>
-                                  <TableCell align="right"><Button>Add record</Button></TableCell>
+                                  <TableCell align="right"><Button >Add record</Button></TableCell>
                                 </TableRow>
                               ))}
                             </TableBody>

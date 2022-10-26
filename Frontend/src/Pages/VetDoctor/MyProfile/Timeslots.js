@@ -22,6 +22,15 @@ export default function Timeslots() {
 
       });
   },[]);
+  //delete one accessory item
+const deleteTimeslot=(id)=>{
+  //".then()" will refresh the page after one accessory item is deleted. 
+  Axios.delete(`http://localhost:3001/api/vetdoc/deleteTime/${id}`).then((response) => {
+    setTimeslotList(timeslotList.filter((data)=>{
+      return data.ID !== id
+    }))
+  })
+}
 
   return (
     <div>
@@ -52,11 +61,11 @@ export default function Timeslots() {
                   <TableCell align="left">
                     {data.MaxTokens} 
                   </TableCell>
-                  <TableCell align="left">
+                  {/* <TableCell align="left">
                     <Button>Edit</Button>
-                  </TableCell>
+                  </TableCell> */}
                   <TableCell align="left">
-                    <Button>Delete</Button>
+                    <Button  onClick={()=>deleteTimeslot(data.ID)}>Delete</Button>
                   </TableCell>
                 </TableRow>
               ))}

@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import List1 from './ListUpcoming';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import SearchBar from "../../../Components/SearchBar";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -87,7 +88,10 @@ const theme = createTheme({
             </Stack> 
 
         </div>
-    <div>
+        {/* <Stack style={{ position: "relative", top: "2%" }}>
+                <SearchBar style={{ width: "20px" }}> </SearchBar>
+              </Stack> */}
+    <div style={{position: "relative", top: "6%"}}>
     <TableContainer component={Paper}>
                         <Table aria-label="collapsible table">
                           <TableHead sx={{backgroundColor: 'orange'}}>
