@@ -48,7 +48,7 @@ router.post("/register", signupValidation, (req, res, next) => {
                   let mailTransporter =nodemailer.createTransport({
                       service:'gmail',
                       auth:{
-                          user:'pinsaradhanika@gmail.com',
+                          user:'pinsaradhanika@gmail.com', 
                           pass:'tczpdoygciszqqux'
                       }
                   })//responsible for sending our mail

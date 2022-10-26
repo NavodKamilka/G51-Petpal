@@ -112,6 +112,7 @@ function UpdateProduct() {
                 <table key ={oneFood.id}>
                     <tr> 
                         <td><TextField 
+                            disabled
                             id="outlined-helperText"
                             label="Brand"
                             value={oneFood.brand}
@@ -126,6 +127,7 @@ function UpdateProduct() {
                     <br></br>
                     <tr>
                         <td><TextField
+                            disabled
                             id="outlined-helperText"
                             label="Product Name"
                             style={style}
@@ -139,6 +141,7 @@ function UpdateProduct() {
 
                     <tr>
                         <td><TextField
+                            disabled
                             id="outlined-helperText"
                             label="Weight"
                             value={oneFood.weight}
@@ -194,6 +197,7 @@ function UpdateProduct() {
                     <br></br>
                     <tr>
                         <td><TextField
+                                disabled
                                 id="outlined-multiline-static"
                                 label="Description"
                                 multiline
