@@ -62,12 +62,34 @@ const TopNavbar = () => {
         }
 
     }
+    const handlerbtnNavClick = (event,key) =>{
+      event.preventDefault();
+  
+      switch (key) {
+          case ' Profile' :
+              navigate("/", {replace: true})
+              break;
+          case 'Account' :
+              navigate("/Whoweare", {replace: true})
+              break;
+          case 'Dashboard' :
+              navigate("/AdminDashboard", {replace: true})
+              break;
+          case 'Logout' :
+              navigate("/", {replace: true})
+              break;
+          
+      }
+
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+
+    
   };
 
   const handleCloseNavMenu = () => {
@@ -186,7 +208,7 @@ const TopNavbar = () => {
                 </IconButton>
             <Tooltip title="Open settings">
                 
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 ,border:'1px solid black'}}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -208,7 +230,7 @@ const TopNavbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleCloseUserMenu} onClick={(event)=>handlerbtnNavClick(event,key)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
