@@ -271,7 +271,7 @@ useEffect(() =>{
     <div>  
         <SearchBar/> 
         
-      <h1>Notices Details</h1>
+      <h1>Vaccination Notices Details</h1>
       {/* <br></br> */}
       {/* <Stack spacing={10} direction="row" justifyContent="center" >
       <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/FoodTableFinal'>Food</Button></ThemeProvider>
@@ -299,6 +299,7 @@ useEffect(() =>{
             <StyledTableCell align="left">Registor Number</StyledTableCell>
             <StyledTableCell align="left">Vaccine Name</StyledTableCell>
             <StyledTableCell align="left">Vaccination Date</StyledTableCell>
+            <StyledTableCell align="left">Starting Time</StyledTableCell>
             <StyledTableCell align="left">Venue</StyledTableCell>
             <StyledTableCell align="left">Status</StyledTableCell>
             {/* <StyledTableCell align="left"></StyledTableCell>
@@ -316,6 +317,7 @@ useEffect(() =>{
               <StyledTableCell align="left">{val.RegNo}</StyledTableCell>
               <StyledTableCell align="left">{val.VaccineName}</StyledTableCell>
               <StyledTableCell align="left">{val.Date}</StyledTableCell>
+              <StyledTableCell align="left">{val.Time}</StyledTableCell>
               <StyledTableCell align="left">{val.Venue}</StyledTableCell>
               <StyledTableCell align="left">{val.Status}</StyledTableCell>
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}

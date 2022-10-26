@@ -75,7 +75,7 @@ useEffect(() =>{
             <CardMedia
               component="img"
               height="240"
-              image= {val.Picture}
+              image= {val.foodImage}
               alt="Product image"
           
              />

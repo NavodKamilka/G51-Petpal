@@ -60,7 +60,7 @@ const theme = createTheme({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    // backgroundColor: '#A689FC',
+    backgroundColor: '#d0f0e9',
     color: theme.palette.common.black,
     fontSize: 15,
     fontWeight:'bold',
@@ -150,11 +150,11 @@ export default function SkinCareTable() {
             <StyledTableCell align="left">Product Name</StyledTableCell>
             <StyledTableCell align="left">Weight</StyledTableCell>
             <StyledTableCell align="left">Price per 1 (Rs)</StyledTableCell>
-            <StyledTableCell align="left">Available quantity</StyledTableCell>
-            <StyledTableCell align="left">Last update</StyledTableCell>
-            {/* <StyledTableCell align="left"></StyledTableCell>
+            <StyledTableCell align="left">Total quantity</StyledTableCell>
+            {/* <StyledTableCell align="left">Last update</StyledTableCell> */}
             <StyledTableCell align="left"></StyledTableCell>
-            <StyledTableCell align="left"></StyledTableCell> */}
+            <StyledTableCell align="left"></StyledTableCell>
+            <StyledTableCell align="left"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -163,13 +163,13 @@ export default function SkinCareTable() {
             return(
 
             <StyledTableRow key={val.name}> 
-              <StyledTableCell align="left">{val.ProductImage}</StyledTableCell>
+              <StyledTableCell align="left"><img src={val.skincareImage} alt="skincare" style={{width:'25%', height:'25%'}}/></StyledTableCell>
               <StyledTableCell align="left">{val.brand}</StyledTableCell>
               <StyledTableCell align="left">{val.name}</StyledTableCell>
               <StyledTableCell align="left">{val.weight}</StyledTableCell>
               <StyledTableCell align="left">{val.pricePerOne}</StyledTableCell>
-              <StyledTableCell align="left">{val.availableQty}</StyledTableCell>
-              <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell>
+              <StyledTableCell align="left">{val.totalQty}</StyledTableCell>
+              {/* <StyledTableCell align="left">{val.lastUpdate}</StyledTableCell> */}
               {/* these buttons are common to each row, once we added to a row it will display them in every row  */}
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="view" component={Link} to={"/ViewSkincareFinal"} state={{id:val.skincareId}}>View</Button></ThemeProvider></StyledTableCell>
               <StyledTableCell align="left"> <ThemeProvider theme={theme}> <Button variant="contained" color="update" component={Link} to={"/UpdateSkincareFinal"} state={{id:val.skincareId}}>Update</Button></ThemeProvider></StyledTableCell>

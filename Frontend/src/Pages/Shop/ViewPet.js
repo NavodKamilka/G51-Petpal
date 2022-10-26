@@ -171,7 +171,7 @@ function ViewPet() {
                     <tr>
                     <Stack spacing={10} direction="row" justifyContent="center" marginTop={3} >
 
-                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/FoodTableFinal' startIcon={<KeyboardDoubleArrowLeftIcon />}>Back</Button></ThemeProvider>
+                        <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/PetsFinal' startIcon={<KeyboardDoubleArrowLeftIcon />}>Back</Button></ThemeProvider>
 
                     </Stack>
                     </tr>

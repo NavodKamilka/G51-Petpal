@@ -1,7 +1,8 @@
 const router = require("express").Router();
 
 
-const {getDoctors,
+const {getClinics,
+     getDoctors,
      insertDoctors,
      insertNotices,
      getNotices,
@@ -16,6 +17,9 @@ const {getDoctors,
 
 //view details of all doctors
 router.get("/getdoctor",getDoctors);
+
+//view details of clinic
+router.get("/getclinic",getClinics);
 
 //view details of all appointments
 router.get("/getappointment",getAppointments);

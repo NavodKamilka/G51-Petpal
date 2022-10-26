@@ -1,6 +1,8 @@
     // functions in services - getAllDoctors
-    const {getDoctors, 
+    const {getDoctors,
+          getClinics, 
           create,
+          createdoc,
           getNotices,
           getPayments,
           getOneDoctor,
@@ -28,6 +30,20 @@ module.exports = {
           });
         });
       },
+
+      //Get clinic details
+     getClinics: (req, res) => {
+      getClinics((err, results) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return res.json({
+          success: 1,
+          data: results
+        });
+      });
+    },
 
        //Get appoitment details
       getAppointments: (req, res) => {
@@ -141,7 +157,7 @@ module.exports = {
       insertDoctors: (req, res) => {
             
         const body = req.body;
-        create(body, (err, results) => {
+        createdoc(body, (err, results) => {
           if (err) {
             console.log(err);
             return res.status(500).json({

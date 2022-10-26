@@ -15,7 +15,10 @@ const {getProduct,
      updateOneFood,
      updateOneAccessory,
      updateOneSkincare,
-     getAllPets  
+     getAllPets,
+     getOnePet,
+     updateOnePet,
+     deleteOnePet  
     }=require("./shop.controller");
 
 //view details of all food products
@@ -66,6 +69,12 @@ router.put("/updateOneSkincare", updateOneSkincare);
 //view all pets 
 router.get("/getAllPets",getAllPets);
 
+//view details of one pet 
+router.get(`/getOnePet/:petId`,getOnePet);
 
+//update one pet  
+router.put("/updateOnePet", updateOnePet);
 
+//delete one pet 
+router.delete("/deleteOnePet/:PetId", deleteOnePet);
 module.exports = router;
