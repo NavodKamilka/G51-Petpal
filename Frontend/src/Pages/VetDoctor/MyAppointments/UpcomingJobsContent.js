@@ -48,17 +48,19 @@ const theme = createTheme({
 
   export default function  TodayAppointmentsContent() {
     const [appointment , setAppointment] = useState([]);
+    useEffect(() =>{
+      Axios.get('http://localhost:3001/api/vetappointments/getUpAppointmentList').then((response)=>{
+        setAppointment(response.data.data);   
+      console.log(response);
+      });
+    }, []);
 
-    Axios.get('http://localhost:3001/api/vetappointments/getAllTodayAppointments',
-    {
-      headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyODc4OTk1LCJleHAiOjE2NjI4ODk3OTV9.L4KGBllNUiuEAqr9RClP5NBv4JNQB5J6ojHUEx0f-wM` }
-      // headers: { authorization : `Bearer ${this.Token}` }
-    }).then ((res) => {
-      // console.log(response.data);
-        setAppointment(res.data);
-        // console.log(res);
-    });
-
+  //   Axios.get('http://localhost:3001/api/vetappointments/getTodayAppointmentList'.then((response)=>{
+  //     setAppointment(response.data.data);   
+  //   console.log(response);
+  //   });
+  // }, []);
+  //---------------------------------------
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -78,32 +80,34 @@ const theme = createTheme({
 
 
             <Stack>
-            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/TodayAppointments"
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'  href="/TodayAppointments"
             style={{display:'inline-block',width: '250px',margin:10,fontSize:'15px'}}>Today appointments</Button></ThemeProvider>
             </Stack> 
 
             <Stack>
-            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'  
+            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton' 
             style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming appointments</Button></ThemeProvider>
             </Stack> 
 
         </div>
-        {/* <Stack style={{ position: "relative", top: "2%" }}>
-                <SearchBar style={{ width: "20px" }}> </SearchBar>
-              </Stack> */}
-    <div style={{position: "relative", top: "6%"}}>
+        
+        <br/>
+        
+
+        {/* <Listtoday/> */}
+        <div style={{position: "relative", top: "6%"}}>
     <TableContainer component={Paper}>
                         <Table aria-label="collapsible table">
                           <TableHead sx={{backgroundColor: 'orange'}}>
                             <TableRow>
-                              <TableCell />
-                              <TableCell>Appointment Date</TableCell>
+                              
+                            <TableCell>Date</TableCell>
                               <TableCell>Token no</TableCell>
                               <TableCell align="right">Owner</TableCell>
-                              <TableCell align="right">Owner address</TableCell>
                               <TableCell align="right">Telephone number</TableCell>
                               <TableCell align="right">Pet type</TableCell>
                               <TableCell align="right">Pet breed</TableCell>
+                              <TableCell align="right">Actions</TableCell>
                             </TableRow>
                           </TableHead>
                           {/* {n1.map((item, index) => (  */}
@@ -126,11 +130,12 @@ const theme = createTheme({
                                 // <TableRow key ={row.AppointmentCID}>
                                 <TableRow>
                                   <TableCell align="right">{row.Date}</TableCell>
-                                  <TableCell align="right">{row.PetName}</TableCell>
-                                  <TableCell align="right">{row.AppointmentStatus}</TableCell>
-                                  <TableCell align="right">{row.ClinicName}</TableCell>
-                                  <TableCell align="right">{row.DoctorName}</TableCell>
-                                  <TableCell align="right"><Button>View</Button></TableCell>
+                                  <TableCell align="right">{row.TokenNo}</TableCell>
+                                  <TableCell align="right">{row.OwnerID}</TableCell>
+                                  <TableCell align="right">{row.TelNo}</TableCell>
+                                  <TableCell align="right">{row.PetID}</TableCell>
+                                  <TableCell align="right">{row.PetBreed}</TableCell>
+                                  <TableCell align="right"><Button>Cancel</Button></TableCell>
                                 </TableRow>
                               ))}
                             </TableBody>

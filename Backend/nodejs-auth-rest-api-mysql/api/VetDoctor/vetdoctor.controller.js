@@ -6,7 +6,8 @@ const {getAllArticles,
     getVetReviews,
     getPendingArticles,
     getDoctorList,
-    deleteTime
+    deleteTime,
+    getSelected
     } = require("./vetdoctor.service");
 
 module.exports = {
@@ -107,6 +108,30 @@ console.log("controller awa");
       success: 1,
       message: "product deleted successfully"
     });
+  });
+},
+getSelected: (req, res) => {
+  const id = req.params.AppointmentID;
+  
+  getSelected(id, (err, results) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    if (!results) {
+      
+      return res.json({
+        success: 0,
+        message: "Record not Found",
+      });
+    }
+    // results.password = undefined;
+
+    return res.json({
+      success: 1,
+      data: results,
+    });
+    
   });
 },
 

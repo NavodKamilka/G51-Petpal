@@ -80,6 +80,18 @@ module.exports = {
        }
        );
      },
+     getSelected: (id, callBack) => {
+      pool.query(
+        `select Description,Prescription From appointments where AppointmentID= ?;`,
+        [id],
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          return callBack(null, results);  
+        }
+      );
+    },
 
       //insert food product details
 //       create: (data,callBack) => {

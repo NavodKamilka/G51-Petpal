@@ -16,23 +16,20 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
-import {useNavigate} from "react-router-dom";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-
+import {useNavigate} from "react-router-dom";
 // import Logo from '../../../Components/Logo';
-// import navbarList from '../../Components/navList'; changed
-import navListShop from '../../Components/navListShop';
+import navbarList from '../../../Components/navListDoctor';
+import StyledAvatar from '../../../Components/StyledAvatar';
 
-import StyledAvatar from '../../Components/StyledAvatar';
-import TopNavbar from '../../Components/TopNavbar';
-import Footer from '../../Components/Footer'
-
-//main page content
+import TopNavbar from '../../../Components/TopNavbar';
+import Footer from '../../../Components/Footer';
 import UpdateAccessory from './UpdateAccessory'
 
-// navListPetOwner
+
+
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
 const marginIconButton = 14;
@@ -40,43 +37,47 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-
-
-
-
-
-
-export default function Test() {
+export default function UpcomingJobs() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
-
-
-  //navigation new method
   const navigate = useNavigate();
+
   const handleSideNavClick = (event,desc) =>{
-      event.preventDefault();
-  
-      switch (desc) {
-          case 'My Profile' :
-              navigate("/ShopProfileFinal", {replace: true})
-              console.log(desc);
-              break;
-          case 'Products' :
-              navigate("/FoodTableFinal", {replace: true})
-              console.log(desc);
-              break;
-          case 'Pets' :
-              navigate("/PetsFinal", {replace: true})
-              console.log(desc);
-              break;
-          case 'Payment' :
-              navigate("/PaymentFinal", {replace: true})
-              console.log(desc);
-              break;
-      }
+    event.preventDefault();
+
+    switch (desc) {
+      case 'My Profile' :
+          navigate("/DocProfile", {replace: true})
+          console.log(desc);
+          break;
+      case 'My Appointments' :
+          navigate("/TodayAppointments", {replace: true})
+          console.log(desc);
+          break;
+      case 'Articles' :
+          navigate("/DocArticles", {replace: true})
+          console.log(desc);
+          break;
+      case 'Discussion' :
+          navigate("/DocArticles", {replace: true})
+          console.log(desc);
+          break;
+      case 'Pet Mart' :
+          navigate("/DocPetMart", {replace: true})
+          console.log(desc);
+          break;
+      case 'Product Mart' :
+          navigate("/DocProductMart", {replace: true})
+          console.log(desc);
+          break;
+      case 'Notices' :
+          navigate("/DocNotice", {replace: true})
+          console.log(desc);
+          break;
   }
-  
+
+}
 
   function toogleOpen() {
     setOpen(!open);
@@ -150,8 +151,7 @@ export default function Test() {
       </Box>
 
       <List dense={true}>
-        {/* changed - put the name of the corresponding side nav acc to user*/}
-        {navListShop.map((key, index) => (
+        {navbarList.map((key, index) => (
           <>
             {index === 0 ? (
               <>
@@ -231,10 +231,7 @@ export default function Test() {
                 }}
               >
                 <ListItemButton
-                // TRY TO ADD A LINK TO A BUTTON
-                // component={Link} to='./PetAds'
                 onClick={(event)=>handleSideNavClick(event,key.desc)}
-                
                   sx={{
                     margin: '6px 14px',
                     padding: '10px',
@@ -306,7 +303,7 @@ export default function Test() {
             alignContent: 'center',
           }}
         >
-          <StyledAvatar />
+          {/* <StyledAvatar /> */}
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
           <Typography
@@ -321,7 +318,7 @@ export default function Test() {
               color: 'lightgray',
             }}
           >
-            Pet store name
+            Kasun Perera
           </Typography>
           <Typography
             component="span"
@@ -333,7 +330,7 @@ export default function Test() {
               color: 'lightgray',
             }}
           >
-            Pet Store
+            Vet Doctor
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
@@ -343,18 +340,6 @@ export default function Test() {
     </>
   );
 
-
-
-
-
-
-
-
-
-
-
-
-  
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer
@@ -402,14 +387,17 @@ export default function Test() {
         }}
       >
         <TopNavbar  /> <br/>
-
-
-        {/* put page content here */}
-
-      <UpdateAccessory/>
-
-        <Footer />  
-      </Box>      
+        <UpdateAccessory/>
+        {/* <h1>Hello</h1> */}
+        {/* <Typography>Hello Bro</Typography> */}
+        
+        <Footer />
+       
+        
+        
+      </Box>
+      
+      
     </Box>
   );
 }

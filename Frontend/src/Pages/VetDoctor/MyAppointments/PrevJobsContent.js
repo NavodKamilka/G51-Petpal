@@ -50,18 +50,19 @@ const Item = styled(Paper)(({ theme }) => ({
   export default function  TodayAppointmentsContent() {
     //-------------------------------------copied from pet owner
     const [appointment , setAppointment] = useState([]);
+    useEffect(() =>{
+      Axios.get('http://localhost:3001/api/vetappointments/getPrevAppointmentList').then((response)=>{
+        setAppointment(response.data.data);   
+      console.log(response);
+      });
+    }, []);
 
-    Axios.get('http://localhost:3001/api/vetappointments/getAllTodayAppointments',
-    {
-      headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyODc4OTk1LCJleHAiOjE2NjI4ODk3OTV9.L4KGBllNUiuEAqr9RClP5NBv4JNQB5J6ojHUEx0f-wM` }
-      // headers: { authorization : `Bearer ${this.Token}` }
-    }).then ((res) => {
-      // console.log(response.data);
-        setAppointment(res.data);
-        // console.log(res);
-    });
-//---------------------------------------
-
+  //   Axios.get('http://localhost:3001/api/vetappointments/getTodayAppointmentList'.then((response)=>{
+  //     setAppointment(response.data.data);   
+  //   console.log(response);
+  //   });
+  // }, []);
+  //---------------------------------------
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -75,7 +76,7 @@ const Item = styled(Paper)(({ theme }) => ({
         verticalAlign:'center',position:"relative",top:'0%',left:'0%'}}>
 
             <Stack>
-            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton' 
+            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'  
             style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Previous jobs</Button></ThemeProvider>
             </Stack> 
 
@@ -86,44 +87,24 @@ const Item = styled(Paper)(({ theme }) => ({
             </Stack> 
 
             <Stack>
-            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'  href="/UpcomingJobs"
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/UpcomingJobs"
             style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming appointments</Button></ThemeProvider>
             </Stack> 
-        </div>
-        {/* <Stack style={{ position: "relative", top: "2%" }}>
-                <SearchBar style={{ width: "20px" }}> </SearchBar>
-              </Stack> */}
 
-        <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            // top:'180px',left:'0%'
-            }}>
-            {/* <h3 >Calendar</h3> */}
         </div>
-        {/* <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            // top:'180px',left:'0%'
-            }}>
-            <h1 style={{width: '50%',
-            display: 'inline',
-            marginRight: '100px',
-            fontWeight: 'bold',
-            color: '#193498'}}> 2022-09-11 </h1> */}
+        
+        <br/>
         
 
+        {/* <Listtoday/> */}
         <div style={{position: "relative", top: "6%"}}>
     <TableContainer component={Paper}>
                         <Table aria-label="collapsible table">
                           <TableHead sx={{backgroundColor: 'orange'}}>
                             <TableRow>
-                              <TableCell />
-                              <TableCell>Appointment Date</TableCell>
+                            <TableCell>Date</TableCell>
+                              <TableCell>Token no</TableCell>
                               <TableCell align="right">Owner</TableCell>
-                              <TableCell align="right">Owner adress</TableCell>
                               <TableCell align="right">Telephone number</TableCell>
                               <TableCell align="right">Pet type</TableCell>
                               <TableCell align="right">Pet breed</TableCell>
@@ -151,11 +132,15 @@ const Item = styled(Paper)(({ theme }) => ({
                                 // <TableRow key ={row.AppointmentCID}>
                                 <TableRow>
                                   <TableCell align="right">{row.Date}</TableCell>
-                                  <TableCell align="right">{row.PetName}</TableCell>
-                                  <TableCell align="right">{row.AppointmentStatus}</TableCell>
-                                  <TableCell align="right">{row.ClinicName}</TableCell>
-                                  <TableCell align="right">{row.DoctorName}</TableCell>
-                                </TableRow>
+                                  <TableCell align="right">{row.TokenNo}</TableCell>
+                                  <TableCell align="right">{row.OwnerID}</TableCell>
+                                  <TableCell align="right">{row.TelNo}</TableCell>
+                                  <TableCell align="right">{row.PetID}</TableCell>
+                                  <TableCell align="right">{row.PetBreed}</TableCell>
+                                  <TableCell align="right">{row.Description}</TableCell>
+                                  <TableCell align="right">{row.Prescription}</TableCell>
+                            </TableRow>
+                         
                               ))}
                             </TableBody>
                           

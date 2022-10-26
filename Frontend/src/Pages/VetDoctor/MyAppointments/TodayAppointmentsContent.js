@@ -2,7 +2,7 @@ import Listtoday from './Listtoday';
 import React , { useState, useEffect }from 'react'
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-// import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typograph
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Axios from "axios";
@@ -10,14 +10,13 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import List1 from './ListUpcoming';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Link} from 'react-router-dom'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-
+import {Link} from 'react-router-dom'
 import SearchBar from "../../../Components/SearchBar";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -88,17 +87,19 @@ const theme = createTheme({
     }, []);
     //-------------------------------------copied from pet owner
     const [appointment , setAppointment] = useState([]);
+    useEffect(() =>{
+      Axios.get('http://localhost:3001/api/vetappointments/getTodayAppointmentList').then((response)=>{
+        setAppointment(response.data.data);   
+      console.log(response);
+      });
+    }, []);
 
-    Axios.get('http://localhost:3001/api/vetappointments/getAllTodayAppointments',
-    {
-      headers: { authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjYyODc4OTk1LCJleHAiOjE2NjI4ODk3OTV9.L4KGBllNUiuEAqr9RClP5NBv4JNQB5J6ojHUEx0f-wM` }
-      // headers: { authorization : `Bearer ${this.Token}` }
-    }).then ((res) => {
-      // console.log(response.data);
-        setAppointment(res.data);
-        // console.log(res);
-    });
-//---------------------------------------
+  //   Axios.get('http://localhost:3001/api/vetappointments/getTodayAppointmentList'.then((response)=>{
+  //     setAppointment(response.data.data);   
+  //   console.log(response);
+  //   });
+  // }, []);
+  //---------------------------------------
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -166,15 +167,11 @@ const theme = createTheme({
                         <Table aria-label="collapsible table">
                           <TableHead sx={{backgroundColor: 'orange'}}>
                             <TableRow>
-                              <TableCell />
                               <TableCell>Token no</TableCell>
                               <TableCell align="right">Owner</TableCell>
-                              <TableCell align="right">Owner address</TableCell>
                               <TableCell align="right">Telephone number</TableCell>
                               <TableCell align="right">Pet type</TableCell>
                               <TableCell align="right">Pet breed</TableCell>
-                              <TableCell align="right">Description</TableCell>
-                              <TableCell align="right">Prescription</TableCell>
                               <TableCell align="right">Actions</TableCell>
                             </TableRow>
                           </TableHead>
@@ -197,12 +194,12 @@ const theme = createTheme({
                               {appointment.map((row ) => (
                                 // <TableRow key ={row.AppointmentCID}>
                                 <TableRow>
-                                  <TableCell align="right">{row.Date}</TableCell>
-                                  <TableCell align="right">{row.PetName}</TableCell>
-                                  <TableCell align="right">{row.AppointmentStatus}</TableCell>
-                                  <TableCell align="right">{row.ClinicName}</TableCell>
-                                  <TableCell align="right">{row.DoctorName}</TableCell>
-                                  <TableCell align="right"><Button >Add record</Button></TableCell>
+                                  <TableCell align="right">{row.TokenNo}</TableCell>
+                                  <TableCell align="right">{row.OwnerID}</TableCell>
+                                  <TableCell align="right">{row.TelNo}</TableCell>
+                                  <TableCell align="right">{row.PetID}</TableCell>
+                                  <TableCell align="right">{row.PetBreed}</TableCell>
+                                  <TableCell align="right" component={Link} to={"/UpdateAppointmentFinal"} state={{id:row.AppointmentID}}><Button >Add record</Button></TableCell>
                                 </TableRow>
                               ))}
                             </TableBody>

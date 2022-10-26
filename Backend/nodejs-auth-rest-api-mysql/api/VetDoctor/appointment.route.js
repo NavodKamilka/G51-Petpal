@@ -4,7 +4,9 @@ const {getTodayAppointmentList,
     getTimeslots,
     getAppointmentDetails,
     getHealthRecord,
-    insertHealthRecord
+    insertHealthRecord,
+    getPrevAppointmentList,
+    getUpAppointmentList
     
    }=require("./appointment.controller");
    router.get("/getAppointmentDetails",getAppointmentDetails);
@@ -16,6 +18,8 @@ router.get("/getHealthRecord",getHealthRecord);
 
 //insert doctor details
 router.put("/insertHealthRecord",insertHealthRecord);
+router.get("/getUpAppointmentList",getUpAppointmentList);
+router.get("/getPrevAppointmentList",getPrevAppointmentList);
 
 
 

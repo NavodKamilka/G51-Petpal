@@ -38,19 +38,39 @@ module.exports = {
         );
       },
   //get all articles as a list
-    getTodayAppointmentList: (callBack) => {
-        const day = today.getDate()  ;
-        console.log(day);
-        pool.query(
-          // "SELECT * FROM doctor_appointments WHERE DoctorID=1 AND Status=0 AND Date=?;",[day],
-          (error, results, fields) => {
-            if (error) {
-              callBack(error);
-            }
-            return callBack(null, results);
+  getTodayAppointmentList: (callBack) => {
+    pool.query(
+      "SELECT * FROM appointments where DoctorID=1 and Date=curdate();",
+      (error, results, fields) => {
+        if (error) {
+          callBack(error);
+        }
+        return callBack(null, results);
+      }
+    );
+  },
+  getPreviousappos: (callBack) => {
+    pool.query(
+      "SELECT * FROM appointments where DoctorID=1 and Status=1;",
+      (error, results, fields) => {
+        if (error) {
+          callBack(error);
+        }
+        return callBack(null, results);
+      }
+    );
+  },
+    getUpappos: (callBack) => {
+      pool.query(
+        "SELECT * FROM appointments where DoctorID=1 and Status='0';",
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
           }
-        );
-      },
+          return callBack(null, results);
+        }
+      );
+    },
 
       getAppointmentDetails:(callBack) => {
        const id =3;
@@ -81,10 +101,11 @@ module.exports = {
        //--------------------------------------------------------------------------
        updateRecord: (data, callBack) => {
         pool.query(
-          `update appointments set Description=?, Prescription=? where AppointmentID = ?`,
+          `update appointments set Description=?, Prescription=?,Status=? where AppointmentID = ?`,
           [
             data.description,
             data.prescription,
+            1,
             3
           ],
           (error, results, fields) => {

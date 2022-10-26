@@ -68,8 +68,7 @@ export default function Review() {
                   <CardContent style={{width:1500,height:10}} padding={1}>
                     <Typography gutterBottom variant="h6" component="div">
                       {val.Content} {"  "}
-                      {val.FirstName}{"  "}
-                      {val.LastName}{"  "}
+                      {val.PublisherID}
                       {val.Date} 
                     </Typography>
                     </CardContent>

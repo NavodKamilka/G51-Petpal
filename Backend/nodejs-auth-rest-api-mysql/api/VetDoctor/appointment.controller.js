@@ -3,13 +3,39 @@ const {getTodayAppointmentList,
     getTimeslots,
     getAppointmentDetails,
     getHealthRecord,
-    updateRecord
+    updateRecord,
+    getPreviousappos,
+  getUpappos
     } = require("./appointment.service");
 
 module.exports = {
         //get all the articles as list written by all authors stored in the database
         getTodayAppointmentList: (req, res) => {
             getTodayAppointmentList((err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                data: results
+              });
+            });
+          },
+          getPrevAppointmentList: (req, res) => {
+            getPreviousappos((err, results) => {
+              if (err) {
+                console.log(err);
+                return;
+              }
+              return res.json({
+                success: 1,
+                data: results
+              });
+            });
+          },
+          getUpAppointmentList: (req, res) => {
+            getUpappos((err, results) => {
               if (err) {
                 console.log(err);
                 return;

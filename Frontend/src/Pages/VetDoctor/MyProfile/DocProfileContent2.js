@@ -242,8 +242,8 @@ const Item = styled(Paper)(({ theme }) => ({
           }}>
             
             {/* <Rating name="read-only" value={2} readOnly /> */}
-            {/* <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/DocReviews'
-            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Reviews</Button></ThemeProvider> */}
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href='/DocReviews'
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Reviews</Button></ThemeProvider>
 
             <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'
             style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Save changes</Button></ThemeProvider>
