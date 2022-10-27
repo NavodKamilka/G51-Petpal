@@ -10,6 +10,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Axios from "axios";
 
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
 //colors for buttons
 const theme = createTheme({
   palette: {
@@ -28,6 +30,7 @@ const theme = createTheme({
   },
 });
 
+
 export default function ArticleListForAuthor() {
   const[allArticleList, setAllArticleList]=useState([]);
 
@@ -45,26 +48,33 @@ useEffect(() =>{
         {/* show the cards in a row */}
         <Grid item style={{display: 'inline-block'}} padding={10}>
 
-          {allArticleList.map((val) => {
+          {allArticleList.reverse().map((val) => {
             return(
-              <Card sx={{ maxWidth: 1000 , padding:2}}>
+              <Card sx={{ maxWidth: 1000 , height:150,padding:2}}>
                 <CardContent>
-                  <CardContent style={{display: 'flex'}} padding={10}>
+                  <CardContent style={{display: 'flex',height:15}} padding={10}>
                     <Typography gutterBottom variant="h5" component="div">
                       {val.Title}
                     </Typography>
                     <CardActions>
-                      <Button variant="contained">Read more</Button>
+                      <Button>Read more</Button>
                     </CardActions>
                   </CardContent>
 
-                  <CardContent style={{display: 'flex'}} padding={10}>
+                  <CardContent style={{display: 'flex',height:15}} padding={10}>
+                  <Stack direction="row" spacing={1} marginLeft={'70%'} >
                     <Typography variant="body2" color="text.secondary">
-                      {val.DatePublished} 
+                     Date published : {val.DatePublished} 
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {val.Likes}
-                    </Typography>
+                  <IconButton  component="label" style={{
+                      // left:'0%',
+                      color:'#11B94A'
+                      // top:40
+                }}>
+                     {/* <ThumbUpIcon /> */}
+                     {/* {val.Likes} */}
+                </IconButton>
+                </Stack>
                   </CardContent>
 
                      

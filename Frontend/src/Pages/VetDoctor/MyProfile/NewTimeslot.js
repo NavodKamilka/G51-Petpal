@@ -74,10 +74,13 @@ export default function NewTimeslot() {
 
   return (
     <div>
-      <Stack spacing={3} direction="column">
-        <h2>Add new timeslot</h2>
+      <Stack spacing={1} direction="column">
+        <h3>Enter the time your are available </h3>
+        <h3>for service on weekdays.</h3>
+        <h3>This data will not be changed</h3>
+        <h3> untill you remove the day</h3>
 
-        <FormControl sx={{ width: "250px" }}>
+        <FormControl sx={{ width: "350px" }}>
           <InputLabel id="demo-simple-select-label">Day</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -120,7 +123,23 @@ export default function NewTimeslot() {
             />
           </Stack>
         </LocalizationProvider>
-
+        <Stack spacing={3} component="form"
+          sx={{
+            "& > :not(style)": { m: 1,width:"40ch"},
+          }}
+          noValidate
+          autoComplete="off">
+        <TextField
+            id="outlined-basic"
+            label="Maximum No of Tokens"
+            value={slots}
+            variant="outlined"
+            onChange={(e) => {
+              setSlots(e.target.value);
+            }}
+          />
+          </Stack>
+{/* 
         <Box
           component="form"
           sx={{
@@ -138,10 +157,11 @@ export default function NewTimeslot() {
               setSlots(e.target.value);
             }}
           />
-        </Box>
-
+        </Box> */}
+<Stack spacing={3}>
         <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' onClick={print}
-            style={{display:'inline-block',width: '250px',margin:10,marginLeft:90, fontSize:'15px'}}>Submit</Button></ThemeProvider>
+            style={{display:'inline-block',width: '250px',margin:10,marginLeft:50, fontSize:'15px'}}>Submit</Button></ThemeProvider>
+      </Stack>
       </Stack>
     </div>
   );

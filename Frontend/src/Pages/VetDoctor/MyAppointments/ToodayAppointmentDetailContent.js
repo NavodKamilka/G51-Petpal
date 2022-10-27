@@ -130,7 +130,7 @@ export default function UpcomingAppointmentDetailContent() {
                       </td>
                       <td className="orderitem">Name</td>
                       <td className="orderitemx" id="date">
-                        {val.OwnerID}
+                        {val.FirstName}{" "}{val.LastName}
                       </td>
                     </tr>
                     <tr>
@@ -140,13 +140,13 @@ export default function UpcomingAppointmentDetailContent() {
                       </td>
                       <td className="orderitem">Mobile no</td>
                       <td className="orderitemx" id="mobile">
-                        07793277567
+                        {val.TelNum}
                       </td>
                     </tr>
                     <tr>
                       <td className="orderitem">Home visit</td>
                       <td className="orderitemx" id="timeslot">
-                        yes
+                        {val.HomeVisit}
                       </td>
                     </tr>
                     <tr>

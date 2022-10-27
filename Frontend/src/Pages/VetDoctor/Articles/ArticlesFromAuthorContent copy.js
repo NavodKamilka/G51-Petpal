@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import SearchBar from "../../../Components/SearchBar";
-import ArticleListForAuthor from "./ArticleListForAuthor";
+import ArticleListForAuthor from "./ArticleListForAuthor copy";
 
 const filterByDate = [
   { title: "Latest published" },
@@ -83,7 +83,7 @@ export default function ArticlesFromAuthorContent() {
                     }}
                   >
                     {" "}
-                    Dr. Kasun Perera{" "}
+                    Dr. Damith Dharmasiri{" "}
                   </h1>
                 </div>
 

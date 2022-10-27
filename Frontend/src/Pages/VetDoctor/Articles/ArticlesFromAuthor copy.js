@@ -26,7 +26,7 @@ import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import PendingArticlesContent from './PendingArticlesContent';
+import ArticlesFromAuthorContent from './ArticlesFromAuthorContent copy';
 
 
 
@@ -37,11 +37,10 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function PendingArticles() {
+export default function MyProfile() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
-
   const navigate = useNavigate();
 
   const handleSideNavClick = (event,desc) =>{
@@ -61,7 +60,7 @@ export default function PendingArticles() {
           console.log(desc);
           break;
       case 'Discussion' :
-          navigate("/DocArticles", {replace: true})
+          navigate("/DocDiscussion", {replace: true})
           console.log(desc);
           break;
       case 'Pet Mart' :
@@ -79,6 +78,7 @@ export default function PendingArticles() {
   }
 
 }
+
   function toogleOpen() {
     setOpen(!open);
   }
@@ -330,7 +330,7 @@ export default function PendingArticles() {
               color: 'lightgray',
             }}
           >
-           Vet Doctor
+            Vet Doctor
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
@@ -387,13 +387,12 @@ export default function PendingArticles() {
         }}
       >
         <TopNavbar  /> <br/>
-        <PendingArticlesContent />
+        <ArticlesFromAuthorContent />
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}
         
         <Footer />
        
-        
         
       </Box>
       

@@ -78,8 +78,7 @@ boxShadow: '0 3px 10px rgb(0 0 0 / 40%)',
 justifyContent: 'center',spacing:'4' }}>
 {/* Box for time */}
 
-{List.map((val)=>{
-    return(
+
 <Box style={{ 
     width: window.width, height: 40,  
     '&:hover': {  backgroundColor: 'primary.main', opacity: [0.9, 0.8, 0.7],},        
@@ -92,9 +91,8 @@ justifyContent: 'center',spacing:'4' }}>
     display: 'inline',
     marginRight: '80px',
     fontWeight: 'bold',
-    color: '#193498'}}> {val.Timeslot}</h2> </Box>
-    )
-})}
+    color: '#193498'}}> 1 </h2> </Box>
+    
 
         
 {/* box for pet owner name */}
@@ -108,9 +106,20 @@ justifyContent: 'center',spacing:'4' }}>
     display: 'inline',
     marginRight: '80px',
     fontWeight: 'bold',
-    color: '#193498'}}> Kasun Perera</h2></Box>
+    color: '#193498'}}> Pavani Marasinghe</h2></Box>
+    <Box style={{ 
+    width: window.width, height: 40,  
+    '&:hover': {  backgroundColor: 'primary.main', opacity: [0.9, 0.8, 0.7],},        
+    fontSize:15, textAlign:'center',
+    margin: '10px 10px',
+    
+}}> <h2 style={{width: '50%',
+    display: 'inline',
+    marginRight: '80px',
+    fontWeight: 'bold',
+    color: '#193498'}}> Dog</h2></Box>
 {/* box for checkbox home visit or not */}
-<Box style={{ 
+{/* <Box style={{ 
     width: window.width, height: 40,  
     '&:hover': {  backgroundColor: 'primary.main', opacity: [0.9, 0.8, 0.7],},        
     fontSize:15, textAlign:'center',
@@ -121,7 +130,7 @@ justifyContent: 'center',spacing:'4' }}>
         <FormControlLabel control={<Checkbox defaultChecked />} label="Home visit" />
 
     </FormGroup>
-</Box>
+</Box> */}
 
 {/* button view more */}
 <Stack><Button variant="contained" href='/TodayAppointmentDetails' style={{display:'inline-block',width: 'fit-content',margin:10,

@@ -1,16 +1,22 @@
-import React from 'react'
+import React , { useState, useEffect }from 'react'
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 // import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-
+import Axios from "axios";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import List1 from './ListUpcoming';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
+import SearchBar from "../../../Components/SearchBar";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F3F3F3',
@@ -41,9 +47,20 @@ const theme = createTheme({
 });
 
   export default function  TodayAppointmentsContent() {
-    const current = new Date();
-    const date = `${current.getFullYear()} - ${current.getMonth()+1} - ${current.getDate()}`;
+    const [appointment , setAppointment] = useState([]);
+    useEffect(() =>{
+      Axios.get('http://localhost:3001/api/vetappointments/getUpAppointmentList').then((response)=>{
+        setAppointment(response.data.data);   
+      console.log(response);
+      });
+    }, []);
 
+  //   Axios.get('http://localhost:3001/api/vetappointments/getTodayAppointmentList'.then((response)=>{
+  //     setAppointment(response.data.data);   
+  //   console.log(response);
+  //   });
+  // }, []);
+  //---------------------------------------
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -63,40 +80,74 @@ const theme = createTheme({
 
 
             <Stack>
-            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton' href="/TodayAppointments"
+            <ThemeProvider theme={theme}><Button variant="contained" color='blueButton'  href="/TodayAppointments"
             style={{display:'inline-block',width: '250px',margin:10,fontSize:'15px'}}>Today appointments</Button></ThemeProvider>
             </Stack> 
 
             <Stack>
-            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton'  
-            style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming jobs</Button></ThemeProvider>
+            <ThemeProvider theme={theme}><Button variant="contained" color='blackButton' 
+            style={{display:'inline-block',width: '250px',margin:10,marginRight:90, fontSize:'15px'}}>Upcoming appointments</Button></ThemeProvider>
             </Stack> 
 
         </div>
-        <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            // top:'180px',left:'0%'
-            }}>
-            <h3 >Calendar</h3>
-        </div>
-        <div style={{width:window.width, textAlign:'center',
-            position:"relative",top: '0%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            // top:'180px',left:'0%'
-            }}>
-            <h1 style={{width: '50%',
-            display: 'inline',
-            marginRight: '100px',
-            fontWeight: 'bold',
-            color: '#193498'}}> 2022 - 02 - 03 </h1>
+        
+        <br/>
         
 
-        </div>
+        {/* <Listtoday/> */}
+        <div style={{position: "relative", top: "6%"}}>
+    <TableContainer component={Paper}>
+                        <Table aria-label="collapsible table">
+                          <TableHead sx={{backgroundColor: 'orange'}}>
+                            <TableRow>
+                              
+                            <TableCell>Date</TableCell>
+                              <TableCell>Token no</TableCell>
+                              <TableCell align="right">Owner</TableCell>
+                              <TableCell align="right">Telephone number</TableCell>
+                              <TableCell align="right">Pet type</TableCell>
+                              <TableCell align="right">Pet breed</TableCell>
+                              <TableCell align="right">Actions</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          {/* {n1.map((item, index) => (  */}
+                          
+                            {/* <TableBody >{
+                              {appointment.map((row) => (
+                                <TableRow key={row.AppointmentCID}>
+                                  <TableCell>{row.Date}</TableCell>    
+                                  <TableCell>{row.PetName}</TableCell>    
+                                  <TableCell>{row.AppointmentStatus}</TableCell>    
+                                  <TableCell>{row.ClinicName}</TableCell>    
+                                  <TableCell>{row.DoctorName}</TableCell>
+                                </TableRow>
+                              ))}
+                            }    
+                            </TableBody> */}
+                            <TableBody>
+                              {/* {employeeList.map((val , key) => { */}
+                              {appointment.map((row ) => (
+                                // <TableRow key ={row.AppointmentCID}>
+                                <TableRow>
+                                  <TableCell align="right">{row.Date}</TableCell>
+                                  <TableCell align="right">{row.TokenNo}</TableCell>
+                                  <TableCell align="right">{row.OwnerID}</TableCell>
+                                  <TableCell align="right">{row.TelNo}</TableCell>
+                                  <TableCell align="right">{row.PetID}</TableCell>
+                                  <TableCell align="right">{row.PetBreed}</TableCell>
+                                  <TableCell align="right"><Button>Cancel</Button></TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          
+                        </Table>
+              </TableContainer>
 
-<List1/>
+
+
+</div>
+
+{/* <List1/> */}
 
 
        

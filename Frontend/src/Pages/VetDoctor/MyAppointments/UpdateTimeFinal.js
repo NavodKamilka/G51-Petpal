@@ -16,17 +16,17 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
-import {useNavigate} from "react-router-dom";
+
 import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-
+import {useNavigate} from "react-router-dom";
 // import Logo from '../../../Components/Logo';
 import navbarList from '../../../Components/navListDoctor';
 import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import PendingArticlesContent from './PendingArticlesContent';
+import UpdateAccessory from './UpdateAccessory'
 
 
 
@@ -37,11 +37,10 @@ const iconFontSize = 20;
 const drawerWidthClose =
   (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function PendingArticles() {
+export default function UpcomingJobs() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const refFocus = useRef();
-
   const navigate = useNavigate();
 
   const handleSideNavClick = (event,desc) =>{
@@ -79,6 +78,7 @@ export default function PendingArticles() {
   }
 
 }
+
   function toogleOpen() {
     setOpen(!open);
   }
@@ -330,7 +330,7 @@ export default function PendingArticles() {
               color: 'lightgray',
             }}
           >
-           Vet Doctor
+            Vet Doctor
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
@@ -387,7 +387,7 @@ export default function PendingArticles() {
         }}
       >
         <TopNavbar  /> <br/>
-        <PendingArticlesContent />
+        <UpdateAccessory/>
         {/* <h1>Hello</h1> */}
         {/* <Typography>Hello Bro</Typography> */}
         

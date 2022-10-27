@@ -26,7 +26,7 @@ import StyledAvatar from '../../../Components/StyledAvatar';
 
 import TopNavbar from '../../../Components/TopNavbar';
 import Footer from '../../../Components/Footer';
-import PendingArticlesContent from './PendingArticlesContent';
+import PendingArticlesContent from './PDFviewerContent';
 
 
 
@@ -56,7 +56,7 @@ export default function PendingArticles() {
           navigate("/TodayAppointments", {replace: true})
           console.log(desc);
           break;
-      case 'Articles' :
+      case 'My Articles' :
           navigate("/DocArticles", {replace: true})
           console.log(desc);
           break;
@@ -303,7 +303,7 @@ export default function PendingArticles() {
             alignContent: 'center',
           }}
         >
-          {/* <StyledAvatar /> */}
+          <StyledAvatar />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
           <Typography
@@ -318,7 +318,7 @@ export default function PendingArticles() {
               color: 'lightgray',
             }}
           >
-            Kasun Perera
+            Navod Kamilka
           </Typography>
           <Typography
             component="span"
@@ -330,7 +330,7 @@ export default function PendingArticles() {
               color: 'lightgray',
             }}
           >
-           Vet Doctor
+           
           </Typography>
         </Box>
         <IconButton contained sx={{ color: 'lightGray' }}>
